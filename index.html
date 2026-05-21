@@ -1,0 +1,4562 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Fin-D Swim School｜スキルアップクラス</title>
+<meta name="description" content="フィンスイミングをもっと楽しく、もっと上手に。Fin-D Swim Schoolのスキルアップクラスは、子どもから大人まで対応の少人数制レッスンです。初回体験3,500円。大阪・堺方面。" />
+<meta name="robots" content="index, follow" />
+<meta property="og:title" content="Fin-D Swim School｜スキルアップクラス" />
+<meta property="og:description" content="フィンスイミングをもっと楽しく、もっと上手に。少人数制・専門指導で確実に上達。初回体験3,500円（税込）。" />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    /* Brand palette — sampled from the supplied design comp */
+    --blue-900:#0E4E9E;
+    --blue-700:#1B6FD8;
+    --blue-600:#2E89E6;
+    --blue-500:#4DA3F2;
+    --blue-200:#BFE0F6;
+    --blue-100:#DCEEFA;
+    --blue-50:#EAF5FC;
+    --teal-500:#36C2B2;
+    --teal-400:#5DD0C3;
+    --yellow:#FFD046;
+    --coral-500:#F26B7E;
+    --coral-600:#EB5468;
+    --line-green:#06C755;
+    --ink-900:#1E2A3A;
+    --ink-700:#3A4A5E;
+    --ink-500:#6B7A8B;
+    --ink-300:#AFB9C4;
+    --white:#ffffff;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0; overflow-x:hidden}
+  /* anchor targets shouldn't be hidden behind the sticky header */
+  section[id], div[id]{scroll-margin-top:96px}
+  body{
+    font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    color:var(--ink-900);
+    background:#fff;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    line-height:1.6;
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+
+  /* ────────────────── HEADER ────────────────── */
+  .site-header{
+    position:sticky; top:0; z-index:50;
+    background:#fff;
+    height:84px;
+    display:flex; align-items:center;
+    padding:0 28px 0 36px;
+    box-shadow:0 1px 0 rgba(20,40,80,.05);
+  }
+  .header-inner{
+    width:100%;
+    max-width:1400px;
+    margin:0 auto;
+    display:flex; align-items:center; gap:48px;
+  }
+  .logo{
+    display:flex; align-items:center; gap:10px;
+    font-family:"Poppins","Noto Sans JP",sans-serif;
+    font-weight:700;
+    font-size:24px;
+    letter-spacing:.01em;
+    color:var(--blue-600);
+    white-space:nowrap;
+  }
+  .logo svg{width:34px;height:34px;flex-shrink:0}
+  .primary-nav{
+    display:flex; align-items:center; gap:38px;
+    margin-left:24px;
+  }
+  .primary-nav a{
+    font-size:15px;
+    font-weight:500;
+    color:var(--ink-900);
+    padding:8px 0;
+    position:relative;
+    transition:color .15s;
+    white-space:nowrap;
+  }
+  .primary-nav a:hover{color:var(--blue-600)}
+  .header-actions{
+    margin-left:auto;
+    display:flex; align-items:center; gap:18px;
+  }
+  .cta-pill{
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--blue-600);
+    color:#fff;
+    font-weight:700; font-size:15px;
+    padding:14px 26px;
+    border-radius:999px;
+    box-shadow:0 6px 18px rgba(46,137,230,.28);
+    transition:transform .15s, box-shadow .15s, background .15s;
+    white-space:nowrap;
+  }
+  .cta-pill:hover{background:var(--blue-700); transform:translateY(-1px); box-shadow:0 10px 22px rgba(46,137,230,.32)}
+  .cta-pill svg{width:18px;height:18px}
+  .hamburger{
+    display:flex; flex-direction:column; align-items:center;
+    cursor:pointer;
+    padding:6px 4px;
+    background:none; border:0;
+    color:var(--blue-600);
+  }
+  .hamburger .bars{
+    width:30px; height:22px;
+    display:flex; flex-direction:column; justify-content:space-between;
+  }
+  .hamburger .bars span{
+    display:block; height:3px; background:var(--blue-600); border-radius:2px;
+  }
+  .hamburger .bars span:nth-child(2){width:80%}
+  .hamburger small{
+    font-family:"Poppins",sans-serif;
+    font-size:10px; font-weight:600; letter-spacing:.12em;
+    margin-top:4px; color:var(--blue-600);
+  }
+  .hamburger[aria-expanded="true"] .bars span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+  .hamburger[aria-expanded="true"] .bars span:nth-child(2){opacity:0}
+  .hamburger[aria-expanded="true"] .bars span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+  .hamburger .bars span{transition:transform .25s, opacity .2s}
+
+  /* Mobile menu drawer */
+  .mobile-menu{
+    position:fixed; top:84px; left:0; right:0;
+    background:#fff;
+    box-shadow:0 12px 24px rgba(20,80,160,.12);
+    transform:translateY(-110%);
+    transition:transform .3s ease-out;
+    z-index:49;
+    padding:8px 0 16px;
+    border-top:1px solid #EEF4F9;
+  }
+  .mobile-menu.is-open{transform:translateY(0)}
+  .mobile-menu ul{list-style:none; margin:0; padding:0}
+  .mobile-menu li{border-bottom:1px solid #F0F5FA}
+  .mobile-menu li:last-child{border-bottom:0}
+  .mobile-menu a{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 24px;
+    font-size:15px; font-weight:600;
+    color:var(--ink-900);
+  }
+  .mobile-menu a::after{
+    content:"";
+    width:8px; height:8px;
+    border-top:2px solid var(--blue-500);
+    border-right:2px solid var(--blue-500);
+    transform:rotate(45deg);
+  }
+  .mobile-menu .menu-cta{
+    padding:16px 24px 0;
+  }
+  .mobile-menu .menu-cta a{
+    justify-content:center;
+    background:var(--blue-600); color:#fff;
+    padding:14px;
+    border-radius:999px;
+    box-shadow:0 6px 14px rgba(46,137,230,.28);
+  }
+  .mobile-menu .menu-cta a::after{display:none}
+  @media (max-width: 900px){
+    .mobile-menu{top:72px}
+  }
+
+  /* ────────────────── HERO / FV ────────────────── */
+  .hero{
+    position:relative;
+    background:var(--blue-50);
+    overflow:hidden;
+    min-height:760px;
+  }
+  .hero-inner{
+    position:relative;
+    max-width:1400px;
+    margin:0 auto;
+    padding:60px 36px 80px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:24px;
+    align-items:center;
+    min-height:760px;
+  }
+
+  /* Decorative top wave band */
+  .deco-wave{
+    position:absolute; left:0; right:0; top:0;
+    height:90px;
+    pointer-events:none;
+    z-index:1;
+  }
+  .deco-wave svg{width:100%;height:100%}
+
+  /* Floating fish + bubble decorations */
+  .deco{position:absolute; pointer-events:none; z-index:2}
+  .deco svg{width:100%;height:100%; display:block}
+  .deco-fish-1{top:140px; left:60px; width:46px; height:30px; opacity:.55}
+  .deco-fish-2{top:430px; left:38px; width:38px; height:24px; opacity:.5}
+  .deco-fish-3{top:300px; left:540px; width:42px; height:28px; opacity:.45}
+  .deco-fish-4{bottom:120px; left:50%; width:50px; height:32px; opacity:.4; transform:translateX(-80%)}
+  .deco-fish-5{top:200px; right:38%; width:36px; height:24px; opacity:.5}
+  .deco-bubble{border-radius:50%; background:#fff; opacity:.7}
+  .b1{top:120px; left:140px; width:12px; height:12px; opacity:.85}
+  .b2{top:175px; left:120px; width:8px; height:8px; opacity:.85}
+  .b3{top:230px; left:170px; width:6px; height:6px; opacity:.8}
+  .b4{top:480px; left:200px; width:10px; height:10px; opacity:.8}
+  .b5{top:540px; left:240px; width:6px; height:6px; opacity:.75}
+  .b6{top:660px; left:120px; width:14px; height:14px; opacity:.75}
+
+  /* Left content column */
+  .hero-content{
+    position:relative; z-index:5;
+    max-width:640px;
+    padding-left:28px;
+  }
+  .eyebrow{
+    display:inline-block;
+    font-family:"Noto Sans JP",sans-serif;
+    font-weight:700;
+    font-size:18px;
+    color:var(--blue-600);
+    letter-spacing:.08em;
+    margin-bottom:24px;
+  }
+  .hero-title{
+    font-weight:900;
+    font-size:64px;
+    line-height:1.22;
+    letter-spacing:.01em;
+    color:var(--blue-700);
+    margin:0 0 28px;
+  }
+  .hero-title .accent-teal{color:var(--teal-500)}
+  .hero-title .nowrap{white-space:nowrap}
+  .hero-title .accent-underline{
+    position:relative;
+    display:inline-block;
+  }
+  .hero-title .accent-underline::after{
+    content:"";
+    position:absolute;
+    left:-4px; right:-4px;
+    bottom:6px;
+    height:10px;
+    background:var(--yellow);
+    border-radius:6px;
+    z-index:-1;
+  }
+  .hero-lead{
+    font-size:17px;
+    line-height:1.9;
+    color:var(--ink-700);
+    margin:0 0 28px;
+    font-weight:500;
+  }
+  .feature-pills{
+    display:flex; flex-wrap:wrap; gap:14px;
+    margin-bottom:32px;
+  }
+  .feature-pill{
+    display:inline-flex; align-items:center; gap:10px;
+    background:#fff;
+    border:1.5px solid #DCE9F3;
+    border-radius:999px;
+    padding:10px 20px 10px 14px;
+    font-size:13.5px; font-weight:700;
+    color:var(--ink-700);
+    line-height:1.4;
+    box-shadow:0 2px 8px rgba(46,137,230,.06);
+  }
+  .feature-pill .ic{
+    width:30px; height:30px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; flex-shrink:0;
+  }
+  .feature-pill .ic svg{width:18px; height:18px}
+  .ic-people{background:#FFB940}
+  .ic-heart{background:#F26B7E}
+  .ic-fin{background:var(--blue-500)}
+
+  .hero-ctas{
+    display:flex; flex-wrap:wrap; gap:20px;
+    align-items:center;
+  }
+  .btn{
+    display:inline-flex; align-items:center; gap:14px;
+    padding:18px 32px;
+    border-radius:999px;
+    font-weight:700;
+    font-size:17px;
+    transition:transform .15s, box-shadow .15s, background .15s;
+    cursor:pointer;
+    border:0;
+  }
+  .btn-coral{
+    background:var(--coral-500);
+    color:#fff;
+    box-shadow:0 10px 24px rgba(242,107,126,.32);
+    padding-right:24px;
+  }
+  .btn-coral:hover{background:var(--coral-600); transform:translateY(-1px); box-shadow:0 14px 28px rgba(242,107,126,.38)}
+  .btn-line{
+    background:#fff;
+    color:var(--blue-700);
+    border:2px solid var(--blue-200);
+    padding-right:24px;
+  }
+  .btn-line:hover{border-color:var(--blue-500); transform:translateY(-1px)}
+  .btn .ic-btn{
+    width:28px; height:28px;
+    display:inline-flex; align-items:center; justify-content:center;
+    color:#fff;
+  }
+  .btn .ic-btn svg{width:24px; height:24px}
+  .btn-coral .ic-btn{color:#fff}
+  .btn-line .ic-btn{
+    width:28px; height:28px;
+    background:var(--line-green);
+    border-radius:50%;
+    color:#fff;
+  }
+  .btn-line .ic-btn svg{width:16px; height:16px}
+  .btn .arrow{
+    width:26px; height:26px; border-radius:50%;
+    background:rgba(255,255,255,.28);
+    display:inline-flex; align-items:center; justify-content:center;
+    margin-left:6px;
+  }
+  .btn-line .arrow{background:var(--blue-100); color:var(--blue-700)}
+  .btn .arrow svg{width:12px; height:12px}
+
+  /* Right photo column */
+  .hero-photo{
+    position:relative; z-index:3;
+    align-self:stretch;
+    height:100%;
+    min-height:680px;
+    display:flex;
+    align-items:stretch;
+    justify-content:flex-end;
+  }
+  .hero-photo-frame{
+    position:relative;
+    width:100%;
+    height:100%;
+    min-height:680px;
+    /* Wave-curve left edge */
+    -webkit-mask-image: radial-gradient(120% 70% at 100% 50%, #000 70%, transparent 100%);
+            mask-image: radial-gradient(120% 70% at 100% 50%, #000 70%, transparent 100%);
+    border-top-left-radius: 50% 28%;
+    border-bottom-left-radius: 50% 28%;
+    overflow:hidden;
+  }
+  .hero-photo-frame img{
+    width:100%; height:100%;
+    object-fit:cover;
+    object-position:center;
+  }
+
+  /* Scroll indicator */
+  .scroll-indicator{
+    position:absolute;
+    right:36px;
+    bottom:30px;
+    z-index:6;
+    display:flex; flex-direction:column; align-items:center;
+    gap:6px;
+    color:var(--ink-700);
+  }
+  .scroll-indicator small{
+    font-family:"Poppins",sans-serif;
+    font-size:11px; font-weight:600; letter-spacing:.2em;
+  }
+  .scroll-indicator .circ{
+    width:34px; height:34px; border:1.5px solid var(--ink-500);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    animation:bob 1.8s ease-in-out infinite;
+  }
+  .scroll-indicator .circ svg{width:14px; height:14px}
+  @keyframes bob{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(6px)}
+  }
+
+  /* ════════════════════════════════════════════════════
+     SECTION ⑬  参加までの流れ + アプリ + FAQ + 下部CTA
+     ════════════════════════════════════════════════════ */
+  .flow-section{
+    position:relative;
+    background:#fff;
+    padding:60px 36px 60px;
+    overflow:hidden;
+  }
+  .flow-inner{max-width:1240px; margin:0 auto; position:relative}
+
+  /* Top header row with photos on the sides */
+  .flow-top{
+    display:grid;
+    grid-template-columns: 280px 1fr 240px;
+    gap:30px;
+    align-items:flex-start;
+    margin-bottom:40px;
+    position:relative;
+  }
+  .flow-top-img{
+    width:280px;
+    overflow:hidden;
+    border-radius: 50% 50% 50% 50% / 50% 50% 35% 50%;
+  }
+  .flow-top-img img{width:100%; height:auto; display:block}
+  .flow-top-img.right{
+    width:240px;
+    border-radius: 50%;
+    align-self:start;
+    margin-top:0;
+  }
+  .flow-head{
+    text-align:center;
+  }
+  .flow-eyebrow{
+    display:inline-block;
+    color:var(--coral-500);
+    font-weight:700; font-size:18px;
+    margin:0 0 8px;
+  }
+  .flow-title{
+    font-size:50px;
+    font-weight:900;
+    color:var(--blue-700);
+    margin:0 0 16px;
+    letter-spacing:.02em;
+  }
+  .flow-title .accent{color:var(--teal-500)}
+  .flow-sub{
+    font-size:14.5px;
+    color:var(--ink-700);
+    line-height:1.9;
+    margin:0;
+    font-weight:500;
+  }
+
+  /* 6-step row */
+  .flow-steps{
+    display:grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap:10px;
+    margin-bottom:18px;
+  }
+  .flow-step{
+    background:#F4FAFE;
+    border-radius:14px;
+    padding:36px 14px 18px;
+    text-align:center;
+    position:relative;
+  }
+  .flow-step .step-num{
+    position:absolute;
+    top:-16px; left:50%; transform:translateX(-50%);
+    width:32px; height:32px; border-radius:50%;
+    color:#fff;
+    font-family:"Poppins",sans-serif;
+    font-weight:700; font-size:15px;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 4px 8px rgba(0,0,0,.1);
+  }
+  .flow-step.is-1 .step-num{background:#F26B7E}
+  .flow-step.is-2 .step-num{background:#4DA3F2}
+  .flow-step.is-3 .step-num{background:#3AB570}
+  .flow-step.is-4 .step-num{background:#FFB940}
+  .flow-step.is-5 .step-num{background:#36C2B2}
+  .flow-step.is-6 .step-num{background:#A887DA}
+  .flow-step .step-ic{
+    width:54px; height:54px;
+    border-radius:50%;
+    background:#fff;
+    display:flex; align-items:center; justify-content:center;
+    margin:0 auto 12px;
+  }
+  .flow-step .step-ic svg{width:30px; height:30px}
+  .flow-step.is-1 .step-ic{background:#FFE2E6} .flow-step.is-1 .step-ic svg{color:#F26B7E}
+  .flow-step.is-2 .step-ic{background:#DCEEFA} .flow-step.is-2 .step-ic svg{color:#4DA3F2}
+  .flow-step.is-3 .step-ic{background:#D6F0DD} .flow-step.is-3 .step-ic svg{color:#3AB570}
+  .flow-step.is-4 .step-ic{background:#FFE9C8} .flow-step.is-4 .step-ic svg{color:#FFB940}
+  .flow-step.is-5 .step-ic{background:#D7F2EE} .flow-step.is-5 .step-ic svg{color:#36C2B2}
+  .flow-step.is-6 .step-ic{background:#E9DEF7} .flow-step.is-6 .step-ic svg{color:#A887DA}
+  .flow-step h4{
+    margin:0 0 10px;
+    font-size:14px; font-weight:700;
+    color:var(--ink-900);
+  }
+  .flow-step.is-1 h4{color:#F26B7E}
+  .flow-step.is-2 h4{color:#4DA3F2}
+  .flow-step.is-3 h4{color:#3AB570}
+  .flow-step.is-4 h4{color:#FFB940}
+  .flow-step.is-5 h4{color:#36C2B2}
+  .flow-step.is-6 h4{color:#A887DA}
+  .flow-step p{
+    margin:0;
+    font-size:11.5px;
+    line-height:1.7;
+    color:var(--ink-700);
+    font-weight:500;
+  }
+  .flow-arrow{
+    position:absolute;
+    right:-9px; top:60px;
+    width:18px; height:18px;
+    color:var(--ink-300);
+    z-index:2;
+  }
+  .flow-step:last-child .flow-arrow{display:none}
+
+  .flow-note{
+    margin:8px auto 0;
+    background:#EAF5FC;
+    border-radius:999px;
+    padding:12px 24px;
+    text-align:center;
+    color:var(--blue-700);
+    font-weight:700; font-size:14px;
+    display:inline-flex; align-items:center; gap:14px;
+    width:fit-content;
+    max-width:100%;
+  }
+  .flow-note .heart{color:var(--coral-500); width:20px; height:20px}
+  .flow-note .fish{color:var(--blue-500); width:22px; height:14px}
+
+  .flow-note-wrap{text-align:center; margin-bottom:50px}
+
+  /* App subsection */
+  .app-section{
+    background:#F4FAFE;
+    border-radius:24px;
+    padding:40px 40px 30px;
+    margin:50px 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .app-inner{
+    display:grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap:30px;
+    align-items:center;
+  }
+  .app-eyebrow{
+    display:inline-flex; align-items:center; gap:10px;
+    color:var(--teal-500);
+    font-weight:700; font-size:16px;
+    margin:0 0 12px;
+  }
+  .app-eyebrow .dec{font-size:18px; color:var(--teal-500)}
+  .app-title{
+    margin:0 0 16px;
+    font-size:32px; font-weight:900;
+    color:var(--blue-700);
+    line-height:1.4;
+  }
+  .app-lead{
+    font-size:14px; color:var(--ink-700);
+    line-height:1.9; margin:0 0 22px;
+    font-weight:500;
+  }
+  .app-feats{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px 24px;
+  }
+  .app-feat{
+    display:flex; gap:12px;
+    align-items:flex-start;
+  }
+  .app-feat .af-ic{
+    width:44px; height:44px; border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; flex-shrink:0;
+  }
+  .app-feat .af-ic svg{width:22px; height:22px}
+  .app-feat.is-blue .af-ic{background:#4DA3F2}
+  .app-feat.is-teal .af-ic{background:#36C2B2}
+  .app-feat.is-purple .af-ic{background:#A887DA}
+  .app-feat.is-pink .af-ic{background:#F26B7E}
+  .app-feat h5{
+    margin:0 0 4px;
+    font-size:13.5px; font-weight:700;
+    color:var(--ink-900);
+  }
+  .app-feat.is-blue h5{color:#4DA3F2}
+  .app-feat.is-teal h5{color:#36C2B2}
+  .app-feat.is-purple h5{color:#A887DA}
+  .app-feat.is-pink h5{color:#F26B7E}
+  .app-feat p{
+    margin:0;
+    font-size:11.5px; line-height:1.65;
+    color:var(--ink-700);
+    font-weight:500;
+  }
+
+  .app-screens{
+    position:relative;
+    height:420px;
+    display:flex; justify-content:center; align-items:center;
+  }
+  .app-phone{
+    position:absolute;
+    left:6%; top:28px;
+    width:200px;
+    z-index:2;
+    transform:rotate(-2deg);
+    filter:drop-shadow(0 10px 20px rgba(20,80,160,.15));
+  }
+  .app-tablet{
+    position:absolute;
+    right:0; top:0;
+    width:320px;
+    z-index:1;
+    transform:rotate(3deg);
+    filter:drop-shadow(0 12px 24px rgba(20,80,160,.15));
+  }
+  .app-section::before{
+    content:""; position:absolute; left:-30px; bottom:-30px;
+    width:100px; height:100px;
+    border:8px solid #DCEEFA;
+    border-radius:50%;
+    opacity:.8;
+  }
+  .app-section .deco-spark{
+    position:absolute; right:32%; top:14px;
+    width:30px; height:30px;
+    color:var(--yellow);
+  }
+  .app-section .deco-spark svg{width:100%; height:100%}
+  .app-section .imageis{
+    position:absolute; left:30px; bottom:18px;
+    font-size:11px; color:var(--ink-500);
+  }
+
+  /* FAQ */
+  .faq-section{
+    padding:40px 0 40px;
+  }
+  .faq-title{
+    text-align:center;
+    font-size:28px;
+    font-weight:900;
+    color:var(--blue-700);
+    margin:0 0 28px;
+    display:flex; align-items:center; justify-content:center; gap:14px;
+  }
+  .faq-title .dec{color:var(--blue-500); width:30px; height:14px}
+
+  .faq-grid{
+    display:flex; flex-direction:column;
+    gap:14px;
+    max-width:1180px; margin:0 auto;
+  }
+  .faq-cat{
+    display:grid;
+    grid-template-columns: 220px 1fr;
+    background:#F4FAFE;
+    border-radius:14px;
+    overflow:hidden;
+    align-items:stretch;
+  }
+  .faq-cat-head{
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:8px;
+    padding:14px;
+    text-align:center;
+  }
+  .faq-cat-head .fc-ic{
+    width:48px; height:48px; border-radius:50%;
+    background:#fff;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .faq-cat-head .fc-ic svg{width:26px; height:26px}
+  .faq-cat.is-blue .fc-ic svg{color:#4DA3F2}
+  .faq-cat.is-teal .fc-ic svg{color:#36C2B2}
+  .faq-cat.is-green .fc-ic svg{color:#3AB570}
+  .faq-cat.is-purple .fc-ic svg{color:#A887DA}
+  .faq-cat-head h5{
+    margin:0;
+    font-size:15px; font-weight:700;
+    color:var(--ink-900);
+  }
+  .faq-cat.is-blue .faq-cat-head h5{color:#4DA3F2}
+  .faq-cat.is-teal .faq-cat-head h5{color:#36C2B2}
+  .faq-cat.is-green .faq-cat-head h5{color:#3AB570}
+  .faq-cat.is-purple .faq-cat-head h5{color:#A887DA}
+  .faq-items{
+    background:#fff;
+    border-radius:12px;
+    margin:6px;
+    overflow:hidden;
+  }
+  .faq-item{
+    display:flex; align-items:center; gap:14px;
+    padding:14px 18px;
+    border-bottom:1px solid #F0F4F8;
+    cursor:pointer;
+    transition:background .15s;
+  }
+  .faq-item:last-child{border-bottom:0}
+  .faq-item:hover{background:#F8FAFC}
+  .faq-item .q-mark{
+    font-family:"Poppins",sans-serif;
+    color:#4DA3F2;
+    font-weight:700;
+    font-size:14px;
+    width:18px; flex-shrink:0;
+  }
+  .faq-cat.is-teal  .faq-item .q-mark{color:#36C2B2}
+  .faq-cat.is-green .faq-item .q-mark{color:#3AB570}
+  .faq-cat.is-purple .faq-item .q-mark{color:#A887DA}
+  .faq-item .q-text{
+    flex:1;
+    font-size:13.5px;
+    color:var(--ink-700);
+    font-weight:500;
+    line-height:1.6;
+  }
+  .faq-item .q-toggle{
+    width:18px; height:18px;
+    color:var(--ink-300);
+    flex-shrink:0;
+    transition:transform .25s ease;
+  }
+  .faq-answer{display:none}
+  .faq-answer .a-mark{
+    color:var(--coral-500);
+    font-family:"Poppins",sans-serif;
+    font-weight:700;
+    margin-right:8px;
+  }
+  .faq-item .q-toggle svg{width:100%; height:100%}
+
+  .faq-more{
+    text-align:center;
+    margin:22px auto 0;
+  }
+  .faq-more a{
+    display:inline-flex; align-items:center; gap:14px;
+    background:#fff;
+    border:1.5px solid #DCE9F3;
+    border-radius:999px;
+    padding:12px 28px;
+    font-size:13.5px; font-weight:700;
+    color:var(--blue-700);
+  }
+  .faq-more a:hover{background:#F8FAFC}
+  .faq-more svg{width:14px; height:14px}
+
+  /* Bottom CTA strip */
+  .bottom-cta{
+    background:#FFF6D8;
+    border-radius:20px;
+    padding:24px 28px 24px;
+    margin:32px 0 0;
+    display:grid;
+    grid-template-columns: 180px 1fr 180px;
+    gap:24px;
+    align-items:center;
+    position:relative;
+  }
+  .bc-photo{
+    width:180px; height:180px;
+    border-radius:50%;
+    border:5px solid #fff;
+    box-shadow:0 6px 14px rgba(20,80,160,.12);
+    position:relative;
+  }
+  .bc-photo img{width:100%; height:100%; object-fit:cover; border-radius:50%; display:block;}
+  .bc-bubble{
+    position:absolute;
+    background:#fff;
+    color:var(--blue-700);
+    font-weight:700; font-size:12.5px;
+    padding:6px 12px;
+    border-radius:18px;
+    text-align:center;
+    line-height:1.45;
+    box-shadow:0 4px 8px rgba(20,80,160,.1);
+    z-index:3;
+  }
+  .bc-bubble.left{ top:-6px; left:-20px }
+  .bc-bubble.right{ top:-6px; right:-20px }
+  .bc-bubble::after{
+    content:""; position:absolute; bottom:-6px;
+    border:6px solid transparent;
+    border-top-color:#fff;
+  }
+  .bc-bubble.left::after{ left:30% }
+  .bc-bubble.right::after{ right:30% }
+
+  .bc-text{text-align:center}
+  .bc-text h3{
+    margin:0 0 8px;
+    font-size:22px; font-weight:900;
+    color:var(--blue-700);
+  }
+  .bc-text p{
+    margin:0 0 16px;
+    font-size:13.5px; color:var(--ink-700);
+    line-height:1.7;
+  }
+  .bc-buttons{
+    display:flex; justify-content:center; gap:18px;
+    flex-wrap:wrap;
+  }
+  .bc-buttons .btn{
+    flex-direction:column;
+    align-items:center;
+    gap:2px;
+    padding:14px 26px;
+    border-radius:14px;
+  }
+  .bc-buttons .btn-row{
+    display:flex; align-items:center; gap:10px;
+    font-size:17px; font-weight:700;
+  }
+  .bc-buttons small{font-size:11px; font-weight:500; opacity:.85}
+
+  /* Trust row */
+  .trust-row{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:24px;
+    max-width:1100px; margin:30px auto 0;
+    padding:0 20px;
+  }
+  .trust-item{
+    display:flex; flex-direction:column; align-items:center;
+    text-align:center;
+    color:var(--ink-700);
+    font-size:13px;
+    line-height:1.5;
+    font-weight:500;
+  }
+  .trust-item .ti-ic{
+    width:54px; height:54px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:8px;
+  }
+  .trust-item .ti-ic svg{width:30px; height:30px}
+  .trust-item.is-pink .ti-ic{background:#FFE2E6} .trust-item.is-pink .ti-ic svg{color:#F26B7E}
+  .trust-item.is-blue .ti-ic{background:#DCEEFA} .trust-item.is-blue .ti-ic svg{color:#4DA3F2}
+  .trust-item.is-teal .ti-ic{background:#D7F2EE} .trust-item.is-teal .ti-ic svg{color:#36C2B2}
+  .trust-item.is-yellow .ti-ic{background:#FFEFC4} .trust-item.is-yellow .ti-ic svg{color:#E8A82A}
+
+  /* ════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════ */
+  .site-footer{
+    position:relative;
+    background:linear-gradient(180deg, #fff 0%, #EAF5FC 50%, #DCEEFA 100%);
+    padding:80px 36px 40px;
+    overflow:hidden;
+  }
+  .site-footer .top-wave{
+    position:absolute; left:0; right:0; top:0;
+    height:80px; pointer-events:none;
+  }
+  .site-footer .top-wave svg{width:100%; height:100%}
+  .footer-inner{
+    max-width:1280px; margin:0 auto;
+    display:grid;
+    grid-template-columns: 1.1fr 1.2fr 1.3fr;
+    gap:40px;
+    position:relative;
+    z-index:2;
+  }
+  .footer-col h5{
+    display:flex; align-items:center; gap:12px;
+    font-size:18px; font-weight:700;
+    color:var(--blue-700);
+    margin:0 0 18px;
+  }
+  .footer-col h5 .wave-ic{
+    color:var(--blue-500);
+    width:28px; height:12px;
+  }
+  .footer-brand .footer-logo{
+    display:flex; align-items:center; gap:14px;
+    margin-bottom:20px;
+  }
+  .footer-brand .footer-logo svg{width:46px; height:46px; flex-shrink:0}
+  .footer-brand .footer-logo .name{
+    font-family:"Poppins",sans-serif;
+    color:var(--blue-600);
+    line-height:1.1;
+  }
+  .footer-brand .footer-logo .name .row1{font-size:32px; font-weight:700; letter-spacing:.01em}
+  .footer-brand .footer-logo .name .row2{font-size:18px; font-weight:600; opacity:.9}
+
+  .footer-brand p.tag{
+    margin:0 0 12px;
+    font-size:17px; font-weight:700;
+    color:var(--blue-700);
+    line-height:1.6;
+  }
+  .footer-brand p.desc{
+    margin:0 0 18px;
+    font-size:13px;
+    color:var(--ink-700);
+    line-height:1.85;
+    font-weight:500;
+  }
+  .footer-venue{
+    display:inline-flex; align-items:center; gap:8px;
+    background:#fff;
+    border:1.5px solid #BFE0F6;
+    border-radius:999px;
+    padding:10px 22px;
+    color:var(--blue-700);
+    font-weight:700;
+    font-size:13.5px;
+  }
+  .footer-venue svg{width:18px; height:18px}
+  .footer-brand .note{
+    display:block; margin-top:8px;
+    font-size:11.5px;
+    color:var(--ink-500);
+    text-align:center;
+    max-width:280px;
+  }
+
+  .footer-nav ul{
+    list-style:none; padding:0; margin:0;
+  }
+  .footer-nav li{
+    border-bottom:1px dashed #BFE0F6;
+  }
+  .footer-nav li:last-child{border-bottom:0}
+  .footer-nav a{
+    display:flex; align-items:center; gap:10px;
+    padding:12px 0;
+    font-size:14px; font-weight:600;
+    color:var(--ink-900);
+  }
+  .footer-nav a:hover{color:var(--blue-600)}
+  .footer-nav .chev{color:var(--blue-500); width:14px; height:14px}
+
+  .footer-contact p{
+    margin:0 0 18px;
+    font-size:13.5px; color:var(--ink-700);
+    line-height:1.85; font-weight:500;
+  }
+  .footer-contact .btn{
+    width:100%; justify-content:center;
+    margin-bottom:12px;
+  }
+  .footer-contact .note{
+    font-size:12px; color:var(--ink-500);
+    margin:6px 0 0;
+  }
+
+  /* Underwater decorations */
+  .footer-fish{position:absolute; right:5%; top:140px; pointer-events:none}
+  .footer-fish svg{width:60px; height:auto}
+  .footer-coral{position:absolute; right:0; bottom:80px; pointer-events:none}
+  .footer-coral svg{width:130px; height:auto}
+  .footer-bubble{position:absolute; border-radius:50%; background:#fff; opacity:.7; pointer-events:none}
+  .fbb-1{top:140px; left:24px; width:14px; height:14px}
+  .fbb-2{top:300px; left:14px; width:10px; height:10px}
+  .fbb-3{top:240px; left:50px; width:8px; height:8px}
+  .fbb-4{top:160px; right:30px; width:10px; height:10px}
+
+  /* Footer legal */
+  .footer-legal{
+    background:#DCEEFA;
+    padding:24px 36px 30px;
+    text-align:center;
+    position:relative;
+    z-index:2;
+  }
+  .footer-legal-nav{
+    display:flex; justify-content:center; gap:0;
+    flex-wrap:wrap;
+    margin-bottom:18px;
+  }
+  .footer-legal-nav a{
+    font-size:13px; font-weight:500;
+    color:var(--ink-700);
+    padding:0 28px;
+    border-left:1px solid #B1D5EB;
+  }
+  .footer-legal-nav a:first-child{border-left:0}
+  .footer-copy{
+    font-size:13px; color:var(--ink-700);
+    font-family:"Poppins",sans-serif;
+    margin:0;
+  }
+
+  @media (max-width: 1100px){
+    .flow-top{grid-template-columns:1fr; gap:14px}
+    .flow-top-img, .flow-top-img.right{margin:0 auto}
+    .flow-steps{grid-template-columns:repeat(3,1fr); gap:30px 12px}
+    .flow-arrow{display:none}
+    .app-inner{grid-template-columns:1fr}
+    .app-screens{height:auto; padding:20px 0; flex-direction:row; gap:12px; justify-content:center}
+    .app-phone, .app-tablet{position:static; width:38%; transform:none}
+    .faq-cat{grid-template-columns:1fr}
+    .bottom-cta{grid-template-columns:1fr}
+    .bc-photo{margin:0 auto}
+    .trust-row{grid-template-columns:repeat(2,1fr)}
+    .footer-inner{grid-template-columns:1fr; gap:24px}
+    .flow-title{font-size:36px}
+  }
+  @media (max-width: 760px){
+    .flow-section{padding:48px 16px 40px}
+    .flow-title{font-size:30px}
+    .flow-eyebrow{font-size:15px}
+    .flow-sub{font-size:13px; line-height:1.8}
+    .flow-steps{grid-template-columns:repeat(2,1fr); gap:30px 10px}
+    .flow-step{padding:30px 10px 14px}
+    .flow-step h4{font-size:13px}
+    .flow-step p{font-size:11px}
+    .flow-note{font-size:12px; padding:10px 16px}
+    .app-section{padding:30px 18px 24px; border-radius:18px}
+    .app-title{font-size:22px}
+    .app-feats{grid-template-columns:1fr; gap:14px}
+    .app-phone{width:42%; max-width:160px}
+    .app-tablet{width:54%; max-width:240px}
+    .faq-title{font-size:22px; gap:8px}
+    .bc-text h3{font-size:18px}
+    .bc-bubble.left{left:50%; transform:translateX(-50%); top:-14px}
+    .bc-bubble.right{right:50%; transform:translateX(50%); top:-14px}
+    .bc-photo{width:140px; height:140px}
+    .trust-row{grid-template-columns:repeat(2,1fr); gap:18px}
+    .site-footer{padding:60px 20px 36px}
+    .footer-fish, .footer-coral{display:none}
+    .footer-legal-nav{flex-direction:column; gap:8px}
+    .footer-legal-nav a{border-left:0; padding:0}
+  }
+  @media (max-width: 480px){
+    .flow-steps{grid-template-columns:1fr; gap:24px 0}
+    .trust-row{grid-template-columns:1fr}
+  }
+
+  /* ════════════════════════════════════════════════════
+     SECTION ⑫  リアルな声 (real testimonials)
+     ════════════════════════════════════════════════════ */
+  .real-voice-section{
+    position:relative;
+    background:linear-gradient(180deg, #EAF5FC 0%, #DCEEFA 100%);
+    padding:60px 36px 70px;
+    overflow:hidden;
+  }
+  .real-voice-section .top-wave{
+    position:absolute; top:0; left:0; right:0; height:80px;
+    pointer-events:none;
+  }
+  .real-voice-section .top-wave svg{width:100%; height:100%}
+  /* fish decorations */
+  .rv-fish{position:absolute; pointer-events:none}
+  .rv-fish svg{width:100%; height:100%}
+  .rvf-1{top:24px; left:30px; width:60px; transform:rotate(-12deg); color:#4DA3F2; opacity:.7}
+  .rvf-2{top:90px; left:90px; width:50px; transform:rotate(8deg); color:#4DA3F2; opacity:.55}
+  .rvf-3{top:140px; left:30px; width:42px; color:#4DA3F2; opacity:.6}
+  .rv-bubble{position:absolute; border-radius:50%; background:#fff; opacity:.7; pointer-events:none}
+  .rvb-1{top:60px; left:160px; width:8px; height:8px}
+  .rvb-2{top:120px; left:200px; width:6px; height:6px}
+  .rvb-3{top:200px; left:140px; width:10px; height:10px}
+
+  .real-voice-inner{
+    max-width:1480px; margin:0 auto; position:relative;
+  }
+
+  .rv-header{
+    position:relative;
+    text-align:center;
+    margin:0 0 36px;
+  }
+  .rv-pre{
+    display:inline-flex; align-items:center; gap:14px;
+    font-size:16px; font-weight:700;
+    color:var(--ink-900);
+    margin:0 0 8px;
+  }
+  .rv-pre .dec{color:var(--blue-500); font-size:20px; font-weight:700}
+  .rv-title{
+    font-size:46px; font-weight:900;
+    color:var(--blue-700);
+    margin:0 0 14px;
+    letter-spacing:.01em;
+    position:relative;
+    display:inline-block;
+  }
+  .rv-title .accent{
+    color:var(--teal-500);
+    position:relative;
+    display:inline-block;
+  }
+  .rv-title .accent::after{
+    content:""; position:absolute; left:0; right:0; bottom:-6px;
+    height:6px; background:var(--teal-500); border-radius:3px;
+  }
+  .rv-title .sparkle-svg{
+    position:absolute;
+    right:-50px; top:-18px;
+    width:34px; height:34px;
+    color:#FFD046;
+  }
+  .rv-title .sparkle-svg svg{width:100%; height:100%}
+  .rv-sub{
+    font-size:15px; color:var(--ink-700);
+    margin:0; font-weight:500;
+  }
+  .rv-corner-tag{
+    position:absolute;
+    right:8px; top:8px;
+    background:transparent;
+    color:var(--blue-700);
+    font-size:14px; font-weight:700;
+    text-align:center;
+    line-height:1.5;
+    transform:rotate(2deg);
+  }
+  .rv-corner-tag .u{
+    border-bottom:2px solid var(--blue-500);
+    padding-bottom:2px;
+  }
+
+  .rv-cards{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:18px;
+  }
+  .rv-card{
+    background:#fff;
+    border-radius:18px;
+    padding:18px 22px 22px;
+    position:relative;
+    box-shadow:0 6px 18px rgba(20,80,160,.08);
+  }
+  .rv-card-tag{
+    display:block;
+    width:fit-content;
+    margin:0 auto 0;
+    padding:6px 22px;
+    border-radius:0 0 12px 12px;
+    color:#fff;
+    font-weight:700;
+    font-size:13px;
+    transform:translateY(-18px);
+  }
+  .rv-card.is-mk .rv-card-tag{background:var(--blue-600)}
+  .rv-card.is-s  .rv-card-tag{background:#F26B7E}
+  .rv-card.is-th .rv-card-tag{background:#3FB0BE}
+
+  .rv-person{
+    display:flex; align-items:center; gap:18px;
+    margin-bottom:10px;
+  }
+  .rv-photo{
+    width:130px; height:130px;
+    border-radius:50%;
+    overflow:hidden;
+    flex-shrink:0;
+    border:4px solid #fff;
+    box-shadow:0 6px 12px rgba(20,80,160,.12);
+  }
+  .rv-photo img{width:100%; height:100%; object-fit:cover}
+  .rv-meta{flex:1; min-width:0}
+  .rv-name{
+    display:flex; align-items:baseline; gap:8px;
+    margin:2px 0 4px;
+  }
+  .rv-name .nm{font-size:22px; font-weight:900; color:var(--ink-900)}
+  .rv-name .age{font-size:18px; font-weight:700; color:var(--ink-900)}
+  .rv-card.is-s .rv-name .nm{color:var(--ink-900)}
+  .rv-bio{
+    font-size:12.5px;
+    color:var(--ink-700);
+    line-height:1.6;
+    margin:0 0 8px;
+    font-weight:500;
+  }
+  .rv-bio .strong{color:#F26B7E; font-weight:700}
+  .rv-card.is-s .rv-bio .strong{color:#F26B7E}
+  .rv-stars{
+    color:#FFD046;
+    font-size:14px;
+    letter-spacing:2px;
+  }
+  .rv-stars svg{width:18px; height:18px; margin-right:2px}
+
+  .rv-divider{
+    border:0;
+    border-top:1.5px dashed #BFE0F6;
+    margin:14px 0;
+  }
+  .rv-card.is-s .rv-divider{border-top-color:#F8D2D6}
+  .rv-card.is-th .rv-divider{border-top-color:#C2E0F5}
+
+  .rv-item{
+    display:flex; gap:12px;
+    margin:14px 0;
+  }
+  .rv-item .rv-ic{
+    width:34px; height:34px; border-radius:50%;
+    flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+    color:#fff;
+  }
+  .rv-item .rv-ic svg{width:18px; height:18px}
+  .rv-card.is-mk .rv-item.q .rv-ic{background:#4DA3F2}
+  .rv-card.is-mk .rv-item.a .rv-ic{background:#3FB0BE}
+  .rv-card.is-mk .rv-item.h .rv-ic{background:#3FB0BE}
+  .rv-card.is-mk .rv-item.r .rv-ic{background:#3FB0BE}
+  .rv-card.is-s  .rv-item .rv-ic{background:#F26B7E}
+  .rv-card.is-th .rv-item.q .rv-ic{background:#4DA3F2}
+  .rv-card.is-th .rv-item.a .rv-ic{background:#3FB0BE}
+  .rv-card.is-th .rv-item.h .rv-ic{background:#3FB0BE}
+  .rv-card.is-th .rv-item.r .rv-ic{background:#3FB0BE}
+
+  .rv-item-body h4{
+    margin:6px 0 4px;
+    font-size:14.5px;
+    font-weight:700;
+    color:var(--ink-900);
+  }
+  .rv-card.is-mk .rv-item.q .rv-item-body h4{color:#4DA3F2}
+  .rv-card.is-s  .rv-item .rv-item-body h4{color:#F26B7E}
+  .rv-card.is-mk .rv-item.a .rv-item-body h4,
+  .rv-card.is-mk .rv-item.h .rv-item-body h4,
+  .rv-card.is-mk .rv-item.r .rv-item-body h4,
+  .rv-card.is-th .rv-item.a .rv-item-body h4,
+  .rv-card.is-th .rv-item.h .rv-item-body h4,
+  .rv-card.is-th .rv-item.r .rv-item-body h4{color:#3FB0BE}
+  .rv-card.is-th .rv-item.q .rv-item-body h4{color:#4DA3F2}
+
+  .rv-item-body p{
+    margin:0;
+    font-size:12.5px;
+    line-height:1.8;
+    color:var(--ink-700);
+    font-weight:500;
+  }
+
+  /* Footer ribbon + buttons */
+  .rv-footer{
+    margin-top:60px;
+    text-align:center;
+    position:relative;
+  }
+  .rv-footer-title{
+    display:flex; align-items:center; justify-content:center;
+    gap:14px;
+    font-size:24px; font-weight:900;
+    color:var(--blue-700);
+    margin:0 0 24px;
+  }
+  .rv-footer-title .dec{color:var(--blue-500); font-size:22px}
+  .rv-footer-title em{color:var(--blue-700); font-style:normal}
+
+  .rv-footer-bar{
+    display:grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto;
+    gap:14px 22px;
+    align-items:center;
+    max-width:1320px;
+    margin:0 auto;
+    text-align:left;
+    position:relative;
+  }
+  .rv-circle-tag{
+    width:90px; height:90px;
+    border-radius:50%;
+    background:#FFF7C2;
+    color:var(--blue-700);
+    font-weight:700; font-size:14px; line-height:1.4;
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    flex-shrink:0;
+    box-shadow:0 4px 10px rgba(20,80,160,.1);
+    grid-column:1; grid-row:1 / span 2;
+  }
+  .rv-help-text{
+    color:var(--blue-700);
+    font-weight:500;
+    font-size:14px;
+    line-height:1.7;
+    grid-column:2; grid-row:1;
+  }
+  .rv-cta-row{
+    grid-column:2; grid-row:2;
+    display:flex; gap:18px;
+    align-items:center;
+  }
+  .rv-cta-row .btn{flex:1; justify-content:center}
+
+  .rv-equipment{
+    width:240px;
+    flex-shrink:0;
+    position:relative;
+    grid-column:3; grid-row:1 / span 2;
+  }
+  .rv-equipment img{width:100%; height:auto; display:block}
+
+  .rv-footer-note{
+    text-align:center;
+    margin-top:18px;
+    font-size:13px;
+    color:var(--ink-500);
+    font-weight:500;
+  }
+
+  @media (max-width: 1100px){
+    .rv-cards{grid-template-columns:1fr; max-width:560px; margin:0 auto}
+    .rv-title{font-size:34px}
+    .rv-corner-tag{position:static; margin:0 auto 18px; display:block}
+    .rv-footer-bar{grid-template-columns:1fr; grid-template-rows:auto; gap:14px; text-align:center}
+    .rv-circle-tag{grid-column:auto; grid-row:auto}
+    .rv-help-text{grid-column:auto; grid-row:auto}
+    .rv-cta-row{grid-column:auto; grid-row:auto; flex-direction:column; width:100%}
+    .rv-equipment{grid-column:auto; grid-row:auto; margin:0 auto}
+  }
+  @media (max-width: 640px){
+    .real-voice-section{padding:48px 16px 56px}
+    .rv-title{font-size:26px}
+    .rv-title .sparkle-svg{display:none}
+    .rv-pre{font-size:14px; gap:8px}
+    .rv-card{padding:14px 16px 18px}
+    .rv-person{flex-direction:column; text-align:center; gap:12px}
+    .rv-photo{width:120px; height:120px}
+    .rv-name{justify-content:center}
+    .rv-footer-title{font-size:18px; flex-wrap:wrap; gap:8px}
+    .rv-footer-bar{padding:0 8px}
+    .rv-circle-tag{margin:0 auto}
+  }
+
+  /* ════════════════════════════════════════════════════
+     SECTION ⑨  料金  (pricing)
+     ════════════════════════════════════════════════════ */
+  .pricing-section{
+    position:relative;
+    background:#fff;
+    padding:80px 36px 60px;
+    overflow:hidden;
+  }
+  .pricing-inner{max-width:1280px; margin:0 auto}
+  .pricing-heading{
+    text-align:center;
+    font-size:32px; font-weight:900;
+    color:var(--blue-700);
+    margin:0 0 36px;
+    display:flex; align-items:center; justify-content:center; gap:14px;
+  }
+  .pricing-heading .dec{color:var(--blue-500); font-size:24px; transform:scaleX(.8)}
+  .pricing-heading .accent-teal{color:var(--teal-500)}
+
+  .pricing-grid{
+    display:grid;
+    grid-template-columns: 3fr 3fr 3fr 2.4fr;
+    gap:18px;
+    align-items:stretch;
+  }
+  .price-card{
+    background:#F4FAFE;
+    border-radius:18px;
+    padding:0 18px 18px;
+    position:relative;
+    display:flex; flex-direction:column;
+    overflow:hidden;
+    text-align:center;
+  }
+  .price-card .pc-tab{
+    margin:0 -18px 18px;
+    padding:12px 0;
+    color:#fff;
+    font-weight:700;
+    font-size:15px;
+  }
+  .price-card.is-member .pc-tab{background:var(--teal-500)}
+  .price-card.is-fee .pc-tab{background:var(--coral-500)}
+  .price-card.is-trial .pc-tab{background:var(--blue-600)}
+
+  .pc-title{
+    font-size:14px; font-weight:700; color:var(--ink-900);
+    margin:0 0 6px;
+  }
+  .pc-price{
+    font-family:"Poppins","Noto Sans JP",sans-serif;
+    font-weight:900;
+    color:var(--blue-700);
+    line-height:1;
+    margin:6px 0 6px;
+  }
+  .pc-price .big{font-size:52px}
+  .pc-price .unit{font-size:18px; font-weight:700; margin-left:2px}
+  .pc-price .tax{display:block; font-size:11px; color:var(--ink-500); font-weight:500; margin-top:4px}
+
+  .pc-pill{
+    display:inline-block;
+    font-size:13px; font-weight:700;
+    color:var(--ink-900);
+    padding:6px 16px;
+    background:#FFF1A8;
+    border-radius:999px;
+    margin:8px 0;
+    position:relative;
+  }
+  .pc-pill::before, .pc-pill::after{
+    content:""; position:absolute; bottom:-4px;
+    width:0; height:0;
+  }
+  .pc-note{font-size:12.5px; color:var(--ink-700); margin:6px 0 12px; font-weight:500}
+  .pc-note b{color:var(--blue-700); font-weight:700}
+
+  .pc-photo{
+    margin:auto -18px -18px;
+    aspect-ratio: 16/9;
+    overflow:hidden;
+    background:#DCEEFA;
+  }
+  .pc-photo img{width:100%; height:100%; object-fit:cover}
+
+  /* Card 2 (fee = 0円) variant */
+  .price-card.is-fee{position:relative}
+  .pc-strike{
+    font-size:14px; color:var(--ink-500); font-weight:500;
+    display:flex; align-items:baseline; justify-content:center; gap:4px;
+    margin-top:8px;
+  }
+  .pc-strike .num{font-size:22px; font-weight:700; color:var(--ink-500); text-decoration:line-through; text-decoration-color:#EB5468; text-decoration-thickness:2px}
+  .pc-arrow-down{
+    color:var(--coral-500);
+    margin:6px 0 0;
+  }
+  .pc-zero{
+    font-family:"Poppins",sans-serif;
+    font-weight:900;
+    font-size:96px;
+    color:var(--coral-500);
+    line-height:1;
+    margin:8px 0 0;
+    letter-spacing:-.04em;
+  }
+  .pc-zero .yen{font-size:42px; margin-left:-4px}
+  .pc-camp-badge{
+    position:absolute; right:8px; top:32%;
+    width:64px; height:64px; border-radius:50%;
+    background:var(--yellow);
+    color:#fff;
+    font-size:11px; font-weight:700; line-height:1.3;
+    display:flex; align-items:center; justify-content:center;
+    text-align:center;
+    box-shadow:0 6px 14px rgba(0,0,0,.08);
+    transform:rotate(-8deg);
+    z-index:2;
+  }
+  .pc-camp-strip{
+    background:var(--coral-500);
+    color:#fff;
+    border-radius:999px;
+    font-size:13px; font-weight:700;
+    padding:10px 18px;
+    margin:auto -8px 0;
+    line-height:1.45;
+  }
+
+  /* Notes column on the right */
+  .pc-notes{
+    background:transparent;
+    padding:18px 4px 4px;
+    display:flex; flex-direction:column; gap:14px;
+  }
+  .pc-notes li{
+    list-style:none;
+    display:flex; gap:10px; align-items:flex-start;
+    font-size:13px; line-height:1.7;
+    color:var(--ink-700);
+    font-weight:500;
+  }
+  .pc-notes .chk{
+    width:18px; height:18px; border-radius:50%;
+    background:#E2F6F3;
+    color:var(--teal-500);
+    display:inline-flex; align-items:center; justify-content:center;
+    flex-shrink:0; margin-top:2px;
+  }
+  .pc-notes .chk svg{width:11px; height:11px}
+
+  /* Lower trial-first ribbon */
+  .pricing-ribbon{
+    margin:30px 0 0;
+    background:#EAF5FC;
+    border-radius:999px;
+    padding:14px 28px;
+    text-align:center;
+    color:var(--blue-700);
+    font-weight:700;
+    font-size:14px;
+    display:flex; align-items:center; justify-content:center; gap:12px;
+    position:relative;
+  }
+  .pricing-ribbon .fish-ic{color:var(--blue-500); width:22px; height:22px; flex-shrink:0}
+  .pricing-ribbon .fish-ic svg{width:100%; height:100%}
+
+  /* ════════════════════════════════════════════════════
+     SECTION ⑩  Fin-D Swim Members
+     ════════════════════════════════════════════════════ */
+  .members-section{
+    position:relative;
+    padding:0 36px 60px;
+    background:#fff;
+    overflow:hidden;
+  }
+  .members-banner{
+    position:relative;
+    background:linear-gradient(180deg, #1A4F9B 0%, #0E3E84 100%);
+    color:#fff;
+    text-align:center;
+    padding:54px 36px 64px;
+    overflow:hidden;
+    margin:0 -36px;
+  }
+  .members-banner::before, .members-banner::after{
+    content:""; position:absolute; left:0; right:0;
+    height:24px;
+    background-image:
+      radial-gradient(circle at 12px 0, transparent 12px, #1A4F9B 13px);
+    background-size: 24px 24px;
+    background-repeat:repeat-x;
+  }
+  .members-banner::before{
+    top:-1px;
+    transform:rotate(180deg);
+    background-image:
+      radial-gradient(circle at 12px 24px, #fff 12px, transparent 13px);
+    background-color:transparent;
+  }
+  .members-banner::after{
+    display:none;
+  }
+  /* Sparkle confetti */
+  .members-banner .sparkle{
+    position:absolute; pointer-events:none;
+  }
+  .members-banner .sparkle svg{width:100%; height:100%}
+  .sp-1{top:24px; left:8%; width:18px; color:#FFD046}
+  .sp-2{top:60px; left:14%; width:14px; color:#5DD0C3}
+  .sp-3{top:34px; left:20%; width:16px; color:#fff}
+  .sp-4{top:96px; left:6%; width:12px; color:#F26B7E}
+  .sp-5{top:140px; left:16%; width:14px; color:#FFD046}
+  .sp-6{top:24px; right:14%; width:16px; color:#5DD0C3}
+  .sp-7{top:60px; right:10%; width:14px; color:#fff}
+  .sp-8{top:96px; right:18%; width:12px; color:#FFD046}
+  .sp-9{top:30px; right:24%; width:14px; color:#F26B7E}
+  .sp-10{top:130px; right:8%; width:16px; color:#5DD0C3}
+
+  .members-banner .pre-tag{
+    display:inline-block;
+    background:#fff;
+    color:var(--blue-700);
+    font-weight:700; font-size:13px;
+    padding:4px 14px;
+    border-radius:6px 22px 6px 22px / 22px 6px 22px 6px;
+    transform:rotate(-4deg);
+    position:absolute;
+    left:4%; top:56px;
+    z-index:2;
+  }
+  .members-banner .sub-line{
+    font-size:22px; font-weight:700; color:#fff;
+    margin:0 0 8px;
+    display:inline-flex; align-items:center; gap:10px;
+  }
+  .members-banner .sub-line .yh{
+    display:inline-block; color:#FFD046;
+  }
+  .members-banner h2{
+    font-family:"Poppins","Noto Sans JP",sans-serif;
+    font-size:54px; font-weight:700;
+    margin:0;
+    color:#fff;
+    letter-spacing:.01em;
+    line-height:1.1;
+    position:relative;
+    display:inline-block;
+    max-width:90%;
+  }
+  .members-banner h2::after{
+    content:""; position:absolute; left:0; right:0; bottom:6px;
+    height:6px; background:var(--yellow); border-radius:4px;
+    z-index:-1;
+  }
+  .members-banner .price-badge{
+    position:absolute; right:6%; top:30px;
+    background:#FFF8C7;
+    color:var(--coral-500);
+    font-weight:900; font-size:13.5px;
+    width:120px; height:120px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    line-height:1.5;
+    transform:rotate(8deg);
+    z-index:3;
+    /* spiky edge via radial gradient mask + filter */
+    filter:drop-shadow(0 6px 12px rgba(0,0,0,.18));
+    background-image:
+      radial-gradient(circle, #FFF8C7 0 60%, transparent 60.5%),
+      conic-gradient(from 0deg, #FFF8C7 0deg, #FFF8C7 12deg, transparent 12deg, transparent 24deg);
+    background-size: 100% 100%;
+  }
+  /* Members banner: starburst badge */
+  .members-banner .starburst{
+    position:absolute; right:3%; top:16px;
+    width:130px; height:130px;
+    z-index:3;
+  }
+  .members-banner .starburst svg{width:100%; height:100%; filter:drop-shadow(0 6px 12px rgba(0,0,0,.18))}
+  .price-badge{display:none}
+
+  .members-banner .lead{
+    margin:22px auto 0;
+    max-width:780px;
+    font-size:14.5px; line-height:1.9;
+    color:#fff;
+    font-weight:500;
+  }
+  .members-banner .lead .em{color:#FFD046; font-weight:700}
+
+  .members-cards{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:14px;
+    max-width:1280px;
+    margin:-40px auto 0;
+    position:relative; z-index:5;
+  }
+  .mc{
+    background:#fff;
+    border-radius:14px;
+    padding:24px 18px 0;
+    box-shadow:0 8px 24px rgba(20,80,160,.12);
+    display:flex; flex-direction:column;
+    overflow:hidden;
+    border:3px solid;
+  }
+  .mc.is-teal{border-color:#B7E9E1; background:#F0FBF8}
+  .mc.is-pink{border-color:#F8D2D6; background:#FFF3F5}
+  .mc.is-blue{border-color:#C2E0F5; background:#F2F9FE}
+  .mc.is-yellow{border-color:#FFE4A1; background:#FFFBEB}
+  .mc-head{
+    display:flex; align-items:center; gap:8px;
+    justify-content:flex-start;
+    margin-bottom:8px;
+  }
+  .mc-num{
+    font-family:"Poppins",sans-serif;
+    color:#fff;
+    font-weight:700;
+    font-size:14px;
+    width:36px; height:24px; border-radius:6px;
+    display:inline-flex; align-items:center; justify-content:center;
+  }
+  .mc.is-teal .mc-num{background:var(--teal-500)}
+  .mc.is-pink .mc-num{background:#F26B7E}
+  .mc.is-blue .mc-num{background:var(--blue-600)}
+  .mc.is-yellow .mc-num{background:#FFB940}
+  .mc-icon{width:28px; height:28px}
+  .mc.is-teal .mc-icon{color:var(--teal-500)}
+  .mc.is-pink .mc-icon{color:#F26B7E}
+  .mc.is-blue .mc-icon{color:var(--blue-600)}
+  .mc.is-yellow .mc-icon{color:#FFB940}
+  .mc-icon svg{width:100%;height:100%}
+  .mc h3{
+    margin:4px 0 10px;
+    font-size:18px; font-weight:700;
+    color:var(--ink-900);
+    text-align:center;
+  }
+  .mc.is-teal h3{color:var(--teal-500)}
+  .mc.is-pink h3{color:#F26B7E}
+  .mc.is-blue h3{color:var(--blue-600)}
+  .mc.is-yellow h3{color:#E8A82A}
+  .mc p{
+    margin:0 0 12px;
+    font-size:13px; line-height:1.85;
+    color:var(--ink-700);
+    text-align:center;
+    font-weight:500;
+  }
+  .mc-tag{
+    display:inline-block;
+    background:#fff;
+    border:1.5px solid;
+    border-radius:999px;
+    padding:7px 14px;
+    font-size:12.5px; font-weight:700;
+    margin:0 auto 14px;
+    position:relative;
+  }
+  .mc.is-teal .mc-tag{border-color:var(--teal-500); color:var(--teal-500); background:#E2F6F3}
+  .mc.is-pink .mc-tag{border-color:#F26B7E; color:#F26B7E; background:#FFE8EC}
+  .mc.is-blue .mc-tag{border-color:var(--blue-600); color:var(--blue-600); background:#E4F1FD}
+  .mc.is-yellow .mc-tag{border-color:#E8A82A; color:#E8A82A; background:#FFF6D8}
+  .mc-tag::before{
+    content:""; position:absolute; top:-2px; left:0; right:0; bottom:-2px;
+    border-radius:999px; pointer-events:none;
+  }
+  .mc-tag .u{position:relative; display:inline-block}
+  .mc-tag .u::after{
+    content:""; position:absolute; left:-2px; right:-2px; bottom:2px; height:6px;
+    background:var(--yellow); border-radius:3px; z-index:-1;
+  }
+  .mc-photo{
+    margin:auto -18px 0;
+    aspect-ratio:1/.8;
+    overflow:hidden;
+  }
+  .mc-photo img{width:100%; height:100%; object-fit:cover}
+  .mc-photo-stack{margin:auto -18px 0; display:grid; gap:2px}
+  .mc-photo-stack > div{aspect-ratio:240/130; overflow:hidden}
+  .mc-photo-stack img{width:100%; height:100%; object-fit:cover}
+  .mc-photo-cap{
+    position:relative;
+    text-align:center;
+    background:rgba(255,255,255,.95);
+    margin-top:-22px;
+    padding:4px 8px 6px;
+    font-size:12px; font-weight:700;
+    z-index:2;
+  }
+  .mc.is-blue .mc-photo-cap{color:var(--teal-500)}
+  .mc-icons-row{
+    display:flex; justify-content:space-around;
+    padding:10px 0 14px;
+    background:rgba(255,255,255,.6);
+    border-top:1px solid rgba(0,0,0,.04);
+  }
+  .mc-icons-row > div{
+    text-align:center;
+    font-size:11px; font-weight:700; color:var(--ink-700);
+    line-height:1.4;
+  }
+  .mc-icons-row .mi-ic{
+    width:32px; height:32px; border-radius:50%;
+    background:#FFE4A1;
+    color:#E8A82A;
+    display:flex; align-items:center; justify-content:center;
+    margin:0 auto 4px;
+  }
+  .mc-icons-row .mi-ic svg{width:18px; height:18px}
+
+  /* Card 02 small product icons row */
+  .mc-prod-row{
+    display:flex; justify-content:space-around;
+    padding:6px 0 0;
+  }
+  .mc-prod-row > div{
+    text-align:center;
+    font-size:11px; font-weight:600; color:var(--ink-700);
+  }
+  .mc-prod-row .pi{
+    width:28px; height:28px; border-radius:50%;
+    background:#FCE2E6;
+    color:#F26B7E;
+    display:flex; align-items:center; justify-content:center;
+    margin:0 auto 3px;
+  }
+  .mc-prod-row .pi svg{width:16px; height:16px}
+
+  /* Support pills row below members */
+  .members-support{
+    max-width:1280px;
+    margin:36px auto 0;
+    background:#fff;
+    border-radius:18px;
+    padding:18px 22px;
+    box-shadow:0 4px 14px rgba(20,80,160,.06);
+    display:grid;
+    grid-template-columns: auto repeat(4, 1fr);
+    gap:18px;
+    align-items:center;
+    position:relative;
+  }
+  .members-support .sticker{
+    width:74px; height:74px;
+    background:#A6E3DA;
+    color:#fff;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    text-align:center;
+    font-size:11.5px; font-weight:700;
+    line-height:1.3;
+    flex-shrink:0;
+    box-shadow:0 4px 10px rgba(20,80,160,.1);
+  }
+  .ms-item{
+    display:flex; align-items:center; gap:10px;
+    font-size:13px; line-height:1.55; color:var(--ink-700);
+    font-weight:500;
+  }
+  .ms-item .ms-ic{
+    width:34px; height:34px; flex-shrink:0;
+    color:var(--blue-600);
+  }
+  .ms-item .ms-ic svg{width:100%; height:100%}
+  .members-support .deco-fin{
+    position:absolute; right:-6px; bottom:-12px; width:74px; opacity:.95;
+  }
+
+  /* ════════════════════════════════════════════════════
+     SECTION ⑪  Bottom CTA before contact
+     ════════════════════════════════════════════════════ */
+  .lower-cta{
+    position:relative;
+    background:linear-gradient(180deg, #EAF5FC 0%, #DCEEFA 100%);
+    padding:50px 36px 70px;
+    overflow:hidden;
+    margin-top:50px;
+  }
+  .lower-cta::before{
+    content:""; position:absolute; top:0; left:0; right:0; height:60px;
+    background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60' preserveAspectRatio='none'><path d='M0 30 C 240 0 420 60 660 30 S 1080 0 1260 40 1440 20 1440 20 L1440 0 L0 0 Z' fill='%23fff' opacity='.7'/></svg>") center/cover no-repeat;
+  }
+  .lower-cta-inner{
+    max-width:1100px; margin:0 auto;
+    display:grid;
+    grid-template-columns: 1fr 200px;
+    gap:30px;
+    align-items:center;
+    position:relative;
+    z-index:2;
+  }
+  .lower-cta .lead-row{
+    display:flex; align-items:center; gap:18px;
+    margin-bottom:18px;
+  }
+  .lower-cta .pre-bubble{
+    position:relative;
+    background:transparent;
+    color:var(--blue-700);
+    font-weight:700; font-size:13.5px;
+    line-height:1.45;
+    text-align:center;
+    flex-shrink:0;
+  }
+  .lower-cta .pre-bubble::after{
+    content:""; position:absolute; right:-10px; top:50%;
+    border:6px solid transparent;
+    border-left-color:var(--blue-700);
+    transform:translateY(-50%) skewX(-15deg);
+    opacity:.6;
+  }
+  .lower-cta h3{
+    flex:1;
+    margin:0;
+    font-size:22px;
+    font-weight:700;
+    color:var(--blue-700);
+    line-height:1.5;
+  }
+  .lower-cta .cta-buttons{
+    display:flex; gap:16px;
+  }
+  .lower-cta .cta-buttons .btn{flex:1; min-width:0; justify-content:center}
+
+  .lower-cta-photo{
+    width:200px; height:200px;
+    border-radius:50%;
+    overflow:hidden;
+    border:5px solid #fff;
+    box-shadow:0 12px 28px rgba(20,80,160,.18);
+    position:relative;
+  }
+  .lower-cta-photo img{width:100%; height:100%; object-fit:cover}
+  .lower-cta-photo::before{
+    content:""; position:absolute; top:-8px; right:-8px;
+    width:30px; height:18px;
+    background:
+      linear-gradient(to bottom right, transparent 49%, var(--coral-500) 50%, transparent 51%) no-repeat;
+    pointer-events:none;
+    display:none;
+  }
+
+  @media (max-width: 1100px){
+    .pricing-grid{grid-template-columns:1fr 1fr; gap:18px}
+    .pc-notes{grid-column:span 2; flex-direction:row; flex-wrap:wrap}
+    .pc-notes li{flex:1 1 40%}
+    .members-cards{grid-template-columns:repeat(2, 1fr)}
+    .members-support{grid-template-columns: auto 1fr 1fr; gap:14px}
+    .members-banner h2{font-size:42px}
+    .members-banner .starburst{width:110px; height:110px; right:3%; top:8px}
+    .members-banner .pre-tag{left:3%; top:40px}
+    .lower-cta-inner{grid-template-columns:1fr; text-align:center}
+    .lower-cta .lead-row{flex-direction:column; gap:10px}
+    .lower-cta-photo{margin:0 auto}
+  }
+  @media (max-width: 760px){
+    .pricing-section{padding:60px 16px 40px}
+    .pricing-heading{font-size:24px; gap:8px}
+    .pricing-grid{grid-template-columns:1fr; gap:14px}
+    .pc-notes{grid-column:auto; flex-direction:column}
+    .pc-notes li{flex:auto}
+    .pricing-ribbon{font-size:13px; gap:10px; padding:14px 18px; text-align:left}
+    .members-section{padding:0 16px 50px}
+    .members-banner{padding:60px 20px 60px; margin:0 -16px}
+    .members-banner h2{font-size:32px}
+    .members-banner .sub-line{font-size:18px}
+    .members-banner .pre-tag{position:static; transform:none; margin:0 auto 8px; display:inline-block}
+    .members-banner .starburst{position:static; width:110px; height:110px; display:block; margin:18px auto 0}
+    .members-banner .lead{font-size:13px}
+    .members-cards{grid-template-columns:1fr}
+    .members-support{grid-template-columns:1fr 1fr; padding:18px 14px; gap:14px}
+    .members-support .sticker{grid-column:1 / -1; margin:0 auto}
+    .members-support .deco-fin{display:none}
+    .lower-cta{padding:40px 20px 50px}
+    .lower-cta h3{font-size:18px}
+    .lower-cta .cta-buttons{flex-direction:column}
+    .lower-cta-photo{width:160px; height:160px}
+  }
+  @media (max-width: 480px){
+    .members-support{grid-template-columns:1fr}
+    .pc-zero{font-size:72px}
+  }
+
+  /* ════════════════════════════════════════════════════
+     SECTION ⑧  レッスンで身につくこと
+     ════════════════════════════════════════════════════ */
+  .lesson-section{
+    position:relative;
+    background:linear-gradient(180deg, #DCEEFA 0%, #EAF5FC 60%, #DCEEFA 100%);
+    padding:70px 36px 80px;
+    overflow:hidden;
+  }
+  .lesson-section .top-wave{
+    position:absolute; top:0; left:0; right:0; height:80px; pointer-events:none;
+  }
+  .lesson-section .top-wave svg{width:100%; height:100%}
+  .lesson-inner{max-width:1480px; margin:0 auto; position:relative}
+
+  .lesson-heading{
+    text-align:center;
+    font-weight:900;
+    font-size:38px;
+    color:var(--blue-700);
+    margin:0 0 12px;
+    display:flex; align-items:center; justify-content:center; gap:14px;
+  }
+  .lesson-heading .spark{
+    width:20px; height:20px; color:var(--blue-500);
+    display:inline-flex; align-items:center; justify-content:center;
+  }
+  .lesson-heading .spark svg{width:100%; height:100%}
+  .lesson-sub{
+    text-align:center;
+    font-size:15px;
+    color:var(--ink-700);
+    margin:0 0 36px;
+    font-weight:500;
+  }
+
+  .lesson-grid{
+    display:grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap:18px;
+  }
+  .lesson-card{
+    background:#fff;
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 6px 18px rgba(20,80,160,.08);
+    padding:24px 16px 0;
+    display:flex; flex-direction:column;
+  }
+  .lesson-card .lc-ic{
+    width:62px; height:62px; border-radius:50%;
+    background:var(--blue-50);
+    display:flex; align-items:center; justify-content:center;
+    margin:0 auto 14px;
+  }
+  .lesson-card .lc-ic svg{width:34px; height:34px}
+  .lesson-card.is-teal .lc-ic{background:#E2F6F3} .lesson-card.is-teal .lc-ic svg{color:var(--teal-500)}
+  .lesson-card.is-blue .lc-ic{background:#E4F1FD} .lesson-card.is-blue .lc-ic svg{color:var(--blue-600)}
+  .lesson-card h4{
+    text-align:center;
+    margin:0 0 10px;
+    font-size:16px; font-weight:700;
+    color:var(--blue-700);
+    line-height:1.4;
+  }
+  .lesson-card.is-teal h4{color:var(--teal-500)}
+  .lesson-card p{
+    text-align:center;
+    margin:0 0 16px;
+    font-size:12.5px;
+    line-height:1.75;
+    color:var(--ink-700);
+    font-weight:500;
+    flex-grow:1;
+  }
+  .lesson-card .lc-photo{
+    width:calc(100% + 32px);
+    margin-left:-16px; margin-right:-16px;
+    aspect-ratio:220/120;
+    overflow:hidden;
+  }
+  .lesson-card .lc-photo img{width:100%; height:100%; object-fit:cover}
+
+  /* Timeline subsection */
+  .timeline-wrap{
+    position:relative;
+    margin-top:60px;
+    padding-top:20px;
+  }
+  .timeline-heading{
+    text-align:center;
+    font-weight:900;
+    font-size:26px;
+    color:var(--blue-700);
+    margin:0 0 30px;
+    display:flex; align-items:center; justify-content:center; gap:14px;
+  }
+  .timeline-heading .dec{color:var(--blue-500); font-size:22px}
+
+  .timeline-arrow{
+    position:absolute;
+    top:90px; left:0; right:0;
+    height:60px;
+    pointer-events:none;
+    z-index:1;
+  }
+  .timeline-arrow svg{width:100%; height:100%}
+
+  .timeline-grid{
+    position:relative;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:30px;
+    z-index:2;
+  }
+  .tl-item{
+    display:grid;
+    grid-template-columns: 200px 1fr;
+    gap:18px;
+    align-items:center;
+  }
+  .tl-photo-block{
+    position:relative;
+    width:200px; height:200px;
+  }
+  .tl-badge{
+    position:absolute;
+    top:-12px; left:-6px;
+    width:96px; height:96px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-weight:900; font-size:18px; color:#fff;
+    text-align:center; line-height:1.2;
+    box-shadow:0 8px 18px rgba(20,80,160,.18);
+    z-index:3;
+  }
+  .tl-badge.teal{background:#5DD0C3}
+  .tl-badge.green{background:#6BD3A7}
+  .tl-badge.blue{background:#4DA3F2}
+  .tl-photo{
+    width:200px; height:200px;
+    border-radius:50%;
+    overflow:hidden;
+    border:5px solid #fff;
+    box-shadow:0 10px 24px rgba(20,80,160,.15);
+  }
+  .tl-photo img{width:100%; height:100%; object-fit:cover}
+  .tl-text h4{
+    margin:0 0 12px;
+    font-size:18px; font-weight:700;
+    line-height:1.5;
+    color:var(--blue-700);
+  }
+  .tl-text.is-teal h4{color:var(--teal-500)}
+  .tl-text.is-blue h4{color:var(--blue-600)}
+  .tl-list{
+    list-style:none; padding:0; margin:0;
+  }
+  .tl-list li{
+    display:flex; align-items:center; gap:10px;
+    font-size:13.5px; line-height:1.7;
+    color:var(--ink-700);
+    font-weight:500;
+    padding:3px 0;
+  }
+  .tl-list .chk{
+    width:18px; height:18px; border-radius:50%;
+    background:#E2F6F3;
+    color:var(--teal-500);
+    display:inline-flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .tl-list .chk svg{width:11px; height:11px}
+  .tl-list.is-blue .chk{background:#E4F1FD; color:var(--blue-600)}
+
+  /* Closing summary band */
+  .lesson-summary{
+    background:#fff;
+    border-radius:16px;
+    padding:22px 28px;
+    margin-top:50px;
+    display:grid;
+    grid-template-columns: auto 1fr 1fr auto;
+    gap:30px;
+    align-items:center;
+    box-shadow:0 6px 18px rgba(20,80,160,.08);
+  }
+  .lesson-summary .ls-ic{
+    width:54px; height:54px; border-radius:50%;
+    background:var(--blue-600);
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; flex-shrink:0;
+  }
+  .lesson-summary .ls-ic svg{width:32px; height:32px}
+  .lesson-summary .ls-lead{
+    font-size:16px; font-weight:700;
+    color:var(--blue-700);
+    line-height:1.7;
+    margin:0;
+  }
+  .lesson-summary .ls-text{
+    font-size:13.5px;
+    color:var(--ink-700);
+    line-height:1.85;
+    margin:0;
+    font-weight:500;
+  }
+  .lesson-summary .ls-diver{
+    width:80px; height:80px;
+    color:var(--blue-500);
+    opacity:.85;
+  }
+  .lesson-summary .ls-diver svg{width:100%; height:100%}
+
+  @media (max-width: 1100px){
+    .lesson-grid{grid-template-columns:repeat(3,1fr)}
+    .timeline-grid{grid-template-columns:1fr}
+    .timeline-arrow{display:none}
+    .lesson-summary{grid-template-columns: auto 1fr; row-gap:8px}
+    .lesson-summary .ls-diver{display:none}
+  }
+  @media (max-width: 760px){
+    .lesson-section{padding:50px 20px 60px}
+    .lesson-heading{font-size:28px}
+    .lesson-grid{grid-template-columns:repeat(2,1fr); gap:14px}
+    .lesson-card{padding:20px 14px 0}
+    .lesson-card .lc-photo{aspect-ratio:220/110}
+    .tl-item{grid-template-columns:1fr; justify-items:center; text-align:center}
+    .tl-text h4{text-align:center}
+    .lesson-summary{grid-template-columns:1fr; text-align:center; padding:20px}
+    .lesson-summary .ls-ic{margin:0 auto}
+    .lesson-summary .ls-lead{font-size:15px}
+  }
+
+  /* ════════════════════════════════════════════════════
+     SECTION ⑤  こんな方におすすめです
+     ════════════════════════════════════════════════════ */
+  .recommend-section{
+    position:relative;
+    background:#EAF5FC;
+    padding:64px 36px 70px;
+    overflow:hidden;
+    border-radius:28px;
+    margin:16px;
+  }
+  .recommend-inner{
+    max-width:1200px; margin:0 auto;
+    display:grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap:60px;
+    align-items:flex-start;
+  }
+  .recommend-title{
+    display:flex; align-items:center; gap:14px;
+    margin:0 0 18px;
+    font-weight:900;
+    font-size:38px;
+    color:var(--blue-700);
+    letter-spacing:.01em;
+  }
+  .recommend-title .fish-ic{display:inline-block; width:38px; height:24px}
+  .recommend-lead{
+    font-size:14.5px;
+    color:var(--ink-700);
+    line-height:1.9;
+    margin:0 0 28px;
+    font-weight:500;
+  }
+  .reco-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:14px 18px;
+    margin-bottom:30px;
+  }
+  .reco-pill{
+    background:#fff;
+    border-radius:12px;
+    padding:14px 18px 14px 14px;
+    display:flex; align-items:center; gap:12px;
+    font-size:14px; line-height:1.55;
+    font-weight:500;
+    color:var(--ink-700);
+    box-shadow:0 2px 8px rgba(46,137,230,.05);
+  }
+  .reco-pill .chk{
+    width:22px; height:22px; border-radius:50%;
+    background:var(--teal-500);
+    color:#fff;
+    flex-shrink:0;
+    display:inline-flex; align-items:center; justify-content:center;
+  }
+  .reco-pill .chk svg{width:12px; height:12px}
+  .reco-outro{
+    font-size:15px;
+    color:var(--blue-600);
+    font-weight:700;
+    line-height:1.9;
+    margin:0;
+  }
+
+  /* Photo stack on the right */
+  .photo-stack{
+    position:relative;
+    width:100%;
+    min-height:600px;
+  }
+  .photo-bubble{
+    position:absolute;
+    border-radius:50%;
+    overflow:hidden;
+    box-shadow:0 12px 30px rgba(20,80,160,.12);
+    border:5px solid #fff;
+  }
+  .photo-bubble img{width:100%; height:100%; object-fit:cover}
+  .pb-1{top:0;     right:0;   width:280px; height:280px}
+  .pb-2{top:200px; right:140px; width:230px; height:230px}
+  .pb-3{top:380px; right:0;   width:260px; height:260px}
+
+  /* Speech callout bubbles */
+  .callout{
+    position:absolute;
+    background:#A4DBF0;
+    color:#0E4E9E;
+    border-radius:50%;
+    width:120px; height:120px;
+    display:flex; align-items:center; justify-content:center;
+    text-align:center;
+    font-size:14px; font-weight:700;
+    line-height:1.45;
+    box-shadow:0 6px 14px rgba(20,80,160,.18);
+  }
+  .callout::after{
+    content:""; position:absolute;
+    width:22px; height:22px; background:inherit;
+    border-radius:60% 40% 50% 40%;
+    bottom:-4px; right:14px;
+    transform:rotate(20deg);
+  }
+  .co-1{top:36px;  left:-10px}
+  .co-2{top:240px; left:-30px}
+  .co-3{top:430px; left:-10px}
+
+  /* deco fish small for recommend section */
+  .rec-fish{position:absolute; width:30px; opacity:.5; pointer-events:none}
+  .rf1{top:30px; left:380px}
+  .rf2{top:540px; left:320px}
+  .rec-bubble{position:absolute; background:#cfe8f7; border-radius:50%; opacity:.7; pointer-events:none}
+  .rb1{top:60px; left:480px; width:8px; height:8px}
+  .rb2{top:80px; left:520px; width:5px; height:5px}
+  .rb3{top:110px; left:500px; width:6px; height:6px}
+
+  /* ════════════════════════════════════════════════════
+     SECTION ⑥  やさしいのに、ちゃんと上達できる理由
+     ════════════════════════════════════════════════════ */
+  .reason-section{
+    position:relative;
+    background:#EAF5FC;
+    padding:70px 36px 70px;
+    overflow:hidden;
+  }
+  .reason-inner{max-width:1200px; margin:0 auto}
+  .reason-heading{
+    display:flex; align-items:center; justify-content:center; gap:18px;
+    font-weight:900;
+    font-size:36px;
+    color:var(--blue-700);
+    letter-spacing:.01em;
+    margin:0 0 26px;
+    text-align:center;
+  }
+  .reason-heading .qmark{
+    color:var(--blue-500);
+    font-size:28px;
+    font-weight:700;
+  }
+  .reason-lead{
+    text-align:center;
+    font-size:15px;
+    line-height:2;
+    color:var(--ink-700);
+    margin:0 0 44px;
+    font-weight:500;
+  }
+  .reason-lead em{
+    font-style:normal;
+    color:var(--blue-700);
+    font-weight:700;
+  }
+
+  .reason-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:22px;
+  }
+  .reason-card{
+    background:#fff;
+    border-radius:20px;
+    padding:26px 22px 28px;
+    text-align:center;
+    box-shadow:0 6px 18px rgba(20,80,160,.06);
+  }
+  .reason-card .rc-ic{
+    width:54px; height:54px;
+    margin:0 auto 14px;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--teal-500);
+  }
+  .reason-card .rc-ic svg{width:46px; height:46px}
+  .reason-card.is-teal .rc-ic{color:var(--teal-500)}
+  .reason-card.is-yellow .rc-ic{color:#FFB940}
+  .reason-card.is-coral .rc-ic{color:var(--coral-500)}
+  .reason-card.is-blue .rc-ic{color:var(--blue-600)}
+  .reason-card h4{
+    margin:0 0 12px;
+    font-size:15.5px; font-weight:700;
+    line-height:1.5;
+    color:var(--teal-500);
+  }
+  .reason-card.is-yellow h4{color:#E59A1F}
+  .reason-card.is-coral h4{color:var(--coral-500)}
+  .reason-card.is-blue h4{color:var(--blue-600)}
+  .reason-card p{
+    margin:0;
+    font-size:13px; line-height:1.85;
+    color:var(--ink-700);
+    font-weight:500;
+  }
+
+  /* ════════════════════════════════════════════════════
+     SECTION ⑦  Fin-D の指導実績
+     ════════════════════════════════════════════════════ */
+  .credit-section{
+    position:relative;
+    background:linear-gradient(180deg, #DCEEFA 0%, #BFE0F6 100%);
+    padding:50px 36px 60px;
+    overflow:hidden;
+  }
+  .credit-inner{
+    max-width:1200px; margin:0 auto;
+    display:grid;
+    grid-template-columns: 280px 1fr;
+    gap:36px;
+    align-items:center;
+  }
+  .credit-photo{
+    width:280px; height:280px;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 12px 30px rgba(20,80,160,.15);
+  }
+  .credit-photo img{width:100%; height:100%; object-fit:cover}
+  .credit-right{
+    display:flex; flex-direction:column; align-items:center;
+  }
+  .credit-title{
+    display:flex; align-items:center; gap:16px;
+    font-weight:900;
+    font-size:30px;
+    color:var(--blue-700);
+    margin:0 0 32px;
+  }
+  .credit-title .laurel{
+    width:24px; height:32px; color:var(--blue-500);
+  }
+  .credit-stats{
+    display:grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap:14px;
+    width:100%;
+  }
+  .stat{
+    background:#fff;
+    border-radius:18px;
+    padding:18px 12px 18px;
+    text-align:center;
+    box-shadow:0 6px 16px rgba(20,80,160,.08);
+  }
+  .stat .s-ic{
+    width:56px; height:56px;
+    margin:0 auto 10px;
+    border-radius:50%;
+    background:#EAF5FC;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .stat .s-ic svg{width:30px; height:30px}
+  .stat h5{
+    margin:0;
+    font-size:13px; font-weight:700;
+    color:var(--blue-700);
+    line-height:1.5;
+  }
+  .stat h5 strong{
+    color:var(--ink-900);
+    display:block;
+  }
+  .credit-note{
+    font-size:11px;
+    color:var(--ink-500);
+    margin-top:14px;
+    text-align:right;
+    width:100%;
+  }
+
+  @media (max-width: 980px){
+    .recommend-inner{grid-template-columns:1fr; gap:40px}
+    .photo-stack{min-height:480px; max-width:420px; margin:0 auto}
+    .reason-grid{grid-template-columns:repeat(2,1fr)}
+    .credit-inner{grid-template-columns:1fr; gap:24px; justify-items:center}
+    .credit-photo{width:260px; height:200px}
+    .credit-stats{grid-template-columns:repeat(3,1fr)}
+    .reco-grid{grid-template-columns:1fr}
+    .recommend-section{padding:60px 20px 60px; margin:12px}
+    .reason-section{padding:50px 20px 50px}
+    .credit-section{padding:40px 20px 50px}
+    .recommend-title{font-size:28px}
+    .reason-heading{font-size:26px}
+    .credit-title{font-size:22px; flex-wrap:wrap; justify-content:center; text-align:center; gap:8px}
+    .co-1, .co-2, .co-3{position:static; margin:0 auto 14px; width:108px; height:108px; font-size:13px}
+    .co-1::after, .co-2::after, .co-3::after{display:none}
+    .photo-bubble{position:static; width:80%!important; max-width:340px; height:auto!important; aspect-ratio:1/1; margin:0 auto 16px}
+  }
+  @media (max-width: 560px){
+    .reason-grid{grid-template-columns:1fr}
+    .credit-stats{grid-template-columns:repeat(2,1fr)}
+  }
+
+  /* ════════════════════════════════════════════════════
+     SECTION ②  正しく教わるだけで〜  (intro + group photo)
+     ════════════════════════════════════════════════════ */
+  .intro-section{
+    position:relative;
+    background:#fff;
+    padding:96px 36px 64px;
+    overflow:hidden;
+  }
+  .intro-inner{
+    max-width:1180px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:60px;
+    align-items:center;
+  }
+  /* Decorative fish (light blue) floating in this section */
+  .intro-section .deco-fish{position:absolute; opacity:.5; pointer-events:none}
+  .intro-fish-1{top:60px; left:140px; width:34px}
+  .intro-fish-2{top:180px; left:60px;  width:26px}
+  .intro-fish-3{top:80px;  right:36%;  width:30px}
+  .intro-bubble{position:absolute; border-radius:50%; background:#DCEEFA; opacity:.7; pointer-events:none}
+  .ib1{top:330px; left:120px; width:8px; height:8px}
+  .ib2{top:370px; left:90px;  width:6px; height:6px}
+  .ib3{top:420px; left:140px; width:5px; height:5px}
+
+  .intro-heading{
+    font-weight:900;
+    font-size:44px;
+    line-height:1.38;
+    color:var(--blue-700);
+    letter-spacing:.01em;
+    margin:0 0 28px;
+  }
+  .intro-heading .num{
+    color:var(--blue-700);
+    font-family:"Poppins","Noto Sans JP",sans-serif;
+    font-weight:900;
+  }
+  .intro-heading .u-yellow{
+    position:relative; display:inline-block;
+  }
+  .intro-heading .u-yellow::after{
+    content:""; position:absolute; left:-4px; right:-4px; bottom:4px; height:8px;
+    background:var(--yellow); border-radius:5px; z-index:-1;
+  }
+  .intro-heading .accent-teal{color:var(--teal-500)}
+  .intro-lead{
+    font-size:15px;
+    line-height:2;
+    color:var(--ink-700);
+    margin:0 0 18px;
+    font-weight:500;
+  }
+  .check-list{
+    list-style:none; padding:0; margin:0 0 18px;
+  }
+  .check-list li{
+    display:flex; align-items:center; gap:12px;
+    font-size:15px; font-weight:500;
+    color:var(--ink-700);
+    padding:6px 0;
+  }
+  .check-list .check{
+    width:22px; height:22px; border-radius:50%;
+    background:#fff; border:2px solid var(--blue-500);
+    display:inline-flex; align-items:center; justify-content:center;
+    color:var(--blue-500); flex-shrink:0;
+  }
+  .check-list .check svg{width:12px; height:12px}
+  .intro-outro{
+    font-size:15px;
+    line-height:2;
+    color:var(--blue-700);
+    margin:18px 0 0;
+    font-weight:700;
+  }
+
+  .intro-photo{
+    position:relative;
+    aspect-ratio: 1 / .96;
+    width:100%;
+    border-radius: 50% 48% 50% 50% / 50% 50% 48% 50%;
+    overflow:hidden;
+    box-shadow:0 18px 40px rgba(20,80,160,.12);
+    border:6px solid #fff;
+  }
+  .intro-photo img{width:100%; height:100%; object-fit:cover}
+
+  /* ════════════════════════════════════════════════════
+     SECTION ③  Voice band (light blue)
+     ════════════════════════════════════════════════════ */
+  .voice-band{
+    position:relative;
+    background:linear-gradient(180deg, #EAF5FC 0%, #DCEEFA 100%);
+    padding:54px 36px 70px;
+    overflow:hidden;
+  }
+  .voice-inner{
+    max-width:1100px; margin:0 auto;
+  }
+  .voice-heading{
+    display:flex; align-items:center; justify-content:center; gap:18px;
+    font-size:20px; font-weight:700;
+    color:var(--ink-900);
+    margin:0 0 36px;
+  }
+  .voice-heading::before, .voice-heading::after{
+    content:""; width:16px; height:24px;
+    background:
+      linear-gradient(to bottom right, transparent 49%, var(--blue-500) 50%, transparent 51%),
+      linear-gradient(to top right, transparent 49%, var(--blue-500) 50%, transparent 51%);
+    background-size:100% 50%, 100% 50%;
+    background-repeat:no-repeat;
+    background-position:top, bottom;
+    display:none;
+  }
+  .voice-heading .dec{
+    display:inline-block;
+    color:var(--blue-500);
+    font-size:24px;
+  }
+  .voice-cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+    padding-left:50px;
+  }
+  .voice-card{
+    background:#fff;
+    border-radius:18px;
+    padding:22px 22px 22px 78px;
+    position:relative;
+    min-height:118px;
+    display:flex; align-items:center;
+    box-shadow:0 4px 14px rgba(46,137,230,.08);
+    font-size:14.5px; line-height:1.85;
+    color:var(--ink-700);
+    font-weight:500;
+  }
+  .voice-card::before{
+    content:""; position:absolute; left:-10px; top:36px;
+    width:18px; height:18px;
+    background:#fff;
+    transform:rotate(45deg);
+    box-shadow:-2px 2px 4px rgba(46,137,230,.04);
+  }
+  .voice-avatar{
+    position:absolute; left:-44px; top:50%; transform:translateY(-50%);
+    width:74px; height:74px; border-radius:50%;
+    display:flex; align-items:flex-end; justify-content:center;
+    overflow:hidden;
+  }
+  .voice-avatar svg{width:100%; height:100%}
+  .voice-confetti{
+    position:absolute; right:14px; bottom:10px; width:42px; height:18px;
+    pointer-events:none;
+  }
+  .voice-caption{
+    text-align:center;
+    font-size:12px;
+    color:var(--ink-500);
+    margin-top:24px;
+  }
+
+  /* ════════════════════════════════════════════════════
+     SECTION ④  スキルアップクラスとは？
+     ════════════════════════════════════════════════════ */
+  .about-section{
+    position:relative;
+    background:#fff;
+    padding:90px 36px 60px;
+    overflow:hidden;
+  }
+  .about-inner{
+    max-width:1180px; margin:0 auto;
+  }
+  .about-top{
+    display:grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap:60px;
+    align-items:center;
+    margin-bottom:60px;
+  }
+  .about-heading{
+    font-weight:900;
+    font-size:46px;
+    color:var(--blue-700);
+    letter-spacing:.01em;
+    margin:0 0 28px;
+    position:relative;
+    display:inline-block;
+  }
+  .about-heading::after{
+    content:""; position:absolute; left:0; right:60%;
+    bottom:-10px; height:3px; background:var(--blue-500);
+    border-radius:3px;
+  }
+  .about-sub{
+    font-size:18px; font-weight:700;
+    color:var(--blue-700);
+    margin:0 0 22px;
+  }
+  .about-body{
+    font-size:14.5px; line-height:2;
+    color:var(--ink-700);
+    margin:0;
+    font-weight:500;
+  }
+  .about-photo{
+    width:100%;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .about-photo img{
+    width:100%; max-width:460px; height:auto;
+  }
+
+  /* Feature card grid */
+  .feature-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px 28px;
+  }
+  .feature-card{
+    background:#fff;
+    border:1.5px solid #E6EEF6;
+    border-radius:18px;
+    padding:24px 24px 26px;
+    display:flex; gap:18px; align-items:flex-start;
+    box-shadow:0 4px 14px rgba(46,137,230,.05);
+  }
+  .feature-card .fc-ic{
+    width:56px; height:56px; border-radius:14px;
+    background:var(--blue-50);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .feature-card .fc-ic svg{width:30px; height:30px}
+  .feature-card.is-teal .fc-ic{background:#E2F6F3}
+  .feature-card.is-teal .fc-ic svg{color:var(--teal-500)}
+  .feature-card.is-blue .fc-ic{background:#E4F1FD}
+  .feature-card.is-blue .fc-ic svg{color:var(--blue-600)}
+  .feature-card h4{
+    margin:2px 0 8px;
+    font-size:18px; font-weight:700;
+    color:var(--teal-500);
+    line-height:1.4;
+  }
+  .feature-card.is-blue h4{color:var(--blue-600)}
+  .feature-card p{
+    margin:0;
+    font-size:13.5px;
+    line-height:1.8;
+    color:var(--ink-700);
+    font-weight:500;
+  }
+
+  /* Wave divider at the bottom of the section */
+  .wave-bottom{
+    position:absolute; left:0; right:0; bottom:-1px;
+    height:60px; pointer-events:none;
+  }
+  .wave-bottom svg{width:100%; height:100%}
+
+  /* ────── Responsive ────── */
+  @media (max-width: 980px){
+    .intro-inner, .about-top{grid-template-columns:1fr; gap:40px}
+    .voice-cards{grid-template-columns:1fr; gap:40px 28px; padding-left:34px}
+    .feature-grid{grid-template-columns:repeat(2,1fr)}
+    .intro-heading{font-size:30px; text-wrap:pretty}
+    .about-heading{font-size:30px}
+    .intro-section{padding:60px 20px 40px}
+    .about-section{padding:60px 20px 40px}
+    .voice-band{padding:48px 20px 56px}
+    .voice-heading{font-size:16px; gap:10px}
+    .intro-photo{max-width:420px; margin:0 auto}
+  }
+  @media (max-width: 560px){
+    .feature-grid{grid-template-columns:1fr}
+    .intro-heading{font-size:26px}
+    .about-heading{font-size:26px}
+    .voice-cards{padding-left:50px}
+  }
+
+  /* ────── Responsive (down to tablet) ────── */
+  @media (max-width: 1280px){
+    .primary-nav{display:none}
+    .hero-title{font-size:56px}
+  }
+  @media (max-width: 1100px){
+    .hero-title{font-size:44px}
+    .hero-inner{padding:48px 24px 60px}
+  }
+  @media (max-width: 900px){
+    .site-header{padding:0 16px; height:72px}
+    .header-actions .cta-pill{padding:10px 16px; font-size:13px}
+    .header-actions .cta-pill svg{width:14px; height:14px}
+    .logo{font-size:20px}
+    .logo svg{width:28px;height:28px}
+    .hero{min-height:auto}
+    .hero-inner{grid-template-columns:1fr; padding:36px 20px 48px; gap:32px; min-height:auto}
+    .hero-photo{margin-right:0; min-height:300px}
+    .hero-photo-frame{min-height:300px; border-radius:20px; -webkit-mask-image:none; mask-image:none}
+    .hero-title{font-size:36px}
+    .hero-title .nowrap{white-space:normal}
+    .hero-content{padding-left:0}
+    .feature-pills{gap:8px}
+    .feature-pill{padding:8px 14px 8px 10px; font-size:12px}
+    .feature-pill .ic{width:26px; height:26px}
+    .feature-pill .ic svg{width:14px;height:14px}
+    .hero-ctas{flex-direction:column; align-items:stretch; gap:12px}
+    .btn{justify-content:center; padding:14px 22px; font-size:15px}
+    .scroll-indicator{display:none}
+    .deco-fish-3,.deco-fish-4,.deco-fish-5{display:none}
+  }
+  @media (max-width: 480px){
+    .header-actions .cta-pill{display:none}
+    .hero-title{font-size:30px}
+    .eyebrow{font-size:15px}
+  }
+</style>
+</head>
+<body>
+
+  <!-- ─────────── HEADER ─────────── -->
+  <header class="site-header" data-screen-label="Header">
+    <div class="header-inner">
+      <a href="#" class="logo" aria-label="Fin-D Swim School">
+        <!-- Fin (shark fin) mark -->
+        <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <path d="M4 31c10 2 22 1 30-2 0 0-7-19-21-23-1 0-2 1-2 2 1 8-1 18-7 23z" fill="#2E89E6"/>
+          <path d="M6 33c8 2 18 1 26-1-3 1-6 1-9 1-7 0-12-1-17 0z" fill="#1B6FD8" opacity=".55"/>
+        </svg>
+        <span>Fin-D Swim School</span>
+      </a>
+
+      <nav class="primary-nav" aria-label="グローバルナビ">
+        <a href="#about">スクールについて</a>
+        <a href="#class">クラス紹介</a>
+        <a href="#schedule">スケジュール</a>
+        <a href="#coach">コーチ紹介</a>
+        <a href="#faq">よくあるご質問</a>
+        <a href="#news">お知らせ</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="cta-pill" href="#contact">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="3.5" y="5" width="17" height="15" rx="2.5" stroke="#fff" stroke-width="1.8"/>
+            <path d="M3.5 9.5h17" stroke="#fff" stroke-width="1.8"/>
+            <path d="M8 3.5v3M16 3.5v3" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          体験予約・お問い合わせ
+        </a>
+        <button class="hamburger" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="bars"><span></span><span></span><span></span></span>
+          <small>メニュー</small>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile slide-down nav -->
+    <nav class="mobile-menu" id="mobile-menu" aria-label="モバイルネービ">
+      <ul>
+        <li><a href="#about">スクールについて</a></li>
+        <li><a href="#class">クラス紹介</a></li>
+        <li><a href="#price">料金</a></li>
+        <li><a href="#faq">よくあるご質問</a></li>
+        <li><a href="#schedule">スケジュール</a></li>
+        <li><a href="#coach">コーチ紹介</a></li>
+      </ul>
+      <div class="menu-cta">
+        <a href="#contact">体験予約・お問い合わせ</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ─────────── HERO / FV ─────────── -->
+  <section class="hero" data-screen-label="FV">
+
+    <!-- Top wave band -->
+    <div class="deco-wave" aria-hidden="true">
+      <svg viewBox="0 0 1400 90" preserveAspectRatio="none">
+        <path d="M0 50 C 200 10, 380 80, 580 40 S 980 0, 1180 50 1400 30 1400 30 L1400 0 L0 0 Z" fill="#DCEEFA"/>
+        <path d="M0 70 C 220 30, 420 90, 620 60 S 1020 30, 1220 70 1400 55 1400 55 L1400 90 L0 90 Z" fill="#EAF5FC"/>
+      </svg>
+    </div>
+
+    <!-- Bubbles -->
+    <span class="deco deco-bubble b1" aria-hidden="true"></span>
+    <span class="deco deco-bubble b2" aria-hidden="true"></span>
+    <span class="deco deco-bubble b3" aria-hidden="true"></span>
+    <span class="deco deco-bubble b4" aria-hidden="true"></span>
+    <span class="deco deco-bubble b5" aria-hidden="true"></span>
+    <span class="deco deco-bubble b6" aria-hidden="true"></span>
+
+    <!-- Fish decorations -->
+    <span class="deco deco-fish-1" aria-hidden="true">
+      <svg viewBox="0 0 46 30" fill="none"><path d="M2 15c4-9 16-13 26-10 5 1 11 5 16 10-5 5-11 9-16 10-10 3-22-1-26-10z" fill="#BFE0F6"/><path d="M40 12l5-6v18l-5-6z" fill="#BFE0F6"/><circle cx="14" cy="13" r="1.5" fill="#fff"/></svg>
+    </span>
+    <span class="deco deco-fish-2" aria-hidden="true">
+      <svg viewBox="0 0 46 30" fill="none"><path d="M2 15c4-9 16-13 26-10 5 1 11 5 16 10-5 5-11 9-16 10-10 3-22-1-26-10z" fill="#BFE0F6"/><path d="M40 12l5-6v18l-5-6z" fill="#BFE0F6"/><circle cx="14" cy="13" r="1.5" fill="#fff"/></svg>
+    </span>
+    <span class="deco deco-fish-3" aria-hidden="true">
+      <svg viewBox="0 0 46 30" fill="none"><path d="M44 15c-4-9-16-13-26-10C13 6 7 10 2 15c5 5 11 9 16 10 10 3 22-1 26-10z" fill="#BFE0F6"/><path d="M6 12l-5-6v18l5-6z" fill="#BFE0F6"/><circle cx="32" cy="13" r="1.5" fill="#fff"/></svg>
+    </span>
+    <span class="deco deco-fish-4" aria-hidden="true">
+      <svg viewBox="0 0 46 30" fill="none"><path d="M2 15c4-9 16-13 26-10 5 1 11 5 16 10-5 5-11 9-16 10-10 3-22-1-26-10z" fill="#BFE0F6"/><path d="M40 12l5-6v18l-5-6z" fill="#BFE0F6"/><circle cx="14" cy="13" r="1.5" fill="#fff"/></svg>
+    </span>
+    <span class="deco deco-fish-5" aria-hidden="true">
+      <svg viewBox="0 0 46 30" fill="none"><path d="M2 15c4-9 16-13 26-10 5 1 11 5 16 10-5 5-11 9-16 10-10 3-22-1-26-10z" fill="#BFE0F6"/><path d="M40 12l5-6v18l-5-6z" fill="#BFE0F6"/><circle cx="14" cy="13" r="1.5" fill="#fff"/></svg>
+    </span>
+
+    <div class="hero-inner">
+      <!-- LEFT: text -->
+      <div class="hero-content">
+        <span class="eyebrow">フィンスイミング スキルアップクラス</span>
+
+        <h1 class="hero-title">
+          <span class="nowrap">フィンスイミングを、</span><br />
+          <span class="nowrap">もっと<span class="accent-teal">楽しく</span>、</span><br />
+          <span class="nowrap">もっと<span class="accent-underline">上手</span>に。</span>
+        </h1>
+
+        <p class="hero-lead">
+          子どもから大人まで、フィンを使って楽しく上達。<br />
+          Fin-Dの専門的な指導を、やさしく体感できる少人数制クラスです。
+        </p>
+
+        <div class="feature-pills">
+          <span class="feature-pill">
+            <span class="ic ic-people">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/><path d="M2 19c0-3 3-5 6-5s6 2 6 5v1H2v-1z"/><path d="M14 14c-.6 0-1.2.1-1.7.3 1.7 1 2.7 2.7 2.7 4.7v1H22v-1c0-3-3-5-6-5-.7 0-1.4.1-2 0z"/></svg>
+            </span>
+            少人数制
+          </span>
+          <span class="feature-pill">
+            <span class="ic ic-heart">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7-4.5-9.5-9C.8 8.5 2.7 4.5 6.5 4.5c2 0 3.7 1.1 4.5 2.7.8-1.6 2.5-2.7 4.5-2.7 3.8 0 5.7 4 4 7.5C19 16.5 12 21 12 21z"/></svg>
+            </span>
+            大人も<br />参加しやすい
+          </span>
+          <span class="feature-pill">
+            <span class="ic ic-fin">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 19c6 1 13 .5 18-1 0 0-4-12-13-14-.6 0-1 .5-1 1 .6 5-.6 11-4 14z"/></svg>
+            </span>
+            フィン経験がない方も<br />相談OK
+          </span>
+        </div>
+
+        <div class="hero-ctas">
+          <a class="btn btn-coral" href="#trial">
+            <span class="ic-btn">
+              <svg viewBox="0 0 28 28" fill="currentColor" aria-hidden="true">
+                <circle cx="20" cy="6" r="2.5"/>
+                <path d="M3 18c2-1 4-1 6 0l2 1c1 .5 3 .5 4 0l2-1c2-1 4-1 6 0M3 22c2-1 4-1 6 0l2 1c1 .5 3 .5 4 0l2-1c2-1 4-1 6 0" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                <path d="M9 16l5-5 4 2 4-4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            初回体験はこちら
+            <span class="arrow">
+              <svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 6h6m0 0L6 3m3 3L6 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+          <a class="btn btn-line" href="#line">
+            <span class="ic-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.8 5.2 4.6 6.6-.2.7-.8 2.4-.9 2.8-.1.5.2.5.4.4.2-.1 2.5-1.7 3.5-2.4.8.1 1.5.2 2.4.2 5.5 0 10-3.6 10-8S17.5 3 12 3z"/></svg>
+            </span>
+            LINEで相談する
+            <span class="arrow">
+              <svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 6h6m0 0L6 3m3 3L6 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT: photo -->
+      <div class="hero-photo">
+        <div class="hero-photo-frame">
+          <img src="project/assets/fv-photo.png" alt="プールサイドでフィンスイミングのレッスンを受ける生徒たち" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll cue -->
+    <div class="scroll-indicator" aria-hidden="true">
+      <small>SCROLL</small>
+      <span class="circ">
+        <svg viewBox="0 0 14 14" fill="none"><path d="M7 2v9m0 0L3 7m4 4l4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════ ② INTRO ═══════════════ -->
+  <section class="intro-section" data-screen-label="Intro">
+    <!-- Decorative fish -->
+    <span class="deco-fish intro-fish-1" aria-hidden="true">
+      <svg viewBox="0 0 46 30" fill="none"><path d="M2 15c4-9 16-13 26-10 5 1 11 5 16 10-5 5-11 9-16 10-10 3-22-1-26-10z" fill="#BFE0F6"/><path d="M40 12l5-6v18l-5-6z" fill="#BFE0F6"/><circle cx="14" cy="13" r="1.5" fill="#fff"/></svg>
+    </span>
+    <span class="deco-fish intro-fish-2" aria-hidden="true">
+      <svg viewBox="0 0 46 30" fill="none"><path d="M44 15c-4-9-16-13-26-10C13 6 7 10 2 15c5 5 11 9 16 10 10 3 22-1 26-10z" fill="#BFE0F6"/><path d="M6 12l-5-6v18l5-6z" fill="#BFE0F6"/><circle cx="32" cy="13" r="1.5" fill="#fff"/></svg>
+    </span>
+    <span class="deco-fish intro-fish-3" aria-hidden="true">
+      <svg viewBox="0 0 46 30" fill="none"><path d="M2 15c4-9 16-13 26-10 5 1 11 5 16 10-5 5-11 9-16 10-10 3-22-1-26-10z" fill="#BFE0F6"/><path d="M40 12l5-6v18l-5-6z" fill="#BFE0F6"/><circle cx="14" cy="13" r="1.5" fill="#fff"/></svg>
+    </span>
+    <span class="intro-bubble ib1" aria-hidden="true"></span>
+    <span class="intro-bubble ib2" aria-hidden="true"></span>
+    <span class="intro-bubble ib3" aria-hidden="true"></span>
+
+    <div class="intro-inner">
+      <div class="intro-text">
+        <h2 class="intro-heading">
+          <span class="u-yellow">正しく教わる</span>だけで、<br />
+          泳ぎは<span class="num">100倍</span><span class="accent-teal">楽しく</span>なる。
+        </h2>
+
+        <p class="intro-lead">
+          フィンを使って泳ぐと、水の中を進む感覚が大きく変わります。<br />
+          でも、フィンの使い方や身体の動かし方が少しズレているだけで、
+        </p>
+
+        <ul class="check-list">
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            思ったより進まない
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            すぐに疲れてしまう
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            何を直せばいいのかわからない
+          </li>
+        </ul>
+
+        <p class="intro-lead">と感じることもあります。</p>
+
+        <p class="intro-outro">
+          スキルアップクラスでは、1人ひとりの泳ぎや感覚に合わせて、<br />
+          フィンをもっと楽しく、もっと気持ちよく使えるようにサポートします。
+        </p>
+      </div>
+
+      <div class="intro-photo">
+        <img src="project/assets/group-photo.png" alt="プールでフィンスイミングのレッスンを行う様子" />
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════ ③ VOICES ═══════════════ -->
+  <section class="voice-band" data-screen-label="Voices">
+    <div class="voice-inner">
+      <h3 class="voice-heading">
+        <span class="dec">»</span>
+        参加された方から、こんな声が届いています
+        <span class="dec">«</span>
+      </h3>
+
+      <div class="voice-cards">
+        <!-- Card 1: woman (pink) -->
+        <article class="voice-card">
+          <span class="voice-avatar" aria-hidden="true">
+            <svg viewBox="0 0 80 80">
+              <!-- hair back -->
+              <path d="M14 36c0-15 12-26 26-26s26 11 26 26v18H14z" fill="#A86A4A"/>
+              <!-- face -->
+              <ellipse cx="40" cy="42" rx="16" ry="18" fill="#FFE2C7"/>
+              <!-- bangs -->
+              <path d="M22 30c4-10 14-15 22-13 9 2 14 9 14 18-6-4-12-6-18-6s-12 2-18 1z" fill="#A86A4A"/>
+              <!-- eyes -->
+              <ellipse cx="33" cy="42" rx="1.6" ry="2.2" fill="#3A2A20"/>
+              <ellipse cx="47" cy="42" rx="1.6" ry="2.2" fill="#3A2A20"/>
+              <!-- cheeks -->
+              <circle cx="29" cy="48" r="2.5" fill="#F8B7B0" opacity=".7"/>
+              <circle cx="51" cy="48" r="2.5" fill="#F8B7B0" opacity=".7"/>
+              <!-- mouth -->
+              <path d="M37 52c1 1.5 5 1.5 6 0" stroke="#3A2A20" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+              <!-- shirt (pink) -->
+              <path d="M12 80c0-12 12-18 28-18s28 6 28 18v0H12z" fill="#F4B5BA"/>
+            </svg>
+          </span>
+          説明がわかりやすくて、<br />
+          フィンの使い方の感覚が<br />
+          つかめました。
+          <svg class="voice-confetti" viewBox="0 0 42 18" aria-hidden="true">
+            <circle cx="6" cy="6" r="2" fill="#F26B7E"/>
+            <rect x="14" y="3" width="6" height="2" rx="1" fill="#FFD046" transform="rotate(20 17 4)"/>
+            <circle cx="28" cy="12" r="1.5" fill="#36C2B2"/>
+            <rect x="34" y="6" width="4" height="2" rx="1" fill="#4DA3F2" transform="rotate(-25 36 7)"/>
+          </svg>
+        </article>
+
+        <!-- Card 2: boy (blue) -->
+        <article class="voice-card">
+          <span class="voice-avatar" aria-hidden="true">
+            <svg viewBox="0 0 80 80">
+              <!-- hair -->
+              <path d="M16 36c0-14 10-24 24-24s24 10 24 24v8c-4-6-10-8-16-8-4 0-8 2-10 4-3-3-7-5-12-5-4 0-8 2-10 4z" fill="#3A2A20"/>
+              <!-- face -->
+              <ellipse cx="40" cy="44" rx="16" ry="17" fill="#FFE2C7"/>
+              <!-- eyes (closed smile) -->
+              <path d="M31 44c1.5-1.5 4-1.5 5.5 0" stroke="#3A2A20" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+              <path d="M43.5 44c1.5-1.5 4-1.5 5.5 0" stroke="#3A2A20" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+              <!-- cheeks -->
+              <circle cx="28" cy="50" r="2.5" fill="#F8B7B0" opacity=".7"/>
+              <circle cx="52" cy="50" r="2.5" fill="#F8B7B0" opacity=".7"/>
+              <!-- mouth -->
+              <path d="M37 54c1 1.5 5 1.5 6 0" stroke="#3A2A20" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+              <!-- shirt blue -->
+              <path d="M12 80c0-12 12-18 28-18s28 6 28 18H12z" fill="#A8DCF2"/>
+            </svg>
+          </span>
+          大人になってからでも、<br />
+          泳ぎが変わるんだと<br />
+          感じました。
+          <svg class="voice-confetti" viewBox="0 0 42 18" aria-hidden="true">
+            <circle cx="6" cy="6" r="2" fill="#4DA3F2"/>
+            <rect x="14" y="3" width="6" height="2" rx="1" fill="#FFD046" transform="rotate(20 17 4)"/>
+            <circle cx="28" cy="12" r="1.5" fill="#36C2B2"/>
+            <rect x="34" y="6" width="4" height="2" rx="1" fill="#F26B7E" transform="rotate(-25 36 7)"/>
+          </svg>
+        </article>
+
+        <!-- Card 3: woman (yellow) bun -->
+        <article class="voice-card">
+          <span class="voice-avatar" aria-hidden="true">
+            <svg viewBox="0 0 80 80">
+              <!-- bun -->
+              <circle cx="40" cy="14" r="7" fill="#6B4A36"/>
+              <!-- hair -->
+              <path d="M14 38c0-14 12-26 26-26s26 12 26 26v16H14z" fill="#6B4A36"/>
+              <!-- face -->
+              <ellipse cx="40" cy="44" rx="15" ry="17" fill="#FFE2C7"/>
+              <!-- eyes -->
+              <path d="M31 44c1.5-1.5 4-1.5 5.5 0" stroke="#3A2A20" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+              <path d="M43.5 44c1.5-1.5 4-1.5 5.5 0" stroke="#3A2A20" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+              <!-- cheeks -->
+              <circle cx="29" cy="50" r="2.5" fill="#F8B7B0" opacity=".7"/>
+              <circle cx="51" cy="50" r="2.5" fill="#F8B7B0" opacity=".7"/>
+              <!-- mouth -->
+              <path d="M37 54c1 1.5 5 1.5 6 0" stroke="#3A2A20" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+              <!-- earrings -->
+              <circle cx="24" cy="48" r="1.4" fill="#FFD046"/>
+              <circle cx="56" cy="48" r="1.4" fill="#FFD046"/>
+              <!-- shirt yellow -->
+              <path d="M12 80c0-12 12-18 28-18s28 6 28 18H12z" fill="#FFE3A1"/>
+            </svg>
+          </span>
+          雰囲気がやさしくて、<br />
+          初めてでも安心して<br />
+          参加できました。
+          <svg class="voice-confetti" viewBox="0 0 42 18" aria-hidden="true">
+            <circle cx="6" cy="6" r="2" fill="#FFD046"/>
+            <rect x="14" y="3" width="6" height="2" rx="1" fill="#36C2B2" transform="rotate(20 17 4)"/>
+            <circle cx="28" cy="12" r="1.5" fill="#F26B7E"/>
+            <rect x="34" y="6" width="4" height="2" rx="1" fill="#4DA3F2" transform="rotate(-25 36 7)"/>
+          </svg>
+        </article>
+      </div>
+
+      <p class="voice-caption">※これは一部のご感想です、効果や感じ方には個人差があります。</p>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════ ④ スキルアップクラスとは？ ═══════════════ -->
+  <section class="about-section" id="class" data-screen-label="About class">
+    <!-- decorative fish -->
+    <span class="deco-fish" style="position:absolute; top:90px; left:38%; width:30px; opacity:.4" aria-hidden="true">
+      <svg viewBox="0 0 46 30" fill="none"><path d="M2 15c4-9 16-13 26-10 5 1 11 5 16 10-5 5-11 9-16 10-10 3-22-1-26-10z" fill="#BFE0F6"/><path d="M40 12l5-6v18l-5-6z" fill="#BFE0F6"/></svg>
+    </span>
+
+    <div class="about-inner">
+      <div class="about-top">
+        <div>
+          <h2 class="about-heading">スキルアップクラスとは？</h2>
+          <p class="about-sub">フィンを楽しみながら、少しずつ上達していく少人数制クラスです。</p>
+          <p class="about-body">
+            Fin-D Swim Schoolのスキルアップクラスは、フィンスイミングをもっと楽しく、もっと上手に泳ぎたい方のための少人数制クラスです。週末や休日を中心に実施し、ビーフィン・モノフィンどちらにも対応しています。<br />
+            フィンの使い方、水中姿勢、キック、身体の動かし方などを、参加者の泳力や経験に合わせて丁寧に練習していきます。無理なく、楽しく、確実に上達を目指します。
+          </p>
+        </div>
+        <div class="about-photo">
+          <img src="project/assets/fins-photo.png" alt="ビーフィンとモノフィンの写真" />
+        </div>
+      </div>
+
+      <div class="feature-grid">
+        <!-- Row 1 -->
+        <article class="feature-card is-teal">
+          <span class="fc-ic">
+            <svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="6" width="22" height="20" rx="2.5"/><path d="M4 12h22"/><path d="M9 3v6M21 3v6" stroke-linecap="round"/></svg>
+          </span>
+          <div>
+            <h4>通いやすい</h4>
+            <p>週末や休日を中心に実施しています。無理なく続けやすいペースです。</p>
+          </div>
+        </article>
+
+        <article class="feature-card is-teal">
+          <span class="fc-ic">
+            <svg viewBox="0 0 30 30" fill="currentColor"><circle cx="10" cy="11" r="3.6"/><circle cx="20" cy="11" r="3.6"/><path d="M3 24c0-3.5 3.4-6 7-6s7 2.5 7 6v1H3z"/><path d="M17 18c-.5 0-1 0-1.5.1 1.7 1.3 2.5 3.3 2.5 5.4v1.5H27V24c0-3.5-3.4-6-7-6-1.1 0-2.1.2-3 .5z"/></svg>
+          </span>
+          <div>
+            <h4>定員10名</h4>
+            <p>少人数制で、一人ひとりの泳ぎや感覚を丁寧に見てアドバイスします。</p>
+          </div>
+        </article>
+
+        <article class="feature-card is-blue">
+          <span class="fc-ic">
+            <svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="15" cy="15" r="11"/><path d="M15 8v7l4.5 3" stroke-linecap="round"/></svg>
+          </span>
+          <div>
+            <h4>60分レッスン</h4>
+            <p>集中して学びやすい60分レッスン。初回体験もしやすい時間設定です。</p>
+          </div>
+        </article>
+
+        <!-- Row 2 -->
+        <article class="feature-card is-blue">
+          <span class="fc-ic">
+            <svg viewBox="0 0 30 30" fill="currentColor"><path d="M4 23c7 1 15 .5 22-1 0 0-5-14-15-16-.7 0-1.2.6-1.2 1.2.7 6-.7 13-5.8 15.8z"/></svg>
+          </span>
+          <div>
+            <h4>ビーフィン・<br />モノフィン対応</h4>
+            <p>お持ちのフィンや経験、目的に合わせてご参加いただけます。</p>
+          </div>
+        </article>
+
+        <article class="feature-card is-teal">
+          <span class="fc-ic">
+            <svg viewBox="0 0 30 30" fill="currentColor"><circle cx="15" cy="13" r="9"/><path d="M3 27c0-4 4-7 12-7s12 3 12 7" stroke="currentColor" stroke-width="0" fill="currentColor"/><circle cx="11" cy="12" r="1.3" fill="#fff"/><circle cx="19" cy="12" r="1.3" fill="#fff"/><path d="M12 16c1 1 5 1 6 0" stroke="#fff" stroke-width="1.4" stroke-linecap="round" fill="none"/></svg>
+          </span>
+          <div>
+            <h4>お子様もOK！</h4>
+            <p>小学5年生以上のお子様から、マスターズ世代の方まで参加できます。</p>
+          </div>
+        </article>
+
+        <article class="feature-card is-teal">
+          <span class="fc-ic">
+            <svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M5 6h8c1.7 0 3 1.3 3 3v17c0-1.7-1.3-3-3-3H5V6z"/><path d="M25 6h-8c-1.7 0-3 1.3-3 3v17c0-1.7 1.3-3 3-3h8V6z"/></svg>
+          </span>
+          <div>
+            <h4>フィン未経験でも<br />上達できる</h4>
+            <p>一定の泳力があれば、フィン経験がない方もすぐに上達できます。</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════ ⑤ こんな方におすすめです ═══════════════ -->
+  <section class="recommend-section" data-screen-label="Recommend">
+    <span class="rec-fish rf1" aria-hidden="true">
+      <svg viewBox="0 0 46 30" fill="none"><path d="M2 15c4-9 16-13 26-10 5 1 11 5 16 10-5 5-11 9-16 10-10 3-22-1-26-10z" fill="#BFE0F6"/><path d="M40 12l5-6v18l-5-6z" fill="#BFE0F6"/></svg>
+    </span>
+    <span class="rec-fish rf2" aria-hidden="true">
+      <svg viewBox="0 0 46 30" fill="none"><path d="M2 15c4-9 16-13 26-10 5 1 11 5 16 10-5 5-11 9-16 10-10 3-22-1-26-10z" fill="#BFE0F6"/><path d="M40 12l5-6v18l-5-6z" fill="#BFE0F6"/></svg>
+    </span>
+    <span class="rec-bubble rb1" aria-hidden="true"></span>
+    <span class="rec-bubble rb2" aria-hidden="true"></span>
+    <span class="rec-bubble rb3" aria-hidden="true"></span>
+
+    <div class="recommend-inner">
+      <div>
+        <h2 class="recommend-title">
+          こんな方におすすめです
+          <span class="fish-ic" aria-hidden="true">
+            <svg viewBox="0 0 46 30" fill="none"><path d="M2 15c4-9 16-13 26-10 5 1 11 5 16 10-5 5-11 9-16 10-10 3-22-1-26-10z" fill="#4DA3F2"/><path d="M40 12l5-6v18l-5-6z" fill="#4DA3F2"/><circle cx="14" cy="13" r="1.8" fill="#fff"/></svg>
+          </span>
+        </h2>
+
+        <p class="recommend-lead">フィンを楽しみたい方、もっと気持ちよく泳ぎたい方におすすめです。</p>
+
+        <ul class="reco-grid">
+          <li class="reco-pill"><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>フィンの使い方を基礎から知りたい</li>
+          <li class="reco-pill"><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>大会に出ているけれど、フォームや基礎を見直したい</li>
+          <li class="reco-pill"><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>自己流の泳ぎを見直したい</li>
+          <li class="reco-pill"><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>マスターズ大会に向けて、もっと効率よく泳ぎたい</li>
+          <li class="reco-pill"><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>もっと楽に、気持ちよく泳ぎたい</li>
+          <li class="reco-pill"><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>記録だけでなく、泳ぎやすさや気持ちよさも大切にしたい</li>
+          <li class="reco-pill"><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>モノフィンに興味がある</li>
+          <li class="reco-pill"><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>フィンスイミングを長く楽しめる技術を身につけたい</li>
+          <li class="reco-pill"><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>子どもにフィンスイミングを楽しく学ばせたい</li>
+          <li class="reco-pill"><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>周りについていけるか少し不安だが、きちんと学びたい</li>
+          <li class="reco-pill"><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>4泳法だけでなく、新しい泳ぎに挑戦したい</li>
+        </ul>
+
+        <p class="reco-outro">今の泳ぎをより楽しく、より気持ちよくするために、<br />一人ひとりの目的やレベルに合わせてサポートします。</p>
+      </div>
+
+      <div class="photo-stack" aria-hidden="false">
+        <div class="photo-bubble pb-1"><img src="project/assets/p3-man-top.png" alt="プールサイドでくつろぐ男性" /></div>
+        <div class="photo-bubble pb-2"><img src="project/assets/p3-kids.png" alt="フィンを持つ子どもたち" /></div>
+        <div class="photo-bubble pb-3"><img src="project/assets/p3-woman.png" alt="フィンを持つ女性" /></div>
+
+        <div class="callout co-1">もっと楽に<br />泳ぎたい！</div>
+        <div class="callout co-2">子どもに<br />楽しく学ばせたい！</div>
+        <div class="callout co-3">大会に向けて<br />泳ぎを見直したい！</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════ ⑥ やさしいのに、ちゃんと上達できる理由 ═══════════════ -->
+  <section class="reason-section" data-screen-label="Reasons">
+    <div class="reason-inner">
+      <h2 class="reason-heading">
+        <span class="dec" style="color:var(--blue-500);font-size:24px">»</span>
+        やさしいのに、ちゃんと上達できる理由
+        <span class="dec" style="color:var(--blue-500);font-size:24px">«</span>
+      </h2>
+      <p class="reason-lead">
+        楽しく泳ぐためにも、速く泳ぐためにも、大切なのは「効率よく泳ぐこと」。<br />
+        Fin-Dでは、長年の研究と豊富な指導経験をもとに、フィンスイミングのスキルを体系化してきました。<br />
+        難しい理論をやさしく、わかりやすく伝えるから、<em>子どもも大人も着実に上達していきます。</em>
+      </p>
+
+      <div class="reason-grid">
+        <article class="reason-card is-teal">
+          <span class="rc-ic">
+            <svg viewBox="0 0 46 46" fill="currentColor" aria-hidden="true">
+              <circle cx="32" cy="10" r="4"/>
+              <path d="M5 28c3-2 6-2 9 0l3 1.5c2 1 4 1 6 0l3-1.5c3-2 6-2 9 0M5 34c3-2 6-2 9 0l3 1.5c2 1 4 1 6 0l3-1.5c3-2 6-2 9 0" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+              <path d="M14 24l8-7 6 3 6-6" stroke="currentColor" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <h4>いちばん大切なのは<br />「スキル」</h4>
+          <p>楽しく泳ぐにも、速く泳ぐにも、効率よく泳ぐための技術が必要です。</p>
+        </article>
+
+        <article class="reason-card is-blue">
+          <span class="rc-ic">
+            <svg viewBox="0 0 46 46" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true">
+              <path d="M8 12h11c2.6 0 4.6 2 4.6 4.6V38c0-2.6-2-4.6-4.6-4.6H8V12z"/>
+              <path d="M38 12H27c-2.6 0-4.6 2-4.6 4.6V38c0-2.6 2-4.6 4.6-4.6h11V12z"/>
+            </svg>
+          </span>
+          <h4>20年以上かけて<br />体系化した指導</h4>
+          <p>長年の研究と指導経験をもとに、フィンの使い方や身体の動かし方を体系的に整理しています。</p>
+        </article>
+
+        <article class="reason-card is-yellow">
+          <span class="rc-ic">
+            <svg viewBox="0 0 46 46" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+              <path d="M23 8c-6 0-11 4.5-11 10.5 0 4 2 6.5 4 8.5.8.8 1.4 1.8 1.4 3V32h11.2v-2c0-1.2.6-2.2 1.4-3 2-2 4-4.5 4-8.5 0-6-5-10.5-11-10.5z"/>
+              <path d="M19 36h8M20.5 40h5"/>
+              <path d="M23 4v-1M9 12l-1-1M37 12l1-1M4 23h-1M43 23h1"/>
+            </svg>
+          </span>
+          <h4>専門的な内容を、<br />わかりやすく</h4>
+          <p>難しい理論のままではなく、子どもにも大人にも伝わる言葉と練習に変えてお伝えします。</p>
+        </article>
+
+        <article class="reason-card is-coral">
+          <span class="rc-ic">
+            <svg viewBox="0 0 46 46" fill="currentColor" aria-hidden="true">
+              <path d="M23 40s-13-8.5-17-17.5C3.5 16 7 8.5 14 8.5c3.7 0 7 2 9 5 2-3 5.3-5 9-5 7 0 10.5 7.5 8 14C36 31.5 23 40 23 40z"/>
+            </svg>
+          </span>
+          <h4>感覚に寄り添う指導</h4>
+          <p>「なんでわかったんですか？」と言われることも多い、感覚に寄り添う指導でサポートします。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════ ⑦ Fin-D の指導実績 ═══════════════ -->
+  <section class="credit-section" data-screen-label="Credits">
+    <div class="credit-inner">
+      <div class="credit-photo">
+        <img src="project/assets/p3-poolside.png" alt="プールサイドに並ぶフィン" />
+      </div>
+      <div class="credit-right">
+        <h3 class="credit-title">
+          <svg class="laurel" viewBox="0 0 24 32" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4c-3 4-5 9-5 14 0 4 1 8 3 11M12 4c3 4 5 9 5 14 0 4-1 8-3 11M5 12c-3 2-3 6-2 9M19 12c3 2 3 6 2 9" stroke-linecap="round"/></svg>
+          Fin-Dの指導実績
+          <svg class="laurel" style="transform:scaleX(-1)" viewBox="0 0 24 32" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4c-3 4-5 9-5 14 0 4 1 8 3 11M12 4c3 4 5 9 5 14 0 4-1 8-3 11M5 12c-3 2-3 6-2 9M19 12c3 2 3 6 2 9" stroke-linecap="round"/></svg>
+        </h3>
+
+        <div class="credit-stats">
+          <div class="stat">
+            <span class="s-ic">
+              <svg viewBox="0 0 30 30" fill="#FFB940" aria-hidden="true">
+                <path d="M9 4h12v3c3 0 6 1 6 3 0 3-3 5-6 5v0c-.5 3-2.5 5-5 5.5V23l3 .5V26H11v-2.5l3-.5v-2.5c-2.5-.5-4.5-2.5-5-5.5-3 0-6-2-6-5 0-2 3-3 6-3V4z" stroke="#E59A1F" stroke-width=".8" stroke-linejoin="round"/>
+                <rect x="8" y="26" width="14" height="2" rx=".5" fill="#E59A1F"/>
+              </svg>
+            </span>
+            <h5>元日本代表・<br /><strong>日本記録保持者</strong></h5>
+          </div>
+          <div class="stat">
+            <span class="s-ic">
+              <svg viewBox="0 0 30 30" fill="#2E89E6" aria-hidden="true">
+                <circle cx="10" cy="11" r="3.6"/><circle cx="20" cy="11" r="3.6"/>
+                <path d="M3 24c0-3.5 3.4-6 7-6s7 2.5 7 6v1H3z"/>
+                <path d="M17 18c-.5 0-1 0-1.5.1 1.7 1.3 2.5 3.3 2.5 5.4v1.5H27V24c0-3.5-3.4-6-7-6-1.1 0-2.1.2-3 .5z"/>
+              </svg>
+            </span>
+            <h5>日本代表を<br /><strong>多数輩出</strong></h5>
+          </div>
+          <div class="stat">
+            <span class="s-ic">
+              <svg viewBox="0 0 30 30" fill="none" stroke="#2E89E6" stroke-width="1.8" aria-hidden="true">
+                <circle cx="15" cy="15" r="11"/>
+                <path d="M4 15h22M15 4c4 3 6 7 6 11s-2 8-6 11c-4-3-6-7-6-11s2-8 6-11z"/>
+              </svg>
+            </span>
+            <h5>国内外の<br /><strong>トップアスリートを指導</strong></h5>
+          </div>
+          <div class="stat">
+            <span class="s-ic">
+              <svg viewBox="0 0 30 30" fill="none" aria-hidden="true">
+                <rect x="4" y="6" width="22" height="20" rx="2.5" fill="#F26B7E"/>
+                <path d="M4 11h22" stroke="#fff" stroke-width="2"/>
+                <text x="15" y="22" text-anchor="middle" font-family="Poppins,sans-serif" font-weight="700" font-size="9" fill="#fff">20</text>
+                <path d="M9 4v4M21 4v4" stroke="#F26B7E" stroke-width="2.2" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <h5>指導歴<br /><strong>20年以上</strong></h5>
+          </div>
+          <div class="stat">
+            <span class="s-ic">
+              <svg viewBox="0 0 30 30" fill="#7BC55D" aria-hidden="true">
+                <circle cx="15" cy="9" r="4.5"/>
+                <path d="M6 28c0-5 4-9 9-9s9 4 9 9v0H6z"/>
+              </svg>
+            </span>
+            <h5>延べ10,000人以上<br /><strong>を指導</strong></h5>
+          </div>
+        </div>
+        <p class="credit-note">※上記はFin-D Swim School全体の実績です</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ ⑧ レッスンで身につくこと ═══════════════ -->
+  <section class="lesson-section" data-screen-label="Lesson">
+    <div class="top-wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0 30 C 220 0, 420 60, 620 30 S 1020 0, 1220 40 1440 20 1440 20 L1440 0 L0 0 Z" fill="#BFE0F6" opacity=".55"/>
+        <path d="M0 60 C 220 20, 420 80, 620 50 S 1020 20, 1220 60 1440 50 1440 50 L1440 80 L0 80 Z" fill="#DCEEFA"/>
+      </svg>
+    </div>
+
+    <div class="lesson-inner">
+      <h2 class="lesson-heading">
+        レッスンで身につくこと
+        <span class="spark" aria-hidden="true">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M10 2v3M16 4l-2 2M18 10h-3M16 16l-2-2M4 4l2 2M4 16l2-2M2 10h3"/>
+          </svg>
+        </span>
+      </h2>
+      <p class="lesson-sub">フィンの使い方から身体の動かし方まで、楽しく泳ぎながらしっかり上達。</p>
+
+      <div class="lesson-grid">
+        <article class="lesson-card is-blue">
+          <span class="lc-ic">
+            <svg viewBox="0 0 30 30" fill="currentColor" aria-hidden="true">
+              <path d="M12 3h6c1.5 0 2.6 1.2 2.6 2.6V20c0 3-2.6 5.4-5.6 5.4S9.4 23 9.4 20V5.6C9.4 4.2 10.5 3 12 3z"/>
+              <path d="M12 27h6v1.2c0 .5-.4 1-1 1h-4c-.5 0-1-.4-1-1V27z"/>
+            </svg>
+          </span>
+          <h4>フィンの使い方</h4>
+          <p>ビーフィン・モノフィンの特徴を知り、身体に合った使い方を身につけます。</p>
+          <div class="lc-photo"><img src="project/assets/lesson1.png" alt="フィンを使った練習" /></div>
+        </article>
+
+        <article class="lesson-card is-teal">
+          <span class="lc-ic">
+            <svg viewBox="0 0 30 30" fill="currentColor" aria-hidden="true">
+              <circle cx="22" cy="8" r="2.5"/>
+              <path d="M4 18c2-1 4-1 6 0l2 1c1 .5 3 .5 4 0l2-1c2-1 4-1 6 0M4 22c2-1 4-1 6 0l2 1c1 .5 3 .5 4 0l2-1c2-1 4-1 6 0" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <path d="M10 16l4-4 4 2 4-4" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <h4>水中姿勢</h4>
+          <p>抵抗の少ない姿勢を学び、楽に進める身体の使い方を身につけます。</p>
+          <div class="lc-photo"><img src="project/assets/lesson2.png" alt="水中姿勢の練習" /></div>
+        </article>
+
+        <article class="lesson-card is-blue">
+          <span class="lc-ic">
+            <svg viewBox="0 0 30 30" fill="currentColor" aria-hidden="true">
+              <circle cx="20" cy="5" r="1"/><circle cx="23" cy="8" r="1"/><circle cx="20" cy="10" r="1"/>
+              <path d="M10 6c0-1 .8-2 2-2 1.5 0 2.8 1.2 2.8 2.8V18c0 3 .5 5 3 7l-3 2c-2-1.5-3-3.5-3.5-6L9 14V6h1z"/>
+            </svg>
+          </span>
+          <h4>キックと身体の連動</h4>
+          <p>脚だけでなく、体幹やリズムを使って、より効率よく進む感覚をつかみます。</p>
+          <div class="lc-photo"><img src="project/assets/lesson3.png" alt="キックと身体の連動" /></div>
+        </article>
+
+        <article class="lesson-card is-blue">
+          <span class="lc-ic">
+            <svg viewBox="0 0 30 30" fill="currentColor" aria-hidden="true">
+              <rect x="4"  y="18" width="4" height="8" rx="1"/>
+              <rect x="11" y="13" width="4" height="13" rx="1"/>
+              <rect x="18" y="8"  width="4" height="18" rx="1"/>
+              <path d="M3 7l9-3 6 4 9-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M24 3l3 0 0 3" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <h4>疲れにくい泳ぎ</h4>
+          <p>力任せではなく、楽に進むポイントを知ることで、長く気持ちよく泳げるように。</p>
+          <div class="lc-photo"><img src="project/assets/lesson4.png" alt="疲れにくい泳ぎ" /></div>
+        </article>
+
+        <article class="lesson-card is-blue">
+          <span class="lc-ic">
+            <svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12a10 10 0 0 1 18-3M25 18a10 10 0 0 1-18 3"/>
+              <path d="M23 4v5h-5M7 26v-5h5"/>
+            </svg>
+          </span>
+          <h4>フォーム改善</h4>
+          <p>今の泳ぎのクセを見つけ、効率よく泳げるフォームに整えていきます。</p>
+          <div class="lc-photo"><img src="project/assets/lesson5.png" alt="フォーム改善" /></div>
+        </article>
+
+        <article class="lesson-card is-teal">
+          <span class="lc-ic">
+            <svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12l10-5 10 5-10 5-10-5z"/>
+              <path d="M5 18l10 5 10-5"/>
+              <path d="M5 24l10 5 10-5"/>
+            </svg>
+          </span>
+          <h4>大会につながる基礎</h4>
+          <p>スタートやターンなど、大会や記録に役立つ基礎スキルも磨いていきます。</p>
+          <div class="lc-photo"><img src="project/assets/lesson6.png" alt="大会につながる基礎" /></div>
+        </article>
+      </div>
+
+      <!-- Timeline subsection -->
+      <div class="timeline-wrap">
+        <h3 class="timeline-heading">
+          <span class="dec">»</span>
+          続けることで、こんな変化を目指せます
+          <span class="dec">«</span>
+        </h3>
+
+        <!-- Dashed connecting arrow -->
+        <div class="timeline-arrow" aria-hidden="true">
+          <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
+            <path d="M100 30 C 350 -10, 600 70, 720 30 S 1100 -10, 1320 30" stroke="#9BCEEF" stroke-width="2" fill="none" stroke-dasharray="6 6"/>
+            <circle cx="100" cy="30" r="5" fill="#fff" stroke="#9BCEEF" stroke-width="2"/>
+            <circle cx="720" cy="30" r="5" fill="#fff" stroke="#9BCEEF" stroke-width="2"/>
+            <circle cx="1320" cy="30" r="5" fill="#fff" stroke="#9BCEEF" stroke-width="2"/>
+            <path d="M1320 30l-10 -6M1320 30l-10 6" stroke="#9BCEEF" stroke-width="2.5" stroke-linecap="round" fill="none" transform="translate(20 0)"/>
+            <polygon points="1335,30 1320,24 1320,36" fill="#9BCEEF"/>
+          </svg>
+        </div>
+
+        <div class="timeline-grid">
+          <div class="tl-item">
+            <div class="tl-photo-block">
+              <span class="tl-badge teal">3ヶ月後</span>
+              <div class="tl-photo"><img src="project/assets/tl-boy.png" alt="3ヶ月後の生徒" /></div>
+            </div>
+            <div class="tl-text is-teal">
+              <h4>フィンに慣れ、<br />泳ぎの基礎がわかる</h4>
+              <ul class="tl-list">
+                <li><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>フィンの扱いに慣れてくる</li>
+                <li><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>姿勢・キックの基本がわかる</li>
+                <li><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>泳ぎのクセに気づける</li>
+                <li><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>楽に進める感覚が出てくる</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-photo-block">
+              <span class="tl-badge green">半年後</span>
+              <div class="tl-photo"><img src="project/assets/tl-woman.png" alt="半年後の生徒" /></div>
+            </div>
+            <div class="tl-text is-teal">
+              <h4>泳ぎに自信がつき、<br />楽に気持ちよく泳げる</h4>
+              <ul class="tl-list">
+                <li><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>フィンの使い方に自信がつく</li>
+                <li><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>水中姿勢が安定してくる</li>
+                <li><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>疲れにくく、気持ちよく泳げる</li>
+                <li><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>大会や記録にも活かせるように</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-photo-block">
+              <span class="tl-badge blue">1年後</span>
+              <div class="tl-photo"><img src="project/assets/tl-man.png" alt="1年後の生徒" /></div>
+            </div>
+            <div class="tl-text is-blue">
+              <h4>自分に合った泳ぎ方で、<br />フィンを長く楽しめる</h4>
+              <ul class="tl-list is-blue">
+                <li><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>自分に合った泳ぎ方がわかる</li>
+                <li><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>大会やイベントをもっと楽しめる</li>
+                <li><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>フィンスイミングライフが広がる</li>
+                <li><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>長く続けられる土台ができる</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary band -->
+      <div class="lesson-summary">
+        <span class="ls-ic">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M16 4c-5 0-9 4-9 9 0 3 1.5 5 3.5 7 .7.7 1.2 1.6 1.2 2.6V25h8.6v-2.4c0-1 .5-1.9 1.2-2.6 2-2 3.5-4 3.5-7 0-5-4-9-9-9z"/>
+            <path d="M13 28h6M14 30h4"/>
+          </svg>
+        </span>
+        <p class="ls-lead">
+          一人ひとりに合わせた指導で、<br />
+          「わかる」「できる」「楽しい」を増やしていきます。
+        </p>
+        <p class="ls-text">
+          その日のコンディションや目標に合わせて、内容を調整しながらレッスンを進めます。<br />
+          小さな「できた！」の積み重ねが、大きな自信と上達につながります。
+        </p>
+        <span class="ls-diver" aria-hidden="true">
+          <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Diver silhouette -->
+            <circle cx="44" cy="22" r="6"/>
+            <path d="M50 28c4 1 6 4 6 8l-2 12 6 18M40 28l-6 6-10 4M34 34l-2 16-8 14M50 38l16-4 10 6"/>
+            <!-- mask -->
+            <path d="M40 18c4-2 8-2 12 0"/>
+            <!-- fins -->
+            <path d="M58 64l8 4-4-10M22 60l-8 6 10-2"/>
+            <!-- bubbles -->
+            <circle cx="68" cy="28" r="1.5"/><circle cx="74" cy="22" r="1"/><circle cx="70" cy="36" r="1"/>
+          </svg>
+        </span>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ═══════════════ ⑫ リアルな声 ═══════════════ -->
+  <section class="real-voice-section" data-screen-label="Real voices">
+    <div class="top-wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0 30 C 220 0, 420 60, 620 30 S 1020 0, 1220 40 1440 20 1440 20 L1440 0 L0 0 Z" fill="#BFE0F6" opacity=".55"/>
+        <path d="M0 60 C 220 20, 420 80, 620 50 S 1020 20, 1220 60 1440 50 1440 50 L1440 80 L0 80 Z" fill="#fff" opacity=".4"/>
+      </svg>
+    </div>
+
+    <!-- fish + bubbles decoration -->
+    <span class="rv-fish rvf-1" aria-hidden="true">
+      <svg viewBox="0 0 46 30" fill="currentColor"><path d="M2 15c4-9 16-13 26-10 5 1 11 5 16 10-5 5-11 9-16 10-10 3-22-1-26-10z" opacity=".55"/><path d="M40 12l5-6v18l-5-6z" opacity=".55"/><circle cx="14" cy="13" r="1.5" fill="#fff"/></svg>
+    </span>
+    <span class="rv-fish rvf-2" aria-hidden="true">
+      <svg viewBox="0 0 46 30" fill="currentColor"><path d="M44 15c-4-9-16-13-26-10C13 6 7 10 2 15c5 5 11 9 16 10 10 3 22-1 26-10z" opacity=".45"/><path d="M6 12l-5-6v18l5-6z" opacity=".45"/><circle cx="32" cy="13" r="1.5" fill="#fff"/></svg>
+    </span>
+    <span class="rv-fish rvf-3" aria-hidden="true">
+      <svg viewBox="0 0 46 30" fill="currentColor"><path d="M2 15c4-9 16-13 26-10 5 1 11 5 16 10-5 5-11 9-16 10-10 3-22-1-26-10z" opacity=".5"/><path d="M40 12l5-6v18l-5-6z" opacity=".5"/></svg>
+    </span>
+    <span class="rv-bubble rvb-1" aria-hidden="true"></span>
+    <span class="rv-bubble rvb-2" aria-hidden="true"></span>
+    <span class="rv-bubble rvb-3" aria-hidden="true"></span>
+
+    <div class="real-voice-inner">
+      <div class="rv-header">
+        <p class="rv-pre">
+          <span class="dec">＼</span>
+          レッスンを受けて、どんな変化があった？
+          <span class="dec">／</span>
+        </p>
+        <h2 class="rv-title">
+          実際に参加された方の<span class="accent">リアルな声</span>
+          <span class="sparkle-svg" aria-hidden="true">
+            <svg viewBox="0 0 34 34" fill="currentColor"><path d="M17 0l2 12 12 5-12 5-2 12-2-12L3 17l12-5z"/></svg>
+          </span>
+        </h2>
+        <p class="rv-sub">スキルアップクラスに参加した方に、参加前の悩みや受けてみて感じた変化を伺いました。</p>
+
+        <div class="rv-corner-tag">
+          大人も子どもも<br/>
+          <span class="u">楽しく上達！</span>
+        </div>
+      </div>
+
+      <div class="rv-cards">
+        <!-- Card 1: M.K -->
+        <article class="rv-card is-mk">
+          <span class="rv-card-tag">マスターズ大会参加者</span>
+          <div class="rv-person">
+            <div class="rv-photo"><img src="project/assets/voice-mk.png" alt="M.Kさん" /></div>
+            <div class="rv-meta">
+              <div class="rv-name"><span class="nm">M.Kさん</span><span class="age">52歳</span></div>
+              <p class="rv-bio">マスターズ大会出場経験あり<br/>モノフィン経験あり</p>
+              <span class="rv-stars" aria-label="星5">
+                <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
+                <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
+                <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
+                <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
+                <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
+              </span>
+            </div>
+          </div>
+
+          <div class="rv-item q">
+            <span class="rv-ic"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 7a3 3 0 1 1 4 2.6c-.7.3-1 1-1 1.6"/><circle cx="9" cy="14" r="1" fill="currentColor"/></svg></span>
+            <div class="rv-item-body">
+              <h4>受講前の悩み</h4>
+              <p>大会には出ていましたが、自己流で泳いでいる感覚が強く、特に後半になるとキックが重くなって失速してしまうのが悩みでした。練習量を増やすだけでは限界があると感じていました。</p>
+            </div>
+          </div>
+          <hr class="rv-divider"/>
+
+          <div class="rv-item a">
+            <span class="rv-ic"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v2M9 14v2M14 9h2M2 9h2M13 5l1.5-1.5M3.5 14.5L5 13M13 13l1.5 1.5M3.5 3.5L5 5"/><circle cx="9" cy="9" r="3"/></svg></span>
+            <div class="rv-item-body">
+              <h4>受講後の変化</h4>
+              <p>自分では「脚が弱い」と思っていたのですが、実際には姿勢や力の入れ方に原因があるとわかりました。キックを頑張るより、身体全体の使い方を変えることで、以前より楽に進める感覚が出てきました。</p>
+            </div>
+          </div>
+          <hr class="rv-divider"/>
+
+          <div class="rv-item h">
+            <span class="rv-ic"><svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 16s-5-3.5-6.5-6.5C1.6 7.4 2.8 5 5 5c1.5 0 2.8.8 3 1.8C8.2 5.8 9.5 5 11 5c2.2 0 3.4 2.4 2.5 4.5C14 12.5 9 16 9 16z"/></svg></span>
+            <div class="rv-item-body">
+              <h4>率直な感想</h4>
+              <p>思っていたよりも雰囲気がやさしくて安心しました。ガチガチの競技練習ではなく、でも内容はとても専門的で、「こういうことを知りたかった」と感じました。</p>
+            </div>
+          </div>
+          <hr class="rv-divider"/>
+
+          <div class="rv-item r">
+            <span class="rv-ic"><svg viewBox="0 0 18 18" fill="currentColor"><path d="M3 8h2v8H3zM7 7l2.5-5c1 0 1.5.5 1.5 1.5V6h3c1 0 1.7 1 1.4 2L14 14c-.2.8-1 1.4-1.8 1.4H7V7z"/></svg></span>
+            <div class="rv-item-body">
+              <h4>おすすめしたい人</h4>
+              <p>大会には出ているけれど、自己流の泳ぎに限界を感じているマスターズの方におすすめしたいです。</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2: S -->
+        <article class="rv-card is-s">
+          <span class="rv-card-tag">ジュニア・保護者</span>
+          <div class="rv-person">
+            <div class="rv-photo"><img src="project/assets/voice-s.png" alt="Sさん親子" /></div>
+            <div class="rv-meta">
+              <div class="rv-name"><span class="nm">Sさん親子</span></div>
+              <p class="rv-bio"><span class="strong">小学6年生</span><br/>水泳経験あり<br/>フィンスイミング初心者</p>
+              <span class="rv-stars" aria-label="星5">
+                <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
+                <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
+                <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
+                <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
+                <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
+              </span>
+            </div>
+          </div>
+
+          <div class="rv-item q">
+            <span class="rv-ic"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 7a3 3 0 1 1 4 2.6c-.7.3-1 1-1 1.6"/><circle cx="9" cy="14" r="1" fill="currentColor"/></svg></span>
+            <div class="rv-item-body">
+              <h4>受講前の悩み</h4>
+              <p>子どもがフィンスイミングに興味を持っていたのですが、どこで正しく教わればいいのかわからず、いきなり専門的すぎる環境に入れるのも少し不安でした。</p>
+            </div>
+          </div>
+          <hr class="rv-divider"/>
+
+          <div class="rv-item a">
+            <span class="rv-ic"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v2M9 14v2M14 9h2M2 9h2M13 5l1.5-1.5M3.5 14.5L5 13M13 13l1.5 1.5M3.5 3.5L5 5"/><circle cx="9" cy="9" r="3"/></svg></span>
+            <div class="rv-item-body">
+              <h4>受講後の変化</h4>
+              <p>最初はフィンの扱いに戸惑っていましたが、レッスン後には「楽しかった」「またやりたい」と話していました。泳ぎ方だけでなく、どうすれば進みやすくなるのかを少しずつ理解しているようでした。</p>
+            </div>
+          </div>
+          <hr class="rv-divider"/>
+
+          <div class="rv-item h">
+            <span class="rv-ic"><svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 16s-5-3.5-6.5-6.5C1.6 7.4 2.8 5 5 5c1.5 0 2.8.8 3 1.8C8.2 5.8 9.5 5 11 5c2.2 0 3.4 2.4 2.5 4.5C14 12.5 9 16 9 16z"/></svg></span>
+            <div class="rv-item-body">
+              <h4>率直な感想</h4>
+              <p>先生が子どもの目線に合わせて、わかりやすく教えてくれるので、安心して通わせられます。道具のことも相談できて助かっています。</p>
+            </div>
+          </div>
+          <hr class="rv-divider"/>
+
+          <div class="rv-item r">
+            <span class="rv-ic"><svg viewBox="0 0 18 18" fill="currentColor"><path d="M3 8h2v8H3zM7 7l2.5-5c1 0 1.5.5 1.5 1.5V6h3c1 0 1.7 1 1.4 2L14 14c-.2.8-1 1.4-1.8 1.4H7V7z"/></svg></span>
+            <div class="rv-item-body">
+              <h4>おすすめしたい人</h4>
+              <p>フィンスイミングを始めたいお子さんや、どこで学ばせるか迷っている保護者の方におすすめしたいです。</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3: T.H -->
+        <article class="rv-card is-th">
+          <span class="rv-card-tag">大人の初中級・趣味層</span>
+          <div class="rv-person">
+            <div class="rv-photo"><img src="project/assets/voice-th.png" alt="T.Hさん" /></div>
+            <div class="rv-meta">
+              <div class="rv-name"><span class="nm">T.Hさん</span><span class="age">38歳</span></div>
+              <p class="rv-bio">水泳経験あり<br/>フィンスイミング初心者</p>
+              <span class="rv-stars" aria-label="星5">
+                <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
+                <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
+                <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
+                <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
+                <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
+              </span>
+            </div>
+          </div>
+
+          <div class="rv-item q">
+            <span class="rv-ic"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 7a3 3 0 1 1 4 2.6c-.7.3-1 1-1 1.6"/><circle cx="9" cy="14" r="1" fill="currentColor"/></svg></span>
+            <div class="rv-item-body">
+              <h4>受講前の悩み</h4>
+              <p>自己流でフィンを使っていましたが、思ったように進めず、すぐに疲れてしまうのが悩みでした。何を直せばいいのかもよくわかりませんでした。</p>
+            </div>
+          </div>
+          <hr class="rv-divider"/>
+
+          <div class="rv-item a">
+            <span class="rv-ic"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v2M9 14v2M14 9h2M2 9h2M13 5l1.5-1.5M3.5 14.5L5 13M13 13l1.5 1.5M3.5 3.5L5 5"/><circle cx="9" cy="9" r="3"/></svg></span>
+            <div class="rv-item-body">
+              <h4>受講後の変化</h4>
+              <p>フィンの使い方や身体の動かし方を一つずつ教えてもらい、泳ぎがとても楽になりました。以前より長く泳いでも疲れにくく、効率よく進めるようになったと感じています。</p>
+            </div>
+          </div>
+          <hr class="rv-divider"/>
+
+          <div class="rv-item h">
+            <span class="rv-ic"><svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 16s-5-3.5-6.5-6.5C1.6 7.4 2.8 5 5 5c1.5 0 2.8.8 3 1.8C8.2 5.8 9.5 5 11 5c2.2 0 3.4 2.4 2.5 4.5C14 12.5 9 16 9 16z"/></svg></span>
+            <div class="rv-item-body">
+              <h4>率直な感想</h4>
+              <p>大人の参加者も多く、雰囲気がとても良いです。自分のペースで参加できるのが続けやすくて気に入っています。</p>
+            </div>
+          </div>
+          <hr class="rv-divider"/>
+
+          <div class="rv-item r">
+            <span class="rv-ic"><svg viewBox="0 0 18 18" fill="currentColor"><path d="M3 8h2v8H3zM7 7l2.5-5c1 0 1.5.5 1.5 1.5V6h3c1 0 1.7 1 1.4 2L14 14c-.2.8-1 1.4-1.8 1.4H7V7z"/></svg></span>
+            <div class="rv-item-body">
+              <h4>おすすめしたい人</h4>
+              <p>フィンを使っても上手く泳げないと感じている方や、趣味で楽しく長く続けたい方におすすめです。</p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="rv-footer">
+        <h3 class="rv-footer-title">
+          <span class="dec">＼</span>
+          あなたの「<em>変わりたい</em>」を、しっかりサポートします！
+          <span class="dec">／</span>
+        </h3>
+
+        <div class="rv-footer-bar">
+          <span class="rv-circle-tag">まずは<br/>気軽に♪</span>
+          <p class="rv-help-text">クラスの雰囲気や内容を<br/>体験してみてください。</p>
+          <div class="rv-cta-row">
+            <a class="btn btn-coral" href="#trial">
+              <span class="ic-btn">
+                <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="20" height="18" rx="2.5"/><path d="M4 10h20M9 3v4M19 3v4"/><path d="M10 16l3 3 5-5"/></svg>
+              </span>
+              初回体験を<u>予約する</u>
+              <span class="arrow">
+                <svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 6h6m0 0L6 3m3 3L6 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </a>
+            <a class="btn btn-coral" style="background:var(--line-green); box-shadow:0 10px 24px rgba(6,199,85,.32)" href="#line">
+              <span class="ic-btn" style="background:#fff; color:var(--line-green); border-radius:50%">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.8 5.2 4.6 6.6-.2.7-.8 2.4-.9 2.8-.1.5.2.5.4.4.2-.1 2.5-1.7 3.5-2.4.8.1 1.5.2 2.4.2 5.5 0 10-3.6 10-8S17.5 3 12 3z"/></svg>
+              </span>
+              LINEで相談する
+              <span class="arrow">
+                <svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 6h6m0 0L6 3m3 3L6 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </a>
+          </div>
+          <div class="rv-equipment">
+            <img src="project/assets/equipment.png" alt="フィン・キャップ・ゴーグル・シュノーケル" />
+          </div>
+        </div>
+
+        <p class="rv-footer-note">※ 無理な勧誘は行いません。体験後に継続するかどうかをご自身でお決めいただけます。</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════ ⑨ PRICING ═══════════════ -->
+  <section class="pricing-section" id="price" data-screen-label="Pricing">
+    <div class="pricing-inner">
+      <h2 class="pricing-heading">
+        <span class="dec">»</span>
+        安心して続けられる、わかりやすい<span class="accent-teal">料金設定</span>
+        <span class="dec">«</span>
+      </h2>
+
+      <div class="pricing-grid">
+        <!-- Card 1: Membership -->
+        <article class="price-card is-member">
+          <div class="pc-tab">メンバーシップ料金</div>
+          <p class="pc-title">Fin-D SS スキルアップクラス</p>
+          <p class="pc-price"><span class="big">7,200</span><span class="unit">円</span><span class="unit" style="opacity:.6">/月</span><span class="tax">（税込）</span></p>
+          <span class="pc-pill">月2回（60分／回）</span>
+          <p class="pc-note">実質1回あたり <b>3,600円</b></p>
+          <div class="pc-photo"><img src="project/assets/price-photo1.png" alt="レッスン風景" /></div>
+        </article>
+
+        <!-- Card 2: Entrance fee 0 -->
+        <article class="price-card is-fee">
+          <div class="pc-tab">入会金・事務手数料</div>
+          <p class="pc-strike">通常 <span class="num">5,000円</span>（税込）</p>
+          <div class="pc-arrow-down" aria-hidden="true">
+            <svg width="22" height="20" viewBox="0 0 22 20" fill="none"><path d="M11 2v14m0 0l-6-6m6 6l6-6" stroke="#EB5468" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="pc-zero">0<span class="yen">円</span></div>
+          <div class="pc-camp-badge" aria-hidden="true">キャン<br/>ペーン<br/>中！</div>
+          <div style="flex:1"></div>
+          <div class="pc-camp-strip">今だけ！入会金・<br/>事務手数料が無料！</div>
+        </article>
+
+        <!-- Card 3: Trial -->
+        <article class="price-card is-trial">
+          <div class="pc-tab">初回体験</div>
+          <p class="pc-price" style="margin-top:18px"><span class="big">3,500</span><span class="unit">円</span><span class="tax">（税込）</span></p>
+          <span class="pc-pill" style="background:#DCEEFA; color:var(--blue-700)">1回限り</span>
+          <div class="pc-photo"><img src="project/assets/price-photo3.png" alt="初回体験レッスン" /></div>
+        </article>
+
+        <!-- Notes -->
+        <ul class="pc-notes">
+          <li><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>ビジター参加も可能です<br/>4,000円（税込）／回</li>
+          <li><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>初回体験・ビジター参加は事前の銀行振込となります</li>
+          <li><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>メンバーシップ料金は、入会後にクレジットカード決済へ移行します</li>
+          <li><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>月額料金は、前月25日に翌月分を決済します</li>
+          <li><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>自己都合による欠席時の振替・返金は原則ありません</li>
+        </ul>
+      </div>
+
+      <div class="pricing-ribbon">
+        <span class="fish-ic" aria-hidden="true">
+          <svg viewBox="0 0 24 14" fill="currentColor"><path d="M2 7c2-4 7-6 12-5 3 1 6 3 8 5-2 2-5 4-8 5-5 1-10-1-12-5z"/><path d="M20 5l3-3v10l-3-3z"/></svg>
+        </span>
+        まずは初回体験で、クラスの雰囲気や内容をご確認ください。無理な勧誘は行いませんので、ご安心ください。
+        <span class="fish-ic" aria-hidden="true" style="transform:scaleX(-1)">
+          <svg viewBox="0 0 24 14" fill="currentColor"><path d="M2 7c2-4 7-6 12-5 3 1 6 3 8 5-2 2-5 4-8 5-5 1-10-1-12-5z"/><path d="M20 5l3-3v10l-3-3z"/></svg>
+        </span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════ ⑩ Fin-D Swim Members ═══════════════ -->
+  <section class="members-section" data-screen-label="Members">
+    <div class="members-banner">
+      <!-- Sparkles -->
+      <span class="sparkle sp-1" aria-hidden="true"><svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 0l2 7 7 2-7 2-2 7-2-7-7-2 7-2z"/></svg></span>
+      <span class="sparkle sp-2" aria-hidden="true"><svg viewBox="0 0 14 14" fill="currentColor"><path d="M7 0l1.5 5.5L14 7l-5.5 1.5L7 14l-1.5-5.5L0 7l5.5-1.5z"/></svg></span>
+      <span class="sparkle sp-3" aria-hidden="true"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/></svg></span>
+      <span class="sparkle sp-4" aria-hidden="true"><svg viewBox="0 0 12 12" fill="currentColor"><circle cx="6" cy="6" r="2"/></svg></span>
+      <span class="sparkle sp-5" aria-hidden="true"><svg viewBox="0 0 14 14" fill="currentColor"><path d="M7 0l1.5 5.5L14 7l-5.5 1.5L7 14l-1.5-5.5L0 7l5.5-1.5z"/></svg></span>
+      <span class="sparkle sp-6" aria-hidden="true"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/></svg></span>
+      <span class="sparkle sp-7" aria-hidden="true"><svg viewBox="0 0 14 14" fill="currentColor"><path d="M7 0l1.5 5.5L14 7l-5.5 1.5L7 14l-1.5-5.5L0 7l5.5-1.5z"/></svg></span>
+      <span class="sparkle sp-8" aria-hidden="true"><svg viewBox="0 0 12 12" fill="currentColor"><circle cx="6" cy="6" r="2"/></svg></span>
+      <span class="sparkle sp-9" aria-hidden="true"><svg viewBox="0 0 14 14" fill="currentColor"><path d="M7 0l1.5 5.5L14 7l-5.5 1.5L7 14l-1.5-5.5L0 7l5.5-1.5z"/></svg></span>
+      <span class="sparkle sp-10" aria-hidden="true"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/></svg></span>
+
+      <span class="pre-tag">さらに…</span>
+
+      <p class="sub-line">
+        <span class="yh">♪</span>
+        レッスンだけで終わらない！
+        <span class="yh">♪</span>
+      </p>
+      <h2>Fin-D Swim Members</h2>
+
+      <!-- Starburst price badge -->
+      <span class="starburst" aria-hidden="true">
+        <svg viewBox="0 0 140 140">
+          <g transform="translate(70 70)">
+            <path d="M0 -62 L 8 -50 L 22 -58 L 22 -42 L 38 -42 L 30 -28 L 46 -22 L 32 -12 L 60 -8 L 42 4 L 60 14 L 38 18 L 50 32 L 30 30 L 32 48 L 16 38 L 8 56 L 0 42 L -8 56 L -16 38 L -32 48 L -30 30 L -50 32 L -38 18 L -60 14 L -42 4 L -60 -8 L -32 -12 L -46 -22 L -30 -28 L -38 -42 L -22 -42 L -22 -58 L -8 -50 Z" fill="#FFF8C7"/>
+          </g>
+          <text x="70" y="60" text-anchor="middle" fill="#F26B7E" font-weight="900" font-size="16" font-family="Noto Sans JP, sans-serif">こんなに</text>
+          <text x="70" y="80" text-anchor="middle" fill="#F26B7E" font-weight="900" font-size="16" font-family="Noto Sans JP, sans-serif">充実してて</text>
+          <text x="70" y="100" text-anchor="middle" fill="#F26B7E" font-weight="900" font-size="16" font-family="Noto Sans JP, sans-serif">この価格!?</text>
+        </svg>
+      </span>
+
+      <p class="lead">
+        スキルアップクラスのメンバーは、フィンスイミングライフを丸ごとサポートします！<br/>
+        レッスン以外のサポートも充実しているので、活用次第で<span class="em">レッスン代以上のメリット</span>になることも！
+      </p>
+    </div>
+
+    <div class="members-cards">
+      <!-- 01 -->
+      <article class="mc is-teal">
+        <div class="mc-head">
+          <span class="mc-num">01</span>
+          <span class="mc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/><path d="M3 4h2l2 12h12l2-8H6"/></svg>
+          </span>
+        </div>
+        <h3>メンバー限定割引</h3>
+        <p>Fin-D Onlineの商品を<br/>特別価格でご案内！<br/>メンバー限定商品も<br/>特別にご紹介します。</p>
+        <span class="mc-tag"><span class="u">会員限定価格でお得に！</span></span>
+        <div class="mc-photo"><img src="project/assets/members-01.png" alt="フィンと専用バッグ" /></div>
+      </article>
+
+      <!-- 02 -->
+      <article class="mc is-pink">
+        <div class="mc-head">
+          <span class="mc-num">02</span>
+          <span class="mc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 19c5 1 12 0 18-1 0 0-4-12-13-14-.6 0-1 .5-1 1 .6 5-.6 12-4 14z"/></svg>
+          </span>
+        </div>
+        <h3>道具購入相談</h3>
+        <p>フィンや水着、シュノーケルなど、<br/>あなたに合った道具選びを<br/>プロがサポート！</p>
+        <span class="mc-tag"><span class="u">あなたにピッタリが見つかる！</span></span>
+        <div class="mc-photo"><img src="project/assets/members-02.png" alt="フィン選びの相談" /></div>
+        <div class="mc-prod-row">
+          <div><span class="pi"><svg viewBox="0 0 18 18" fill="currentColor"><path d="M3 14c4 1 8 0 12-1 0 0-3-8-9-10-.4 0-.7.3-.7.7.4 3-.4 8-2.3 10.3z"/></svg></span>フィン</div>
+          <div><span class="pi" style="background:#DCEEFA;color:var(--blue-600)"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2v4a3 3 0 0 0 3 3v7"/></svg></span>シュノーケル</div>
+          <div><span class="pi" style="background:#FFE2CC;color:#FF8E5A"><svg viewBox="0 0 18 18" fill="currentColor"><path d="M5 3h8l-1 5h2v8H4V8h2z"/></svg></span>水着</div>
+          <div><span class="pi" style="background:#DCEEFA;color:var(--blue-600)"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="6" cy="10" r="3"/><circle cx="13" cy="10" r="3"/><path d="M9 10h1"/></svg></span>ゴーグル</div>
+        </div>
+      </article>
+
+      <!-- 03 -->
+      <article class="mc is-blue">
+        <div class="mc-head">
+          <span class="mc-num">03</span>
+          <span class="mc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/><path d="M9 14l2 2 4-4"/></svg>
+          </span>
+        </div>
+        <h3>会員限定イベント</h3>
+        <p>特別練習会やイベントなど、<br/>メンバーの方へ<br/>優先的にご案内します！</p>
+        <span class="mc-tag"><span class="u">普段できない体験ができる！</span></span>
+        <div class="mc-photo-stack">
+          <div><img src="project/assets/members-03a.png" alt="練習会の様子" /></div>
+          <div><img src="project/assets/members-03b.png" alt="イベントの様子" /></div>
+        </div>
+        <div class="mc-photo-cap">交流も広がる！</div>
+      </article>
+
+      <!-- 04 -->
+      <article class="mc is-yellow">
+        <div class="mc-head">
+          <span class="mc-num">04</span>
+          <span class="mc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><polygon points="11,9 15,12 11,15" fill="currentColor" stroke="none"/></svg>
+          </span>
+        </div>
+        <h3>限定コンテンツ</h3>
+        <p>上達のコツやフィンスイミングに<br/>関する情報を、メンバー向けに<br/>お届けします！</p>
+        <span class="mc-tag"><span class="u">上達に役立つ情報がいっぱい！</span></span>
+        <div class="mc-photo"><img src="project/assets/members-04.png" alt="Fin-D Onlineの限定コンテンツ" /></div>
+        <div class="mc-icons-row">
+          <div>
+            <span class="mi-ic"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="14" height="10" rx="1.5"/><polygon points="7,7 11,9 7,11" fill="currentColor"/></svg></span>
+            練習動画
+          </div>
+          <div>
+            <span class="mi-ic"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="9" r="6"/><path d="M9 5v4l3 1.5"/></svg></span>
+            テクニック解説
+          </div>
+          <div>
+            <span class="mi-ic"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="10" height="12" rx="1"/><path d="M6 6h6M6 9h6M6 12h4"/></svg></span>
+            コラム・情報
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Support row -->
+    <div class="members-support">
+      <span class="sticker">まだまだ<br/>うれしい<br/>サポート！</span>
+      <div class="ms-item">
+        <span class="ms-ic">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="22" height="16" rx="3"/><path d="M9 26l4-4"/><path d="M9 12h10M9 16h6"/></svg>
+        </span>
+        レッスンの相談・<br/>練習メニューの相談
+      </div>
+      <div class="ms-item">
+        <span class="ms-ic">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="13" r="4"/><circle cx="22" cy="13" r="4"/><path d="M4 25c0-4 3-6 7-6s7 2 7 6M16 25c0-4 3-6 6-6s6 2 6 6"/></svg>
+        </span>
+        目標設定や大会・<br/>イベントの相談
+      </div>
+      <div class="ms-item">
+        <span class="ms-ic">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="24" height="18" rx="2"/><path d="M4 10l12 9 12-9"/></svg>
+        </span>
+        最新情報を<br/>いち早くお届け
+      </div>
+      <div class="ms-item">
+        <span class="ms-ic">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="12" width="24" height="14" rx="2"/><path d="M4 16h24M16 12v14"/><path d="M10 12c0-3 3-5 6-1 3-4 6-2 6 1"/></svg>
+        </span>
+        メンバー限定の<br/>特別企画もご案内！
+      </div>
+      <svg class="deco-fin" viewBox="0 0 80 60" aria-hidden="true">
+        <path d="M30 8c-10 6-22 18-22 30 0 8 4 16 12 18 8 2 18-4 22-12 4-8 4-18 0-26-2-6-6-12-12-10z" fill="#4DA3F2" opacity=".5"/>
+        <ellipse cx="45" cy="20" rx="10" ry="3" fill="#4DA3F2" opacity=".7" transform="rotate(-15 45 20)"/>
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════ ⑪ Lower CTA before contact ═══════════════ -->
+  <section class="lower-cta" data-screen-label="Lower CTA">
+    <div class="lower-cta-inner">
+      <div>
+        <div class="lead-row">
+          <span class="pre-bubble">まずは気軽に<br/>体験から！</span>
+          <h3>フィンがはじめての方も安心してご参加いただけます。</h3>
+        </div>
+        <div class="cta-buttons">
+          <a class="btn btn-coral" href="#trial">
+            <span class="ic-btn">
+              <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="20" height="18" rx="2.5"/><path d="M4 10h20M9 3v4M19 3v4"/><path d="M10 16l3 3 5-5"/></svg>
+            </span>
+            初回体験を<u>予約する</u>
+            <span class="arrow">
+              <svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 6h6m0 0L6 3m3 3L6 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+          <a class="btn btn-coral" style="background:var(--line-green); box-shadow:0 10px 24px rgba(6,199,85,.32)" href="#line">
+            <span class="ic-btn" style="background:#fff; color:var(--line-green); border-radius:50%">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.8 5.2 4.6 6.6-.2.7-.8 2.4-.9 2.8-.1.5.2.5.4.4.2-.1 2.5-1.7 3.5-2.4.8.1 1.5.2 2.4.2 5.5 0 10-3.6 10-8S17.5 3 12 3z"/></svg>
+            </span>
+            LINEで相談する
+            <span class="arrow">
+              <svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 6h6m0 0L6 3m3 3L6 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+      <div class="lower-cta-photo">
+        <img src="project/assets/kid-cta.png" alt="フィンを持って笑顔の生徒" />
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════ ⑬ 参加までの流れ + アプリ + FAQ + 下部CTA ═══════════════ -->
+  <section class="flow-section" data-screen-label="Flow">
+    <div class="flow-inner">
+
+      <!-- Top: photos + heading -->
+      <div class="flow-top">
+        <div class="flow-top-img">
+          <img src="project/assets/flow-tl.png" alt="プールでフィンスイミングのレッスン風景" />
+        </div>
+        <div class="flow-head">
+          <p class="flow-eyebrow">カンタン6ステップ！</p>
+          <h2 class="flow-title">参加までの<span class="accent">流れ</span></h2>
+          <p class="flow-sub">
+            まずは初回体験から！クラスの雰囲気や内容を体験してみてください。<br/>
+            無理な勧誘は一切行いませんので、ご安心ください。
+          </p>
+        </div>
+        <div class="flow-top-img right">
+          <img src="project/assets/flow-tr.png" alt="フィンと装備一式" />
+        </div>
+      </div>
+
+      <!-- 6 Steps -->
+      <div class="flow-steps">
+        <div class="flow-step is-1">
+          <span class="step-num">1</span>
+          <span class="step-ic">
+            <svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="6" width="22" height="20" rx="2.5"/><path d="M4 12h22"/><path d="M9 3v6M21 3v6"/></svg>
+          </span>
+          <h4>体験を予約する</h4>
+          <p>予約フォームまたは<br/>LINEからご希望の日程をご連絡ください。</p>
+          <span class="flow-arrow" aria-hidden="true">
+            <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4l5 5-5 5"/></svg>
+          </span>
+        </div>
+
+        <div class="flow-step is-2">
+          <span class="step-num">2</span>
+          <span class="step-ic">
+            <svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="22" height="16" rx="2"/><path d="M4 9l11 8 11-8"/></svg>
+          </span>
+          <h4>申込内容の確認</h4>
+          <p>持ち物や会場などの詳細をご案内します。ご不明な点はお気軽にご相談ください。</p>
+          <span class="flow-arrow" aria-hidden="true">
+            <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4l5 5-5 5"/></svg>
+          </span>
+        </div>
+
+        <div class="flow-step is-3">
+          <span class="step-num">3</span>
+          <span class="step-ic">
+            <svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="15" cy="15" r="11"/><path d="M11 11l4 4 4-4M11 15h8M11 19h8M15 15v6"/></svg>
+          </span>
+          <h4>お支払い</h4>
+          <p>初回体験は事前の銀行振込となります。入金確認後に予約が確定します。</p>
+          <span class="flow-arrow" aria-hidden="true">
+            <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4l5 5-5 5"/></svg>
+          </span>
+        </div>
+
+        <div class="flow-step is-4">
+          <span class="step-num">4</span>
+          <span class="step-ic">
+            <svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4c-4 0-7 3-7 7 0 6 7 14 7 14s7-8 7-14c0-4-3-7-7-7z"/><circle cx="15" cy="11" r="2.5"/></svg>
+          </span>
+          <h4>詳細のご案内</h4>
+          <p>会場の場所や当日の持ち物などをメール・LINEでお知らせします。</p>
+          <span class="flow-arrow" aria-hidden="true">
+            <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4l5 5-5 5"/></svg>
+          </span>
+        </div>
+
+        <div class="flow-step is-5">
+          <span class="step-num">5</span>
+          <span class="step-ic">
+            <svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h20a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H12l-5 4v-4H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"/><circle cx="11" cy="14" r="1.2" fill="currentColor"/><circle cx="15" cy="14" r="1.2" fill="currentColor"/><circle cx="19" cy="14" r="1.2" fill="currentColor"/></svg>
+          </span>
+          <h4>体験に参加する</h4>
+          <p>レッスンを体験してクラスの雰囲気や内容をご確認ください。</p>
+          <span class="flow-arrow" aria-hidden="true">
+            <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4l5 5-5 5"/></svg>
+          </span>
+        </div>
+
+        <div class="flow-step is-6">
+          <span class="step-num">6</span>
+          <span class="step-ic">
+            <svg viewBox="0 0 30 30" fill="currentColor"><circle cx="11" cy="11" r="3.6"/><circle cx="20" cy="11" r="3.6"/><path d="M4 23c0-3 3-5 7-5s7 2 7 5v1H4z"/><path d="M17 18c-.5 0-1 .1-1.5.2 1.5 1.2 2.5 2.8 2.5 4.8v1H27v-1c0-3-3-5-6-5-1 0-2 .2-3 .5z"/></svg>
+          </span>
+          <h4>入会のご案内</h4>
+          <p>体験後、ご希望に応じて今後のレッスンやメンバー特典などをご案内します。</p>
+        </div>
+      </div>
+
+      <div class="flow-note-wrap">
+        <div class="flow-note">
+          <span class="heart" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 18s-6-4-7.5-8.5C1.5 6 4 3 7 3c1.5 0 2.8.8 3 2 .2-1.2 1.5-2 3-2 3 0 5.5 3 4.5 6.5C16 14 10 18 10 18z"/></svg>
+          </span>
+          体験後の入会は自由です。無理な勧誘は行いませんので、安心してご参加ください。
+          <span class="fish" aria-hidden="true">
+            <svg viewBox="0 0 22 14" fill="currentColor"><path d="M2 7c2-4 6-6 11-5 3 1 6 3 7 5-1 2-4 4-7 5-5 1-9-1-11-5z"/><path d="M18 5l3-3v10l-3-3z"/></svg>
+          </span>
+        </div>
+      </div>
+
+      <!-- App subsection -->
+      <div class="app-section">
+        <span class="deco-spark" aria-hidden="true">
+          <svg viewBox="0 0 30 30" fill="currentColor"><path d="M15 2l2 11 11 2-11 2-2 11-2-11L2 15l11-2z"/></svg>
+        </span>
+        <div class="app-inner">
+          <div>
+            <p class="app-eyebrow">
+              <span class="dec">＼</span>
+              入会後はもっと便利に！
+              <span class="dec">／</span>
+            </p>
+            <h3 class="app-title">専用アプリで<br/>つながる・続ける・楽しめる！</h3>
+            <p class="app-lead">
+              Fin-D Swim Members専用アプリを使って、日々のレッスンや<br/>
+              フィンスイミングライフをしっかりサポートします。
+            </p>
+            <div class="app-feats">
+              <div class="app-feat is-blue">
+                <span class="af-ic"><svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="16" height="14" rx="2"/><path d="M3 9h16M7 3v4M15 3v4"/><path d="M8 13l2 2 4-4"/></svg></span>
+                <div><h5>レッスン予約・確認</h5><p>スケジュールの確認やレッスン予約がアプリで簡単にできます。</p></div>
+              </div>
+              <div class="app-feat is-pink">
+                <span class="af-ic"><svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-9l-4 3v-3H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg></span>
+                <div><h5>お知らせ配信</h5><p>レッスンの連絡や大切なお知らせをいち早くお届けします。</p></div>
+              </div>
+              <div class="app-feat is-blue">
+                <span class="af-ic"><svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="16" height="12" rx="1.5"/><polygon points="9,8 14,11 9,14" fill="currentColor"/></svg></span>
+                <div><h5>動画・コラム</h5><p>上達のコツや練習動画、コラムなどの限定コンテンツを視聴できます。</p></div>
+              </div>
+              <div class="app-feat is-teal">
+                <span class="af-ic"><svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="18" r="1.5"/><circle cx="16" cy="18" r="1.5"/><path d="M2 4h2l2 11h12l2-7H6"/></svg></span>
+                <div><h5>ショップ連携</h5><p>Fin-D Onlineとの連携で、限定商品やお得な情報をすぐにチェック！</p></div>
+              </div>
+              <div class="app-feat is-purple">
+                <span class="af-ic"><svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h14v10H4z"/><path d="M8 12h6M8 15h4"/><circle cx="11" cy="5" r="2"/></svg></span>
+                <div><h5>記録・振り返り</h5><p>練習の記録や目標を管理し、成長を見える化できます。</p></div>
+              </div>
+              <div class="app-feat is-pink">
+                <span class="af-ic"><svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="16" height="11" rx="1.5"/><path d="M3 11h16M11 8v11"/><path d="M7 8c0-2 2-3 4-1 2-2 4-1 4 1"/></svg></span>
+                <div><h5>メンバー限定特典</h5><p>イベントやキャンペーンなど、メンバーだけの特典を受け取れます。</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="app-screens">
+            <img class="app-phone" src="project/assets/app-phone.png" alt="Fin-Dアプリ スマホ画面" />
+            <img class="app-tablet" src="project/assets/app-tablet.png" alt="Fin-Dアプリ タブレット画面" />
+          </div>
+        </div>
+        <span class="imageis">※アプリ画面はイメージです</span>
+      </div>
+
+      <!-- FAQ -->
+      <div class="faq-section" id="faq">
+        <h2 class="faq-title">
+          <span class="dec" aria-hidden="true"><svg viewBox="0 0 30 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 8c4-4 8 4 12 0s8 4 12 0"/></svg></span>
+          よくあるご質問
+          <span class="dec" aria-hidden="true"><svg viewBox="0 0 30 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 8c4-4 8 4 12 0s8 4 12 0"/></svg></span>
+        </h2>
+
+        <div class="faq-grid">
+          <div class="faq-cat is-blue">
+            <div class="faq-cat-head">
+              <span class="fc-ic"><svg viewBox="0 0 26 26" fill="currentColor"><path d="M3 14c4-4 9 4 13 0s8 4 12 0M3 18c4-4 9 4 13 0s8 4 12 0" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="9" cy="9" r="2.5"/></svg></span>
+              <h5>参加について</h5>
+            </div>
+            <div class="faq-items">
+              <div class="faq-item"><span class="q-mark">Q.</span><span class="q-text">フィン経験がなくても参加できますか？</span><span class="q-toggle"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l4 4 4-4"/></svg></span></div>
+              <div class="faq-item"><span class="q-mark">Q.</span><span class="q-text">大人でも参加しやすい雰囲気ですか？</span><span class="q-toggle"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l4 4 4-4"/></svg></span></div>
+            </div>
+          </div>
+
+          <div class="faq-cat is-teal">
+            <div class="faq-cat-head">
+              <span class="fc-ic"><svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22V12M10 22V8M16 22V14M22 22V4"/><path d="M4 12l6-4 6 6 6-10"/></svg></span>
+              <h5>上達・目的について</h5>
+            </div>
+            <div class="faq-items">
+              <div class="faq-item"><span class="q-mark">Q.</span><span class="q-text">大会に出ている人にも意味がありますか？</span><span class="q-toggle"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l4 4 4-4"/></svg></span></div>
+              <div class="faq-item"><span class="q-mark">Q.</span><span class="q-text">チーム練習とは何が違うのですか？</span><span class="q-toggle"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l4 4 4-4"/></svg></span></div>
+            </div>
+          </div>
+
+          <div class="faq-cat is-green">
+            <div class="faq-cat-head">
+              <span class="fc-ic"><svg viewBox="0 0 26 26" fill="currentColor"><path d="M4 18c5 1 12 0 18-1 0 0-4-12-13-14-.5 0-1 .4-1 1 .6 5-.6 11-4 14z"/></svg></span>
+              <h5>道具・サービスについて</h5>
+            </div>
+            <div class="faq-items">
+              <div class="faq-item"><span class="q-mark">Q.</span><span class="q-text">道具を持っていなくても大丈夫ですか？</span><span class="q-toggle"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l4 4 4-4"/></svg></span></div>
+              <div class="faq-item"><span class="q-mark">Q.</span><span class="q-text">Fin-D Swim Membersになると何ができますか？</span><span class="q-toggle"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l4 4 4-4"/></svg></span></div>
+            </div>
+          </div>
+
+          <div class="faq-cat is-purple">
+            <div class="faq-cat-head">
+              <span class="fc-ic"><svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="14" height="18" rx="2"/><path d="M10 4h6v4h-6z" fill="currentColor"/><path d="M9 13h8M9 17h6"/></svg></span>
+              <h5>申込・運営について</h5>
+            </div>
+            <div class="faq-items">
+              <div class="faq-item"><span class="q-mark">Q.</span><span class="q-text">体験後、必ず入会が必要ですか？</span><span class="q-toggle"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l4 4 4-4"/></svg></span></div>
+              <div class="faq-item"><span class="q-mark">Q.</span><span class="q-text">キャンセル料はありますか？</span><span class="q-toggle"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l4 4 4-4"/></svg></span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-more">
+          <a href="#all-faq">
+            その他のご質問はこちら
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 5l3 3 3-3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Bottom CTA -->
+      <div class="bottom-cta">
+        <div class="bc-photo">
+          <span class="bc-bubble left">まずは<br/>気軽に体験！</span>
+          <img src="project/assets/cta-kid.png" alt="フィンを持って笑顔の生徒" />
+        </div>
+
+        <div class="bc-text">
+          <h3>あなたのペースで、楽しく上達していきましょう！</h3>
+          <p>クラスの雰囲気や内容を体験して、あなたに合うかどうかをご確認ください。</p>
+          <div class="bc-buttons">
+            <a class="btn btn-coral" href="#trial" style="flex-direction:row">
+              <span class="ic-btn"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="20" height="18" rx="2.5"/><path d="M4 10h20M9 3v4M19 3v4"/><path d="M10 16l3 3 5-5"/></svg></span>
+              <span>
+                <span class="btn-row">初回体験を予約する <svg style="width:14px;height:14px;display:inline" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 7h7m0 0L7 4m3 3L7 10"/></svg></span>
+                <small style="display:block">体験料 3,500円（税込）</small>
+              </span>
+            </a>
+            <a class="btn btn-coral" style="background:var(--line-green); box-shadow:0 10px 24px rgba(6,199,85,.32); flex-direction:row" href="#line">
+              <span class="ic-btn" style="background:#fff; color:var(--line-green); border-radius:50%"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.8 5.2 4.6 6.6-.2.7-.8 2.4-.9 2.8-.1.5.2.5.4.4.2-.1 2.5-1.7 3.5-2.4.8.1 1.5.2 2.4.2 5.5 0 10-3.6 10-8S17.5 3 12 3z"/></svg></span>
+              <span>
+                <span class="btn-row">LINEで相談する <svg style="width:14px;height:14px;display:inline" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 7h7m0 0L7 4m3 3L7 10"/></svg></span>
+                <small style="display:block">気軽に質問・相談OK！</small>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div class="bc-photo">
+          <span class="bc-bubble right">お待ちして<br/>います！</span>
+          <img src="project/assets/cta-man.png" alt="JAPANキャップのコーチ" />
+        </div>
+      </div>
+
+      <!-- Trust row -->
+      <div class="trust-row">
+        <div class="trust-item is-pink">
+          <span class="ti-ic"><svg viewBox="0 0 30 30" fill="currentColor"><path d="M15 26s-9-6-11-13C3 8 6 5 10 5c2 0 4 1 5 3 1-2 3-3 5-3 4 0 7 3 6 8-2 7-11 13-11 13z"/></svg></span>
+          無理な勧誘は<br/>いたしません
+        </div>
+        <div class="trust-item is-blue">
+          <span class="ti-ic"><svg viewBox="0 0 30 30" fill="currentColor"><circle cx="11" cy="12" r="4"/><circle cx="20" cy="12" r="4"/><path d="M3 26c0-4 3-7 8-7s8 3 8 7M16 26c0-4 3-7 6-7s6 3 6 7"/></svg></span>
+          体験だけの参加も<br/>大歓迎！
+        </div>
+        <div class="trust-item is-teal">
+          <span class="ti-ic"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3l10 4v8c0 7-5 11-10 12C10 26 5 22 5 15V7l10-4z"/><path d="M11 15l3 3 5-6"/></svg></span>
+          安心・安全を<br/>最優先に運営
+        </div>
+        <div class="trust-item is-yellow">
+          <span class="ti-ic"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="15" cy="15" r="11"/><circle cx="11" cy="13" r="1" fill="currentColor" stroke="none"/><circle cx="19" cy="13" r="1" fill="currentColor" stroke="none"/><path d="M10 18c2 2 8 2 10 0"/></svg></span>
+          子どもから大人まで、<br/>みんなで楽しく上達！
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="site-footer" data-screen-label="Footer">
+    <div class="top-wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0 30 C 220 0, 420 60, 620 30 S 1020 0, 1220 40 1440 20 1440 20 L1440 0 L0 0 Z" fill="#BFE0F6" opacity=".55"/>
+        <path d="M0 60 C 220 20, 420 80, 620 50 S 1020 20, 1220 60 1440 50 1440 50 L1440 80 L0 80 Z" fill="#DCEEFA"/>
+      </svg>
+    </div>
+
+    <!-- Decorations -->
+    <span class="footer-bubble fbb-1" aria-hidden="true"></span>
+    <span class="footer-bubble fbb-2" aria-hidden="true"></span>
+    <span class="footer-bubble fbb-3" aria-hidden="true"></span>
+    <span class="footer-bubble fbb-4" aria-hidden="true"></span>
+    <span class="footer-fish" aria-hidden="true">
+      <svg viewBox="0 0 60 24" fill="#4DA3F2">
+        <path d="M2 12c4-7 14-10 24-8 4 1 8 3 12 8-4 5-8 7-12 8-10 2-20-1-24-8z" opacity=".7"/>
+        <path d="M50 9l8-4v14l-8-4z" opacity=".7"/>
+        <circle cx="14" cy="10" r="1.2" fill="#fff"/>
+      </svg>
+    </span>
+    <span class="footer-fish" style="right:14%; top:200px; transform:scaleX(-1)" aria-hidden="true">
+      <svg viewBox="0 0 60 24" fill="#FFD046">
+        <path d="M2 12c4-7 14-10 24-8 4 1 8 3 12 8-4 5-8 7-12 8-10 2-20-1-24-8z" opacity=".8"/>
+        <path d="M50 9l8-4v14l-8-4z" opacity=".8"/>
+        <circle cx="14" cy="10" r="1.2" fill="#fff"/>
+      </svg>
+    </span>
+    <span class="footer-coral" aria-hidden="true">
+      <svg viewBox="0 0 130 120" fill="none">
+        <!-- ground -->
+        <path d="M0 110c20-10 40-6 60-10s40-12 70-6v26H0z" fill="#9BCEEF" opacity=".7"/>
+        <!-- corals -->
+        <path d="M70 110c-2-10 4-18 2-26-1-6 4-12 4-20 0-6 4-10 4-10s2 6 2 12-3 10-3 16 4 12 2 22-4 14-11 6z" fill="#7CBEEE" opacity=".75"/>
+        <path d="M90 110c0-8 6-12 6-20 0-6 4-8 4-16 0-4 4-6 4-6s2 8-2 14-2 12-2 18 0 12-10 10z" fill="#A8DCF2" opacity=".7"/>
+        <path d="M60 110c-2-8-6-10-6-18 0-4-4-6-4-10v-4s4 2 6 6 4 8 4 14 4 14 0 12z" fill="#BFE0F6" opacity=".7"/>
+      </svg>
+    </span>
+
+    <div class="footer-inner">
+      <!-- Column 1: Brand -->
+      <div class="footer-col footer-brand">
+        <div class="footer-logo">
+          <svg viewBox="0 0 50 50" fill="none" aria-hidden="true">
+            <path d="M6 38c12 3 28 1 38-2 0 0-9-23-26-28-1 0-3 1-2 3 1 10-2 22-10 27z" fill="#2E89E6"/>
+            <path d="M8 40c10 2 22 1 32-1-4 1-7 1-11 1-9 0-15-1-21 0z" fill="#1B6FD8" opacity=".55"/>
+          </svg>
+          <span class="name">
+            <span class="row1">Fin-D</span>
+            <span class="row2">Swim School</span>
+          </span>
+        </div>
+        <p class="tag">フィンスイミングをもっと楽しく、<br/>もっと身近に。</p>
+        <p class="desc">子どもから大人まで、安心して学べる<br/>スイミングスクールです。</p>
+        <span class="footer-venue">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2c-3 0-5 2-5 5 0 4 5 11 5 11s5-7 5-11c0-3-2-5-5-5z"/><circle cx="10" cy="7" r="2"/></svg>
+          会場：大阪・堺方面のプール施設
+        </span>
+        <span class="note">※詳細は参加確定後にご案内します。</span>
+      </div>
+
+      <!-- Column 2: Site nav -->
+      <nav class="footer-col footer-nav" aria-label="サイトメニュー">
+        <h5>
+          <span class="wave-ic"><svg viewBox="0 0 28 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 6c4-4 8 4 12 0s8 4 12 0"/></svg></span>
+          サイトメニュー
+        </h5>
+        <ul>
+          <li><a href="#about"><span class="chev"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 3l4 4-4 4"/></svg></span>スクールについて</a></li>
+          <li><a href="#class"><span class="chev"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 3l4 4-4 4"/></svg></span>クラス紹介</a></li>
+          <li><a href="#schedule"><span class="chev"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 3l4 4-4 4"/></svg></span>スケジュール</a></li>
+          <li><a href="#coach"><span class="chev"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 3l4 4-4 4"/></svg></span>コーチ紹介</a></li>
+          <li><a href="#faq"><span class="chev"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 3l4 4-4 4"/></svg></span>よくあるご質問</a></li>
+          <li><a href="#news"><span class="chev"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 3l4 4-4 4"/></svg></span>お知らせ</a></li>
+        </ul>
+      </nav>
+
+      <!-- Column 3: Contact -->
+      <div class="footer-col footer-contact">
+        <h5>
+          <span class="wave-ic"><svg viewBox="0 0 28 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 6c4-4 8 4 12 0s8 4 12 0"/></svg></span>
+          体験・ご相談はこちら
+        </h5>
+        <p>泳力やフィン経験に不安がある方も、<br/>まずはお気軽にご相談ください。</p>
+        <a class="btn btn-coral" href="#trial">
+          <span class="ic-btn"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="20" height="18" rx="2.5"/><path d="M4 10h20M9 3v4M19 3v4"/><path d="M10 16l3 3 5-5"/></svg></span>
+          初回体験に<u>申し込む</u>
+          <span class="arrow"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 6h6m0 0L6 3m3 3L6 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a class="btn btn-coral" style="background:var(--line-green); box-shadow:0 10px 24px rgba(6,199,85,.32)" href="#line">
+          <span class="ic-btn" style="background:#fff; color:var(--line-green); border-radius:50%"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.8 5.2 4.6 6.6-.2.7-.8 2.4-.9 2.8-.1.5.2.5.4.4.2-.1 2.5-1.7 3.5-2.4.8.1 1.5.2 2.4.2 5.5 0 10-3.6 10-8S17.5 3 12 3z"/></svg></span>
+          LINEで相談する
+          <span class="arrow"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 6h6m0 0L6 3m3 3L6 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <p class="note">※無理な勧誘はいたしませんので、ご安心ください。</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="footer-legal">
+    <nav class="footer-legal-nav" aria-label="法的情報">
+      <a href="#tokutei">特定商取引法に基づく表記</a>
+      <a href="#privacy">プライバシーポリシー</a>
+      <a href="#terms">利用規約</a>
+      <a href="#company">運営会社</a>
+    </nav>
+    <p class="footer-copy">© Fin-D Swim School / Fin-D Inc. All Rights Reserved.</p>
+  </div>
+
+  <!-- Interaction script: mobile menu, FAQ accordion, smooth scroll -->
+  <script>
+  (function(){
+    var burger = document.querySelector('.hamburger');
+    var menu = document.getElementById('mobile-menu');
+    function setOpen(open){
+      if(!burger || !menu) return;
+      burger.setAttribute('aria-expanded', open ? 'true':'false');
+      menu.classList.toggle('is-open', open);
+    }
+    if(burger && menu){
+      burger.addEventListener('click', function(){
+        var open = burger.getAttribute('aria-expanded') === 'true';
+        setOpen(!open);
+      });
+      menu.addEventListener('click', function(e){
+        if(e.target.tagName === 'A') setOpen(false);
+      });
+    }
+
+    // FAQ accordion - expandable answers
+    var answers = {
+      'フィン経験がなくても参加できますか？':'はい、もちろんです。一定の泳力があれば、フィン経験がない方も安心してご参加いただけます。',
+      '大人でも参加しやすい雰囲気ですか？':'はい、大人の参加者も多く、マスターズ世代の方まで幅広くご参加いただいています。',
+      '大会に出ている人にも意味がありますか？':'はい。自己流の泳ぎに限界を感じている方を、フォームの見直しや効率的な身体の使い方でサポートします。',
+      'チーム練習とは何が違うのですか？':'チーム練習よりもフィンスイミングの技術要素（フィンの使い方、姿勢、身体の動かし方）に特化して、丁寧に指導します。',
+      '道具を持っていなくても大丈夫ですか？':'初回体験の際はレンタルフィンもご用意しています。詳しくは予約時にご相談ください。',
+      'Fin-D Swim Membersになると何ができますか？':'商品の会員価格、道具選びの相談、会員限定イベントや限定コンテンツの閲覧などをご利用いただけます。',
+      '体験後、必ず入会が必要ですか？':'いいえ、体験後の入会は自由です。無理な勧誘は行いませんので、ご安心ください。',
+      'キャンセル料はありますか？':'初回体験・ビジター参加についてはキャンセルポリシーを予約時にご案内します。'
+    };
+    document.querySelectorAll('.faq-item').forEach(function(item){
+      var q = item.querySelector('.q-text');
+      if(!q) return;
+      var a = answers[q.textContent.trim()];
+      if(!a) return;
+      var ans = document.createElement('div');
+      ans.className = 'faq-answer';
+      ans.innerHTML = '<span class="a-mark">A.</span><span class="a-text">'+a+'</span>';
+      ans.style.cssText = 'display:none; padding:0 18px 14px 36px; font-size:13px; line-height:1.8; color:#3A4A5E; background:#fff';
+      item.parentNode.insertBefore(ans, item.nextSibling);
+      item.addEventListener('click', function(){
+        var open = ans.style.display === 'block';
+        ans.style.display = open ? 'none' : 'block';
+        var t = item.querySelector('.q-toggle');
+        if(t) t.style.transform = open ? 'rotate(0deg)' : 'rotate(180deg)';
+      });
+    });
+
+    // Smooth scroll for in-page anchors (account for sticky header)
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click', function(e){
+        var id = a.getAttribute('href');
+        if(id.length < 2) return;
+        var target = document.querySelector(id);
+        if(!target) return;
+        e.preventDefault();
+        var top = target.getBoundingClientRect().top + window.pageYOffset - 88;
+        window.scrollTo({top: top, behavior: 'smooth'});
+      });
+    });
+  })();
+  </script>
+</body>
+</html>
