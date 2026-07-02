@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Fin-D Swim School｜スキルアップクラス</title>
-<meta name="description" content="フィンスイミングをもっと楽しく、もっと上手に。Fin-D Swim Schoolのスキルアップクラスは、子どもから大人まで対応の少人数制レッスンです。初回体験3,500円。大阪・堺方面。" />
+<meta name="description" content="フィンスイミングをもっと楽しく、もっと上手に。Fin-D Swim Schoolのスキルアップクラスは、18歳以上の水泳・フィン経験者向けの少人数制レッスン（各回8名）です。毎週日曜・東京池袋エリア。初回体験3,500円・フィンレンタル込み。" />
 <meta name="robots" content="index, follow" />
 <meta property="og:title" content="Fin-D Swim School｜スキルアップクラス" />
 <meta property="og:description" content="フィンスイミングをもっと楽しく、もっと上手に。少人数制・専門指導で確実に上達。初回体験3,500円（税込）。" />
@@ -35,7 +35,9 @@
     --white:#ffffff;
   }
   *{box-sizing:border-box}
-  html,body{margin:0;padding:0; overflow-x:hidden}
+  /* overflow-x:clip (not hidden) keeps the body from becoming a scroll
+     container, which would otherwise break position:sticky on the header */
+  html,body{margin:0;padding:0; overflow-x:clip}
   /* anchor targets shouldn't be hidden behind the sticky header */
   section[id], div[id]{scroll-margin-top:96px}
   body{
@@ -55,28 +57,28 @@
     background:#fff;
     height:84px;
     display:flex; align-items:center;
-    padding:0 28px 0 36px;
+    padding:0 20px;
     box-shadow:0 1px 0 rgba(20,40,80,.05);
   }
   .header-inner{
     width:100%;
     max-width:1400px;
     margin:0 auto;
-    display:flex; align-items:center; gap:48px;
+    display:flex; align-items:center; gap:26px;
   }
   .logo{
     display:flex; align-items:center; gap:10px;
     font-family:"Poppins","Noto Sans JP",sans-serif;
     font-weight:700;
-    font-size:24px;
+    font-size:22px;
     letter-spacing:.01em;
     color:var(--blue-600);
     white-space:nowrap;
   }
   .logo svg{width:34px;height:34px;flex-shrink:0}
   .primary-nav{
-    display:flex; align-items:center; gap:38px;
-    margin-left:24px;
+    display:flex; align-items:center; gap:24px;
+    margin-left:8px;
   }
   .primary-nav a{
     font-size:15px;
@@ -90,14 +92,14 @@
   .primary-nav a:hover{color:var(--blue-600)}
   .header-actions{
     margin-left:auto;
-    display:flex; align-items:center; gap:18px;
+    display:flex; align-items:center; gap:14px;
   }
   .cta-pill{
-    display:inline-flex; align-items:center; gap:10px;
+    display:inline-flex; align-items:center; gap:9px;
     background:var(--blue-600);
     color:#fff;
-    font-weight:700; font-size:15px;
-    padding:14px 26px;
+    font-weight:700; font-size:14.5px;
+    padding:12px 20px;
     border-radius:999px;
     box-shadow:0 6px 18px rgba(46,137,230,.28);
     transition:transform .15s, box-shadow .15s, background .15s;
@@ -136,12 +138,15 @@
     background:#fff;
     box-shadow:0 12px 24px rgba(20,80,160,.12);
     transform:translateY(-110%);
-    transition:transform .3s ease-out;
+    transition:transform .3s ease-out, visibility .3s;
     z-index:49;
     padding:8px 0 16px;
     border-top:1px solid #EEF4F9;
+    /* keep the drawer fully hidden when closed so its bottom CTA can't
+       peek into the top of the viewport */
+    visibility:hidden;
   }
-  .mobile-menu.is-open{transform:translateY(0)}
+  .mobile-menu.is-open{transform:translateY(0); visibility:visible}
   .mobile-menu ul{list-style:none; margin:0; padding:0}
   .mobile-menu li{border-bottom:1px solid #F0F5FA}
   .mobile-menu li:last-child{border-bottom:0}
@@ -242,6 +247,33 @@
   }
   .hero-title .accent-teal{color:var(--teal-500)}
   .hero-title .nowrap{white-space:nowrap}
+  /* ── Reusable hand-drawn wavy yellow underline (matches design comp) ── */
+  .wavy-underline{
+    position:relative;
+    display:inline-block;
+  }
+  .wavy-underline::after{
+    content:"";
+    position:absolute;
+    left:-2px; right:-2px;
+    bottom:-0.16em;
+    height:0.30em;
+    background:no-repeat center/100% 100%
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12' preserveAspectRatio='none'><path d='M1 7 Q 17 1.5 33 6 T 66 6 T 99 6.5' fill='none' stroke='%23FFD046' stroke-width='4' stroke-linecap='round'/></svg>");
+    pointer-events:none;
+  }
+  /* ── Reusable 3-stroke "excitement" spark marks flanking headings
+        (matches the diagonal triple-line motif in the design comp) ── */
+  .spark-mark{
+    display:inline-block; flex:0 0 auto;
+    width:20px; height:26px;
+    color:var(--blue-600);
+    vertical-align:middle;
+  }
+  .spark-mark svg{width:100%; height:100%; display:block}
+  .spark-mark.teal{color:var(--teal-500)}
+
+  /* legacy alias still used by the hero markup */
   .hero-title .accent-underline{
     position:relative;
     display:inline-block;
@@ -249,12 +281,12 @@
   .hero-title .accent-underline::after{
     content:"";
     position:absolute;
-    left:-4px; right:-4px;
-    bottom:6px;
-    height:10px;
-    background:var(--yellow);
-    border-radius:6px;
-    z-index:-1;
+    left:-2px; right:-2px;
+    bottom:-0.14em;
+    height:0.30em;
+    background:no-repeat center/100% 100%
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12' preserveAspectRatio='none'><path d='M1 7 Q 17 1.5 33 6 T 66 6 T 99 6.5' fill='none' stroke='%23FFD046' stroke-width='4' stroke-linecap='round'/></svg>");
+    pointer-events:none;
   }
   .hero-lead{
     font-size:17px;
@@ -287,6 +319,41 @@
   .ic-people{background:#FFB940}
   .ic-heart{background:#F26B7E}
   .ic-fin{background:var(--blue-500)}
+  .ic-cal{background:var(--teal-500)}
+  .ic-pin{background:#F26B7E}
+
+  /* Hero fact bar (logistics at a glance — replaces redundant benefit pills) */
+  .hero-facts .feature-pill{align-items:flex-start; padding:10px 18px 10px 12px}
+  .hero-facts .feature-pill .ic{margin-top:1px}
+  .hero-facts b{color:var(--blue-700); font-weight:800}
+
+  /* Hero offer card — surfaces the trial price + June campaign */
+  .hero-offer{
+    display:flex; align-items:center; gap:18px; flex-wrap:wrap;
+    background:#fff;
+    border:1.5px solid #FBE0C4;
+    border-radius:18px;
+    padding:14px 20px;
+    margin-bottom:24px;
+    box-shadow:0 8px 22px rgba(242,107,126,.10);
+  }
+  .hero-offer .ho-main{
+    display:flex; flex-direction:column; gap:2px;
+    padding-right:18px; border-right:1.5px dashed #EAD7C4;
+  }
+  .hero-offer .ho-label{font-size:13px; font-weight:800; color:var(--coral-600); letter-spacing:.02em}
+  .hero-offer .ho-amount{font-size:34px; font-weight:900; color:var(--ink-900); line-height:1; letter-spacing:.01em}
+  .hero-offer .ho-yen{font-size:18px; font-weight:800; margin-left:2px}
+  .hero-offer .ho-tax{font-size:12px; font-weight:700; color:var(--ink-500); margin-left:6px}
+  .hero-offer .ho-side{display:flex; flex-direction:column; gap:8px}
+  .hero-offer .ho-incl{display:inline-flex; align-items:center; gap:7px; font-size:13.5px; font-weight:700; color:var(--ink-700)}
+  .hero-offer .ho-incl svg{width:14px; height:14px; color:var(--teal-500); flex-shrink:0}
+  .hero-offer .ho-camp{display:inline-flex; align-items:center; gap:8px; font-size:13.5px; font-weight:700; color:var(--ink-700)}
+  .hero-offer .ho-camp b{color:var(--coral-600); font-size:16px; font-weight:900}
+  .hero-offer .ho-camp-badge{
+    display:inline-block; background:var(--coral-500); color:#fff;
+    font-size:11px; font-weight:800; padding:3px 9px; border-radius:999px; letter-spacing:.02em;
+  }
 
   .hero-ctas{
     display:flex; flex-wrap:wrap; gap:20px;
@@ -354,11 +421,13 @@
     width:100%;
     height:100%;
     min-height:680px;
-    /* Wave-curve left edge */
-    -webkit-mask-image: radial-gradient(120% 70% at 100% 50%, #000 70%, transparent 100%);
-            mask-image: radial-gradient(120% 70% at 100% 50%, #000 70%, transparent 100%);
-    border-top-left-radius: 50% 28%;
-    border-bottom-left-radius: 50% 28%;
+    /* Smooth concave/convex curved left edge that bulges toward the text
+       column at mid-height — matches the design comp. clip-path keeps the
+       top/bottom corners full instead of cropping them into an oval. */
+    -webkit-clip-path: ellipse(118% 96% at 100% 50%);
+            clip-path: ellipse(118% 96% at 100% 50%);
+    border-top-left-radius: 26px;
+    border-bottom-left-radius: 26px;
     overflow:hidden;
   }
   .hero-photo-frame img{
@@ -399,7 +468,7 @@
   .flow-section{
     position:relative;
     background:#fff;
-    padding:60px 36px 60px;
+    padding:84px 36px 84px;
     overflow:hidden;
   }
   .flow-inner{max-width:1240px; margin:0 auto; position:relative}
@@ -473,6 +542,7 @@
     font-weight:700; font-size:15px;
     display:flex; align-items:center; justify-content:center;
     box-shadow:0 4px 8px rgba(0,0,0,.1);
+    z-index:10;
   }
   .flow-step.is-1 .step-num{background:#F26B7E}
   .flow-step.is-2 .step-num{background:#4DA3F2}
@@ -1054,7 +1124,7 @@
   .real-voice-section{
     position:relative;
     background:linear-gradient(180deg, #EAF5FC 0%, #DCEEFA 100%);
-    padding:60px 36px 70px;
+    padding:84px 36px 84px;
     overflow:hidden;
   }
   .real-voice-section .top-wave{
@@ -1074,7 +1144,7 @@
   .rvb-3{top:200px; left:140px; width:10px; height:10px}
 
   .real-voice-inner{
-    max-width:1480px; margin:0 auto; position:relative;
+    max-width:1240px; margin:0 auto; position:relative;
   }
 
   .rv-header{
@@ -1117,19 +1187,24 @@
     font-size:15px; color:var(--ink-700);
     margin:0; font-weight:500;
   }
+  /* rv-corner-tag: in-flow pill badge (no absolute = no overlap risk at any width) */
   .rv-corner-tag{
-    position:absolute;
-    right:8px; top:8px;
-    background:transparent;
+    display:inline-block;
+    background:var(--blue-50);
+    border:1.5px solid var(--blue-200);
+    border-radius:999px;
     color:var(--blue-700);
-    font-size:14px; font-weight:700;
-    text-align:center;
+    font-size:13px; font-weight:700;
+    padding:6px 18px;
+    margin:14px auto 0;
     line-height:1.5;
-    transform:rotate(2deg);
+    letter-spacing:.01em;
+    white-space:nowrap;
   }
+  .rv-corner-tag br{display:none}
   .rv-corner-tag .u{
     border-bottom:2px solid var(--blue-500);
-    padding-bottom:2px;
+    padding-bottom:1px;
   }
 
   .rv-cards{
@@ -1320,7 +1395,7 @@
   @media (max-width: 1100px){
     .rv-cards{grid-template-columns:1fr; max-width:560px; margin:0 auto}
     .rv-title{font-size:34px}
-    .rv-corner-tag{position:static; margin:0 auto 18px; display:block}
+    /* rv-corner-tag is now always in-flow; no override needed */
     .rv-footer-bar{grid-template-columns:1fr; grid-template-rows:auto; gap:14px; text-align:center}
     .rv-circle-tag{grid-column:auto; grid-row:auto}
     .rv-help-text{grid-column:auto; grid-row:auto}
@@ -1342,15 +1417,107 @@
   }
 
   /* ════════════════════════════════════════════════════
+     SECTION ⑧.5  初回体験 当日の流れ + 持ち物 (trial-guide)
+     Placed right before pricing so the visitor pictures the
+     experience before seeing the price.
+     ════════════════════════════════════════════════════ */
+  .trial-guide{
+    position:relative;
+    background:var(--blue-50);
+    padding:72px 36px 72px;
+    overflow:hidden;
+  }
+  .tg-inner{max-width:1100px; margin:0 auto}
+  .tg-heading{
+    text-align:center;
+    font-size:30px; font-weight:900; color:var(--blue-700);
+    margin:0 0 12px; text-wrap:balance; word-break:auto-phrase;
+  }
+  .tg-heading .accent-teal{white-space:nowrap}
+  .tg-heading .accent-teal{color:var(--teal-500)}
+  .tg-sub{
+    text-align:center; font-size:15px; line-height:1.9; color:var(--ink-700);
+    font-weight:500; margin:0 auto 40px; max-width:680px; text-wrap:pretty;
+  }
+  .tg-grid{
+    display:grid; grid-template-columns: 1.5fr 1fr; gap:24px; align-items:start;
+  }
+  .tg-flow{
+    background:#fff; border-radius:20px; padding:28px 30px;
+    box-shadow:0 10px 30px rgba(46,137,230,.08);
+  }
+  .tg-steps{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:4px}
+  .tg-steps li{
+    display:flex; gap:16px; align-items:flex-start;
+    padding:16px 0; position:relative;
+  }
+  .tg-steps li:not(:last-child){border-bottom:1.5px dashed #E2EDF5}
+  .tg-n{
+    flex:0 0 auto;
+    width:34px; height:34px; border-radius:50%;
+    background:var(--teal-500); color:#fff;
+    font-family:"Poppins",sans-serif; font-weight:800; font-size:16px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .tg-steps li:nth-child(1) .tg-n{background:#F26B7E}
+  .tg-steps li:nth-child(2) .tg-n{background:#4DA3F2}
+  .tg-steps li:nth-child(3) .tg-n{background:#36C2B2}
+  .tg-steps li:nth-child(4) .tg-n{background:#FFB940}
+  .tg-steps li > div{display:flex; flex-direction:column; gap:3px}
+  .tg-steps b{font-size:15.5px; font-weight:800; color:var(--ink-900)}
+  .tg-steps span{font-size:13.5px; line-height:1.7; color:var(--ink-700); font-weight:500}
+  .tg-bring{
+    background:#fff; border-radius:20px; padding:26px 26px;
+    box-shadow:0 10px 30px rgba(46,137,230,.08);
+  }
+  .tg-bring h3{
+    font-size:17px; font-weight:900; color:var(--blue-700);
+    margin:0 0 16px; display:flex; align-items:center; gap:9px;
+  }
+  .tg-bring h3::before{
+    content:""; width:8px; height:8px; border-radius:50%;
+    background:var(--teal-500); flex:0 0 auto;
+  }
+  .tg-list{list-style:none; margin:0 0 20px; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:10px}
+  .tg-list li{
+    display:flex; align-items:center; gap:9px;
+    background:var(--blue-50); border-radius:10px; padding:10px 12px;
+    font-size:14px; font-weight:700; color:var(--ink-900);
+  }
+  .tg-list li::before{
+    content:""; flex:0 0 auto; width:16px; height:16px; border-radius:50%;
+    background:#DCEEFA url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path d='M2 6.5l3 3L10 3' fill='none' stroke='%234DA3F2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>") center/11px no-repeat;
+  }
+  .tg-rental{
+    font-size:13px; line-height:1.7; color:var(--ink-700); font-weight:600;
+    background:#FFF8EC; border:1.5px solid #FBE7C4; border-radius:12px;
+    padding:12px 14px;
+  }
+  .tg-rental-badge{
+    display:inline-block; background:var(--coral-500); color:#fff;
+    font-size:11px; font-weight:800; padding:3px 10px; border-radius:999px;
+    margin-right:8px;
+  }
+  @media (max-width: 860px){
+    .trial-guide{padding:52px 18px 52px}
+    .tg-heading{font-size:23px}
+    .tg-sub{font-size:13.5px; margin-bottom:28px}
+    .tg-grid{grid-template-columns:1fr; gap:16px}
+    .tg-flow{padding:20px 18px}
+    .tg-bring{padding:20px 18px}
+    .tg-steps b{font-size:15px}
+  }
+
+  /* ════════════════════════════════════════════════════
      SECTION ⑨  料金  (pricing)
      ════════════════════════════════════════════════════ */
   .pricing-section{
     position:relative;
     background:#fff;
-    padding:80px 36px 60px;
+    padding:84px 36px 84px;
     overflow:hidden;
   }
-  .pricing-inner{max-width:1280px; margin:0 auto}
+  .pricing-inner{max-width:1240px; margin:0 auto}
   .pricing-heading{
     text-align:center;
     font-size:32px; font-weight:900;
@@ -1419,6 +1586,32 @@
   .pc-note{font-size:12.5px; color:var(--ink-700); margin:6px 0 12px; font-weight:500}
   .pc-note b{color:var(--blue-700); font-weight:700}
 
+  /* Two-tier membership plans (月2回 / 月3回) inside card 1 */
+  .pc-plans{list-style:none; margin:6px 0 10px; padding:0; display:flex; flex-direction:column; gap:11px}
+  .pc-plan{
+    position:relative;
+    background:#fff;
+    border:1.5px solid #DCEAF3;
+    border-radius:14px;
+    padding:11px 12px 10px;
+    text-align:center;
+  }
+  .pc-plan.is-rec{border-color:var(--teal-400); background:#F0FBF9}
+  .pc-plan-tag{
+    position:absolute; top:-10px; left:50%; transform:translateX(-50%);
+    background:var(--teal-500); color:#fff; font-size:11px; font-weight:800;
+    padding:2px 12px; border-radius:999px; white-space:nowrap;
+  }
+  .pc-plan-name{display:block; font-size:13px; font-weight:800; color:var(--ink-900)}
+  .pc-plan-amount{
+    display:block;
+    font-family:"Poppins","Noto Sans JP",sans-serif; font-weight:900;
+    font-size:30px; color:var(--blue-700); line-height:1.1; margin:2px 0;
+  }
+  .pc-plan-amount small{font-size:14px; font-weight:700; margin-left:2px}
+  .pc-plan-sub{display:block; font-size:11.5px; color:var(--teal-500); font-weight:700}
+  .pc-plan-pop{display:inline-block; margin-left:6px; background:#FFE6B0; color:#9A6A12; font-size:10px; font-weight:800; padding:1px 8px; border-radius:999px; vertical-align:middle}
+
   .pc-photo{
     margin:auto -18px -18px;
     aspect-ratio: 16/9;
@@ -1450,7 +1643,7 @@
   }
   .pc-zero .yen{font-size:42px; margin-left:-4px}
   .pc-camp-badge{
-    position:absolute; right:8px; top:32%;
+    position:absolute; right:8px; top:8px;
     width:64px; height:64px; border-radius:50%;
     background:var(--yellow);
     color:#fff;
@@ -1547,7 +1740,7 @@
   }
   /* Sparkle confetti */
   .members-banner .sparkle{
-    position:absolute; pointer-events:none;
+    position:absolute; pointer-events:none; z-index:1;
   }
   .members-banner .sparkle svg{width:100%; height:100%}
   .sp-1{top:24px; left:8%; width:18px; color:#FFD046}
@@ -1637,7 +1830,7 @@
     display:grid;
     grid-template-columns: repeat(4, 1fr);
     gap:14px;
-    max-width:1280px;
+    max-width:1240px;
     margin:-40px auto 0;
     position:relative; z-index:5;
   }
@@ -1820,16 +2013,16 @@
   .lower-cta{
     position:relative;
     background:linear-gradient(180deg, #EAF5FC 0%, #DCEEFA 100%);
-    padding:50px 36px 70px;
+    padding:72px 36px 80px;
     overflow:hidden;
-    margin-top:50px;
+    margin-top:0;
   }
   .lower-cta::before{
     content:""; position:absolute; top:0; left:0; right:0; height:60px;
     background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60' preserveAspectRatio='none'><path d='M0 30 C 240 0 420 60 660 30 S 1080 0 1260 40 1440 20 1440 20 L1440 0 L0 0 Z' fill='%23fff' opacity='.7'/></svg>") center/cover no-repeat;
   }
   .lower-cta-inner{
-    max-width:1100px; margin:0 auto;
+    max-width:1240px; margin:0 auto;
     display:grid;
     grid-template-columns: 1fr 200px;
     gap:30px;
@@ -1935,14 +2128,14 @@
   .lesson-section{
     position:relative;
     background:linear-gradient(180deg, #DCEEFA 0%, #EAF5FC 60%, #DCEEFA 100%);
-    padding:70px 36px 80px;
+    padding:84px 36px 84px;
     overflow:hidden;
   }
   .lesson-section .top-wave{
     position:absolute; top:0; left:0; right:0; height:80px; pointer-events:none;
   }
   .lesson-section .top-wave svg{width:100%; height:100%}
-  .lesson-inner{max-width:1480px; margin:0 auto; position:relative}
+  .lesson-inner{max-width:1240px; margin:0 auto; position:relative}
 
   .lesson-heading{
     text-align:center;
@@ -2168,13 +2361,13 @@
   .recommend-section{
     position:relative;
     background:#EAF5FC;
-    padding:64px 36px 70px;
+    padding:84px 36px 84px;
     overflow:hidden;
     border-radius:28px;
     margin:16px;
   }
   .recommend-inner{
-    max-width:1200px; margin:0 auto;
+    max-width:1240px; margin:0 auto;
     display:grid;
     grid-template-columns: 1.15fr .85fr;
     gap:60px;
@@ -2285,10 +2478,10 @@
   .reason-section{
     position:relative;
     background:#EAF5FC;
-    padding:70px 36px 70px;
+    padding:84px 36px 84px;
     overflow:hidden;
   }
-  .reason-inner{max-width:1200px; margin:0 auto}
+  .reason-inner{max-width:1240px; margin:0 auto}
   .reason-heading{
     display:flex; align-items:center; justify-content:center; gap:18px;
     font-weight:900;
@@ -2340,6 +2533,29 @@
   .reason-card.is-yellow .rc-ic{color:#FFB940}
   .reason-card.is-coral .rc-ic{color:var(--coral-500)}
   .reason-card.is-blue .rc-ic{color:var(--blue-600)}
+  /* 4-step method (STEP 01→04) — reframes "なぜ上達するか" as a believable
+     sequence, distinct from the parallel feature cards in About */
+  .reason-grid{counter-reset:rnum}
+  .reason-card{counter-increment:rnum; position:relative}
+  .reason-card::before{
+    content:"STEP 0" counter(rnum);
+    position:absolute; top:-12px; left:50%; transform:translateX(-50%);
+    font-family:"Poppins",sans-serif; font-weight:700; font-size:11px;
+    color:#fff; background:var(--teal-500); white-space:nowrap;
+    padding:4px 14px; border-radius:999px; letter-spacing:.06em;
+    box-shadow:0 5px 12px rgba(20,80,160,.2); z-index:3;
+  }
+  .reason-card.is-teal::before{background:var(--teal-500)}
+  .reason-card.is-blue::before{background:var(--blue-600)}
+  .reason-card.is-yellow::before{background:#F0A92E}
+  .reason-card.is-coral::before{background:var(--coral-500)}
+  /* connector arrow between steps (desktop) */
+  .reason-card:not(:last-child)::after{
+    content:""; position:absolute; top:50%; right:-22px; z-index:4;
+    width:13px; height:13px; margin-top:-7px;
+    border-top:3px solid var(--blue-200); border-right:3px solid var(--blue-200);
+    transform:rotate(45deg);
+  }
   .reason-card h4{
     margin:0 0 12px;
     font-size:15.5px; font-weight:700;
@@ -2362,11 +2578,11 @@
   .credit-section{
     position:relative;
     background:linear-gradient(180deg, #DCEEFA 0%, #BFE0F6 100%);
-    padding:50px 36px 60px;
+    padding:64px 36px 72px;
     overflow:hidden;
   }
   .credit-inner{
-    max-width:1200px; margin:0 auto;
+    max-width:1240px; margin:0 auto;
     display:grid;
     grid-template-columns: 280px 1fr;
     gap:36px;
@@ -2435,6 +2651,8 @@
     .recommend-inner{grid-template-columns:1fr; gap:40px}
     .photo-stack{min-height:480px; max-width:420px; margin:0 auto}
     .reason-grid{grid-template-columns:repeat(2,1fr)}
+    /* step connector only makes sense in the single-row 4-col layout */
+    .reason-card:not(:last-child)::after{display:none}
     .credit-inner{grid-template-columns:1fr; gap:24px; justify-items:center}
     .credit-photo{width:260px; height:200px}
     .credit-stats{grid-template-columns:repeat(3,1fr)}
@@ -2460,11 +2678,11 @@
   .intro-section{
     position:relative;
     background:#fff;
-    padding:96px 36px 64px;
+    padding:84px 36px 84px;
     overflow:hidden;
   }
   .intro-inner{
-    max-width:1180px;
+    max-width:1240px;
     margin:0 auto;
     display:grid;
     grid-template-columns: 1fr 1fr;
@@ -2490,7 +2708,7 @@
     margin:0 0 28px;
   }
   .intro-heading .num{
-    color:var(--blue-700);
+    color:inherit;
     font-family:"Poppins","Noto Sans JP",sans-serif;
     font-weight:900;
   }
@@ -2502,6 +2720,7 @@
     background:var(--yellow); border-radius:5px; z-index:-1;
   }
   .intro-heading .accent-teal{color:var(--teal-500)}
+  .intro-heading .lighter{color:var(--blue-500)}
   .intro-lead{
     font-size:15px;
     line-height:2;
@@ -2535,12 +2754,11 @@
 
   .intro-photo{
     position:relative;
-    aspect-ratio: 1 / .96;
+    aspect-ratio: 1 / .78;
     width:100%;
-    border-radius: 50% 48% 50% 50% / 50% 50% 48% 50%;
+    border-radius: 28px;
     overflow:hidden;
     box-shadow:0 18px 40px rgba(20,80,160,.12);
-    border:6px solid #fff;
   }
   .intro-photo img{width:100%; height:100%; object-fit:cover}
 
@@ -2550,7 +2768,7 @@
   .voice-band{
     position:relative;
     background:linear-gradient(180deg, #EAF5FC 0%, #DCEEFA 100%);
-    padding:54px 36px 70px;
+    padding:64px 36px 72px;
     overflow:hidden;
   }
   .voice-inner{
@@ -2595,12 +2813,13 @@
     color:var(--ink-700);
     font-weight:500;
   }
+  /* downward speech-bubble tail (matches design comp) */
   .voice-card::before{
-    content:""; position:absolute; left:-10px; top:36px;
-    width:18px; height:18px;
+    content:""; position:absolute; left:64px; bottom:-9px;
+    width:20px; height:20px;
     background:#fff;
     transform:rotate(45deg);
-    box-shadow:-2px 2px 4px rgba(46,137,230,.04);
+    box-shadow:3px 3px 5px rgba(46,137,230,.06);
   }
   .voice-avatar{
     position:absolute; left:-44px; top:50%; transform:translateY(-50%);
@@ -2626,11 +2845,11 @@
   .about-section{
     position:relative;
     background:#fff;
-    padding:90px 36px 60px;
+    padding:84px 36px 84px;
     overflow:hidden;
   }
   .about-inner{
-    max-width:1180px; margin:0 auto;
+    max-width:1240px; margin:0 auto;
   }
   .about-top{
     display:grid;
@@ -2642,16 +2861,24 @@
   .about-heading{
     font-weight:900;
     font-size:46px;
-    color:var(--blue-700);
     letter-spacing:.01em;
     margin:0 0 28px;
     position:relative;
     display:inline-block;
+    color:var(--blue-700);
+  }
+  @supports ((-webkit-background-clip:text) or (background-clip:text)){
+    .about-heading{
+      background:linear-gradient(90deg, var(--teal-500) 0%, var(--blue-600) 60%, var(--blue-700) 100%);
+      -webkit-background-clip:text; background-clip:text;
+      -webkit-text-fill-color:transparent; color:transparent;
+    }
   }
   .about-heading::after{
-    content:""; position:absolute; left:0; right:60%;
-    bottom:-10px; height:3px; background:var(--blue-500);
-    border-radius:3px;
+    content:""; position:absolute; left:0; right:0;
+    bottom:-14px; height:12px;
+    background:no-repeat center/100% 100%
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'><path d='M1 6 Q 13 1 25 6 T 49 6 T 73 6 T 97 6 T 121 6 T 145 6 T 169 6 T 199 6' fill='none' stroke='%235DD0C3' stroke-width='3' stroke-linecap='round'/></svg>");
   }
   .about-sub{
     font-size:18px; font-weight:700;
@@ -2740,8 +2967,10 @@
   }
 
   /* ────── Responsive (down to tablet) ────── */
-  @media (max-width: 1280px){
+  @media (max-width: 1200px){
     .primary-nav{display:none}
+  }
+  @media (max-width: 1280px){
     .hero-title{font-size:56px}
   }
   @media (max-width: 1100px){
@@ -2765,6 +2994,11 @@
     .feature-pill{padding:8px 14px 8px 10px; font-size:12px}
     .feature-pill .ic{width:26px; height:26px}
     .feature-pill .ic svg{width:14px;height:14px}
+    .hero-facts .feature-pill{width:100%}
+    .hero-facts br{display:none}
+    .hero-offer{gap:10px; padding:14px 16px}
+    .hero-offer .ho-main{width:100%; padding-right:0; border-right:0; border-bottom:1.5px dashed #EAD7C4; padding-bottom:10px; flex-direction:row; align-items:baseline; gap:10px}
+    .hero-offer .ho-amount{font-size:30px}
     .hero-ctas{flex-direction:column; align-items:stretch; gap:12px}
     .btn{justify-content:center; padding:14px 22px; font-size:15px}
     .scroll-indicator{display:none}
@@ -2774,6 +3008,503 @@
     .header-actions .cta-pill{display:none}
     .hero-title{font-size:30px}
     .eyebrow{font-size:15px}
+  }
+
+  /* ════════════════════════════════════════════════════
+     MOTION / ANIMATIONS
+     All entrance motion is gated behind html.reveal-ready,
+     which is only added by JS when prefers-reduced-motion
+     is NOT set. So with JS off or reduced-motion on, the
+     page renders fully visible and static.
+     ════════════════════════════════════════════════════ */
+  @media (prefers-reduced-motion: no-preference){
+    /* Scroll-reveal: fade + rise */
+    html.reveal-ready .reveal{
+      opacity:0;
+      transform:translateY(28px);
+      transition:opacity .7s ease, transform .8s cubic-bezier(.22,.7,.2,1);
+      transition-delay:var(--rd,0ms);
+      will-change:opacity, transform;
+    }
+    html.reveal-ready .reveal.is-in{opacity:1; transform:none}
+
+    /* Scroll-reveal: pop (for icon-led cards / badges) */
+    html.reveal-ready .reveal-pop{
+      opacity:0;
+      transform:translateY(16px) scale(.93);
+      transition:opacity .55s ease, transform .6s cubic-bezier(.34,1.45,.5,1);
+      transition-delay:var(--rd,0ms);
+      will-change:opacity, transform;
+    }
+    html.reveal-ready .reveal-pop.is-in{opacity:1; transform:none}
+
+    /* Floating decorations — uses the `translate` property so it
+       composes with any existing `transform` on the element */
+    .hero .deco-fish, .hero [class*="deco-fish-"],
+    .intro-section .deco-fish{
+      animation:floaty 6s ease-in-out infinite;
+    }
+    .hero [class*="deco-fish-"]:nth-of-type(2n){animation-duration:7.5s; animation-delay:-1.2s}
+    .hero [class*="deco-fish-"]:nth-of-type(3n){animation-duration:8.5s; animation-delay:-2.4s}
+    .deco-bubble, .intro-bubble{animation:bubble 5s ease-in-out infinite}
+    .deco-bubble:nth-of-type(2n){animation-duration:6.5s; animation-delay:-1.5s}
+    .deco-bubble:nth-of-type(3n){animation-duration:7.5s; animation-delay:-3s}
+    .members-banner .sparkle{animation:twinkle 3.2s ease-in-out infinite}
+    .members-banner .sparkle:nth-of-type(2n){animation-duration:4s; animation-delay:-1s}
+    .members-banner .sparkle:nth-of-type(3n){animation-duration:4.6s; animation-delay:-2s}
+
+    /* Hero photo: very subtle continuous float */
+    .hero-photo-frame{animation:floaty 9s ease-in-out infinite}
+
+    @keyframes floaty{0%,100%{translate:0 0}50%{translate:0 -10px}}
+    @keyframes bubble{0%,100%{translate:0 0; opacity:.7}50%{translate:0 -8px; opacity:1}}
+    @keyframes twinkle{0%,100%{opacity:.5; scale:.85}50%{opacity:1; scale:1.1}}
+  }
+
+  /* Card hover lift (works regardless of reveal/motion pref but
+     respects reduced-motion via the transition guard below) */
+  .feature-card, .reason-card, .lesson-card, .mc, .voice-card,
+  .flow-step, .trust-item, .stat{
+    transition:transform .28s ease, box-shadow .28s ease;
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .feature-card:hover, .reason-card:hover, .lesson-card:hover,
+    .mc:hover, .voice-card:hover, .trust-item:hover{
+      transform:translateY(-5px);
+      box-shadow:0 16px 34px rgba(20,80,160,.16);
+    }
+    .flow-step:hover{transform:translateY(-4px)}
+    .stat:hover{transform:translateY(-3px)}
+  }
+
+  /* Header gains a stronger shadow once the page is scrolled */
+  .site-header{transition:box-shadow .25s ease, background .25s ease}
+  .site-header.is-scrolled{box-shadow:0 6px 20px rgba(20,40,80,.10)}
+
+  /* ───────── Natural Japanese line-breaking ─────────
+     word-break:auto-phrase = break only at 文節 boundaries (never mid-word);
+     text-wrap:balance/pretty = even line lengths / no orphan last words.
+     Both are progressive enhancements (older engines fall back to normal). */
+  .hero-title, .intro-heading, .voice-heading, .about-heading,
+  .recommend-title, .reason-heading, .credit-title, .lesson-heading,
+  .timeline-heading, .rv-title, .rv-footer-title, .pricing-heading,
+  .flow-title, .app-title, .faq-title, .apply-title, .pc-title,
+  .members-banner h2, .about-sub,
+  .feature-card h4, .reason-card h4, .lesson-card h4, .mc h3,
+  .flow-step h4, .app-feat h5, .trust-item h4, .tl-text .nm,
+  .reason-card p{
+    word-break: auto-phrase;
+    text-wrap: balance;
+  }
+  .hero-lead, .intro-lead, .intro-outro, .about-body, .reason-lead,
+  .recommend-lead, .reco-outro, .pricing-sub, .apply-lead,
+  .members-banner .lead, .flow-sub, .lesson-sub, .voice-sub,
+  .feature-card p, .lesson-card p, .app-feat p, .flow-step p, .mc p{
+    word-break: auto-phrase;
+    text-wrap: pretty;
+  }
+  /* compound words that must never split, even on the narrowest screens */
+  .nowrap-word{white-space:nowrap}
+
+  /* Reassurance microcopy under CTAs (lowers perceived risk near the click) */
+  .cta-reassure{
+    display:flex; align-items:center; gap:8px;
+    margin:18px 0 0; padding-left:28px;
+    font-size:13px; font-weight:600; color:var(--ink-700);
+  }
+  .cta-reassure svg{width:17px; height:17px; color:var(--teal-500); flex-shrink:0}
+  @media (max-width:768px){
+    .cta-reassure{justify-content:center; padding-left:0; font-size:12px; text-align:center; line-height:1.6}
+  }
+
+  /* ════════════════════════════════════════════════════
+     APPLY / 申込セクション（CVの着地点＝ピークエンド）
+     ════════════════════════════════════════════════════ */
+  .apply-section{
+    position:relative; overflow:hidden;
+    background:linear-gradient(180deg,#EAF5FC 0%, #DCEEFA 100%);
+    padding:84px 36px 84px;
+  }
+  .apply-section .top-wave{position:absolute; top:0; left:0; right:0; height:60px; line-height:0}
+  .apply-inner{max-width:1240px; margin:0 auto; position:relative; z-index:2}
+  .apply-eyebrow{
+    display:block; text-align:center; color:var(--coral-500);
+    font-weight:700; font-size:16px; margin:0 0 8px;
+  }
+  .apply-title{
+    text-align:center; font-size:40px; font-weight:900; color:var(--blue-700);
+    margin:0 0 14px; letter-spacing:.02em;
+  }
+  .apply-title .accent-teal{color:var(--teal-500)}
+  .apply-lead{
+    text-align:center; color:var(--ink-700); font-size:15px; line-height:1.9;
+    font-weight:500; margin:0 auto 22px; max-width:680px;
+  }
+  .apply-reassure{
+    display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin:0 0 30px;
+  }
+  .apply-reassure span{
+    display:inline-flex; align-items:center; gap:7px;
+    background:#fff; border-radius:999px; padding:9px 16px;
+    font-size:13px; font-weight:700; color:var(--blue-700);
+    box-shadow:0 4px 12px rgba(20,80,160,.08);
+  }
+  .apply-reassure svg{width:16px; height:16px; color:var(--teal-500)}
+  .apply-grid{
+    display:grid; grid-template-columns:1.3fr .9fr; gap:24px; align-items:start;
+  }
+  .apply-form{
+    background:#fff; border-radius:22px; padding:32px 30px;
+    box-shadow:0 18px 44px rgba(20,80,160,.12);
+  }
+  .apply-form h3{
+    margin:0 0 18px; font-size:20px; font-weight:900; color:var(--blue-700);
+    display:flex; align-items:center; gap:10px;
+  }
+  .apply-form h3 svg{width:24px; height:24px; color:var(--coral-500)}
+  .field{margin:0 0 16px}
+  .field label{
+    display:block; font-size:13.5px; font-weight:700; color:var(--ink-900); margin:0 0 6px;
+  }
+  .field label .req{color:var(--coral-500); font-size:11px; margin-left:6px}
+  .field input, .field select, .field textarea{
+    width:100%; border:1.5px solid #DCE9F3; border-radius:12px;
+    padding:12px 14px; font-size:15px; font-family:inherit; color:var(--ink-900);
+    background:#FAFCFE; transition:border-color .15s, box-shadow .15s;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{
+    outline:none; border-color:var(--blue-500); box-shadow:0 0 0 3px rgba(77,163,242,.15);
+  }
+  .field textarea{min-height:90px; resize:vertical}
+  .field-row{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+  .apply-submit{
+    width:100%; border:0; cursor:pointer;
+    background:var(--coral-500); color:#fff; font-weight:700; font-size:17px;
+    padding:17px; border-radius:999px; margin-top:6px;
+    box-shadow:0 12px 26px rgba(242,107,126,.32);
+    transition:transform .15s, box-shadow .15s, background .15s;
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  }
+  .apply-submit:hover{background:var(--coral-600); transform:translateY(-1px)}
+  .apply-form .form-note{font-size:11.5px; color:var(--ink-500); margin:12px 0 0; line-height:1.7}
+  .apply-side{display:flex; flex-direction:column; gap:18px}
+  .apply-card{
+    background:#fff; border-radius:20px; padding:24px 22px;
+    box-shadow:0 10px 28px rgba(20,80,160,.10);
+  }
+  .apply-card.price-pop{
+    background:linear-gradient(160deg,#FFFFFF, #F0FBF8);
+    border:2px solid #B7E9E1; text-align:center;
+  }
+  .apply-card.price-pop .ap-label{font-size:14px; font-weight:700; color:var(--teal-500)}
+  .apply-card.price-pop .ap-price{
+    font-family:"Poppins",sans-serif; font-weight:700; color:var(--blue-700);
+    font-size:40px; line-height:1.1; margin:4px 0 2px;
+  }
+  .apply-card.price-pop .ap-price small{font-size:18px; font-weight:700}
+  .apply-card.price-pop .ap-sub{font-size:12px; color:var(--ink-500)}
+  .apply-card h4{
+    margin:0 0 14px; font-size:16px; font-weight:800; color:var(--blue-700);
+    display:flex; align-items:center; gap:8px;
+  }
+  .apply-card h4 svg{width:20px; height:20px; color:var(--blue-500)}
+  .cond-list{list-style:none; margin:0; padding:0}
+  .cond-list li{
+    display:flex; gap:10px; align-items:flex-start;
+    font-size:13.5px; line-height:1.7; color:var(--ink-700); font-weight:500;
+    padding:7px 0; border-bottom:1px dashed #E4EEF6;
+  }
+  .cond-list li:last-child{border-bottom:0}
+  .cond-list .ck{
+    flex-shrink:0; width:20px; height:20px; border-radius:50%;
+    background:#E2F6F3; color:var(--teal-500);
+    display:inline-flex; align-items:center; justify-content:center; margin-top:1px;
+  }
+  .cond-list .ck svg{width:12px; height:12px}
+  .apply-line{
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    background:var(--line-green); color:#fff; font-weight:700; font-size:15.5px;
+    padding:15px; border-radius:999px; box-shadow:0 10px 22px rgba(6,199,85,.28);
+    transition:transform .15s;
+  }
+  .apply-line:hover{transform:translateY(-1px)}
+  .apply-line svg{width:22px; height:22px}
+  .apply-line .ll{background:#fff; color:var(--line-green); border-radius:50%; width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center}
+  .apply-line .ll svg{width:18px;height:18px}
+  @media (max-width:768px){
+    .apply-section{padding:44px 16px 48px}
+    .apply-title{font-size:28px}
+    .apply-grid{grid-template-columns:1fr; gap:16px}
+    .apply-form{padding:22px 18px; border-radius:18px}
+    .field-row{grid-template-columns:1fr}
+    .apply-reassure{gap:8px; margin-bottom:22px}
+    .apply-reassure span{font-size:12px; padding:8px 12px}
+  }
+
+  /* ════════════════════════════════════════════════════
+     MOBILE OPTIMISATION (≤768px)
+     Goal: shorter page, snappier tempo. Card stacks become
+     swipe carousels or 2-col tiles, body copy wraps
+     naturally, spacing tightens, and CTAs are everywhere.
+     Desktop layout is intentionally untouched.
+     ════════════════════════════════════════════════════ */
+  .m-cta-bar{display:none}
+  .m-inline-cta{display:none}
+  .swipe-hint{display:none}
+  @media (max-width: 768px){
+    /* Body copy wraps naturally (drop hard <br> inside paragraphs) */
+    p br{display:none}
+
+    /* Tighter vertical rhythm */
+    .intro-section{padding:44px 18px 32px}
+    .voice-band{padding:6px 0 24px}
+    .about-section{padding:6px 18px 34px}
+    .recommend-section{padding:34px 18px}
+    .reason-section{padding:34px 18px}
+    .credit-section{padding:26px 16px}
+    .lesson-section{padding:34px 16px 36px}
+    .real-voice-section{padding:34px 14px 40px}
+    .pricing-section{padding:6px 16px 34px}
+    .members-section{padding:0 16px 40px}
+    .flow-section{padding:34px 16px 36px}
+
+    /* ════════ Each section gets its OWN layout (no carousel monotony) ════════
+       The only carousel on the page is お客様の声 (immersive, one at a time).
+       Everything else uses the format that best fits its cognitive task. */
+
+    /* About「とは？」→ icon-LEFT scan rows (read/compare mode) */
+    .feature-grid{grid-template-columns:1fr; gap:10px}
+    .feature-card{
+      display:grid; grid-template-columns:auto 1fr; align-items:center;
+      gap:14px; text-align:left; padding:14px 16px;
+    }
+    .feature-card > div{min-width:0}
+    .feature-card h4{margin:0 0 2px; text-align:left}
+    .feature-card p{margin:0; font-size:12.5px; text-align:left}
+    .fc-ic{margin:0 !important}
+
+    /* Lesson → 2-col image tiles (visual browse) */
+    .lesson-grid{grid-template-columns:repeat(2,1fr); gap:10px}
+    .lesson-card{padding-bottom:0}
+
+    /* Reasons (4) → full-width readable rows; hide the horizontal
+       step-connector (cards are stacked vertically here) */
+    .reason-grid{grid-template-columns:1fr; gap:18px}
+    .reason-card:not(:last-child)::after{display:none}
+
+    /* Members (4) → single column; the dark band is the pattern-interrupt */
+    .members-cards{grid-template-columns:1fr; gap:16px; margin-top:-28px}
+
+    /* Pricing (3) → stacked compare; recommended plan first */
+    .pricing-grid{grid-template-columns:1fr; gap:14px}
+    .price-card.is-member{order:-1}
+
+    /* Early voices (3) → simple stack; bring the avatar INSIDE the card
+       (desktop has it sticking out into a left gutter that doesn't exist on mobile) */
+    .voice-cards{grid-template-columns:1fr; gap:16px; padding-left:0}
+    .voice-card{padding:18px 18px 18px 90px; min-height:0}
+    .voice-avatar{left:14px; width:64px; height:64px}
+    .voice-card::before{left:40px}
+
+    /* お客様の声 = the ONE carousel (immersive testimonials) */
+    .rv-cards{
+      display:flex; grid-template-columns:none; flex-wrap:nowrap;
+      overflow-x:auto; overflow-y:visible;
+      scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
+      gap:12px; padding-bottom:14px; scrollbar-width:none;
+    }
+    .rv-cards::-webkit-scrollbar{display:none}
+    .rv-cards > *{scroll-snap-align:center; flex:0 0 88%; max-width:88%; min-width:0}
+
+    /* "swipe →" affordance (only under the testimonials carousel) */
+    .swipe-hint{
+      display:flex; align-items:center; justify-content:flex-end; gap:6px;
+      margin:-6px 4px 0; font-size:11px; font-weight:700; color:var(--blue-500);
+      letter-spacing:.04em;
+    }
+    .swipe-hint svg{width:16px; height:16px}
+
+    /* ---------- 2-column tiles (truly short icon items) ---------- */
+    .trust-row, .app-feats{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:10px;
+    }
+    .credit-stats{grid-template-columns:repeat(3,1fr); gap:8px}
+
+    /* ---------- Inline CTA blocks (mobile only) ---------- */
+    .m-inline-cta{
+      display:flex; gap:10px; justify-content:center; flex-wrap:wrap;
+      padding:2px 16px 6px;
+    }
+    .m-inline-cta .btn{flex:1 1 auto; min-width:0; justify-content:center;
+      padding:13px 16px; font-size:14.5px}
+
+    /* ---------- Sticky bottom CTA bar ---------- */
+    .m-cta-bar{
+      position:fixed; left:0; right:0; bottom:0; z-index:60;
+      display:flex; gap:8px;
+      padding:8px 12px calc(8px + env(safe-area-inset-bottom));
+      background:rgba(255,255,255,.95);
+      -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
+      box-shadow:0 -4px 18px rgba(20,40,80,.14);
+      transform:translateY(120%);
+      transition:transform .3s ease;
+    }
+    .m-cta-bar.is-visible{transform:translateY(0)}
+    .m-cta-bar a{
+      flex:1; display:inline-flex; align-items:center; justify-content:center; gap:7px;
+      padding:13px 8px; border-radius:999px;
+      font-weight:700; font-size:14px; color:#fff;
+      box-shadow:0 6px 14px rgba(0,0,0,.16);
+    }
+    .m-cta-bar a svg{width:18px; height:18px; flex-shrink:0}
+    .m-cta-trial{background:var(--coral-500)}
+    .m-cta-line{background:var(--line-green)}
+    /* keep the bar from hiding page-end content */
+    body{padding-bottom:70px}
+
+    /* ---------- Length trims & section-specific layouts ---------- */
+    /* Recommend: keep the self-identification reward, compactly —
+       one row of small photos + the callout phrases as chips */
+    .recommend-inner{display:block}
+    .reco-outro{margin-top:14px}
+    /* (overrides an earlier tablet rule that forces photo-bubble width:80%!important) */
+    .photo-stack{
+      position:static !important; min-height:0 !important; height:auto !important;
+      max-width:none !important; margin:18px auto 0 !important;
+      display:flex; flex-wrap:wrap; gap:8px 10px;
+      justify-content:center; align-items:center;
+    }
+    .photo-bubble{
+      position:static !important; width:74px !important; height:74px !important;
+      max-width:74px !important; aspect-ratio:auto !important;
+      border-width:3px; margin:0 !important;
+    }
+    .pb-1,.pb-2,.pb-3{top:auto;right:auto;left:auto;width:74px !important;height:74px !important}
+    .callout{
+      position:static; width:auto; height:auto; min-width:0;
+      border-radius:999px; padding:8px 14px; font-size:11.5px; line-height:1.3;
+      box-shadow:0 4px 10px rgba(20,80,160,.12);
+    }
+    .co-1,.co-2,.co-3{top:auto;left:auto}
+    .callout br{display:none}
+
+    /* Flow: hide the decorative side photos around the heading */
+    .flow-top{display:block; text-align:center}
+    .flow-top-img{display:none}
+
+    /* App subsection: smaller device mockups, tighter padding */
+    .app-section{padding:26px 16px 20px; margin:30px 0}
+    .app-screens{height:240px; transform:scale(.92)}
+    .app-title{font-size:22px}
+
+    /* FAQ: tighter rows */
+    .faq-cat{margin-bottom:8px}
+    .faq-item{padding-top:11px; padding-bottom:11px}
+    .faq-title{margin-bottom:18px}
+
+    /* Intro / about photos a little shorter on mobile */
+    .intro-photo{aspect-ratio:1/.66}
+    .credit-photo{max-height:200px; overflow:hidden; border-radius:18px}
+
+    /* Growth timeline → VERTICAL connected timeline (conveys "getting closer
+       to the goal" — goal-gradient. A photo + progress dot per milestone) */
+    .timeline-arrow{display:none}
+    .timeline-grid{
+      grid-template-columns:1fr; gap:0; position:relative;
+    }
+    .timeline-grid::before{
+      content:""; position:absolute; left:59px; top:30px; bottom:40px;
+      width:3px; border-radius:2px;
+      background:linear-gradient(180deg,#5DD0C3,#6BD3A7,#4DA3F2);
+      z-index:0;
+    }
+    .tl-item{
+      grid-template-columns:120px 1fr; grid-template-rows:auto auto;
+      column-gap:16px; row-gap:6px; align-items:center;
+      text-align:left; padding:10px 0 24px; position:relative; z-index:1;
+    }
+    .tl-photo-block{width:120px; height:120px; margin:0; grid-column:1; grid-row:1 / span 2; align-self:center}
+    .tl-photo{width:120px; height:120px}
+    .tl-badge{width:60px; height:60px; font-size:13px; top:-8px; left:-6px}
+    .tl-text{grid-column:2; grid-row:1; align-self:end}
+    .tl-list{grid-column:2; grid-row:2; align-self:start; margin:0}
+
+    /* Flow (6) → VERTICAL numbered timeline (feels like "just a few steps") */
+    .flow-steps{grid-template-columns:1fr; gap:0; position:relative}
+    .flow-steps::before{
+      content:""; position:absolute; left:35px; top:34px; bottom:34px;
+      width:3px; background:#DCEEFA; border-radius:2px; z-index:0;
+    }
+    .flow-step{
+      display:grid; grid-template-columns:56px 1fr; grid-template-rows:auto auto;
+      column-gap:16px; row-gap:2px; align-items:center;
+      text-align:left; background:transparent; padding:8px 6px; margin-bottom:6px;
+      position:relative; z-index:1;
+    }
+    .flow-step .step-ic{margin:0; position:relative; z-index:1; grid-column:1; grid-row:1 / span 2; align-self:center}
+    .flow-step .step-num{top:-4px; left:34px; transform:none}
+    .flow-step h4{margin:0; text-align:left; grid-column:2; grid-row:1; align-self:end}
+    .flow-step p{text-align:left; grid-column:2; grid-row:2; align-self:start}
+    .flow-arrow{display:none}
+
+    /* App + bottom CTA compaction */
+    .bc-photo{max-width:150px; margin:0 auto}
+    .app-section{margin:24px 0}
+    .app-feats{gap:10px 12px}
+    .app-feat .af-ic{width:38px; height:38px; border-radius:10px}
+    .app-lead{margin-bottom:14px}
+
+    /* ---------- Keep it compact without carousels ---------- */
+    /* Lesson tiles: image-forward (icon + title + photo); drop the long
+       description on mobile so 6 tiles stay short and scannable */
+    .lesson-card{padding:14px 10px 0; text-align:center}
+    .lesson-card p{display:none}
+    .lesson-card h4{font-size:13px; margin:6px 0 8px}
+    .lc-ic{width:40px;height:40px}
+    .lc-photo{margin:0 -10px}
+
+    /* Members → ACCORDION (tap a perk to expand). Collapsed = scannable
+       header row; only the chosen perk reveals its detail + photo.
+       Compact + a distinct interaction (only used here & in FAQ). */
+    .members-cards{grid-template-columns:1fr; gap:8px; margin-top:-22px}
+    .mc{
+      display:grid; grid-template-columns:auto 1fr auto; align-items:center;
+      column-gap:10px; row-gap:0;
+      padding:13px 14px; cursor:pointer; border-width:2px;
+    }
+    .mc-head{margin:0; grid-column:1; grid-row:1}
+    .mc h3{margin:0; text-align:left; font-size:14.5px; grid-column:2; grid-row:1}
+    .mc::after{
+      content:""; grid-column:3; grid-row:1;
+      width:9px; height:9px; margin-right:4px;
+      border-right:2.5px solid currentColor; border-bottom:2.5px solid currentColor;
+      transform:rotate(45deg); opacity:.45; transition:transform .25s;
+    }
+    .mc.is-teal::after{color:var(--teal-500)} .mc.is-pink::after{color:#F26B7E}
+    .mc.is-blue::after{color:var(--blue-600)} .mc.is-yellow::after{color:#E8A82A}
+    .mc.is-open::after{transform:rotate(225deg); opacity:.75}
+    /* collapsible body */
+    .mc > p, .mc > .mc-tag, .mc > .mc-photo, .mc > .mc-photo-stack,
+    .mc > .mc-photo-cap, .mc > .mc-prod-row, .mc > .mc-icons-row{
+      grid-column:1 / -1; display:none;
+    }
+    .mc p{font-size:12.5px; margin:6px 0 0}
+    .mc.is-open > p{display:block}
+    .mc.is-open > .mc-tag{display:inline-block; margin-top:10px}
+    .mc.is-open > .mc-photo{display:block; aspect-ratio:1/.5; margin:12px -14px -13px}
+    .mc.is-open > .mc-photo-stack{display:grid; margin:12px -14px 0}
+    .mc.is-open > .mc-photo-cap{display:block}
+    .mc.is-open > .mc-prod-row{display:flex; margin-top:10px}
+    .mc.is-open > .mc-icons-row{display:flex; margin-top:10px}
+
+    /* Pricing: trim the in-card photos so the 3 plans compare fast */
+    .price-card .pc-photo, .price-card img{max-height:150px; object-fit:cover}
+
+    /* Recommend: tighten the checklist rows */
+    .reco-pill{padding:10px 12px}
+    .reco-grid{gap:8px}
   }
 </style>
 </head>
@@ -2870,7 +3601,7 @@
     <div class="hero-inner">
       <!-- LEFT: text -->
       <div class="hero-content">
-        <span class="eyebrow">フィンスイミング スキルアップクラス</span>
+        <span class="eyebrow">Fin-D Swim School ｜ スキルアップクラス</span>
 
         <h1 class="hero-title">
           <span class="nowrap">フィンスイミングを、</span><br />
@@ -2879,29 +3610,49 @@
         </h1>
 
         <p class="hero-lead">
-          子どもから大人まで、フィンを使って楽しく上達。<br />
+          水泳・フィン経験者の「もっと上手に」を、フィンを使って叶える。<br />
           Fin-Dの専門的な指導を、やさしく体感できる少人数制クラスです。
         </p>
 
-        <div class="feature-pills">
+        <div class="feature-pills hero-facts">
+          <span class="feature-pill">
+            <span class="ic ic-cal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+            </span>
+            毎週日曜 13:00〜<br /><b>60分</b>レッスン
+          </span>
+          <span class="feature-pill">
+            <span class="ic ic-pin">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C7.6 2 4 5.5 4 9.8 4 15.3 12 22 12 22s8-6.7 8-12.2C20 5.5 16.4 2 12 2zm0 11a3 3 0 110-6 3 3 0 010 6z"/></svg>
+            </span>
+            東京・池袋エリア<br /><b>少人数</b>で開催
+          </span>
           <span class="feature-pill">
             <span class="ic ic-people">
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/><path d="M2 19c0-3 3-5 6-5s6 2 6 5v1H2v-1z"/><path d="M14 14c-.6 0-1.2.1-1.7.3 1.7 1 2.7 2.7 2.7 4.7v1H22v-1c0-3-3-5-6-5-.7 0-1.4.1-2 0z"/></svg>
             </span>
-            少人数制
-          </span>
-          <span class="feature-pill">
-            <span class="ic ic-heart">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7-4.5-9.5-9C.8 8.5 2.7 4.5 6.5 4.5c2 0 3.7 1.1 4.5 2.7.8-1.6 2.5-2.7 4.5-2.7 3.8 0 5.7 4 4 7.5C19 16.5 12 21 12 21z"/></svg>
-            </span>
-            大人も<br />参加しやすい
+            <b>各回8名</b>までの<br />少人数制クラス
           </span>
           <span class="feature-pill">
             <span class="ic ic-fin">
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 19c6 1 13 .5 18-1 0 0-4-12-13-14-.6 0-1 .5-1 1 .6 5-.6 11-4 14z"/></svg>
             </span>
-            フィン経験がない方も<br />相談OK
+            <b>18歳以上</b>の<br />水泳経験者が対象
           </span>
+        </div>
+
+        <div class="hero-offer">
+          <div class="ho-main">
+            <span class="ho-label">初回体験レッスン</span>
+            <span class="ho-amount">3,500<span class="ho-yen">円</span><span class="ho-tax">税込</span></span>
+          </div>
+          <div class="ho-side">
+            <span class="ho-incl">
+              <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7.5l3 3L12 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              フィンレンタル込み・手ぶらでOK
+            </span>
+            <span class="ho-camp"><span class="ho-camp-badge">6月限定</span>ご入会で入会金<b>0円</b></span>
+          </div>
         </div>
 
         <div class="hero-ctas">
@@ -2913,12 +3664,12 @@
                 <path d="M9 16l5-5 4 2 4-4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </span>
-            初回体験はこちら
+            初回体験を予約する
             <span class="arrow">
               <svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 6h6m0 0L6 3m3 3L6 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
           </a>
-          <a class="btn btn-line" href="#line">
+          <a class="btn btn-line" href="https://lin.ee/xF6GnbP" target="_blank" rel="noopener">
             <span class="ic-btn">
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.8 5.2 4.6 6.6-.2.7-.8 2.4-.9 2.8-.1.5.2.5.4.4.2-.1 2.5-1.7 3.5-2.4.8.1 1.5.2 2.4.2 5.5 0 10-3.6 10-8S17.5 3 12 3z"/></svg>
             </span>
@@ -2928,12 +3679,16 @@
             </span>
           </a>
         </div>
+        <p class="cta-reassure">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 6"/></svg>
+          初回体験は3,500円・体験後の入会は自由です。無理な勧誘はありません。
+        </p>
       </div>
 
       <!-- RIGHT: photo -->
       <div class="hero-photo">
         <div class="hero-photo-frame">
-          <img src="project/assets/fv-photo.png" alt="プールサイドでフィンスイミングのレッスンを受ける生徒たち" />
+          <img src="project/assets/fv-photo.png" alt="プールサイドでフィンスイミングのレッスンを受ける生徒たち"  data-photo="P01"/>
         </div>
       </div>
     </div>
@@ -2967,8 +3722,8 @@
     <div class="intro-inner">
       <div class="intro-text">
         <h2 class="intro-heading">
-          <span class="u-yellow">正しく教わる</span>だけで、<br />
-          泳ぎは<span class="num">100倍</span><span class="accent-teal">楽しく</span>なる。
+          正しく教わる<span class="lighter">だけで、</span><br />
+          泳ぎは<span class="accent-teal wavy-underline"><span class="num">100倍</span>楽しくなる。</span>
         </h2>
 
         <p class="intro-lead">
@@ -3000,7 +3755,7 @@
       </div>
 
       <div class="intro-photo">
-        <img src="project/assets/group-photo.png" alt="プールでフィンスイミングのレッスンを行う様子" loading="lazy" decoding="async" />
+        <img src="project/assets/group-photo.png" alt="プールでフィンスイミングのレッスンを行う様子" loading="lazy" decoding="async"  data-photo="P02"/>
       </div>
     </div>
   </section>
@@ -3010,9 +3765,9 @@
   <section class="voice-band" data-screen-label="Voices">
     <div class="voice-inner">
       <h3 class="voice-heading">
-        <span class="dec">»</span>
+        <span class="spark-mark" aria-hidden="true"><svg viewBox="0 0 20 26" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 6l12 3"/><path d="M3 13h14"/><path d="M4 20l12-3"/></svg></span>
         参加された方から、こんな声が届いています
-        <span class="dec">«</span>
+        <span class="spark-mark" aria-hidden="true"><svg viewBox="0 0 20 26" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" style="transform:scaleX(-1)"><path d="M4 6l12 3"/><path d="M3 13h14"/><path d="M4 20l12-3"/></svg></span>
       </h3>
 
       <div class="voice-cards">
@@ -3105,9 +3860,9 @@
               <path d="M12 80c0-12 12-18 28-18s28 6 28 18H12z" fill="#FFE3A1"/>
             </svg>
           </span>
-          雰囲気がやさしくて、<br />
-          初めてでも安心して<br />
-          参加できました。
+          少人数だから、<br />
+          自分の泳ぎをしっかり<br />
+          見てもらえました。
           <svg class="voice-confetti" viewBox="0 0 42 18" aria-hidden="true">
             <circle cx="6" cy="6" r="2" fill="#FFD046"/>
             <rect x="14" y="3" width="6" height="2" rx="1" fill="#36C2B2" transform="rotate(20 17 4)"/>
@@ -3135,12 +3890,12 @@
           <h2 class="about-heading">スキルアップクラスとは？</h2>
           <p class="about-sub">フィンを楽しみながら、少しずつ上達していく少人数制クラスです。</p>
           <p class="about-body">
-            Fin-D Swim Schoolのスキルアップクラスは、フィンスイミングをもっと楽しく、もっと上手に泳ぎたい方のための少人数制クラスです。週末や休日を中心に実施し、ビーフィン・モノフィンどちらにも対応しています。<br />
+            Fin-D Swim Schoolのスキルアップクラスは、フィンスイミングをもっと楽しく、もっと上手に泳ぎたい方のための少人数制クラスです。毎週日曜の13:00〜（約60分）、東京・池袋エリアで実施し、ビーフィン・モノフィンどちらにも対応しています。<br />
             フィンの使い方、水中姿勢、キック、身体の動かし方などを、参加者の泳力や経験に合わせて丁寧に練習していきます。無理なく、楽しく、確実に上達を目指します。
           </p>
         </div>
         <div class="about-photo">
-          <img src="project/assets/fins-photo.png" alt="ビーフィンとモノフィンの写真" loading="lazy" decoding="async" />
+          <img src="project/assets/fins-photo.png" alt="ビーフィンとモノフィンの写真" loading="lazy" decoding="async"  data-photo="P03"/>
         </div>
       </div>
 
@@ -3152,7 +3907,7 @@
           </span>
           <div>
             <h4>通いやすい</h4>
-            <p>週末や休日を中心に実施しています。無理なく続けやすいペースです。</p>
+            <p>毎週日曜の13:00〜、東京・池袋エリアで開催。無理なく続けやすいペースです。</p>
           </div>
         </article>
 
@@ -3161,7 +3916,7 @@
             <svg viewBox="0 0 30 30" fill="currentColor"><circle cx="10" cy="11" r="3.6"/><circle cx="20" cy="11" r="3.6"/><path d="M3 24c0-3.5 3.4-6 7-6s7 2.5 7 6v1H3z"/><path d="M17 18c-.5 0-1 0-1.5.1 1.7 1.3 2.5 3.3 2.5 5.4v1.5H27V24c0-3.5-3.4-6-7-6-1.1 0-2.1.2-3 .5z"/></svg>
           </span>
           <div>
-            <h4>定員10名</h4>
+            <h4>各回8名まで</h4>
             <p>少人数制で、一人ひとりの泳ぎや感覚を丁寧に見てアドバイスします。</p>
           </div>
         </article>
@@ -3192,8 +3947,8 @@
             <svg viewBox="0 0 30 30" fill="currentColor"><circle cx="15" cy="13" r="9"/><path d="M3 27c0-4 4-7 12-7s12 3 12 7" stroke="currentColor" stroke-width="0" fill="currentColor"/><circle cx="11" cy="12" r="1.3" fill="#fff"/><circle cx="19" cy="12" r="1.3" fill="#fff"/><path d="M12 16c1 1 5 1 6 0" stroke="#fff" stroke-width="1.4" stroke-linecap="round" fill="none"/></svg>
           </span>
           <div>
-            <h4>お子様もOK！</h4>
-            <p>小学5年生以上のお子様から、マスターズ世代の方まで参加できます。</p>
+            <h4>18歳以上が対象</h4>
+            <p>趣味で楽しみたい方から、マスターズ世代の競技者まで参加できます。</p>
           </div>
         </article>
 
@@ -3243,7 +3998,7 @@
           <li class="reco-pill"><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>記録だけでなく、泳ぎやすさや気持ちよさも大切にしたい</li>
           <li class="reco-pill"><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>モノフィンに興味がある</li>
           <li class="reco-pill"><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>フィンスイミングを長く楽しめる技術を身につけたい</li>
-          <li class="reco-pill"><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>子どもにフィンスイミングを楽しく学ばせたい</li>
+          <li class="reco-pill"><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>ブランクはあるが、もう一度きちんと泳ぎを習いたい</li>
           <li class="reco-pill"><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>周りについていけるか少し不安だが、きちんと学びたい</li>
           <li class="reco-pill"><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>4泳法だけでなく、新しい泳ぎに挑戦したい</li>
         </ul>
@@ -3252,13 +4007,27 @@
       </div>
 
       <div class="photo-stack" aria-hidden="false">
-        <div class="photo-bubble pb-1"><img src="project/assets/p3-man-top.png" alt="プールサイドでくつろぐ男性" loading="lazy" decoding="async" /></div>
-        <div class="photo-bubble pb-2"><img src="project/assets/p3-kids.png" alt="フィンを持つ子どもたち" loading="lazy" decoding="async" /></div>
-        <div class="photo-bubble pb-3"><img src="project/assets/p3-woman.png" alt="フィンを持つ女性" loading="lazy" decoding="async" /></div>
+        <div class="photo-bubble pb-1"><img src="project/assets/p3-man-top.png" alt="プールサイドでくつろぐ男性" loading="lazy" decoding="async"  data-photo="P04"/></div>
+        <div class="photo-bubble pb-2"><img src="project/assets/p3-kids.png" alt="フィンを持つ子どもたち" loading="lazy" decoding="async"  data-photo="P05"/></div>
+        <div class="photo-bubble pb-3"><img src="project/assets/p3-woman.png" alt="フィンを持つ女性" loading="lazy" decoding="async"  data-photo="P06"/></div>
 
         <div class="callout co-1">もっと楽に<br />泳ぎたい！</div>
-        <div class="callout co-2">子どもに<br />楽しく学ばせたい！</div>
+        <div class="callout co-2">基礎から<br />学び直したい！</div>
         <div class="callout co-3">大会に向けて<br />泳ぎを見直したい！</div>
+      </div>
+
+      <!-- mobile inline CTA -->
+      <div class="m-inline-cta">
+        <a class="btn btn-coral" href="#trial">
+          <span class="ic-btn"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="20" height="18" rx="2.5"/><path d="M4 10h20M9 3v4M19 3v4"/><path d="M10 16l3 3 5-5"/></svg></span>
+          まずは初回体験から
+          <span class="arrow"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 6h6m0 0L6 3m3 3L6 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a class="btn btn-line" href="https://lin.ee/xF6GnbP" target="_blank" rel="noopener">
+          <span class="ic-btn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.8 5.2 4.6 6.6-.2.7-.8 2.4-.9 2.8-.1.5.2.5.4.4.2-.1 2.5-1.7 3.5-2.4.8.1 1.5.2 2.4.2 5.5 0 10-3.6 10-8S17.5 3 12 3z"/></svg></span>
+          LINEで相談
+          <span class="arrow"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 6h6m0 0L6 3m3 3L6 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
       </div>
     </div>
   </section>
@@ -3268,14 +4037,13 @@
   <section class="reason-section" data-screen-label="Reasons">
     <div class="reason-inner">
       <h2 class="reason-heading">
-        <span class="dec" style="color:var(--blue-500);font-size:24px">»</span>
+        <span class="spark-mark" aria-hidden="true"><svg viewBox="0 0 20 26" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 6l12 3"/><path d="M3 13h14"/><path d="M4 20l12-3"/></svg></span>
         やさしいのに、ちゃんと上達できる理由
-        <span class="dec" style="color:var(--blue-500);font-size:24px">«</span>
+        <span class="spark-mark" aria-hidden="true"><svg viewBox="0 0 20 26" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" style="transform:scaleX(-1)"><path d="M4 6l12 3"/><path d="M3 13h14"/><path d="M4 20l12-3"/></svg></span>
       </h2>
       <p class="reason-lead">
-        楽しく泳ぐためにも、速く泳ぐためにも、大切なのは「効率よく泳ぐこと」。<br />
-        Fin-Dでは、長年の研究と豊富な指導経験をもとに、フィンスイミングのスキルを体系化してきました。<br />
-        難しい理論をやさしく、わかりやすく伝えるから、<em>子どもも大人も着実に上達していきます。</em>
+        上達のカギは、根性でも泳ぎ込みの量でもありません。大切なのは、フィンの使い方の“小さなズレ”を直すこと。<br />
+        Fin-Dは、20年以上かけて体系化した指導を、次の<em>4つのステップ</em>で“やさしく、でも確実に”進めます。
       </p>
 
       <div class="reason-grid">
@@ -3287,8 +4055,8 @@
               <path d="M14 24l8-7 6 3 6-6" stroke="currentColor" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
-          <h4>いちばん大切なのは<br />「スキル」</h4>
-          <p>楽しく泳ぐにも、速く泳ぐにも、効率よく泳ぐための技術が必要です。</p>
+          <h4>まず「ズレ」に<br />気づく</h4>
+          <p>つまずきの多くは泳力不足ではなく、フィンの使い方や身体の動かし方の“小さなズレ”。最初にその原因を見つけます。</p>
         </article>
 
         <article class="reason-card is-blue">
@@ -3298,8 +4066,8 @@
               <path d="M38 12H27c-2.6 0-4.6 2-4.6 4.6V38c0-2.6 2-4.6 4.6-4.6h11V12z"/>
             </svg>
           </span>
-          <h4>20年以上かけて<br />体系化した指導</h4>
-          <p>長年の研究と指導経験をもとに、フィンの使い方や身体の動かし方を体系的に整理しています。</p>
+          <h4>仕組みで<br />理解する</h4>
+          <p>20年以上かけて体系化した「なぜそう動くと進むのか」を、難しい理論ではなく分かる言葉でお伝えします。</p>
         </article>
 
         <article class="reason-card is-yellow">
@@ -3310,8 +4078,8 @@
               <path d="M23 4v-1M9 12l-1-1M37 12l1-1M4 23h-1M43 23h1"/>
             </svg>
           </span>
-          <h4>専門的な内容を、<br />わかりやすく</h4>
-          <p>難しい理論のままではなく、子どもにも大人にも伝わる言葉と練習に変えてお伝えします。</p>
+          <h4>水中で<br />体感する</h4>
+          <p>頭で分かるだけでは変わりません。少人数だからこそ、その場で動きを試して“進む感覚”を身体で覚えます。</p>
         </article>
 
         <article class="reason-card is-coral">
@@ -3320,8 +4088,8 @@
               <path d="M23 40s-13-8.5-17-17.5C3.5 16 7 8.5 14 8.5c3.7 0 7 2 9 5 2-3 5.3-5 9-5 7 0 10.5 7.5 8 14C36 31.5 23 40 23 40z"/>
             </svg>
           </span>
-          <h4>感覚に寄り添う指導</h4>
-          <p>「なんでわかったんですか？」と言われることも多い、感覚に寄り添う指導でサポートします。</p>
+          <h4>自分の泳ぎに<br />落とし込む</h4>
+          <p>一人ひとりの感覚に寄り添いながら、覚えた動きを“いつもの泳ぎ”へ。だから、やさしいのにちゃんと上達できます。</p>
         </article>
       </div>
     </div>
@@ -3332,7 +4100,7 @@
   <section class="credit-section" data-screen-label="Credits">
     <div class="credit-inner">
       <div class="credit-photo">
-        <img src="project/assets/p3-poolside.png" alt="プールサイドに並ぶフィン" loading="lazy" decoding="async" />
+        <img src="project/assets/p3-poolside.png" alt="プールサイドに並ぶフィン" loading="lazy" decoding="async"  data-photo="P07"/>
       </div>
       <div class="credit-right">
         <h3 class="credit-title">
@@ -3379,7 +4147,7 @@
                 <path d="M9 4v4M21 4v4" stroke="#F26B7E" stroke-width="2.2" stroke-linecap="round"/>
               </svg>
             </span>
-            <h5>指導歴<br /><strong>20年以上</strong></h5>
+            <h5>指導歴<br /><strong><span class="count" data-to="20">20</span>年以上</strong></h5>
           </div>
           <div class="stat">
             <span class="s-ic">
@@ -3388,7 +4156,7 @@
                 <path d="M6 28c0-5 4-9 9-9s9 4 9 9v0H6z"/>
               </svg>
             </span>
-            <h5>延べ10,000人以上<br /><strong>を指導</strong></h5>
+            <h5>延べ<span class="count" data-to="10000">10,000</span>人以上<br /><strong>を指導</strong></h5>
           </div>
         </div>
         <p class="credit-note">※上記はFin-D Swim School全体の実績です</p>
@@ -3426,7 +4194,7 @@
           </span>
           <h4>フィンの使い方</h4>
           <p>ビーフィン・モノフィンの特徴を知り、身体に合った使い方を身につけます。</p>
-          <div class="lc-photo"><img src="project/assets/lesson1.png" alt="フィンを使った練習" loading="lazy" decoding="async" /></div>
+          <div class="lc-photo"><img src="project/assets/lesson1.png" alt="フィンを使った練習" loading="lazy" decoding="async"  data-photo="P08"/></div>
         </article>
 
         <article class="lesson-card is-teal">
@@ -3439,7 +4207,7 @@
           </span>
           <h4>水中姿勢</h4>
           <p>抵抗の少ない姿勢を学び、楽に進める身体の使い方を身につけます。</p>
-          <div class="lc-photo"><img src="project/assets/lesson2.png" alt="水中姿勢の練習" loading="lazy" decoding="async" /></div>
+          <div class="lc-photo"><img src="project/assets/lesson2.png" alt="水中姿勢の練習" loading="lazy" decoding="async"  data-photo="P09"/></div>
         </article>
 
         <article class="lesson-card is-blue">
@@ -3451,7 +4219,7 @@
           </span>
           <h4>キックと身体の連動</h4>
           <p>脚だけでなく、体幹やリズムを使って、より効率よく進む感覚をつかみます。</p>
-          <div class="lc-photo"><img src="project/assets/lesson3.png" alt="キックと身体の連動" loading="lazy" decoding="async" /></div>
+          <div class="lc-photo"><img src="project/assets/lesson3.png" alt="キックと身体の連動" loading="lazy" decoding="async"  data-photo="P10"/></div>
         </article>
 
         <article class="lesson-card is-blue">
@@ -3466,7 +4234,7 @@
           </span>
           <h4>疲れにくい泳ぎ</h4>
           <p>力任せではなく、楽に進むポイントを知ることで、長く気持ちよく泳げるように。</p>
-          <div class="lc-photo"><img src="project/assets/lesson4.png" alt="疲れにくい泳ぎ" loading="lazy" decoding="async" /></div>
+          <div class="lc-photo"><img src="project/assets/lesson4.png" alt="疲れにくい泳ぎ" loading="lazy" decoding="async"  data-photo="P11"/></div>
         </article>
 
         <article class="lesson-card is-blue">
@@ -3478,7 +4246,7 @@
           </span>
           <h4>フォーム改善</h4>
           <p>今の泳ぎのクセを見つけ、効率よく泳げるフォームに整えていきます。</p>
-          <div class="lc-photo"><img src="project/assets/lesson5.png" alt="フォーム改善" loading="lazy" decoding="async" /></div>
+          <div class="lc-photo"><img src="project/assets/lesson5.png" alt="フォーム改善" loading="lazy" decoding="async"  data-photo="P12"/></div>
         </article>
 
         <article class="lesson-card is-teal">
@@ -3491,16 +4259,16 @@
           </span>
           <h4>大会につながる基礎</h4>
           <p>スタートやターンなど、大会や記録に役立つ基礎スキルも磨いていきます。</p>
-          <div class="lc-photo"><img src="project/assets/lesson6.png" alt="大会につながる基礎" loading="lazy" decoding="async" /></div>
+          <div class="lc-photo"><img src="project/assets/lesson6.png" alt="大会につながる基礎" loading="lazy" decoding="async"  data-photo="P13"/></div>
         </article>
       </div>
 
       <!-- Timeline subsection -->
       <div class="timeline-wrap">
         <h3 class="timeline-heading">
-          <span class="dec">»</span>
+          <span class="spark-mark" aria-hidden="true"><svg viewBox="0 0 20 26" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 6l12 3"/><path d="M3 13h14"/><path d="M4 20l12-3"/></svg></span>
           続けることで、こんな変化を目指せます
-          <span class="dec">«</span>
+          <span class="spark-mark" aria-hidden="true"><svg viewBox="0 0 20 26" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" style="transform:scaleX(-1)"><path d="M4 6l12 3"/><path d="M3 13h14"/><path d="M4 20l12-3"/></svg></span>
         </h3>
 
         <!-- Dashed connecting arrow -->
@@ -3519,7 +4287,7 @@
           <div class="tl-item">
             <div class="tl-photo-block">
               <span class="tl-badge teal">3ヶ月後</span>
-              <div class="tl-photo"><img src="project/assets/tl-boy.png" alt="3ヶ月後の生徒" loading="lazy" decoding="async" /></div>
+              <div class="tl-photo"><img src="project/assets/tl-boy.png" alt="3ヶ月後の生徒" loading="lazy" decoding="async"  data-photo="P14"/></div>
             </div>
             <div class="tl-text is-teal">
               <h4>フィンに慣れ、<br />泳ぎの基礎がわかる</h4>
@@ -3535,7 +4303,7 @@
           <div class="tl-item">
             <div class="tl-photo-block">
               <span class="tl-badge green">半年後</span>
-              <div class="tl-photo"><img src="project/assets/tl-woman.png" alt="半年後の生徒" loading="lazy" decoding="async" /></div>
+              <div class="tl-photo"><img src="project/assets/tl-woman.png" alt="半年後の生徒" loading="lazy" decoding="async"  data-photo="P15"/></div>
             </div>
             <div class="tl-text is-teal">
               <h4>泳ぎに自信がつき、<br />楽に気持ちよく泳げる</h4>
@@ -3551,7 +4319,7 @@
           <div class="tl-item">
             <div class="tl-photo-block">
               <span class="tl-badge blue">1年後</span>
-              <div class="tl-photo"><img src="project/assets/tl-man.png" alt="1年後の生徒" loading="lazy" decoding="async" /></div>
+              <div class="tl-photo"><img src="project/assets/tl-man.png" alt="1年後の生徒" loading="lazy" decoding="async"  data-photo="P16"/></div>
             </div>
             <div class="tl-text is-blue">
               <h4>自分に合った泳ぎ方で、<br />フィンを長く楽しめる</h4>
@@ -3597,6 +4365,15 @@
         </span>
       </div>
     </div>
+
+    <!-- mobile inline CTA -->
+    <div class="m-inline-cta">
+      <a class="btn btn-coral" href="#trial">
+        <span class="ic-btn"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="20" height="18" rx="2.5"/><path d="M4 10h20M9 3v4M19 3v4"/><path d="M10 16l3 3 5-5"/></svg></span>
+        初回体験を予約する
+        <span class="arrow"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 6h6m0 0L6 3m3 3L6 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+    </div>
   </section>
 
 
@@ -3640,8 +4417,8 @@
         <p class="rv-sub">スキルアップクラスに参加した方に、参加前の悩みや受けてみて感じた変化を伺いました。</p>
 
         <div class="rv-corner-tag">
-          大人も子どもも<br/>
-          <span class="u">楽しく上達！</span>
+          経験者こそ<br/>
+          <span class="u">変われる！</span>
         </div>
       </div>
 
@@ -3650,7 +4427,7 @@
         <article class="rv-card is-mk">
           <span class="rv-card-tag">マスターズ大会参加者</span>
           <div class="rv-person">
-            <div class="rv-photo"><img src="project/assets/voice-mk.png" alt="M.Kさん" loading="lazy" decoding="async" /></div>
+            <div class="rv-photo"><img src="project/assets/voice-mk.png" alt="M.Kさん" loading="lazy" decoding="async"  data-photo="P17"/></div>
             <div class="rv-meta">
               <div class="rv-name"><span class="nm">M.Kさん</span><span class="age">52歳</span></div>
               <p class="rv-bio">マスターズ大会出場経験あり<br/>モノフィン経験あり</p>
@@ -3702,12 +4479,12 @@
 
         <!-- Card 2: S -->
         <article class="rv-card is-s">
-          <span class="rv-card-tag">ジュニア・保護者</span>
+          <span class="rv-card-tag">社会人・水泳経験者</span>
           <div class="rv-person">
-            <div class="rv-photo"><img src="project/assets/voice-s.png" alt="Sさん親子" loading="lazy" decoding="async" /></div>
+            <div class="rv-photo"><img src="project/assets/voice-s.png" alt="Y.Tさん" loading="lazy" decoding="async"  data-photo="P18"/></div>
             <div class="rv-meta">
-              <div class="rv-name"><span class="nm">Sさん親子</span></div>
-              <p class="rv-bio"><span class="strong">小学6年生</span><br/>水泳経験あり<br/>フィンスイミング初心者</p>
+              <div class="rv-name"><span class="nm">Y.Tさん</span><span class="age">27歳</span></div>
+              <p class="rv-bio"><span class="strong">学生時代に競泳経験</span><br/>会社員<br/>フィンは始めたばかり</p>
               <span class="rv-stars" aria-label="星5">
                 <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
                 <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
@@ -3722,7 +4499,7 @@
             <span class="rv-ic"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 7a3 3 0 1 1 4 2.6c-.7.3-1 1-1 1.6"/><circle cx="9" cy="14" r="1" fill="currentColor"/></svg></span>
             <div class="rv-item-body">
               <h4>受講前の悩み</h4>
-              <p>子どもがフィンスイミングに興味を持っていたのですが、どこで正しく教わればいいのかわからず、いきなり専門的すぎる環境に入れるのも少し不安でした。</p>
+              <p>学生時代は競泳をしていましたが、社会人になってブランクができ、自己流で泳ぐと以前のように進まず、フィンも独学では扱いきれていませんでした。</p>
             </div>
           </div>
           <hr class="rv-divider"/>
@@ -3731,7 +4508,7 @@
             <span class="rv-ic"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v2M9 14v2M14 9h2M2 9h2M13 5l1.5-1.5M3.5 14.5L5 13M13 13l1.5 1.5M3.5 3.5L5 5"/><circle cx="9" cy="9" r="3"/></svg></span>
             <div class="rv-item-body">
               <h4>受講後の変化</h4>
-              <p>最初はフィンの扱いに戸惑っていましたが、レッスン後には「楽しかった」「またやりたい」と話していました。泳ぎ方だけでなく、どうすれば進みやすくなるのかを少しずつ理解しているようでした。</p>
+              <p>姿勢と力の入れどころを見直しただけで、同じキックでも進み方が変わりました。フィンの推進力を活かせる感覚がつかめてきて、泳いでいて純粋に楽しいです。</p>
             </div>
           </div>
           <hr class="rv-divider"/>
@@ -3740,7 +4517,7 @@
             <span class="rv-ic"><svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 16s-5-3.5-6.5-6.5C1.6 7.4 2.8 5 5 5c1.5 0 2.8.8 3 1.8C8.2 5.8 9.5 5 11 5c2.2 0 3.4 2.4 2.5 4.5C14 12.5 9 16 9 16z"/></svg></span>
             <div class="rv-item-body">
               <h4>率直な感想</h4>
-              <p>先生が子どもの目線に合わせて、わかりやすく教えてくれるので、安心して通わせられます。道具のことも相談できて助かっています。</p>
+              <p>専門的なのに説明がわかりやすく、少人数なので自分の泳ぎをしっかり見てもらえます。気になったことをその場で質問しやすい雰囲気でした。</p>
             </div>
           </div>
           <hr class="rv-divider"/>
@@ -3749,7 +4526,7 @@
             <span class="rv-ic"><svg viewBox="0 0 18 18" fill="currentColor"><path d="M3 8h2v8H3zM7 7l2.5-5c1 0 1.5.5 1.5 1.5V6h3c1 0 1.7 1 1.4 2L14 14c-.2.8-1 1.4-1.8 1.4H7V7z"/></svg></span>
             <div class="rv-item-body">
               <h4>おすすめしたい人</h4>
-              <p>フィンスイミングを始めたいお子さんや、どこで学ばせるか迷っている保護者の方におすすめしたいです。</p>
+              <p>水泳経験はあるけれど自己流に限界を感じている方や、フィンで新しい泳ぎに挑戦したい方におすすめです。</p>
             </div>
           </div>
         </article>
@@ -3758,7 +4535,7 @@
         <article class="rv-card is-th">
           <span class="rv-card-tag">大人の初中級・趣味層</span>
           <div class="rv-person">
-            <div class="rv-photo"><img src="project/assets/voice-th.png" alt="T.Hさん" loading="lazy" decoding="async" /></div>
+            <div class="rv-photo"><img src="project/assets/voice-th.png" alt="T.Hさん" loading="lazy" decoding="async"  data-photo="P19"/></div>
             <div class="rv-meta">
               <div class="rv-name"><span class="nm">T.Hさん</span><span class="age">38歳</span></div>
               <p class="rv-bio">水泳経験あり<br/>フィンスイミング初心者</p>
@@ -3829,7 +4606,7 @@
                 <svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 6h6m0 0L6 3m3 3L6 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
             </a>
-            <a class="btn btn-coral" style="background:var(--line-green); box-shadow:0 10px 24px rgba(6,199,85,.32)" href="#line">
+            <a class="btn btn-coral" style="background:var(--line-green); box-shadow:0 10px 24px rgba(6,199,85,.32)" href="https://lin.ee/xF6GnbP" target="_blank" rel="noopener">
               <span class="ic-btn" style="background:#fff; color:var(--line-green); border-radius:50%">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.8 5.2 4.6 6.6-.2.7-.8 2.4-.9 2.8-.1.5.2.5.4.4.2-.1 2.5-1.7 3.5-2.4.8.1 1.5.2 2.4.2 5.5 0 10-3.6 10-8S17.5 3 12 3z"/></svg>
               </span>
@@ -3840,7 +4617,7 @@
             </a>
           </div>
           <div class="rv-equipment">
-            <img src="project/assets/equipment.png" alt="フィン・キャップ・ゴーグル・シュノーケル" loading="lazy" decoding="async" />
+            <img src="project/assets/equipment.png" alt="フィン・キャップ・ゴーグル・シュノーケル" loading="lazy" decoding="async"  data-photo="P20"/>
           </div>
         </div>
 
@@ -3850,24 +4627,92 @@
   </section>
 
 
+  <!-- ═══════════════ ⑧.5 初回体験 当日の流れ + 持ち物 ═══════════════ -->
+  <section class="trial-guide" data-screen-label="Trial guide">
+    <div class="tg-inner">
+      <h2 class="tg-heading reveal"><span class="accent-teal">初回体験</span>レッスン・当日の流れ</h2>
+      <p class="tg-sub reveal">所要は約60分。むずかしい準備は要りません。フィンは無料でレンタルできるので、手ぶらでお越しいただけます。</p>
+
+      <div class="tg-grid">
+        <div class="tg-flow reveal">
+          <ol class="tg-steps">
+            <li>
+              <span class="tg-n">1</span>
+              <div>
+                <b>受付・お着替え</b>
+                <span>会場で受付をして、お着替え。スタッフがやさしくご案内します。</span>
+              </div>
+            </li>
+            <li>
+              <span class="tg-n">2</span>
+              <div>
+                <b>準備運動・今日の説明</b>
+                <span>軽い準備運動のあと、その日の流れと目標をいっしょに確認します。</span>
+              </div>
+            </li>
+            <li>
+              <span class="tg-n">3</span>
+              <div>
+                <b>レッスン（約60分）</b>
+                <span>各回8名までの少人数。泳ぎや目的に合わせて、コーチが丁寧にサポートします。</span>
+              </div>
+            </li>
+            <li>
+              <span class="tg-n">4</span>
+              <div>
+                <b>ふりかえり・ご相談</b>
+                <span>上達のポイントをフィードバック。今後のことや疑問も、気軽にご相談ください。</span>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <aside class="tg-bring reveal">
+          <h3>当日の持ち物</h3>
+          <ul class="tg-list">
+            <li>水着</li>
+            <li>スイムキャップ</li>
+            <li>ゴーグル</li>
+            <li>タオル</li>
+          </ul>
+          <div class="tg-rental">
+            <span class="tg-rental-badge">無料レンタル</span>フィンはこちらでご用意します。お持ちの方はご持参も大歓迎です。
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+
   <!-- ═══════════════ ⑨ PRICING ═══════════════ -->
   <section class="pricing-section" id="price" data-screen-label="Pricing">
     <div class="pricing-inner">
       <h2 class="pricing-heading">
-        <span class="dec">»</span>
-        安心して続けられる、わかりやすい<span class="accent-teal">料金設定</span>
-        <span class="dec">«</span>
+        <span class="spark-mark teal" aria-hidden="true"><svg viewBox="0 0 20 26" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 6l12 3"/><path d="M3 13h14"/><path d="M4 20l12-3"/></svg></span>
+        安心して続けられる、<span class="accent-teal">わかりやすい</span>料金設定
+        <span class="spark-mark teal" aria-hidden="true"><svg viewBox="0 0 20 26" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" style="transform:scaleX(-1)"><path d="M4 6l12 3"/><path d="M3 13h14"/><path d="M4 20l12-3"/></svg></span>
       </h2>
 
       <div class="pricing-grid">
         <!-- Card 1: Membership -->
         <article class="price-card is-member">
           <div class="pc-tab">メンバーシップ料金</div>
-          <p class="pc-title">Fin-D SS スキルアップクラス</p>
-          <p class="pc-price"><span class="big">7,200</span><span class="unit">円</span><span class="unit" style="opacity:.6">/月</span><span class="tax">（税込）</span></p>
-          <span class="pc-pill">月2回（60分／回）</span>
-          <p class="pc-note">実質1回あたり <b>3,600円</b></p>
-          <div class="pc-photo"><img src="project/assets/price-photo1.png" alt="レッスン風景" loading="lazy" decoding="async" /></div>
+          <p class="pc-title">スキルアップクラス（1回60分）</p>
+          <ul class="pc-plans">
+            <li class="pc-plan">
+              <span class="pc-plan-name">月2回コース<span class="pc-plan-pop">人気</span></span>
+              <span class="pc-plan-amount">7,200<small>円/月</small></span>
+              <span class="pc-plan-sub">1回あたり 3,600円（税込）</span>
+            </li>
+            <li class="pc-plan is-rec">
+              <span class="pc-plan-tag">おすすめ</span>
+              <span class="pc-plan-name">月3回コース</span>
+              <span class="pc-plan-amount">10,800<small>円/月</small></span>
+              <span class="pc-plan-sub">1回あたり 3,600円（税込）</span>
+            </li>
+          </ul>
+          <p class="pc-note">都度払いも可能：<b>1回 3,750円</b>（税込）</p>
+          <div class="pc-photo"><img src="project/assets/price-photo1.png" alt="レッスン風景" loading="lazy" decoding="async"  data-photo="P21"/></div>
         </article>
 
         <!-- Card 2: Entrance fee 0 -->
@@ -3878,22 +4723,23 @@
             <svg width="22" height="20" viewBox="0 0 22 20" fill="none"><path d="M11 2v14m0 0l-6-6m6 6l6-6" stroke="#EB5468" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <div class="pc-zero">0<span class="yen">円</span></div>
-          <div class="pc-camp-badge" aria-hidden="true">キャン<br/>ペーン<br/>中！</div>
+          <div class="pc-camp-badge" aria-hidden="true">6月<br/>限定</div>
           <div style="flex:1"></div>
-          <div class="pc-camp-strip">今だけ！入会金・<br/>事務手数料が無料！</div>
+          <div class="pc-camp-strip">6月中のご入会で<br/>入会金・事務手数料が無料！</div>
         </article>
 
         <!-- Card 3: Trial -->
         <article class="price-card is-trial">
           <div class="pc-tab">初回体験</div>
           <p class="pc-price" style="margin-top:18px"><span class="big">3,500</span><span class="unit">円</span><span class="tax">（税込）</span></p>
-          <span class="pc-pill" style="background:#DCEEFA; color:var(--blue-700)">1回限り</span>
-          <div class="pc-photo"><img src="project/assets/price-photo3.png" alt="初回体験レッスン" loading="lazy" decoding="async" /></div>
+          <span class="pc-pill" style="background:#DCEEFA; color:var(--blue-700)">1回限り・フィンレンタル込み</span>
+          <p class="pc-note">手ぶらでOK。体験後の入会は自由です。</p>
+          <div class="pc-photo"><img src="project/assets/price-photo3.png" alt="初回体験レッスン" loading="lazy" decoding="async"  data-photo="P22"/></div>
         </article>
 
         <!-- Notes -->
         <ul class="pc-notes">
-          <li><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>ビジター参加も可能です<br/>4,000円（税込）／回</li>
+          <li><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>ビジター（非会員）参加も可能です<br/>4,000円（税込）／回</li>
           <li><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>初回体験・ビジター参加は事前の銀行振込となります</li>
           <li><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>メンバーシップ料金は、入会後にクレジットカード決済へ移行します</li>
           <li><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>月額料金は、前月25日に翌月分を決済します</li>
@@ -3968,7 +4814,7 @@
         <h3>メンバー限定割引</h3>
         <p>Fin-D Onlineの商品を<br/>特別価格でご案内！<br/>メンバー限定商品も<br/>特別にご紹介します。</p>
         <span class="mc-tag"><span class="u">会員限定価格でお得に！</span></span>
-        <div class="mc-photo"><img src="project/assets/members-01.png" alt="フィンと専用バッグ" loading="lazy" decoding="async" /></div>
+        <div class="mc-photo"><img src="project/assets/members-01.png" alt="フィンと専用バッグ" loading="lazy" decoding="async"  data-photo="P23"/></div>
       </article>
 
       <!-- 02 -->
@@ -3982,7 +4828,7 @@
         <h3>道具購入相談</h3>
         <p>フィンや水着、シュノーケルなど、<br/>あなたに合った道具選びを<br/>プロがサポート！</p>
         <span class="mc-tag"><span class="u">あなたにピッタリが見つかる！</span></span>
-        <div class="mc-photo"><img src="project/assets/members-02.png" alt="フィン選びの相談" loading="lazy" decoding="async" /></div>
+        <div class="mc-photo"><img src="project/assets/members-02.png" alt="フィン選びの相談" loading="lazy" decoding="async"  data-photo="P24"/></div>
         <div class="mc-prod-row">
           <div><span class="pi"><svg viewBox="0 0 18 18" fill="currentColor"><path d="M3 14c4 1 8 0 12-1 0 0-3-8-9-10-.4 0-.7.3-.7.7.4 3-.4 8-2.3 10.3z"/></svg></span>フィン</div>
           <div><span class="pi" style="background:#DCEEFA;color:var(--blue-600)"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2v4a3 3 0 0 0 3 3v7"/></svg></span>シュノーケル</div>
@@ -4003,8 +4849,8 @@
         <p>特別練習会やイベントなど、<br/>メンバーの方へ<br/>優先的にご案内します！</p>
         <span class="mc-tag"><span class="u">普段できない体験ができる！</span></span>
         <div class="mc-photo-stack">
-          <div><img src="project/assets/members-03a.png" alt="練習会の様子" loading="lazy" decoding="async" /></div>
-          <div><img src="project/assets/members-03b.png" alt="イベントの様子" loading="lazy" decoding="async" /></div>
+          <div><img src="project/assets/members-03a.png" alt="練習会の様子" loading="lazy" decoding="async"  data-photo="P25"/></div>
+          <div><img src="project/assets/members-03b.png" alt="イベントの様子" loading="lazy" decoding="async"  data-photo="P26"/></div>
         </div>
         <div class="mc-photo-cap">交流も広がる！</div>
       </article>
@@ -4020,7 +4866,7 @@
         <h3>限定コンテンツ</h3>
         <p>上達のコツやフィンスイミングに<br/>関する情報を、メンバー向けに<br/>お届けします！</p>
         <span class="mc-tag"><span class="u">上達に役立つ情報がいっぱい！</span></span>
-        <div class="mc-photo"><img src="project/assets/members-04.png" alt="Fin-D Onlineの限定コンテンツ" loading="lazy" decoding="async" /></div>
+        <div class="mc-photo"><img src="project/assets/members-04.png" alt="Fin-D Onlineの限定コンテンツ" loading="lazy" decoding="async"  data-photo="P27"/></div>
         <div class="mc-icons-row">
           <div>
             <span class="mi-ic"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="14" height="10" rx="1.5"/><polygon points="7,7 11,9 7,11" fill="currentColor"/></svg></span>
@@ -4079,7 +4925,7 @@
       <div>
         <div class="lead-row">
           <span class="pre-bubble">まずは気軽に<br/>体験から！</span>
-          <h3>フィンがはじめての方も安心してご参加いただけます。</h3>
+          <h3>水泳経験を、フィンでもっと活かしてみませんか。</h3>
         </div>
         <div class="cta-buttons">
           <a class="btn btn-coral" href="#trial">
@@ -4091,7 +4937,7 @@
               <svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 6h6m0 0L6 3m3 3L6 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
           </a>
-          <a class="btn btn-coral" style="background:var(--line-green); box-shadow:0 10px 24px rgba(6,199,85,.32)" href="#line">
+          <a class="btn btn-coral" style="background:var(--line-green); box-shadow:0 10px 24px rgba(6,199,85,.32)" href="https://lin.ee/xF6GnbP" target="_blank" rel="noopener">
             <span class="ic-btn" style="background:#fff; color:var(--line-green); border-radius:50%">
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.8 5.2 4.6 6.6-.2.7-.8 2.4-.9 2.8-.1.5.2.5.4.4.2-.1 2.5-1.7 3.5-2.4.8.1 1.5.2 2.4.2 5.5 0 10-3.6 10-8S17.5 3 12 3z"/></svg>
             </span>
@@ -4103,7 +4949,7 @@
         </div>
       </div>
       <div class="lower-cta-photo">
-        <img src="project/assets/kid-cta.png" alt="フィンを持って笑顔の生徒" loading="lazy" decoding="async" />
+        <img src="project/assets/kid-cta.png" alt="フィンを持って笑顔の生徒" loading="lazy" decoding="async"  data-photo="P28"/>
       </div>
     </div>
   </section>
@@ -4116,18 +4962,18 @@
       <!-- Top: photos + heading -->
       <div class="flow-top">
         <div class="flow-top-img">
-          <img src="project/assets/flow-tl.png" alt="プールでフィンスイミングのレッスン風景" loading="lazy" decoding="async" />
+          <img src="project/assets/flow-tl.png" alt="プールでフィンスイミングのレッスン風景" loading="lazy" decoding="async"  data-photo="P29"/>
         </div>
         <div class="flow-head">
           <p class="flow-eyebrow">カンタン6ステップ！</p>
-          <h2 class="flow-title">参加までの<span class="accent">流れ</span></h2>
+          <h2 class="flow-title">参加<span class="accent">までの</span>流れ</h2>
           <p class="flow-sub">
             まずは初回体験から！クラスの雰囲気や内容を体験してみてください。<br/>
             無理な勧誘は一切行いませんので、ご安心ください。
           </p>
         </div>
         <div class="flow-top-img right">
-          <img src="project/assets/flow-tr.png" alt="フィンと装備一式" loading="lazy" decoding="async" />
+          <img src="project/assets/flow-tr.png" alt="フィンと装備一式" loading="lazy" decoding="async"  data-photo="P30"/>
         </div>
       </div>
 
@@ -4260,8 +5106,8 @@
             </div>
           </div>
           <div class="app-screens">
-            <img class="app-phone" src="project/assets/app-phone.png" alt="Fin-Dアプリ スマホ画面" loading="lazy" decoding="async" />
-            <img class="app-tablet" src="project/assets/app-tablet.png" alt="Fin-Dアプリ タブレット画面" loading="lazy" decoding="async" />
+            <img class="app-phone" src="project/assets/app-phone.png" alt="Fin-Dアプリ スマホ画面" loading="lazy" decoding="async"  data-photo="P31"/>
+            <img class="app-tablet" src="project/assets/app-tablet.png" alt="Fin-Dアプリ タブレット画面" loading="lazy" decoding="async"  data-photo="P32"/>
           </div>
         </div>
         <span class="imageis">※アプリ画面はイメージです</span>
@@ -4284,6 +5130,8 @@
             <div class="faq-items">
               <div class="faq-item"><span class="q-mark">Q.</span><span class="q-text">フィン経験がなくても参加できますか？</span><span class="q-toggle"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l4 4 4-4"/></svg></span></div>
               <div class="faq-item"><span class="q-mark">Q.</span><span class="q-text">大人でも参加しやすい雰囲気ですか？</span><span class="q-toggle"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l4 4 4-4"/></svg></span></div>
+              <div class="faq-item"><span class="q-mark">Q.</span><span class="q-text">あまり泳ぎに自信がなくても大丈夫ですか？</span><span class="q-toggle"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l4 4 4-4"/></svg></span></div>
+              <div class="faq-item"><span class="q-mark">Q.</span><span class="q-text">対象年齢を教えてください。</span><span class="q-toggle"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l4 4 4-4"/></svg></span></div>
             </div>
           </div>
 
@@ -4295,6 +5143,7 @@
             <div class="faq-items">
               <div class="faq-item"><span class="q-mark">Q.</span><span class="q-text">大会に出ている人にも意味がありますか？</span><span class="q-toggle"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l4 4 4-4"/></svg></span></div>
               <div class="faq-item"><span class="q-mark">Q.</span><span class="q-text">チーム練習とは何が違うのですか？</span><span class="q-toggle"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l4 4 4-4"/></svg></span></div>
+              <div class="faq-item"><span class="q-mark">Q.</span><span class="q-text">ビーフィンとモノフィン、どちらにも対応していますか？</span><span class="q-toggle"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l4 4 4-4"/></svg></span></div>
             </div>
           </div>
 
@@ -4306,6 +5155,7 @@
             <div class="faq-items">
               <div class="faq-item"><span class="q-mark">Q.</span><span class="q-text">道具を持っていなくても大丈夫ですか？</span><span class="q-toggle"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l4 4 4-4"/></svg></span></div>
               <div class="faq-item"><span class="q-mark">Q.</span><span class="q-text">Fin-D Swim Membersになると何ができますか？</span><span class="q-toggle"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l4 4 4-4"/></svg></span></div>
+              <div class="faq-item"><span class="q-mark">Q.</span><span class="q-text">フィンは購入しないといけませんか？</span><span class="q-toggle"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l4 4 4-4"/></svg></span></div>
             </div>
           </div>
 
@@ -4317,14 +5167,16 @@
             <div class="faq-items">
               <div class="faq-item"><span class="q-mark">Q.</span><span class="q-text">体験後、必ず入会が必要ですか？</span><span class="q-toggle"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l4 4 4-4"/></svg></span></div>
               <div class="faq-item"><span class="q-mark">Q.</span><span class="q-text">キャンセル料はありますか？</span><span class="q-toggle"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l4 4 4-4"/></svg></span></div>
+              <div class="faq-item"><span class="q-mark">Q.</span><span class="q-text">開催はいつ・どこですか？</span><span class="q-toggle"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l4 4 4-4"/></svg></span></div>
+              <div class="faq-item"><span class="q-mark">Q.</span><span class="q-text">支払い方法を教えてください。</span><span class="q-toggle"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l4 4 4-4"/></svg></span></div>
             </div>
           </div>
         </div>
 
         <div class="faq-more">
-          <a href="#all-faq">
-            その他のご質問はこちら
-            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 5l3 3 3-3"/></svg>
+          <a href="https://lin.ee/xF6GnbP" target="_blank" rel="noopener">
+            その他のご質問は、LINEでお気軽にどうぞ
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 7h7m0 0L7 4m3 3L7 10"/></svg>
           </a>
         </div>
       </div>
@@ -4333,7 +5185,7 @@
       <div class="bottom-cta">
         <div class="bc-photo">
           <span class="bc-bubble left">まずは<br/>気軽に体験！</span>
-          <img src="project/assets/cta-kid.png" alt="フィンを持って笑顔の生徒" loading="lazy" decoding="async" />
+          <img src="project/assets/cta-kid.png" alt="フィンを持って笑顔の生徒" loading="lazy" decoding="async"  data-photo="P33"/>
         </div>
 
         <div class="bc-text">
@@ -4347,7 +5199,7 @@
                 <small style="display:block">体験料 3,500円（税込）</small>
               </span>
             </a>
-            <a class="btn btn-coral" style="background:var(--line-green); box-shadow:0 10px 24px rgba(6,199,85,.32); flex-direction:row" href="#line">
+            <a class="btn btn-coral" style="background:var(--line-green); box-shadow:0 10px 24px rgba(6,199,85,.32); flex-direction:row" href="https://lin.ee/xF6GnbP" target="_blank" rel="noopener">
               <span class="ic-btn" style="background:#fff; color:var(--line-green); border-radius:50%"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.8 5.2 4.6 6.6-.2.7-.8 2.4-.9 2.8-.1.5.2.5.4.4.2-.1 2.5-1.7 3.5-2.4.8.1 1.5.2 2.4.2 5.5 0 10-3.6 10-8S17.5 3 12 3z"/></svg></span>
               <span>
                 <span class="btn-row">LINEで相談する <svg style="width:14px;height:14px;display:inline" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 7h7m0 0L7 4m3 3L7 10"/></svg></span>
@@ -4359,7 +5211,7 @@
 
         <div class="bc-photo">
           <span class="bc-bubble right">お待ちして<br/>います！</span>
-          <img src="project/assets/cta-man.png" alt="JAPANキャップのコーチ" loading="lazy" decoding="async" />
+          <img src="project/assets/cta-man.png" alt="JAPANキャップのコーチ" loading="lazy" decoding="async"  data-photo="P34"/>
         </div>
       </div>
 
@@ -4379,12 +5231,107 @@
         </div>
         <div class="trust-item is-yellow">
           <span class="ti-ic"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="15" cy="15" r="11"/><circle cx="11" cy="13" r="1" fill="currentColor" stroke="none"/><circle cx="19" cy="13" r="1" fill="currentColor" stroke="none"/><path d="M10 18c2 2 8 2 10 0"/></svg></span>
-          子どもから大人まで、<br/>みんなで楽しく上達！
+          趣味から競技まで、<br/>一人ひとりに合わせて上達！
         </div>
       </div>
     </div>
   </section>
 
+
+  <!-- ═══════════════ 申込 / お問い合わせ（CV着地点・ピークエンド） ═══════════════ -->
+  <section class="apply-section" id="trial" data-screen-label="Apply">
+    <div class="top-wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="width:100%;height:100%">
+        <path d="M0 30 C 240 0, 480 60, 720 30 S 1200 0, 1440 30 L1440 0 L0 0 Z" fill="#fff"/>
+      </svg>
+    </div>
+    <div class="apply-inner">
+      <span class="apply-eyebrow">まずは初回体験から</span>
+      <h2 class="apply-title">初回体験 <span class="accent-teal">お申し込み</span></h2>
+      <p class="apply-lead">
+        クラスの雰囲気や内容を体験したうえで、継続参加をご検討いただけます。<br/>
+        泳力やフィン経験に不安がある方も、まずはお気軽にご相談ください。
+      </p>
+      <div class="apply-reassure">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg>体験後の入会は自由</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg>無理な勧誘なし</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg>LINEで気軽に相談OK</span>
+      </div>
+
+      <div class="apply-grid">
+        <!-- 申込フォーム（送信先は本番で設定。現状は枠のみ） -->
+        <form class="apply-form" action="mailto:hello@fin-d.co.jp" method="post" enctype="text/plain" aria-label="初回体験申込フォーム">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="2.5"/><path d="M4 9h16M8 3v4M16 3v4"/><path d="M9 14l2 2 4-4"/></svg>
+            初回体験申込フォーム
+          </h3>
+          <div class="field">
+            <label for="ap-name">お名前 <span class="req">必須</span></label>
+            <input id="ap-name" name="name" type="text" autocomplete="name" placeholder="山田 花子" required />
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="ap-age">年齢 <span class="req">必須</span></label>
+              <input id="ap-age" name="age" type="text" inputmode="numeric" placeholder="例：32" required />
+            </div>
+            <div class="field">
+              <label for="ap-date">体験希望日</label>
+              <input id="ap-date" name="date" type="text" placeholder="例：ご希望の日曜日（毎週日曜13:00〜）" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="ap-mail">メールアドレス <span class="req">必須</span></label>
+            <input id="ap-mail" name="email" type="email" autocomplete="email" placeholder="example@mail.com" required />
+          </div>
+          <div class="field">
+            <label for="ap-fin">フィン経験</label>
+            <select id="ap-fin" name="fin">
+              <option value="">選択してください</option>
+              <option>はじめて（フィン未経験）</option>
+              <option>少しある</option>
+              <option>経験あり（ビーフィン）</option>
+              <option>経験あり（モノフィン）</option>
+              <option>大会出場経験あり</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="ap-msg">ご質問・ご相談（任意）</label>
+            <textarea id="ap-msg" name="message" placeholder="泳力やフィン経験など、気になることをお書きください。"></textarea>
+          </div>
+          <button type="submit" class="apply-submit">
+            この内容で申し込む
+            <span class="arrow" style="background:rgba(255,255,255,.28)"><svg viewBox="0 0 12 12" fill="none"><path d="M3 6h6m0 0L6 3m3 3L6 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </button>
+          <p class="form-note">内容を確認後、体験料金のお支払い方法と当日の詳細をご案内します。<br/>※送信ボタンでメールソフトが開きます（送信先：hello@fin-d.co.jp）。お急ぎの方はLINEからもご相談いただけます。</p>
+        </form>
+
+        <!-- サイド：料金 / 参加条件 / LINE -->
+        <aside class="apply-side">
+          <div class="apply-card price-pop">
+            <div class="ap-label">初回体験</div>
+            <div class="ap-price">3,500<small>円</small></div>
+            <div class="ap-sub">1回限り（税込）・事前の銀行振込</div>
+          </div>
+          <div class="apply-card">
+            <h4>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+              対象・参加条件
+            </h4>
+            <ul class="cond-list">
+              <li><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-6"/></svg></span>18歳以上の方</li>
+              <li><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-6"/></svg></span>200m個人メドレーを泳げる程度が目安（不安な方はご相談を）</li>
+              <li><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-6"/></svg></span>フィン経験は問いません</li>
+              <li><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-6"/></svg></span>スポーツ安全保険等への加入</li>
+            </ul>
+          </div>
+          <a class="apply-line" id="line" href="https://lin.ee/xF6GnbP" target="_blank" rel="noopener">
+            <span class="ll"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.8 5.2 4.6 6.6-.2.7-.8 2.4-.9 2.8-.1.5.2.5.4.4.2-.1 2.5-1.7 3.5-2.4.8.1 1.5.2 2.4.2 5.5 0 10-3.6 10-8S17.5 3 12 3z"/></svg></span>
+            まずはLINEで相談する
+          </a>
+        </aside>
+      </div>
+    </div>
+  </section>
 
   <!-- ═══════════════ FOOTER ═══════════════ -->
   <footer class="site-footer" data-screen-label="Footer">
@@ -4439,10 +5386,10 @@
           </span>
         </div>
         <p class="tag">フィンスイミングをもっと楽しく、<br/>もっと身近に。</p>
-        <p class="desc">子どもから大人まで、安心して学べる<br/>スイミングスクールです。</p>
+        <p class="desc">フィンスイミングを、もっと楽しく・もっと上手に。<br/>大人のためのスキルアップクラスです。</p>
         <span class="footer-venue">
           <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2c-3 0-5 2-5 5 0 4 5 11 5 11s5-7 5-11c0-3-2-5-5-5z"/><circle cx="10" cy="7" r="2"/></svg>
-          会場：大阪・堺方面のプール施設
+          会場：東京・池袋エリアのプール施設
         </span>
         <span class="note">※詳細は参加確定後にご案内します。</span>
       </div>
@@ -4475,7 +5422,7 @@
           初回体験に<u>申し込む</u>
           <span class="arrow"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 6h6m0 0L6 3m3 3L6 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </a>
-        <a class="btn btn-coral" style="background:var(--line-green); box-shadow:0 10px 24px rgba(6,199,85,.32)" href="#line">
+        <a class="btn btn-coral" style="background:var(--line-green); box-shadow:0 10px 24px rgba(6,199,85,.32)" href="https://lin.ee/xF6GnbP" target="_blank" rel="noopener">
           <span class="ic-btn" style="background:#fff; color:var(--line-green); border-radius:50%"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.8 5.2 4.6 6.6-.2.7-.8 2.4-.9 2.8-.1.5.2.5.4.4.2-.1 2.5-1.7 3.5-2.4.8.1 1.5.2 2.4.2 5.5 0 10-3.6 10-8S17.5 3 12 3z"/></svg></span>
           LINEで相談する
           <span class="arrow"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 6h6m0 0L6 3m3 3L6 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -4521,10 +5468,16 @@
       '大人でも参加しやすい雰囲気ですか？':'はい、大人の参加者も多く、マスターズ世代の方まで幅広くご参加いただいています。',
       '大会に出ている人にも意味がありますか？':'はい。自己流の泳ぎに限界を感じている方を、フォームの見直しや効率的な身体の使い方でサポートします。',
       'チーム練習とは何が違うのですか？':'チーム練習よりもフィンスイミングの技術要素（フィンの使い方、姿勢、身体の動かし方）に特化して、丁寧に指導します。',
-      '道具を持っていなくても大丈夫ですか？':'初回体験の際はレンタルフィンもご用意しています。詳しくは予約時にご相談ください。',
+      '道具を持っていなくても大丈夫ですか？':'はい。フィンは無料でレンタルできますので、手ぶらでお越しいただけます。水着・スイムキャップ・ゴーグル・タオルだけご持参ください。',
       'Fin-D Swim Membersになると何ができますか？':'商品の会員価格、道具選びの相談、会員限定イベントや限定コンテンツの閲覧などをご利用いただけます。',
+      'フィンは購入しないといけませんか？':'いいえ。まずは無料レンタルのフィンでお試しいただけます。続けたくなったら、目的やレベルに合う一本を一緒にお選びします。',
+      'あまり泳ぎに自信がなくても大丈夫ですか？':'クラスは200m個人メドレーを泳げる程度が目安ですが、泳力に不安のある方も、まずはお気軽にご相談ください。一人ひとりのレベルに合わせて、少人数で丁寧に進めていきます。',
+      '対象年齢を教えてください。':'18歳以上の方を対象としています。趣味で楽しみたい方からマスターズ競技を目指す方まで、幅広い年代にご参加いただいています。',
+      'ビーフィンとモノフィン、どちらにも対応していますか？':'はい、どちらにも対応しています。目的やお持ちの道具に合わせて指導しますので、はじめての種目への挑戦も歓迎です。',
       '体験後、必ず入会が必要ですか？':'いいえ、体験後の入会は自由です。無理な勧誘は行いませんので、ご安心ください。',
-      'キャンセル料はありますか？':'初回体験・ビジター参加についてはキャンセルポリシーを予約時にご案内します。'
+      'キャンセル料はありますか？':'初回体験・ビジター参加は事前のお振込です。日程のご変更・キャンセルはLINEからお早めにご相談ください。',
+      '開催はいつ・どこですか？':'毎週日曜の13:00〜（約60分）、東京・池袋エリアで開催しています。詳しい会場はお申し込み後にご案内します。',
+      '支払い方法を教えてください。':'初回体験・ビジター参加は事前の銀行振込です。メンバーシップ料金は、ご入会後にクレジットカード決済へ移行します。'
     };
     document.querySelectorAll('.faq-item').forEach(function(item){
       var q = item.querySelector('.q-text');
@@ -4555,17 +5508,164 @@
       });
     });
 
-    // Smooth scroll for in-page anchors (account for sticky header)
+    // Smooth scroll for in-page anchors (account for sticky header).
+    // Conversion CTAs (#trial/#line/#contact) all resolve to the booking
+    // block so no CTA is ever a dead click. (Swap these for real booking /
+    // LINE URLs when wiring the live funnel.)
+    var ctaAlias = {'#trial':'#trial', '#line':'#trial', '#contact':'#trial', '#apply':'#trial', '#form':'#trial'};
     document.querySelectorAll('a[href^="#"]').forEach(function(a){
       a.addEventListener('click', function(e){
         var id = a.getAttribute('href');
         if(id.length < 2) return;
         var target = document.querySelector(id);
+        if(!target && ctaAlias[id]) target = document.querySelector(ctaAlias[id]);
         if(!target) return;
         e.preventDefault();
         var top = target.getBoundingClientRect().top + window.pageYOffset - 88;
         window.scrollTo({top: top, behavior: 'smooth'});
       });
+    });
+  })();
+  </script>
+
+  <!-- Motion: scroll-reveal, staggered entrances, header shadow -->
+  <script>
+  (function(){
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Header gains a shadow once the page is scrolled (runs regardless of motion pref)
+    var header = document.querySelector('.site-header');
+    if(header){
+      var onScroll = function(){ header.classList.toggle('is-scrolled', window.scrollY > 8); };
+      onScroll();
+      window.addEventListener('scroll', onScroll, {passive:true});
+    }
+
+    // Entrance animations only when the user hasn't asked to reduce motion
+    if(reduce) return;
+    document.documentElement.classList.add('reveal-ready');
+
+    // Count-up for credit numbers (numbers stay readable without JS / on reduce)
+    var counts = document.querySelectorAll('.count[data-to]');
+    if(counts.length && 'IntersectionObserver' in window){
+      var fmt = function(n){ return n.toLocaleString('en-US'); };
+      var run = function(el){
+        var to = parseInt(el.getAttribute('data-to'), 10) || 0;
+        var dur = 1200, t0 = null;
+        var tick = function(ts){
+          if(!t0) t0 = ts;
+          var p = Math.min((ts - t0) / dur, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = fmt(Math.round(to * eased));
+          if(p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      };
+      var cio = new IntersectionObserver(function(es){
+        es.forEach(function(e){ if(e.isIntersecting){ run(e.target); cio.unobserve(e.target); } });
+      }, {threshold:0.6});
+      counts.forEach(function(el){ cio.observe(el); });
+    }
+
+    var popSel = '.feature-card,.reason-card,.lesson-card,.mc,.voice-card,.rv-card,'+
+                 '.flow-step,.trust-item,.stat,.reco-pill,.app-feat,.tl-item,'+
+                 '.price-card,.faq-cat,.ms-item';
+    var riseSel = '.eyebrow,.hero-title,.hero-lead,.feature-pills,.hero-ctas,.hero-photo,'+
+                  '.intro-photo,.check-list,.intro-outro,.credit-photo,.credit-stats,'+
+                  '.about-photo,.app-screens,.faq-title,'+
+                  '[class$="-title"],[class$="-heading"],[class$="-sub"],[class$="-lead"]';
+
+    var pop  = [].slice.call(document.querySelectorAll(popSel));
+    var rise = [].slice.call(document.querySelectorAll(riseSel))
+                 .filter(function(el){ return pop.indexOf(el) === -1; });
+
+    pop.forEach(function(el){ el.classList.add('reveal-pop'); });
+    rise.forEach(function(el){ el.classList.add('reveal'); });
+
+    // Stagger siblings that reveal together (reset per parent)
+    var all = pop.concat(rise);
+    var counters = new Map();
+    all.forEach(function(el){
+      var p = el.parentNode;
+      var n = counters.get(p) || 0;
+      el.style.setProperty('--rd', Math.min(n * 80, 420) + 'ms');
+      counters.set(p, n + 1);
+    });
+
+    if(!('IntersectionObserver' in window)){
+      all.forEach(function(el){ el.classList.add('is-in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target); }
+      });
+    }, {threshold:0.08, rootMargin:'0px 0px -6% 0px'});
+    all.forEach(function(el){ io.observe(el); });
+  })();
+  </script>
+
+  <!-- Sticky mobile CTA bar (shown only ≤768px) -->
+  <div class="m-cta-bar" aria-label="体験予約・お問い合わせ">
+    <a class="m-cta-trial" href="#trial">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="16" rx="2.5"/><path d="M3.5 9h17M8 3v3M16 3v3"/><path d="M8.5 14l2.5 2.5L16 12"/></svg>
+      初回体験を予約する
+    </a>
+    <a class="m-cta-line" href="https://lin.ee/xF6GnbP" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.8 5.2 4.6 6.6-.2.7-.8 2.4-.9 2.8-.1.5.2.5.4.4.2-.1 2.5-1.7 3.5-2.4.8.1 1.5.2 2.4.2 5.5 0 10-3.6 10-8S17.5 3 12 3z"/></svg>
+      LINEで相談
+    </a>
+  </div>
+
+  <!-- Mobile UX: reveal sticky CTA after the hero, add swipe hints -->
+  <script>
+  (function(){
+    var bar = document.querySelector('.m-cta-bar');
+    if(bar){
+      var toggleBar = function(){
+        // show once past the hero, hide again near the very bottom (footer CTA)
+        var y = window.scrollY;
+        var nearBottom = (window.innerHeight + y) > (document.body.scrollHeight - 360);
+        bar.classList.toggle('is-visible', y > 560 && !nearBottom);
+      };
+      toggleBar();
+      window.addEventListener('scroll', toggleBar, {passive:true});
+      window.addEventListener('resize', toggleBar, {passive:true});
+    }
+
+    // Members perks: tap-to-expand accordion. Listeners are attached always;
+    // the collapse only exists in the ≤768px CSS, so toggling is-open is a
+    // no-op on desktop (body stays visible there). This keeps it working even
+    // if the viewport is resized across the breakpoint.
+    var perks = document.querySelectorAll('.members-cards .mc');
+    var mq = window.matchMedia('(max-width:768px)');
+    perks.forEach(function(card){
+      var toggle = function(){ card.classList.toggle('is-open'); };
+      // expose as a button only while the accordion layout is active (mobile)
+      var syncA11y = function(){
+        if(mq.matches){ card.setAttribute('role','button'); card.setAttribute('tabindex','0'); }
+        else { card.removeAttribute('role'); card.removeAttribute('tabindex'); }
+      };
+      syncA11y();
+      if(mq.addEventListener) mq.addEventListener('change', syncA11y);
+      card.addEventListener('click', toggle);
+      card.addEventListener('keydown', function(e){
+        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle(); }
+      });
+    });
+    if(perks[0]) perks[0].classList.add('is-open'); // first perk open by default
+
+    // Insert a small "swipe →" hint after each mobile carousel
+    var carousels = ['.rv-cards'];
+    var arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15m0 0l-5-5m5 5l-5 5"/></svg>';
+    carousels.forEach(function(sel){
+      var el = document.querySelector(sel);
+      if(!el || el.nextElementSibling && el.nextElementSibling.classList.contains('swipe-hint')) return;
+      var h = document.createElement('div');
+      h.className = 'swipe-hint';
+      h.setAttribute('aria-hidden','true');
+      h.innerHTML = 'スワイプ' + arrow;
+      el.parentNode.insertBefore(h, el.nextSibling);
     });
   })();
   </script>
