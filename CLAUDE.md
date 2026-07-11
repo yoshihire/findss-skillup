@@ -90,6 +90,11 @@ About=アイコン左スキャン行 / レッスン=2列画像タイル / 流れ
 
 ## 全面再設計プロジェクト（2026-07-11〜）
 設計書: `docs/redesign/`（README→02_戦略の順に読む）。調査11エージェント＋opus検証済み。
+
+### 作業体制（モデル振り分け・トークン効率）
+- **実装は `lp-builder`（sonnet）、レビューは `lp-reviewer`（opus）** — `.claude/agents/` に定義済み。メインセッションは指揮・判断のみ
+- フェーズ実行のコピペ用プロンプト集: `docs/redesign/07_ローカル作業ガイド.md`
+- ローカル（Mac）とクラウドの併用はGitHub経由で同期。**同時編集禁止**（作業→push→相手側でpull）
 - **Phase 0 完了（2026-07-11）**: ①キャンペーン一元管理機構（末尾scriptの`CAMPAIGN`設定で全表示を制御・期限自動失効・OFF時は入会金5,000円通常表示に自動フォールバック。**キャンペーン文言の直書き禁止**）②nav死にリンク解消（#about/#schedule/#coach/#news廃止→#class/#reasons/#price/#voices/#faq、id="reasons"/"voices"新設）③フッター法的リンクをコメントアウト（文面提供まで）④CTA「初回体験を予約する」全箇所統一⑤P18を暫定シルエットアバター（voice-avatar-m.svg）へ（親子写真と27歳証言の矛盾解消）⑥P05のalt修正
 - 検証: 6月残存0・アンカー全着地・横オーバーフロー無し(1366/390)・campaign ON/OFF両状態動作確認・data-photo 34維持
 - **申込フォーム連携 完了（2026-07-11）**: mailto仮フォームを廃止し、本番フォームアプリ **https://fin-d-skillup-form.vercel.app/f/skillup-july-2026** へのリンクパネルに変更（#trialセクション）。**rel="noreferrer"禁止**（フォーム側referrer分析のため）。開催月が変わったらhrefのslugを更新。
