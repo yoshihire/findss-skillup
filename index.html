@@ -22,7 +22,10 @@
     --blue-200:#BFE0F6;
     --blue-100:#DCEEFA;
     --blue-50:#EAF5FC;
-    --teal-500:#36C2B2;
+    /* Redesign Phase 1 — 権威のネイビー（見出し・数値のアンカー） */
+    --navy-950:#081F3F;
+    --navy-900:#0B2B57;
+    --teal-500:#2FA99B; /* 大人化のため彩度を下げた達成/チェック色（旧 #36C2B2） */
     --teal-400:#5DD0C3;
     --yellow:#FFD046;
     --coral-500:#F26B7E;
@@ -33,6 +36,9 @@
     --ink-500:#6B7A8B;
     --ink-300:#AFB9C4;
     --white:#ffffff;
+    /* Redesign Phase 1 — 形状・影の統一トークン */
+    --radius:12px;
+    --shadow:0 4px 24px rgba(8,31,63,.08);
   }
   *{box-sizing:border-box}
   /* overflow-x:clip (not hidden) keeps the body from becoming a scroll
@@ -2865,21 +2871,9 @@
     margin:0 0 28px;
     position:relative;
     display:inline-block;
-    color:var(--blue-700);
+    color:var(--navy-900); /* Phase 1: グラデ文字→単色navyへ統一 */
   }
-  @supports ((-webkit-background-clip:text) or (background-clip:text)){
-    .about-heading{
-      background:linear-gradient(90deg, var(--teal-500) 0%, var(--blue-600) 60%, var(--blue-700) 100%);
-      -webkit-background-clip:text; background-clip:text;
-      -webkit-text-fill-color:transparent; color:transparent;
-    }
-  }
-  .about-heading::after{
-    content:""; position:absolute; left:0; right:0;
-    bottom:-14px; height:12px;
-    background:no-repeat center/100% 100%
-      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'><path d='M1 6 Q 13 1 25 6 T 49 6 T 73 6 T 97 6 T 121 6 T 145 6 T 169 6 T 199 6' fill='none' stroke='%235DD0C3' stroke-width='3' stroke-linecap='round'/></svg>");
-  }
+  /* Phase 1: 波下線（勢い線）を撤去。見出しは eyebrow + 単色navy の2段構成へ */
   .about-sub{
     font-size:18px; font-weight:700;
     color:var(--blue-700);
@@ -3512,6 +3506,46 @@
   [data-campaign-fallback]{display:none}
   .campaign-off [data-campaign-fallback]{display:block}
   .pc-camp-badge[data-campaign-circle]{font-size:10px; line-height:1.25; padding:4px}
+
+  /* ============================================================
+     Redesign Phase 1 —「大人の水」スキンオーバーライド（04_デザインシステム準拠）
+     既存ルールは触らず末尾で表皮のみ換装。ブロック削除で完全復元可（可逆）。
+     構造・レイアウトは不変、変えるのは色/装飾/角丸/影のみ。
+     ============================================================ */
+
+  /* --- 見出し: グラデ/多色 → 単色navyへ統一。アクセント下線（波線・勢い線）を撤去 --- */
+  .lesson-heading, .reason-heading, .recommend-title, .timeline-heading,
+  .pricing-heading, .apply-title, .faq-title, .intro-heading, .flow-title,
+  .rv-title, .rv-title .accent, .rv-footer-title{
+    color:var(--navy-900);
+  }
+  .rv-title .accent::after{display:none}
+  /* intro見出しの黄色ハイライト → 淡青（黄色は装飾禁止・キャンペーン専用） */
+  .intro-heading .u-yellow::after{background:var(--blue-100)}
+  /* 見出し内のスパークル/魚アイコンを撤去 */
+  .lesson-heading .spark, .pricing-ribbon .fish-ic,
+  .recommend-title .fish-ic, .rv-title .sparkle-svg{display:none}
+
+  /* --- 装飾SVG（魚・スパークル・starburst・浮遊泡）を全廃 --- */
+  .deco-fish, [class*="deco-fish"], .intro-fish-1, .intro-fish-2, .intro-fish-3,
+  .rec-fish, .rv-fish, .fish, .fish-ic, .flow-note .fish,
+  .sparkle, .sparkle-svg, .starburst,
+  .deco-bubble, .intro-bubble, .rec-bubble, .rv-bubble{
+    display:none !important;
+  }
+
+  /* --- 浮遊アニメーション全廃（reduced-motion対応の既存コードは温存） --- */
+  .hero-photo-frame{animation:none !important}
+
+  /* --- 形状・影の統一（主要カード群を角丸12px・統一影へ） --- */
+  .feature-card, .reason-card, .lesson-card, .voice-card, .flow-step,
+  .trust-item, .stat, .mc, .apply-card{
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+  }
+
+  /* --- コントラスト修正（blue-500 の可読テキスト → blue-700／4.5:1確保） --- */
+  .swipe-hint, .intro-heading .lighter{color:var(--blue-700)}
 </style>
 </head>
 <body>
