@@ -88,6 +88,12 @@ About=アイコン左スキャン行 / レッスン=2列画像タイル / 流れ
 - 確認OK：重複idなし／タグ収支一致／コンソールerror無し／**横オーバーフローなし（375・768・900・1366・1440）**／#trial・#line着地、#contactはエイリアス。
 - 既知の仮実装（許容）：申込フォームは `mailto:hello@fin-d.co.jp`（本番は実フォーム/予約システム推奨）。LINEは実URL配線済。
 
+## 全面再設計プロジェクト（2026-07-11〜）
+設計書: `docs/redesign/`（README→02_戦略の順に読む）。調査11エージェント＋opus検証済み。
+- **Phase 0 完了（2026-07-11）**: ①キャンペーン一元管理機構（末尾scriptの`CAMPAIGN`設定で全表示を制御・期限自動失効・OFF時は入会金5,000円通常表示に自動フォールバック。**キャンペーン文言の直書き禁止**）②nav死にリンク解消（#about/#schedule/#coach/#news廃止→#class/#reasons/#price/#voices/#faq、id="reasons"/"voices"新設）③フッター法的リンクをコメントアウト（文面提供まで）④CTA「初回体験を予約する」全箇所統一⑤P18を暫定シルエットアバター（voice-avatar-m.svg）へ（親子写真と27歳証言の矛盾解消）⑥P05のalt修正
+- 検証: 6月残存0・アンカー全着地・横オーバーフロー無し(1366/390)・campaign ON/OFF両状態動作確認・data-photo 34維持
+- **申込フォーム連携（Phase 4予定）**: 別リポジトリ `fin-d-skillup-form`（/f/:slug 構造・skillup-may-2026がpublished・7月分draft・本番URL未デプロイ？要確認）。リンク時は rel="noreferrer" を付けない（referrer計測のため）。UTMは拾われない。
+
 ## 進捗ログ
 - 2026-06-02: CLAUDE.md作成。今フェーズ(1→5)着手。
 - 2026-06-02: Phase1 Membersアコーディオン化。

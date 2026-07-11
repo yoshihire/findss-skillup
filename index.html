@@ -3506,6 +3506,12 @@
     .reco-pill{padding:10px 12px}
     .reco-grid{gap:8px}
   }
+
+  /* ===== キャンペーン表示制御（文言・期限は末尾scriptのCAMPAIGN設定で一元管理）===== */
+  .campaign-off [data-campaign]{display:none !important}
+  [data-campaign-fallback]{display:none}
+  .campaign-off [data-campaign-fallback]{display:block}
+  .pc-camp-badge[data-campaign-circle]{font-size:10px; line-height:1.25; padding:4px}
 </style>
 </head>
 <body>
@@ -3523,22 +3529,21 @@
       </a>
 
       <nav class="primary-nav" aria-label="グローバルナビ">
-        <a href="#about">スクールについて</a>
         <a href="#class">クラス紹介</a>
-        <a href="#schedule">スケジュール</a>
-        <a href="#coach">コーチ紹介</a>
+        <a href="#reasons">選ばれる理由</a>
+        <a href="#price">料金</a>
+        <a href="#voices">お客様の声</a>
         <a href="#faq">よくあるご質問</a>
-        <a href="#news">お知らせ</a>
       </nav>
 
       <div class="header-actions">
-        <a class="cta-pill" href="#contact">
+        <a class="cta-pill" href="#trial">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <rect x="3.5" y="5" width="17" height="15" rx="2.5" stroke="#fff" stroke-width="1.8"/>
             <path d="M3.5 9.5h17" stroke="#fff" stroke-width="1.8"/>
             <path d="M8 3.5v3M16 3.5v3" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
           </svg>
-          体験予約・お問い合わせ
+          初回体験を予約する
         </a>
         <button class="hamburger" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-menu">
           <span class="bars"><span></span><span></span><span></span></span>
@@ -3549,15 +3554,14 @@
     <!-- Mobile slide-down nav -->
     <nav class="mobile-menu" id="mobile-menu" aria-label="モバイルネービ">
       <ul>
-        <li><a href="#about">スクールについて</a></li>
         <li><a href="#class">クラス紹介</a></li>
+        <li><a href="#reasons">選ばれる理由</a></li>
         <li><a href="#price">料金</a></li>
+        <li><a href="#voices">お客様の声</a></li>
         <li><a href="#faq">よくあるご質問</a></li>
-        <li><a href="#schedule">スケジュール</a></li>
-        <li><a href="#coach">コーチ紹介</a></li>
       </ul>
       <div class="menu-cta">
-        <a href="#contact">体験予約・お問い合わせ</a>
+        <a href="#trial">初回体験を予約する</a>
       </div>
     </nav>
   </header>
@@ -3651,7 +3655,7 @@
               <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7.5l3 3L12 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               フィンレンタル込み・手ぶらでOK
             </span>
-            <span class="ho-camp"><span class="ho-camp-badge">6月限定</span>ご入会で入会金<b>0円</b></span>
+            <span class="ho-camp" data-campaign><span class="ho-camp-badge" data-campaign-hero-badge>キャンペーン中</span>ご入会で入会金<b>0円</b></span>
           </div>
         </div>
 
@@ -4008,7 +4012,7 @@
 
       <div class="photo-stack" aria-hidden="false">
         <div class="photo-bubble pb-1"><img src="project/assets/p3-man-top.png" alt="プールサイドでくつろぐ男性" loading="lazy" decoding="async"  data-photo="P04"/></div>
-        <div class="photo-bubble pb-2"><img src="project/assets/p3-kids.png" alt="フィンを持つ子どもたち" loading="lazy" decoding="async"  data-photo="P05"/></div>
+        <div class="photo-bubble pb-2"><img src="project/assets/p3-kids.png" alt="受講イメージ" loading="lazy" decoding="async"  data-photo="P05"/></div>
         <div class="photo-bubble pb-3"><img src="project/assets/p3-woman.png" alt="フィンを持つ女性" loading="lazy" decoding="async"  data-photo="P06"/></div>
 
         <div class="callout co-1">もっと楽に<br />泳ぎたい！</div>
@@ -4034,7 +4038,7 @@
 
 
   <!-- ═══════════════ ⑥ やさしいのに、ちゃんと上達できる理由 ═══════════════ -->
-  <section class="reason-section" data-screen-label="Reasons">
+  <section class="reason-section" id="reasons" data-screen-label="Reasons">
     <div class="reason-inner">
       <h2 class="reason-heading">
         <span class="spark-mark" aria-hidden="true"><svg viewBox="0 0 20 26" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 6l12 3"/><path d="M3 13h14"/><path d="M4 20l12-3"/></svg></span>
@@ -4379,7 +4383,7 @@
 
 
   <!-- ═══════════════ ⑫ リアルな声 ═══════════════ -->
-  <section class="real-voice-section" data-screen-label="Real voices">
+  <section class="real-voice-section" id="voices" data-screen-label="Real voices">
     <div class="top-wave" aria-hidden="true">
       <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
         <path d="M0 30 C 220 0, 420 60, 620 30 S 1020 0, 1220 40 1440 20 1440 20 L1440 0 L0 0 Z" fill="#BFE0F6" opacity=".55"/>
@@ -4481,7 +4485,7 @@
         <article class="rv-card is-s">
           <span class="rv-card-tag">社会人・水泳経験者</span>
           <div class="rv-person">
-            <div class="rv-photo"><img src="project/assets/voice-s.png" alt="Y.Tさん" loading="lazy" decoding="async"  data-photo="P18"/></div>
+            <div class="rv-photo"><img src="project/assets/voice-avatar-m.svg" alt="Y.Tさん（写真は準備中）" loading="lazy" decoding="async"  data-photo="P18"/></div>
             <div class="rv-meta">
               <div class="rv-name"><span class="nm">Y.Tさん</span><span class="age">27歳</span></div>
               <p class="rv-bio"><span class="strong">学生時代に競泳経験</span><br/>会社員<br/>フィンは始めたばかり</p>
@@ -4718,14 +4722,15 @@
         <!-- Card 2: Entrance fee 0 -->
         <article class="price-card is-fee">
           <div class="pc-tab">入会金・事務手数料</div>
-          <p class="pc-strike">通常 <span class="num">5,000円</span>（税込）</p>
-          <div class="pc-arrow-down" aria-hidden="true">
+          <p class="pc-price" data-campaign-fallback style="margin-top:18px"><span class="big">5,000</span><span class="unit">円</span><span class="tax">（税込）</span></p>
+          <p class="pc-strike" data-campaign>通常 <span class="num">5,000円</span>（税込）</p>
+          <div class="pc-arrow-down" aria-hidden="true" data-campaign>
             <svg width="22" height="20" viewBox="0 0 22 20" fill="none"><path d="M11 2v14m0 0l-6-6m6 6l6-6" stroke="#EB5468" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <div class="pc-zero">0<span class="yen">円</span></div>
-          <div class="pc-camp-badge" aria-hidden="true">6月<br/>限定</div>
+          <div class="pc-zero" data-campaign>0<span class="yen">円</span></div>
+          <div class="pc-camp-badge" aria-hidden="true" data-campaign data-campaign-circle>キャンペーン</div>
           <div style="flex:1"></div>
-          <div class="pc-camp-strip">6月中のご入会で<br/>入会金・事務手数料が無料！</div>
+          <div class="pc-camp-strip" data-campaign data-campaign-strip>ただいまご入会で<br/>入会金・事務手数料が無料！</div>
         </article>
 
         <!-- Card 3: Trial -->
@@ -5401,12 +5406,11 @@
           サイトメニュー
         </h5>
         <ul>
-          <li><a href="#about"><span class="chev"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 3l4 4-4 4"/></svg></span>スクールについて</a></li>
           <li><a href="#class"><span class="chev"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 3l4 4-4 4"/></svg></span>クラス紹介</a></li>
-          <li><a href="#schedule"><span class="chev"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 3l4 4-4 4"/></svg></span>スケジュール</a></li>
-          <li><a href="#coach"><span class="chev"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 3l4 4-4 4"/></svg></span>コーチ紹介</a></li>
+          <li><a href="#reasons"><span class="chev"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 3l4 4-4 4"/></svg></span>選ばれる理由</a></li>
+          <li><a href="#price"><span class="chev"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 3l4 4-4 4"/></svg></span>料金</a></li>
+          <li><a href="#voices"><span class="chev"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 3l4 4-4 4"/></svg></span>お客様の声</a></li>
           <li><a href="#faq"><span class="chev"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 3l4 4-4 4"/></svg></span>よくあるご質問</a></li>
-          <li><a href="#news"><span class="chev"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 3l4 4-4 4"/></svg></span>お知らせ</a></li>
         </ul>
       </nav>
 
@@ -5433,17 +5437,55 @@
   </footer>
 
   <div class="footer-legal">
+    <!--
+      法的情報リンク: 特商法表記・プライバシーポリシー等の実文面が提供され次第、
+      実体ページ（または折りたたみセクション）を作って復活させること。
+      実体のないアンカーのまま公開しない（docs/redesign/06_実装計画.md 参照）。
     <nav class="footer-legal-nav" aria-label="法的情報">
       <a href="#tokutei">特定商取引法に基づく表記</a>
       <a href="#privacy">プライバシーポリシー</a>
       <a href="#terms">利用規約</a>
       <a href="#company">運営会社</a>
     </nav>
+    -->
     <p class="footer-copy">© Fin-D Swim School / Fin-D Inc. All Rights Reserved.</p>
   </div>
 
   <!-- Interaction script: mobile menu, FAQ accordion, smooth scroll -->
   <script>
+  /* ================================================================
+     ★キャンペーン設定 — 編集はこのブロックだけ（他の箇所に直書き禁止）
+     - active:false で全キャンペーン表示が消え、入会金は通常表示(5,000円)に戻る
+     - deadline: 'YYYY-MM-DD'（日本時間・その日まで有効）。null なら期限なし
+       → 期限を過ぎると active でも自動的に非表示になる（掲出しっぱなし事故の防止）
+     - heroBadge: FVオファー内バッジ ／ circleBadge: 料金カード丸バッジ（<br>可・nullで非表示）
+     - strip: 料金カード下の帯（<br>可）
+     ※期限を設定した場合は heroBadge/strip の文言にも期限を含めること（例:'7月限定'）
+  ================================================================ */
+  var CAMPAIGN = {
+    active: true,
+    deadline: null,
+    heroBadge: 'キャンペーン中',
+    circleBadge: null,
+    strip: 'ただいまご入会で<br/>入会金・事務手数料が無料！'
+  };
+  (function(){
+    var on = !!CAMPAIGN.active;
+    if(on && CAMPAIGN.deadline){
+      var todayJst = new Date(Date.now() + 9*3600*1000).toISOString().slice(0,10);
+      if(todayJst > CAMPAIGN.deadline) on = false;
+    }
+    document.documentElement.classList.toggle('campaign-off', !on);
+    if(on){
+      var hb = document.querySelector('[data-campaign-hero-badge]');
+      if(hb) hb.innerHTML = CAMPAIGN.heroBadge;
+      var cb = document.querySelector('[data-campaign-circle]');
+      if(cb){ if(CAMPAIGN.circleBadge){ cb.innerHTML = CAMPAIGN.circleBadge; } else { cb.style.display = 'none'; } }
+      var st = document.querySelector('[data-campaign-strip]');
+      if(st) st.innerHTML = CAMPAIGN.strip;
+    }
+  })();
+
   (function(){
     var burger = document.querySelector('.hamburger');
     var menu = document.getElementById('mobile-menu');
