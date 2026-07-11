@@ -27,7 +27,7 @@ model: sonnet
 3. コンソール error / pageerror なし
 4. `grep -c 'data-photo' index.html` が想定数と一致
 5. 事実表記のgrep照合（3,500 / 7,200 / 10,800 / 各回8名 / 18歳以上 / 毎週日曜13:00）
-6. 混入文字チェック: `python3 -c "import re;[print(i,l.strip()[:60]) for i,l in enumerate(open('index.html'),1) if re.search(r'[Ѐ-ӿ가-힯]',l)]"` が無出力
+6. 混入文字チェック（キリル・ハングルの誤混入検出）: `python3 -c "import re;[print(i,l.strip()[:60]) for i,l in enumerate(open('index.html'),1) if re.search('[\\u0400-\\u04FF\\uAC00-\\uD7AF]',l)]"` が無出力
 
 ## 報告形式
 変更点の要約（何を・どこに・なぜ=設計書のどの項に基づくか）＋検証結果＋残課題。
