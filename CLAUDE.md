@@ -92,7 +92,9 @@ About=アイコン左スキャン行 / レッスン=2列画像タイル / 流れ
 設計書: `docs/redesign/`（README→02_戦略の順に読む）。調査11エージェント＋opus検証済み。
 - **Phase 0 完了（2026-07-11）**: ①キャンペーン一元管理機構（末尾scriptの`CAMPAIGN`設定で全表示を制御・期限自動失効・OFF時は入会金5,000円通常表示に自動フォールバック。**キャンペーン文言の直書き禁止**）②nav死にリンク解消（#about/#schedule/#coach/#news廃止→#class/#reasons/#price/#voices/#faq、id="reasons"/"voices"新設）③フッター法的リンクをコメントアウト（文面提供まで）④CTA「初回体験を予約する」全箇所統一⑤P18を暫定シルエットアバター（voice-avatar-m.svg）へ（親子写真と27歳証言の矛盾解消）⑥P05のalt修正
 - 検証: 6月残存0・アンカー全着地・横オーバーフロー無し(1366/390)・campaign ON/OFF両状態動作確認・data-photo 34維持
-- **申込フォーム連携（Phase 4予定）**: 別リポジトリ `fin-d-skillup-form`（/f/:slug 構造・skillup-may-2026がpublished・7月分draft・本番URL未デプロイ？要確認）。リンク時は rel="noreferrer" を付けない（referrer計測のため）。UTMは拾われない。
+- **申込フォーム連携 完了（2026-07-11）**: mailto仮フォームを廃止し、本番フォームアプリ **https://fin-d-skillup-form.vercel.app/f/skillup-july-2026** へのリンクパネルに変更（#trialセクション）。**rel="noreferrer"禁止**（フォーム側referrer分析のため）。開催月が変わったらhrefのslugを更新。
+- **オーナー確定事項（2026-07-11）**: 実績数値=延べ10,000人以上・指導歴20年以上 ✅／コーチ=関野義秀氏・実名顔出しOK・肩書きは「チーフコーチ」等の組織的表現やマーケ創作OK／流入=LINEリッチメニュー＋リファラルのみ（意図的に静か・温かい流入前提）／現証言3件はフィクション確定→実アンケート（CSV受領待ち）で実声化予定／AQUA FinD実写は競技寄りすぎ→AI生成を雰囲気見本として承認。
+- **受領待ち素材**: コーチ実写（→ project/assets/coach.png）／アンケートCSV（→ docs/survey/）。
 
 ## 進捗ログ
 - 2026-06-02: CLAUDE.md作成。今フェーズ(1→5)着手。

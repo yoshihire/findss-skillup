@@ -5264,51 +5264,29 @@
       </div>
 
       <div class="apply-grid">
-        <!-- 申込フォーム（送信先は本番で設定。現状は枠のみ） -->
-        <form class="apply-form" action="mailto:hello@fin-d.co.jp" method="post" enctype="text/plain" aria-label="初回体験申込フォーム">
+        <!-- 申込フォーム: 専用フォームアプリ（fin-d-skillup-form）へ接続。
+             リンクに rel="noreferrer" を付けないこと（フォーム側の流入分析がreferrer参照）。
+             開催月が変わったら下の href のスラッグ（skillup-july-2026 等）を更新する。 -->
+        <div class="apply-form" aria-label="初回体験申込のご案内">
           <h3>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="2.5"/><path d="M4 9h16M8 3v4M16 3v4"/><path d="M9 14l2 2 4-4"/></svg>
             初回体験申込フォーム
           </h3>
-          <div class="field">
-            <label for="ap-name">お名前 <span class="req">必須</span></label>
-            <input id="ap-name" name="name" type="text" autocomplete="name" placeholder="山田 花子" required />
-          </div>
-          <div class="field-row">
-            <div class="field">
-              <label for="ap-age">年齢 <span class="req">必須</span></label>
-              <input id="ap-age" name="age" type="text" inputmode="numeric" placeholder="例：32" required />
-            </div>
-            <div class="field">
-              <label for="ap-date">体験希望日</label>
-              <input id="ap-date" name="date" type="text" placeholder="例：ご希望の日曜日（毎週日曜13:00〜）" />
-            </div>
-          </div>
-          <div class="field">
-            <label for="ap-mail">メールアドレス <span class="req">必須</span></label>
-            <input id="ap-mail" name="email" type="email" autocomplete="email" placeholder="example@mail.com" required />
-          </div>
-          <div class="field">
-            <label for="ap-fin">フィン経験</label>
-            <select id="ap-fin" name="fin">
-              <option value="">選択してください</option>
-              <option>はじめて（フィン未経験）</option>
-              <option>少しある</option>
-              <option>経験あり（ビーフィン）</option>
-              <option>経験あり（モノフィン）</option>
-              <option>大会出場経験あり</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="ap-msg">ご質問・ご相談（任意）</label>
-            <textarea id="ap-msg" name="message" placeholder="泳力やフィン経験など、気になることをお書きください。"></textarea>
-          </div>
-          <button type="submit" class="apply-submit">
-            この内容で申し込む
+          <p style="font-size:14.5px; line-height:1.9; color:var(--ink-700); margin:0 0 14px">
+            専用の申込フォームから、ご希望の開催日を選んでお申し込みください。
+            所要時間は3分ほどです。
+          </p>
+          <ul class="cond-list" style="margin:0 0 18px">
+            <li><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-6"/></svg></span>開催日をカレンダーから選択できます</li>
+            <li><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-6"/></svg></span>フィン経験・泳力もフォーム内でお伺いします</li>
+            <li><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-6"/></svg></span>送信後、自動返信メールでご案内が届きます</li>
+          </ul>
+          <a class="apply-submit" href="https://fin-d-skillup-form.vercel.app/f/skillup-july-2026" target="_blank" rel="noopener">
+            申込フォームへ進む
             <span class="arrow" style="background:rgba(255,255,255,.28)"><svg viewBox="0 0 12 12" fill="none"><path d="M3 6h6m0 0L6 3m3 3L6 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </button>
-          <p class="form-note">内容を確認後、体験料金のお支払い方法と当日の詳細をご案内します。<br/>※送信ボタンでメールソフトが開きます（送信先：hello@fin-d.co.jp）。お急ぎの方はLINEからもご相談いただけます。</p>
-        </form>
+          </a>
+          <p class="form-note">フォームは別ページで開きます。内容を確認後、体験料金のお支払い方法と当日の詳細をご案内します。<br/>ご不明な点は、お申し込み前にLINEからもお気軽にご相談いただけます。</p>
+        </div>
 
         <!-- サイド：料金 / 参加条件 / LINE -->
         <aside class="apply-side">
