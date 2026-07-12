@@ -2978,9 +2978,11 @@
     .logo{font-size:20px}
     .logo svg{width:28px;height:28px}
     .hero{min-height:auto}
-    .hero-inner{grid-template-columns:1fr; padding:36px 20px 48px; gap:32px; min-height:auto}
-    .hero-photo{margin-right:0; min-height:300px}
-    .hero-photo-frame{min-height:300px; border-radius:20px; -webkit-mask-image:none; mask-image:none}
+    .hero-inner{grid-template-columns:1fr; padding:20px 20px 44px; gap:22px; min-height:auto}
+    /* Phase 2H: スマホは写真を先頭へ（第一画面に視覚フックを置く＝FVの印象を立て直す） */
+    .hero-photo{margin-right:0; min-height:0; order:-1}
+    .hero-photo-frame{min-height:230px; height:44vw; max-height:280px; border-radius:18px; -webkit-mask-image:none; mask-image:none}
+    .hero-content{display:flex; flex-direction:column}
     .hero-title{font-size:36px}
     .hero-title .nowrap{white-space:normal}
     .hero-content{padding-left:0}
@@ -3759,7 +3761,7 @@
       <!-- RIGHT: photo -->
       <div class="hero-photo">
         <div class="hero-photo-frame">
-          <img src="project/assets/fv-photo.png" alt="プールサイドでフィンスイミングのレッスンを受ける生徒たち"  data-photo="P01"/>
+          <img src="project/assets/fv-photo.webp" alt="プールサイドでフィンスイミングのレッスンを受ける生徒たち"  data-photo="P01"/>
         </div>
       </div>
     </div>
@@ -3839,8 +3841,8 @@
 
       <div class="photo-stack" aria-hidden="false">
         <div class="photo-bubble pb-1"><img src="project/assets/p3-man-top.png" alt="プールサイドでくつろぐ男性" loading="lazy" decoding="async"  data-photo="P04"/></div>
-        <div class="photo-bubble pb-2"><img src="project/assets/p3-kids.png" alt="ビーフィンを手にした女性参加者" loading="lazy" decoding="async"  data-photo="P05"/></div>
-        <div class="photo-bubble pb-3"><img src="project/assets/p3-woman.png" alt="ゴーグルを整えて泳ぐ準備をする女性スイマー" loading="lazy" decoding="async"  data-photo="P06"/></div>
+        <div class="photo-bubble pb-2"><img src="project/assets/p3-kids.webp" alt="ビーフィンを手にした女性参加者" loading="lazy" decoding="async"  data-photo="P05"/></div>
+        <div class="photo-bubble pb-3"><img src="project/assets/p3-woman.webp" alt="ゴーグルを整えて泳ぐ準備をする女性スイマー" loading="lazy" decoding="async"  data-photo="P06"/></div>
 
         <div class="callout co-1">もっと楽に<br />泳ぎたい！</div>
         <div class="callout co-2">基礎から<br />学び直したい！</div>
@@ -3932,7 +3934,7 @@
   <section class="credit-section" data-screen-label="Credits">
     <div class="credit-inner">
       <div class="credit-photo">
-        <img src="project/assets/coach.png" alt="チーフコーチ 関野義秀" loading="lazy" decoding="async"  data-photo="P35"/>
+        <img src="project/assets/coach.webp" alt="チーフコーチ 関野義秀" loading="lazy" decoding="async"  data-photo="P35"/>
       </div>
       <div class="credit-right">
         <h3 class="credit-title">
@@ -4454,7 +4456,7 @@
             </li>
           </ul>
           <p class="pc-note">都度払いも可能：<b>1回 3,750円</b>（税込）</p>
-          <div class="pc-photo"><img src="project/assets/price-photo1.png" alt="コーチが大人の参加者に手の位置を教えるレッスン風景" loading="lazy" decoding="async"  data-photo="P21"/></div>
+          <div class="pc-photo"><img src="project/assets/price-photo1.webp" alt="コーチが大人の参加者に手の位置を教えるレッスン風景" loading="lazy" decoding="async"  data-photo="P21"/></div>
         </article>
 
         <!-- Card 2: Entrance fee 0 -->
@@ -4477,7 +4479,7 @@
           <p class="pc-price" style="margin-top:18px"><span class="big">3,750</span><span class="unit">円</span><span class="tax">（税込）</span></p>
           <span class="pc-pill" style="background:#DCEEFA; color:var(--blue-700)">1回から参加OK</span>
           <p class="pc-note">まずは1回から。合うと感じたら続けられます。</p>
-          <div class="pc-photo"><img src="project/assets/price-photo3.png" alt="フィンを持って来場した参加者を迎えるコーチ" loading="lazy" decoding="async"  data-photo="P22"/></div>
+          <div class="pc-photo"><img src="project/assets/price-photo3.webp" alt="フィンを持って来場した参加者を迎えるコーチ" loading="lazy" decoding="async"  data-photo="P22"/></div>
         </article>
 
         <!-- Notes -->
