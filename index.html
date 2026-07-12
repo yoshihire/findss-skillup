@@ -3581,6 +3581,116 @@
 
   /* --- コントラスト修正（blue-500 の可読テキスト → blue-700／4.5:1確保） --- */
   .swipe-hint, .intro-heading .lighter{color:var(--blue-700)}
+
+  /* ============================================================
+     Visual edit — calm, professional water
+     Keep the desktop geometry intact; the mobile rules below reset
+     density, hierarchy and CTA priority without changing facts or wiring.
+     ============================================================ */
+  /* Headings are one calm navy voice. Accent colour belongs to labels and CTAs. */
+  .hero-title .accent-teal, .intro-heading .accent-teal,
+  .tg-heading .accent-teal, .pricing-heading .accent-teal,
+  .apply-title .accent-teal, .flow-title .accent,
+  .rv-title .accent{color:inherit}
+  .hero-title .accent-underline::after, .wavy-underline::after{display:none}
+  .eyebrow, .flow-eyebrow, .apply-eyebrow{color:var(--coral-500)}
+  .reason-heading .qmark{color:var(--navy-900)}
+
+  /* Yellow and purple no longer act as UI accents. Teal remains only for checks. */
+  .ic-people, .flow-step.is-4 .step-num, .flow-step.is-6 .step-num,
+  .reason-card.is-yellow::before{background:var(--blue-700)}
+  .flow-step.is-4 .step-ic, .flow-step.is-6 .step-ic,
+  .trust-item.is-yellow .ti-ic, .pc-pill{background:var(--blue-100)}
+  .flow-step.is-4 .step-ic svg, .flow-step.is-6 .step-ic svg,
+  .flow-step.is-4 h4, .flow-step.is-6 h4,
+  .reason-card.is-yellow .rc-ic, .reason-card.is-yellow h4,
+  .trust-item.is-yellow .ti-ic svg{color:var(--blue-700)}
+  .pc-camp-badge{background:var(--coral-500)}
+  .pc-plan-pop, .tg-rental{background:var(--blue-50); color:var(--navy-900); border-color:var(--blue-200)}
+  .app-feat.is-purple .af-ic{background:var(--blue-100)}
+  .app-feat.is-purple .af-ic svg, .app-feat.is-purple h5{color:var(--blue-700)}
+  .faq-cat .fc-ic svg, .faq-cat-head h5,
+  .faq-cat.is-teal .fc-ic svg, .faq-cat.is-green .fc-ic svg, .faq-cat.is-purple .fc-ic svg,
+  .faq-cat.is-teal .faq-cat-head h5, .faq-cat.is-green .faq-cat-head h5, .faq-cat.is-purple .faq-cat-head h5,
+  .faq-cat .q-mark, .faq-cat.is-teal .faq-item .q-mark, .faq-cat.is-green .faq-item .q-mark, .faq-cat.is-purple .faq-item .q-mark{color:var(--navy-900)}
+  [fill="#FFB940"], [fill="#FFD046"], [fill="#A887DA"]{fill:var(--blue-700)}
+  [stroke="#E59A1F"]{stroke:var(--blue-700)}
+
+  /* Coral is the single primary action. LINE is identified, not promoted. */
+  .cta-pill{background:var(--coral-500); box-shadow:0 6px 18px rgba(242,107,126,.28)}
+  .cta-pill:hover{background:var(--coral-600); box-shadow:0 10px 22px rgba(242,107,126,.32)}
+  .mobile-menu .menu-cta a{background:var(--coral-500); box-shadow:0 6px 14px rgba(242,107,126,.28)}
+  .btn-line, .apply-line, a.btn[href*="lin.ee"]{
+    background:#fff !important; color:var(--line-green) !important;
+    border:1.5px solid var(--line-green) !important; box-shadow:none !important;
+  }
+  .btn-line:hover, .apply-line:hover{border-color:var(--line-green); box-shadow:0 4px 12px rgba(6,199,85,.12) !important}
+  .btn-line .ic-btn{background:transparent; color:var(--line-green); border:1px solid currentColor}
+  .btn-line .arrow{background:#E8F8EE; color:var(--line-green)}
+  .apply-line .ll{background:transparent; color:var(--line-green); border:1px solid currentColor}
+
+  @media (max-width:768px){
+    /* Clear boundaries: white and pale water alternate; coach/apply close with depth. */
+    .about-section, .reason-section, .lesson-section, .trial-guide, .flow-section{background:#fff}
+    .recommend-section, .edge-band, .pricing-section, .real-voice-section{background:var(--blue-50)}
+    .credit-section{background:var(--navy-900)}
+    .credit-title, .credit-section .coach-name{color:#fff !important}
+    .credit-section .coach-bio, .credit-section .coach-quote, .credit-section .credit-note{color:var(--blue-100) !important}
+    .credit-section .coach-quote{border-left-color:var(--coral-500) !important}
+    .apply-section{background:var(--navy-950)}
+    .apply-section .top-wave{display:none}
+    .apply-title{color:#fff}
+    .apply-lead{color:var(--blue-100)}
+    .apply-reassure span{box-shadow:none; color:var(--navy-900)}
+
+    /* Mobile body copy must be comfortably readable, including notes and cards. */
+    .hero-lead, .about-body, .recommend-lead, .reason-lead, .lesson-sub,
+    .coach-bio, .apply-lead, .tg-sub, .pricing-sub, .form-note,
+    .pc-note, .pc-notes li, .cond-list li, .apply-form > p,
+    .feature-card p, .reason-card p, .lesson-card p, .rv-card p,
+    .faq-item .q-text, .faq-answer{font-size:16px !important; line-height:1.75 !important}
+    .about-sub, .reco-outro, .coach-quote{font-size:16px !important; line-height:1.75 !important}
+    .reason-heading, .lesson-heading, .pricing-heading, .faq-title,
+    .apply-title, .recommend-title, .about-heading{color:var(--navy-900)}
+    .apply-title{color:#fff}
+
+    /* A deliberate one-column reading flow — testimonials alone remain swipeable. */
+    .reason-grid, .lesson-grid, .timeline-grid{
+      display:grid; grid-template-columns:1fr; overflow:visible; scroll-snap-type:none; gap:14px; padding-bottom:0;
+    }
+    .reason-grid > *, .lesson-grid > *, .timeline-grid > *{max-width:none; min-width:0}
+    .lesson-card{padding:18px 16px 0; text-align:left}
+    .lesson-card p{display:block}
+    .lc-photo{margin:12px -16px 0}
+    .timeline-grid::before{display:none}
+    .tl-item{display:block; text-align:left; padding:16px; background:#fff; border-radius:var(--radius); box-shadow:var(--shadow)}
+    .tl-photo-block{margin:0 0 12px}
+
+    /* Lightweight FAQ: a standard accordion, not four large illustrated panels. */
+    .faq-grid{gap:10px}
+    .faq-cat{display:block; background:#fff; border:1px solid var(--blue-100); border-radius:var(--radius)}
+    .faq-cat-head{flex-direction:row; justify-content:flex-start; gap:10px; padding:12px 14px; text-align:left; border-bottom:1px solid var(--blue-100)}
+    .faq-cat-head .fc-ic{width:30px; height:30px; background:var(--blue-50)}
+    .faq-cat-head .fc-ic svg{width:18px; height:18px}
+    .faq-cat-head h5{font-size:15px}
+    .faq-items{margin:0; border-radius:0}
+    .faq-item{gap:10px; padding:13px 14px}
+    .faq-item .q-mark{color:var(--coral-500)}
+
+    /* Price comparison stays factual but loses the dense promotional weight. */
+    .pricing-grid{gap:12px}
+    .price-card{padding:0 16px 16px}
+    .pc-photo{max-height:150px; margin:auto -16px -16px}
+    .pc-notes{padding:4px 2px 0; gap:8px}
+    .pc-notes li{font-size:14px; line-height:1.7}
+    .pricing-ribbon{margin-top:18px; border-radius:var(--radius); background:#fff; color:var(--navy-900)}
+
+    /* The persistent bar keeps an obvious primary and a quieter external channel. */
+    .m-cta-bar{gap:7px; padding-left:10px; padding-right:10px}
+    .m-cta-bar .m-cta-trial{flex:1.3; background:var(--coral-500)}
+    .m-cta-bar .m-cta-line{flex:.9; background:#fff; color:var(--line-green); border:1.5px solid var(--line-green); box-shadow:none}
+    .m-cta-line svg{color:var(--line-green)}
+  }
 </style>
 </head>
 <body>
@@ -3674,7 +3784,7 @@
     <div class="hero-inner">
       <!-- LEFT: text -->
       <div class="hero-content">
-        <span class="eyebrow">東京・池袋｜大人のためのフィンスイミング専門クラス</span>
+        <span class="eyebrow">東京・池袋の大人向け<br>フィンスイミング専門クラス</span>
 
         <h1 class="hero-title">
           <span class="nowrap">フィンスイミングを、</span><br />
@@ -3830,10 +3940,8 @@
           <li class="reco-pill"><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>もっと楽に、気持ちよく泳ぎたい</li>
           <li class="reco-pill"><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>自己流の泳ぎを、一度きちんと見直したい</li>
           <li class="reco-pill"><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>大会・マスターズに向けて、課題を整理したい</li>
-          <li class="reco-pill"><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>モノフィンに興味がある</li>
           <li class="reco-pill"><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>「この泳ぎでいいのかな？」と、少し壁を感じている</li>
           <li class="reco-pill"><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>ブランクはあるが、もう一度きちんと泳ぎを習いたい</li>
-          <li class="reco-pill"><span class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5l3 3L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>4泳法だけでなく、新しい泳ぎに挑戦したい</li>
         </ul>
 
         <p class="reco-outro">ひとつでも当てはまった方に。<br />自己流を理論から整える、少人数のクラスです。</p>
@@ -5058,7 +5166,7 @@
     if(perks[0]) perks[0].classList.add('is-open'); // first perk open by default
 
     // Insert a small "swipe →" hint after each mobile carousel
-    var carousels = ['.rv-cards', '.lesson-grid', '.reason-grid'];
+    var carousels = ['.rv-cards'];
     var arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15m0 0l-5-5m5 5l-5 5"/></svg>';
     carousels.forEach(function(sel){
       var el = document.querySelector(sel);
