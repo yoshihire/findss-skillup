@@ -528,8 +528,8 @@
   /* 6-step row */
   .flow-steps{
     display:grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap:10px;
+    grid-template-columns: repeat(4, 1fr); /* Phase 2F: 6→4ステップ */
+    gap:14px;
     margin-bottom:18px;
   }
   .flow-step{
@@ -1081,7 +1081,7 @@
   @media (max-width: 1100px){
     .flow-top{grid-template-columns:1fr; gap:14px}
     .flow-top-img, .flow-top-img.right{margin:0 auto}
-    .flow-steps{grid-template-columns:repeat(3,1fr); gap:30px 12px}
+    .flow-steps{grid-template-columns:repeat(2,1fr); gap:30px 12px} /* Phase 2F: 4ステップ=2×2 */
     .flow-arrow{display:none}
     .app-inner{grid-template-columns:1fr}
     .app-screens{height:auto; padding:20px 0; flex-direction:row; gap:12px; justify-content:center}
@@ -3508,6 +3508,42 @@
   .pc-camp-badge[data-campaign-circle]{font-size:10px; line-height:1.25; padding:4px}
 
   /* ============================================================
+     Redesign Phase 2F — モバイル縦圧縮（.rv-cards と同じ横スワイプの型を再利用）
+     縦に長いリストを横スライダー/2カラムへ。デスクトップ(≥769px)は不変。
+     ============================================================ */
+  @media(max-width:768px){
+    /* 理由(4)・身につくこと(6)・成長タイムライン(3) → 横snapカルーセル */
+    .reason-grid, .lesson-grid, .timeline-grid{
+      display:flex; grid-template-columns:none; flex-wrap:nowrap;
+      overflow-x:auto; overflow-y:visible;
+      scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
+      gap:12px; padding-bottom:14px; scrollbar-width:none;
+    }
+    .reason-grid::-webkit-scrollbar, .lesson-grid::-webkit-scrollbar, .timeline-grid::-webkit-scrollbar{display:none}
+    .reason-grid > *, .lesson-grid > *, .timeline-grid > *{scroll-snap-align:center; flex:0 0 76%; max-width:76%; min-width:0}
+
+    /* lesson: カルーセルでは説明文を復活（1枚の情報を濃く・次カードをチラ見せ） */
+    .lesson-card{text-align:left; padding:16px 14px 0}
+    .lesson-card p{display:block; font-size:12.5px}
+    .lesson-card h4{font-size:15px; margin:8px 0 6px}
+    .lc-photo{margin:10px -14px 0}
+
+    /* 成長タイムライン: 縦線→横カード（線・接続は撤去し1枚ずつ読ませる） */
+    .timeline-grid::before{display:none}
+    .tl-item{display:flex; flex-direction:column; align-items:center; text-align:center; gap:8px; padding:16px 12px; background:#fff; border-radius:var(--radius); box-shadow:var(--shadow)}
+    .tl-photo-block{margin:0 auto}
+
+    /* こんな方に: 2col化は文言が3行に折り返して逆効果だったため1colを維持（検証済み） */
+
+    /* about 特徴カード: 1col→2col コンパクト */
+    .feature-grid{grid-template-columns:repeat(2,1fr); gap:10px}
+    .feature-card{display:block; text-align:center; padding:14px 10px}
+    .feature-card .fc-ic{margin:0 auto 8px}
+    .feature-card h4{font-size:13.5px}
+    .feature-card p{font-size:11.5px}
+  }
+
+  /* ============================================================
      Redesign Phase 1 —「大人の水」スキンオーバーライド（04_デザインシステム準拠）
      既存ルールは触らず末尾で表皮のみ換装。ブロック削除で完全復元可（可逆）。
      構造・レイアウトは不変、変えるのは色/装飾/角丸/影のみ。
@@ -3879,8 +3915,8 @@
             <svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M5 6h8c1.7 0 3 1.3 3 3v17c0-1.7-1.3-3-3-3H5V6z"/><path d="M25 6h-8c-1.7 0-3 1.3-3 3v17c0-1.7 1.3-3 3-3h8V6z"/></svg>
           </span>
           <div>
-            <h4>フィン未経験でも<br />上達できる</h4>
-            <p>一定の泳力があれば、フィン経験がない方もすぐに上達できます。</p>
+            <h4>フィン経験は<br />不問</h4>
+            <p>水泳経験があればOK。フィンの選び方など不安な点は、LINEでご相談いただけます。</p>
           </div>
         </article>
       </div>
@@ -4707,7 +4743,7 @@
           <img src="project/assets/flow-tl.png" alt="プールでフィンスイミングのレッスン風景" loading="lazy" decoding="async"  data-photo="P29"/>
         </div>
         <div class="flow-head">
-          <p class="flow-eyebrow">カンタン6ステップ！</p>
+          <p class="flow-eyebrow">カンタン4ステップ！</p>
           <h2 class="flow-title">参加<span class="accent">までの</span>流れ</h2>
           <p class="flow-sub">
             まずは1回、クラスの雰囲気や指導の内容を体感してみてください。<br/>
@@ -4733,44 +4769,20 @@
           </span>
         </div>
 
-        <div class="flow-step is-2">
-          <span class="step-num">2</span>
-          <span class="step-ic">
-            <svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="22" height="16" rx="2"/><path d="M4 9l11 8 11-8"/></svg>
-          </span>
-          <h4>申込内容の確認</h4>
-          <p>持ち物や会場などの詳細をご案内します。ご不明な点はお気軽にご相談ください。</p>
-          <span class="flow-arrow" aria-hidden="true">
-            <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4l5 5-5 5"/></svg>
-          </span>
-        </div>
-
         <div class="flow-step is-3">
-          <span class="step-num">3</span>
+          <span class="step-num">2</span>
           <span class="step-ic">
             <svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="15" cy="15" r="11"/><path d="M11 11l4 4 4-4M11 15h8M11 19h8M15 15v6"/></svg>
           </span>
-          <h4>お支払い</h4>
-          <p>1回参加・ビジター参加は事前の銀行振込となります。入金確認後に予約が確定します。</p>
-          <span class="flow-arrow" aria-hidden="true">
-            <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4l5 5-5 5"/></svg>
-          </span>
-        </div>
-
-        <div class="flow-step is-4">
-          <span class="step-num">4</span>
-          <span class="step-ic">
-            <svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4c-4 0-7 3-7 7 0 6 7 14 7 14s7-8 7-14c0-4-3-7-7-7z"/><circle cx="15" cy="11" r="2.5"/></svg>
-          </span>
-          <h4>詳細のご案内</h4>
-          <p>会場の場所や当日の持ち物などをメール・LINEでお知らせします。</p>
+          <h4>お支払い・ご案内</h4>
+          <p>事前の銀行振込で予約が確定。会場や当日の持ち物は、メール・LINEでご案内します。</p>
           <span class="flow-arrow" aria-hidden="true">
             <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4l5 5-5 5"/></svg>
           </span>
         </div>
 
         <div class="flow-step is-5">
-          <span class="step-num">5</span>
+          <span class="step-num">3</span>
           <span class="step-ic">
             <svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h20a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H12l-5 4v-4H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"/><circle cx="11" cy="14" r="1.2" fill="currentColor"/><circle cx="15" cy="14" r="1.2" fill="currentColor"/><circle cx="19" cy="14" r="1.2" fill="currentColor"/></svg>
           </span>
@@ -4782,7 +4794,7 @@
         </div>
 
         <div class="flow-step is-6">
-          <span class="step-num">6</span>
+          <span class="step-num">4</span>
           <span class="step-ic">
             <svg viewBox="0 0 30 30" fill="currentColor"><circle cx="11" cy="11" r="3.6"/><circle cx="20" cy="11" r="3.6"/><path d="M4 23c0-3 3-5 7-5s7 2 7 5v1H4z"/><path d="M17 18c-.5 0-1 .1-1.5.2 1.5 1.2 2.5 2.8 2.5 4.8v1H27v-1c0-3-3-5-6-5-1 0-2 .2-3 .5z"/></svg>
           </span>
@@ -5350,7 +5362,7 @@
     if(perks[0]) perks[0].classList.add('is-open'); // first perk open by default
 
     // Insert a small "swipe →" hint after each mobile carousel
-    var carousels = ['.rv-cards'];
+    var carousels = ['.rv-cards', '.lesson-grid', '.reason-grid', '.timeline-grid'];
     var arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15m0 0l-5-5m5 5l-5 5"/></svg>';
     carousels.forEach(function(sel){
       var el = document.querySelector(sel);
