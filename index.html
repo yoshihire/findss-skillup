@@ -43,8 +43,11 @@
       "jobTitle": "ヘッドコーチ・メソッド監修",
       "worksFor": { "@id": "https://yoshihire.github.io/findss-skillup/#organization" },
       "award": [
-        "フィンスイミング日本記録保持者（800mサーフィス／4×200mサーフィスリレー／短水路800mサーフィス）",
-        "東京2020日本代表コーチ"
+        "フィンスイミング日本記録保持者（現・3種目：800mサーフィス／4×200mサーフィスリレー／短水路800mサーフィス）",
+        "世界選手権ファイナリスト",
+        "日本選手権 サーフィス種目メダリスト・大会MVP2年連続",
+        "ジュニア日本代表監督（2017年〜）",
+        "東京2020パラリンピック 水泳コーチ"
       ],
       "alumniOf": { "@type": "CollegeOrUniversity", "name": "鹿屋体育大学" },
       "knowsAbout": ["フィンスイミング", "モノフィン", "ドルフィンキック", "水中姿勢", "水泳技術指導"]
@@ -2755,6 +2758,49 @@
     width:100%;
   }
 
+  /* ── コーチ実績: ジャンル別カード（濃紺背景）＋モーダル ── */
+  .cred-lead{width:100%; font-size:14px; line-height:1.7; color:var(--blue-100); margin:2px 0 16px}
+  .cred-lead b{color:#fff; font-weight:800}
+  .cred-cards{width:100%; display:grid; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:10px; margin:0}
+  .cred-card{
+    appearance:none; border:0; text-align:left; cursor:pointer; font:inherit;
+    background:#fff; border-radius:var(--radius); padding:16px 14px 14px;
+    display:flex; flex-direction:column; gap:7px; box-shadow:var(--shadow);
+    transition:transform .2s ease, box-shadow .2s ease; min-height:132px;
+  }
+  .cred-card:hover{transform:translateY(-3px); box-shadow:0 12px 28px rgba(0,0,0,.24)}
+  .cred-ic{width:34px; height:34px; border-radius:9px; background:var(--blue-50); color:var(--blue-700); display:grid; place-items:center}
+  .cred-ic svg{width:19px; height:19px}
+  .cred-cat{font-size:11.5px; font-weight:800; color:var(--coral-600); letter-spacing:.02em}
+  .cred-head{font-size:14.5px; font-weight:800; color:var(--navy-900); line-height:1.45}
+  .cred-more{margin-top:auto; font-size:11.5px; font-weight:700; color:var(--blue-600)}
+  .cred-strip{width:100%; margin:16px 0 0; font-size:13px; line-height:1.7; color:var(--blue-100); text-align:left}
+  .cred-strip b{color:#fff; font-weight:800}
+  html.modal-open{overflow:hidden}
+  .cred-overlay{position:fixed; inset:0; background:rgba(8,20,40,.62); z-index:100}
+  .cred-modal{
+    position:fixed; z-index:101; left:50%; top:50%; transform:translate(-50%,-50%);
+    width:calc(100% - 40px); max-width:460px; max-height:82vh; overflow-y:auto;
+    background:#fff; border-radius:16px; padding:26px 24px 24px; box-shadow:0 24px 60px rgba(0,0,0,.32);
+  }
+  .cred-close{position:absolute; top:12px; right:12px; width:34px; height:34px; border:0; border-radius:50%; background:#EEF2F6; color:var(--ink-700); cursor:pointer; display:grid; place-items:center}
+  .cred-close svg{width:15px; height:15px}
+  .cm-cat{font-size:17px; font-weight:900; color:var(--navy-900); margin:0 0 15px}
+  .cm-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px}
+  .cm-list li{position:relative; padding-left:18px; font-size:14px; line-height:1.75; color:var(--ink-700)}
+  .cm-list li::before{content:""; position:absolute; left:0; top:9px; width:7px; height:7px; border-radius:50%; background:var(--coral-500)}
+  .cm-list b{color:var(--navy-900); font-weight:800}
+  .cm-note{font-size:13px; color:var(--ink-500); margin:0 0 14px; line-height:1.7}
+  .cm-links{display:flex; flex-direction:column; gap:10px}
+  .cm-links a{display:flex; justify-content:space-between; align-items:center; gap:10px; padding:13px 16px; border-radius:10px; background:var(--blue-50); color:var(--navy-900); font-weight:700; font-size:14px}
+  .cm-links a span{font-size:12px; font-weight:700; color:var(--blue-600); flex-shrink:0}
+  .cm-links a:hover{background:var(--blue-100)}
+  @media(max-width:768px){
+    .cred-cards{grid-template-columns:none; display:flex; flex-wrap:nowrap; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; gap:10px; padding-bottom:10px; scrollbar-width:none}
+    .cred-cards::-webkit-scrollbar{display:none}
+    .cred-cards > *{scroll-snap-align:start; flex:0 0 63%; max-width:63%}
+  }
+
   @media (max-width: 980px){
     .recommend-inner{grid-template-columns:1fr; gap:40px}
     .photo-stack{min-height:480px; max-width:420px; margin:0 auto}
@@ -4183,63 +4229,98 @@
         </h3>
 
         <p class="coach-name" style="font-family:'Poppins','Noto Sans JP',sans-serif; font-weight:800; font-size:22px; color:var(--navy-900); letter-spacing:.01em; margin:0 0 4px">関野 義秀 <span style="font-size:13.5px; font-weight:700; color:var(--ink-500)">／ ヘッドコーチ・メソッド監修</span></p>
-        <p class="coach-bio" style="font-size:14.5px; line-height:1.9; color:var(--ink-700); margin:0 0 12px">フィンスイミングで<b style="color:var(--navy-900)">3種目の日本記録</b>を保持（800mサーフィス／4×200mサーフィスリレー／短水路800mサーフィス）。東京2020日本代表コーチとして世界の舞台を経験し、鹿屋体育大学・大学院では泳ぎの動作を科学的に研究してきました。<b style="color:var(--navy-900)">日本記録は、芸術点＝技術を突き詰めた先にある景色。</b>その技術を、感覚ではなく言葉で分解して伝えます。</p>
+        <p class="coach-bio" style="font-size:14.5px; line-height:1.9; color:var(--ink-700); margin:0 0 12px">フィンスイミングで、いまも<b style="color:var(--navy-900)">3種目の日本記録を保持</b>する現役の記録保持者。選手として世界選手権のファイナルに立ちながら、2014年からは後進を育て、日本代表を毎年輩出してきました。鹿屋体育大学・大学院では、泳ぎの動作を科学的に研究。その技術を、感覚ではなく言葉で分解して伝えます。</p>
         <p class="coach-quote" style="font-size:15px; font-weight:700; color:var(--blue-700); margin:0 0 20px; padding-left:12px; border-left:3px solid var(--teal-500)">「足ひれで泳ぐ人を、速くする。1ミリの成長を、いっしょに。」</p>
 
-        <div class="credit-stats">
-          <div class="stat">
-            <span class="s-ic">
-              <svg viewBox="0 0 30 30" fill="#FFB940" aria-hidden="true">
-                <path d="M9 4h12v3c3 0 6 1 6 3 0 3-3 5-6 5v0c-.5 3-2.5 5-5 5.5V23l3 .5V26H11v-2.5l3-.5v-2.5c-2.5-.5-4.5-2.5-5-5.5-3 0-6-2-6-5 0-2 3-3 6-3V4z" stroke="#E59A1F" stroke-width=".8" stroke-linejoin="round"/>
-                <rect x="8" y="26" width="14" height="2" rx=".5" fill="#E59A1F"/>
-              </svg>
-            </span>
-            <h5>日本記録<br /><strong>3種目を保持</strong></h5>
-          </div>
-          <div class="stat">
-            <span class="s-ic">
-              <svg viewBox="0 0 30 30" fill="#2E89E6" aria-hidden="true">
-                <circle cx="10" cy="11" r="3.6"/><circle cx="20" cy="11" r="3.6"/>
-                <path d="M3 24c0-3.5 3.4-6 7-6s7 2.5 7 6v1H3z"/>
-                <path d="M17 18c-.5 0-1 0-1.5.1 1.7 1.3 2.5 3.3 2.5 5.4v1.5H27V24c0-3.5-3.4-6-7-6-1.1 0-2.1.2-3 .5z"/>
-              </svg>
-            </span>
-            <h5>日本代表を<br /><strong>多数輩出</strong></h5>
-          </div>
-          <div class="stat">
-            <span class="s-ic">
-              <svg viewBox="0 0 30 30" fill="none" stroke="#2E89E6" stroke-width="1.8" aria-hidden="true">
-                <circle cx="15" cy="15" r="11"/>
-                <path d="M4 15h22M15 4c4 3 6 7 6 11s-2 8-6 11c-4-3-6-7-6-11s2-8 6-11z"/>
-              </svg>
-            </span>
-            <h5>国内外の<br /><strong>トップアスリートを指導</strong></h5>
-          </div>
-          <div class="stat">
-            <span class="s-ic">
-              <svg viewBox="0 0 30 30" fill="none" aria-hidden="true">
-                <rect x="4" y="6" width="22" height="20" rx="2.5" fill="#F26B7E"/>
-                <path d="M4 11h22" stroke="#fff" stroke-width="2"/>
-                <text x="15" y="22" text-anchor="middle" font-family="Poppins,sans-serif" font-weight="700" font-size="9" fill="#fff">20</text>
-                <path d="M9 4v4M21 4v4" stroke="#F26B7E" stroke-width="2.2" stroke-linecap="round"/>
-              </svg>
-            </span>
-            <h5>指導歴<br /><strong><span class="count" data-to="20">20</span>年以上</strong></h5>
-          </div>
-          <div class="stat">
-            <span class="s-ic">
-              <svg viewBox="0 0 30 30" fill="#7BC55D" aria-hidden="true">
-                <circle cx="15" cy="9" r="4.5"/>
-                <path d="M6 28c0-5 4-9 9-9s9 4 9 9v0H6z"/>
-              </svg>
-            </span>
-            <h5>延べ<span class="count" data-to="10000">10,000</span>人以上<br /><strong>を指導</strong></h5>
-          </div>
+        <p class="cred-lead reveal">肩書きは、すべて<b>現役</b>。実績をジャンルごとにまとめました（タップで詳しく見られます）。</p>
+        <div class="cred-cards">
+          <button class="cred-card reveal" type="button" data-cred="1">
+            <span class="cred-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5L7 22l5-3 5 3-1.5-9.5"/></svg></span>
+            <span class="cred-cat">選手実績</span>
+            <span class="cred-head">現・日本記録<br>3種目を保持</span>
+            <span class="cred-more">詳しく見る</span>
+          </button>
+          <button class="cred-card reveal" type="button" data-cred="2">
+            <span class="cred-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.6"/><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5M15 15c2.8 0 6 1.8 6 5"/></svg></span>
+            <span class="cred-cat">フィンスイミング指導</span>
+            <span class="cred-head">日本代表を<br>12年連続で輩出</span>
+            <span class="cred-more">詳しく見る</span>
+          </button>
+          <button class="cred-card reveal" type="button" data-cred="3">
+            <span class="cred-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 4.5 6 4.5 9s-1.5 6-4.5 9c-3-3-4.5-6-4.5-9s1.5-6 4.5-9z"/></svg></span>
+            <span class="cred-cat">その他の指導</span>
+            <span class="cred-head">パラ・専門学校・<br>大学まで</span>
+            <span class="cred-more">詳しく見る</span>
+          </button>
+          <button class="cred-card reveal" type="button" data-cred="4">
+            <span class="cred-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M8 3l4 3 4-3"/></svg></span>
+            <span class="cred-cat">メディア</span>
+            <span class="cred-head">TBS 炎の体育会TV<br>ほか多数</span>
+            <span class="cred-more">詳しく見る</span>
+          </button>
+          <button class="cred-card reveal" type="button" data-cred="5">
+            <span class="cred-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 16l9-9 3 3-9 9H6z"/><path d="M13 6l3 3"/></svg></span>
+            <span class="cred-cat">発信・SNS</span>
+            <span class="cred-head">note 350本超<br>Instagram / X</span>
+            <span class="cred-more">見てみる</span>
+          </button>
         </div>
-        <p class="credit-note">※上記はFin-D Swim School全体の実績です</p>
+        <p class="cred-strip reveal">指導歴20年以上／延べ10,000人以上を指導／<b>教え子5名が日本記録を樹立</b></p>
+        <p class="credit-note">※一部はFin-D Swim School全体の実績を含みます</p>
       </div>
     </div>
   </section>
+
+  <!-- コーチ実績モーダル -->
+  <div class="cred-overlay" id="credOverlay" hidden></div>
+  <div class="cred-modal" id="cred1" hidden role="dialog" aria-modal="true" aria-label="選手としての実績">
+    <button class="cred-close" type="button" aria-label="閉じる"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
+    <p class="cm-cat">選手としての実績</p>
+    <ul class="cm-list">
+      <li><b>フィンスイミング 日本記録保持者（現・3種目）</b>／800mサーフィス・4×200mサーフィスリレー・短水路800mサーフィス</li>
+      <li>世界選手権 ファイナリスト</li>
+      <li>日本選手権 100〜1500mサーフィス メダリスト</li>
+      <li>日本選手権大会 MVP 2年連続</li>
+    </ul>
+  </div>
+  <div class="cred-modal" id="cred2" hidden role="dialog" aria-modal="true" aria-label="フィンスイミングの指導実績">
+    <button class="cred-close" type="button" aria-label="閉じる"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
+    <p class="cm-cat">フィンスイミングの指導実績</p>
+    <ul class="cm-list">
+      <li>2014年、現役選手時代からプレイングコーチとして後進の育成を開始</li>
+      <li><b>12年間、日本代表選手を毎年輩出</b></li>
+      <li>2017年〜 ジュニア日本代表監督</li>
+      <li>教え子5名が日本記録を樹立</li>
+      <li>TBS「炎の体育会TV」フィンスイミングコーチ</li>
+    </ul>
+  </div>
+  <div class="cred-modal" id="cred3" hidden role="dialog" aria-modal="true" aria-label="その他の指導実績">
+    <button class="cred-close" type="button" aria-label="閉じる"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
+    <p class="cm-cat">その他の指導実績</p>
+    <ul class="cm-list">
+      <li><b>東京2020パラリンピック 水泳コーチ</b>／視覚障害S11クラス 女子50m自由形 決勝7位</li>
+      <li>東京YMCA社会体育・保育専門学校 指導歴11年</li>
+      <li>立教大学 公開講座 フィンスイミング</li>
+    </ul>
+  </div>
+  <div class="cred-modal" id="cred4" hidden role="dialog" aria-modal="true" aria-label="メディア実績">
+    <button class="cred-close" type="button" aria-label="閉じる"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
+    <p class="cm-cat">メディア実績</p>
+    <ul class="cm-list">
+      <li><b>TBS「炎の体育会TV」</b>／オードリー春日さん・じゅんいちダビッドゾンさん・魔裟斗さん ほかを指導</li>
+      <li>TOKYO MX「5時に夢中」 など</li>
+    </ul>
+  </div>
+  <div class="cred-modal" id="cred5" hidden role="dialog" aria-modal="true" aria-label="発信・SNS">
+    <button class="cred-close" type="button" aria-label="閉じる"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
+    <p class="cm-cat">発信・SNS</p>
+    <p class="cm-note">指導の中身は、ふだんの発信からも伝わります（別タブで開きます）。</p>
+    <div class="cm-links">
+      <a href="https://note.com/ashihire" target="_blank" rel="noopener">note「足ひれ社長の非常識な水泳術」<span>350本以上</span></a>
+      <a href="https://www.instagram.com/yoshi9fin/" target="_blank" rel="noopener">Instagram<span>@yoshi9fin</span></a>
+      <a href="https://twitter.com/yoshi_fin" target="_blank" rel="noopener">X（旧Twitter）<span>@yoshi_fin</span></a>
+    </div>
+  </div>
 
   <!-- ═══════════════ ⑦.5 セミパーソナルの強み ═══════════════ -->
   <section class="edge-band" data-screen-label="Semi-personal" style="background:var(--blue-50); padding:64px 24px">
@@ -5308,6 +5389,31 @@
       h.innerHTML = 'スワイプ' + arrow;
       el.parentNode.insertBefore(h, el.nextSibling);
     });
+  })();
+
+  /* ===== コーチ実績カード → モーダル ===== */
+  (function(){
+    var overlay = document.getElementById('credOverlay');
+    if(!overlay) return;
+    function closeAll(){
+      overlay.hidden = true;
+      document.querySelectorAll('.cred-modal').forEach(function(m){ m.hidden = true; });
+      document.documentElement.classList.remove('modal-open');
+    }
+    function open(id){
+      var m = document.getElementById(id);
+      if(!m) return;
+      overlay.hidden = false;
+      m.hidden = false;
+      document.documentElement.classList.add('modal-open');
+      var c = m.querySelector('.cred-close'); if(c) c.focus();
+    }
+    document.querySelectorAll('.cred-card').forEach(function(card){
+      card.addEventListener('click', function(){ open('cred' + card.getAttribute('data-cred')); });
+    });
+    document.querySelectorAll('.cred-close').forEach(function(b){ b.addEventListener('click', closeAll); });
+    overlay.addEventListener('click', closeAll);
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeAll(); });
   })();
   </script>
 </body>
