@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yoshihire.github.io/findss-skillup/sitemap.xml
