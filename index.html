@@ -2511,12 +2511,23 @@
     margin:0 0 44px;
     font-weight:500;
   }
-  .reason-closer{
-    max-width:820px; margin:40px auto 0; padding:24px 28px;
-    background:var(--navy-900); color:#fff; border-radius:var(--radius);
-    font-size:15px; line-height:1.95; text-align:center;
-  }
-  .reason-closer strong{color:#fff; font-weight:800}
+  /* ── 対比セクション（経験だけの指導との違い・否定→肯定） ── */
+  .compare-section{background:var(--blue-50); padding:66px 24px}
+  .compare-inner{max-width:900px; margin:0 auto}
+  .compare-eyebrow{display:inline-block; font-size:12.5px; font-weight:800; letter-spacing:.08em; color:var(--coral-600); background:#fff; border-radius:999px; padding:6px 16px; text-align:center; margin:0 0 16px}
+  .compare-inner{text-align:center}
+  .compare-heading{font-weight:900; font-size:clamp(24px,5vw,34px); line-height:1.4; color:var(--navy-900); margin:0 0 16px; word-break:auto-phrase; text-wrap:balance}
+  .compare-sub{font-size:16px; line-height:1.85; color:var(--ink-700); max-width:640px; margin:0 auto 34px; text-wrap:pretty}
+  .compare-sub strong{color:var(--navy-900); font-weight:800}
+  .cmp-list{display:flex; flex-direction:column; gap:14px; text-align:left}
+  .cmp{background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); padding:18px 22px}
+  .cmp-pain{position:relative; padding:0 0 12px 34px; margin:0 0 12px; border-bottom:1px dashed #DCE7F2; color:var(--ink-500); font-weight:700; font-size:15px; line-height:1.7}
+  .cmp-ans{position:relative; padding:0 0 0 34px; margin:0; color:var(--ink-900); font-size:15px; line-height:1.85}
+  .cmp-ans b{color:var(--navy-900); font-weight:800}
+  .cmp-ic{position:absolute; left:0; top:1px; width:22px; height:22px; border-radius:50%; display:grid; place-items:center}
+  .cmp-ic svg{width:12px; height:12px}
+  .cmp-x{background:#EEF2F6; color:var(--ink-500)}
+  .cmp-c{background:var(--coral-500); color:#fff}
   .reason-lead em{
     font-style:normal;
     color:var(--blue-700);
@@ -4041,10 +4052,39 @@
         </article>
       </div>
 
-      <p class="reason-closer reveal">
-        よくある練習会は「メニューをこなして、きつかった・楽しかった」で終わりがち。泳ぎそのものは放置されたり、相談しても感覚的な答えしか返ってこなかったり。<br />
-        <strong>技術をロジカルに分解し、一人ひとりのクセに合わせて指導できるのは、私たちだけ。</strong>その場限りではなく、数ヶ月・数年と伸び続けるレッスンです。
-      </p>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════ ⑥.5 経験だけの指導との違い（対比・否定→肯定） ═══════════════ -->
+  <section class="compare-section" data-screen-label="Compare">
+    <div class="compare-inner">
+      <p class="compare-eyebrow reveal">経験“だけ”の指導との違い</p>
+      <h2 class="compare-heading reveal">こんな“もやもや”、ありませんか？</h2>
+      <p class="compare-sub reveal">経験は、とても大切。でも経験“だけ”の指導は、いつか頭打ちになります。私たちは<strong>経験に「理論」を掛け合わせる</strong>から、伸び続けます。</p>
+
+      <div class="cmp-list">
+        <div class="cmp reveal">
+          <p class="cmp-pain"><span class="cmp-ic cmp-x"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 3l8 8M11 3l-8 8"/></svg></span>「予約も支払いも運営も、なんとなく個人まかせ…」</p>
+          <p class="cmp-ans"><span class="cmp-ic cmp-c"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7.5l3 3 7-7.5"/></svg></span>予約システム・お支払い・運営をきちんと整備。<b>代表経験のあるアシスタントコーチ</b>も加わり、いつも多角的に見てもらえます。</p>
+        </div>
+        <div class="cmp reveal">
+          <p class="cmp-pain"><span class="cmp-ic cmp-x"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 3l8 8M11 3l-8 8"/></svg></span>「アドバイスが“感覚”ばかりで、理論の裏づけがない」</p>
+          <p class="cmp-ans"><span class="cmp-ic cmp-c"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7.5l3 3 7-7.5"/></svg></span>国内外のトップ選手から初心者まで指導してきた<b>経験</b>に、日々の分析と言語化（<b>note 350本超</b>）で磨いた<b>理論</b>を掛け合わせます。</p>
+        </div>
+        <div class="cmp reveal">
+          <p class="cmp-pain"><span class="cmp-ic cmp-x"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 3l8 8M11 3l-8 8"/></svg></span>「結局、ただ泳がされて終わり」</p>
+          <p class="cmp-ans"><span class="cmp-ic cmp-c"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7.5l3 3 7-7.5"/></svg></span>泳ぎだけでなく、<b>身体の使い方・フィンの使い方</b>から。枝葉ではなく、<b>“根と幹”</b>を一緒に育てます。</p>
+        </div>
+        <div class="cmp reveal">
+          <p class="cmp-pain"><span class="cmp-ic cmp-x"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 3l8 8M11 3l-8 8"/></svg></span>「何年通っても、内容が変わらない」</p>
+          <p class="cmp-ans"><span class="cmp-ic cmp-c"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7.5l3 3 7-7.5"/></svg></span>毎年<b>日本代表を輩出</b>し、代表監督として世界選手権へ。トップスポーツの最新知見で、指導を<b>常にアップデート</b>しています。</p>
+        </div>
+        <div class="cmp reveal">
+          <p class="cmp-pain"><span class="cmp-ic cmp-x"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 3l8 8M11 3l-8 8"/></svg></span>「質問しても、答えがうやむや…」</p>
+          <p class="cmp-ans"><span class="cmp-ic cmp-c"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7.5l3 3 7-7.5"/></svg></span>目の見えない方・海外の選手・水泳が苦手な学生にも伝わるよう、<b>“伝わる説明”を研究</b>し続けてきました。アシスタントコーチにも相談でき、<b>わかるまで聞けます</b>。</p>
+        </div>
+      </div>
     </div>
   </section>
 
