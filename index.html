@@ -5304,8 +5304,12 @@
     pop.forEach(function(el){ el.classList.add('reveal-pop'); });
     rise.forEach(function(el){ el.classList.add('reveal'); });
 
-    // Stagger siblings that reveal together (reset per parent)
-    var all = pop.concat(rise);
+    // Stagger siblings that reveal together (reset per parent).
+    // Build the list from the DOM so elements that carry .reveal / .reveal-pop
+    // directly in the markup (compare / coach / trial-guide sections) are included
+    // too. Selecting only JS-tagged elements left those authored-in-HTML ones
+    // unobserved, so they stayed stuck at opacity:0 forever (blank sections).
+    var all = [].slice.call(document.querySelectorAll('.reveal, .reveal-pop'));
     var counters = new Map();
     all.forEach(function(el){
       var p = el.parentNode;
@@ -5314,16 +5318,55 @@
       counters.set(p, n + 1);
     });
 
-    if(!('IntersectionObserver' in window)){
-      all.forEach(function(el){ el.classList.add('is-in'); });
-      return;
+    // Reveal is a progressive enhancement: content must never stay hidden if the
+    // observer misfires (some browsers / full-page capture tools don't deliver
+    // IntersectionObserver callbacks reliably). A manual scroll/resize/load sweep
+    // guarantees any in-view element is shown; IO just makes the timing nicer.
+    var pending = all.slice();
+    var io = null;
+    function reveal(el){
+      var i = pending.indexOf(el);
+      if(i === -1) return;
+      el.classList.add('is-in');
+      pending.splice(i, 1);
+      if(io) io.unobserve(el);
     }
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target); }
-      });
-    }, {threshold:0.08, rootMargin:'0px 0px -6% 0px'});
-    all.forEach(function(el){ io.observe(el); });
+    function sweep(){
+      if(!pending.length) return;
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      for(var i = pending.length - 1; i >= 0; i--){
+        var r = pending[i].getBoundingClientRect();
+        if(r.top < vh * 0.94 && r.bottom > 0) reveal(pending[i]);
+      }
+      if(!pending.length){
+        window.removeEventListener('scroll', onScroll);
+        window.removeEventListener('resize', onScroll);
+      }
+    }
+    var ticking = false;
+    function onScroll(){
+      if(ticking) return;
+      ticking = true;
+      requestAnimationFrame(function(){ ticking = false; sweep(); });
+    }
+
+    if('IntersectionObserver' in window){
+      io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting) reveal(e.target); });
+      }, {threshold:0.08, rootMargin:'0px 0px -6% 0px'});
+      pending.slice().forEach(function(el){ io.observe(el); });
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    window.addEventListener('resize', onScroll);
+    sweep();                 // reveal whatever is already in view on load
+    setTimeout(sweep, 1200); // safety net for a delayed first paint / layout shift
+
+    // Absolute guarantee against blank content: some environments report a broken
+    // viewport (innerHeight 0 during full-page capture, in-app webviews, etc.) which
+    // silently disables both IntersectionObserver and the sweep above. As a last
+    // resort, reveal everything after the page has had time to settle so no section
+    // can ever stay invisible. Off-screen elements simply appear already-shown.
+    setTimeout(function(){ pending.slice().forEach(reveal); }, 2600);
   })();
   </script>
 
