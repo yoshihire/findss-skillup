@@ -1,2 +1,5 @@
 *.DS_Store
 .DS_Store
+
+# 監査用スナップショット（公開リポのため配信対象にしない）
+_audit.html
