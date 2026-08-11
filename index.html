@@ -3961,6 +3961,25 @@
     .credit-section .coach-bio b{color:#fff !important}
     .credit-section .coach-name span{color:var(--blue-100) !important}
   }
+
+  /* --- モバイル可読性: 本文は標準の日本語折返しへ（2026-08-11） ---
+     文節折返し（word-break:auto-phrase）と text-wrap:pretty は、狭い画面の
+     段落テキストでは行長がガタつき、読みのテンポを壊す。短いラベル・見出し
+     （ピル・チップ・カード見出し等）にだけ残し、本文は通常の折返しに戻す。 */
+  @media(max-width:768px){
+    .hero-lead, .about-body, .about-sub, .reason-lead, .lesson-sub,
+    .recommend-lead, .reco-outro, .tg-sub, .apply-lead, .rv-sub,
+    .coach-bio, .compare-sub, .edge-band p, .cmp-pain, .cmp-ans,
+    .form-note, .pc-note, .rv-item p, .rv-bio, .tg-steps span, .tg-rental,
+    .cond-list li, .pc-notes li, .faq-answer, .apply-form > p{
+      word-break:normal !important;
+      text-wrap:wrap !important;
+    }
+    /* 中央寄せの複数行リードは左揃えでスキャンしやすく */
+    .tg-sub{text-align:left}
+    /* 声カード: モノグラムが画面を支配しないサイズに */
+    .rv-photo{width:96px; height:96px}
+  }
 </style>
 </head>
 <body>
