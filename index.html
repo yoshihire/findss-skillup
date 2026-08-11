@@ -1358,12 +1358,6 @@
   }
   .rv-bio .strong{color:#F26B7E; font-weight:700}
   .rv-card.is-s .rv-bio .strong{color:#F26B7E}
-  .rv-stars{
-    color:#FFD046;
-    font-size:14px;
-    letter-spacing:2px;
-  }
-  .rv-stars svg{width:18px; height:18px; margin-right:2px}
 
   .rv-divider{
     border:0;
@@ -2759,8 +2753,9 @@
   }
 
   /* ── コーチ実績: ジャンル別カード（濃紺背景）＋モーダル ── */
-  .cred-lead{width:100%; font-size:14px; line-height:1.7; color:var(--blue-100); margin:2px 0 16px}
-  .cred-lead b{color:#fff; font-weight:800}
+  /* 明背景（デスクトップ）では濃色。濃紺背景になるモバイルでは下の768px内で淡色に戻す */
+  .cred-lead{width:100%; font-size:14px; line-height:1.7; color:var(--ink-700); margin:2px 0 16px}
+  .cred-lead b{color:var(--navy-900); font-weight:800}
   .cred-cards{width:100%; display:grid; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:10px; margin:0}
   .cred-card{
     appearance:none; border:0; text-align:left; cursor:pointer; font:inherit;
@@ -2774,8 +2769,8 @@
   .cred-cat{font-size:11.5px; font-weight:800; color:var(--coral-600); letter-spacing:.02em}
   .cred-head{font-size:14.5px; font-weight:800; color:var(--navy-900); line-height:1.45}
   .cred-more{margin-top:auto; font-size:11.5px; font-weight:700; color:var(--blue-600)}
-  .cred-strip{width:100%; margin:16px 0 0; font-size:13px; line-height:1.7; color:var(--blue-100); text-align:left}
-  .cred-strip b{color:#fff; font-weight:800}
+  .cred-strip{width:100%; margin:16px 0 0; font-size:13.5px; line-height:1.7; color:var(--ink-700); text-align:left}
+  .cred-strip b{color:var(--navy-900); font-weight:800}
   html.modal-open{overflow:hidden}
   .cred-overlay{position:fixed; inset:0; background:rgba(8,20,40,.62); z-index:100}
   .cred-modal{
@@ -3785,6 +3780,8 @@
     .credit-title, .credit-section .coach-name{color:#fff !important}
     .credit-section .coach-bio, .credit-section .coach-quote, .credit-section .credit-note{color:var(--blue-100) !important}
     .credit-section .coach-quote{border-left-color:var(--coral-500) !important}
+    .credit-section .cred-lead, .credit-section .cred-strip{color:var(--blue-100)}
+    .credit-section .cred-lead b, .credit-section .cred-strip b{color:#fff}
     .apply-section{background:var(--navy-950)}
     .apply-section .top-wave{display:none}
     .apply-title{color:#fff}
@@ -3838,6 +3835,131 @@
     .m-cta-bar .m-cta-trial{flex:1.3; background:var(--coral-500)}
     .m-cta-bar .m-cta-line{flex:.9; background:#fff; color:var(--line-green); border:1.5px solid var(--line-green); box-shadow:none}
     .m-cta-line svg{color:var(--line-green)}
+  }
+
+  /* ============================================================
+     Contest polish layer（2026-08-11）— 統一・可読性の最終磨き層
+     方針: 基調はネイビー/ブルー1系統、teal はチェック印専用、
+     coral は CTA・キャンペーン強調専用。セクションごとにバラけた
+     配色（黄・紫・緑・ピンクの混在）をここで一元的に是正する。
+     既存ルールは触らず末尾で上書き。ブロック削除で完全復元可。
+     ============================================================ */
+
+  /* --- 日本語改行の品質: 文節単位で折り返し、単語途中の改行を防ぐ --- */
+  .reco-pill, .tg-list li, .cond-list li, .pc-notes li, .callout,
+  .trust-item, .cred-head, .feature-pill, .pc-plan-name, .rv-bio{
+    word-break:auto-phrase;
+  }
+  .callout{text-wrap:balance}
+
+  /* --- FV: 始め括弧をぶら下げて見出しの左端を揃える --- */
+  .hero-title{text-indent:-.5em}
+
+  /* --- FV事実バー: 2×2の等幅グリッドに整列（デスクトップのみ） --- */
+  @media(min-width:769px){
+    .hero-facts{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:10px; max-width:600px}
+  }
+  /* 情報アイコンはブルー1系統（teal/ピンクの混在をやめる） */
+  .ic-cal, .ic-pin, .ic-fin, .ic-people{background:var(--blue-700)}
+
+  /* --- 見出し統一の取りこぼし --- */
+  .tg-heading{color:var(--navy-900)}
+  /* 装飾撤去後の flex gap で語間が割れて見えるのを解消 */
+  .pricing-heading{display:block}
+
+  /* --- 理由: STEPバッジ・アイコン・見出しを1系統に --- */
+  .reason-card.is-teal::before, .reason-card.is-blue::before,
+  .reason-card.is-yellow::before, .reason-card.is-coral::before{background:var(--navy-900)}
+  .reason-card.is-teal .rc-ic, .reason-card.is-blue .rc-ic,
+  .reason-card.is-yellow .rc-ic, .reason-card.is-coral .rc-ic{color:var(--blue-700)}
+  .reason-card h4, .reason-card.is-yellow h4,
+  .reason-card.is-coral h4, .reason-card.is-blue h4{color:var(--navy-900)}
+  .reason-card p{text-align:left}
+  .reason-lead{text-align:left; max-width:840px; margin-left:auto; margin-right:auto}
+
+  /* --- レッスン: 6列の細切りを3×2へ。タイトル・アイコンを統一 --- */
+  @media(min-width:1201px){
+    .lesson-grid{grid-template-columns:repeat(3,1fr); gap:20px}
+    .lesson-card .lc-photo{max-height:170px}
+  }
+  .lesson-card h4, .lesson-card.is-teal h4{color:var(--navy-900)}
+  .lesson-card.is-teal .lc-ic, .lesson-card.is-blue .lc-ic{background:var(--blue-50)}
+  .lesson-card.is-teal .lc-ic svg, .lesson-card.is-blue .lc-ic svg{color:var(--blue-700)}
+  .lesson-card p{text-align:left}
+
+  /* --- 対比: 行長を絞って読了しやすく --- */
+  .compare-inner{max-width:960px}
+
+  /* --- コーチ紹介: 写真を主役サイズに・左揃えの編集的レイアウト --- */
+  @media(min-width:981px){
+    .credit-inner{grid-template-columns:340px 1fr; align-items:start; gap:44px}
+    .credit-photo{width:340px; height:340px}
+    .credit-right{align-items:flex-start}
+    .credit-title{margin-bottom:20px}
+  }
+  .cred-cat{color:var(--ink-500)}
+
+  /* --- 声: タグ・アイコンの統一と出典表記（星評価の代替） --- */
+  .rv-pre{display:flex; justify-content:center}
+  .rv-bio .strong, .rv-card.is-s .rv-bio .strong{color:inherit}
+  .rv-divider, .rv-card.is-s .rv-divider, .rv-card.is-th .rv-divider{border-top-color:var(--blue-100)}
+  .rv-card.is-mk .rv-card-tag, .rv-card.is-s .rv-card-tag,
+  .rv-card.is-th .rv-card-tag{background:var(--navy-900)}
+  .rv-card .rv-item.q .rv-ic{background:var(--ink-500) !important}
+  .rv-card .rv-item.a .rv-ic, .rv-card .rv-item.h .rv-ic,
+  .rv-card .rv-item.r .rv-ic{background:var(--blue-700) !important}
+  .rv-card .rv-item .rv-item-body h4{color:var(--navy-900) !important}
+  .rv-source{
+    display:inline-block; font-size:11.5px; font-weight:700; color:var(--ink-500);
+    background:var(--blue-50); border-radius:999px; padding:4px 12px; margin-top:8px;
+  }
+  .rv-circle-tag{background:var(--blue-100); color:var(--navy-900)}
+
+  /* --- 進め方: 数字サークルを1色に --- */
+  .tg-steps li:nth-child(1) .tg-n, .tg-steps li:nth-child(2) .tg-n,
+  .tg-steps li:nth-child(3) .tg-n, .tg-steps li:nth-child(4) .tg-n{background:var(--navy-900)}
+
+  /* --- FAQ: is-blue だけ上書き漏れで水色のままだったのを統一 --- */
+  .faq-cat.is-blue .fc-ic svg, .faq-cat.is-blue .faq-cat-head h5{color:var(--navy-900)}
+  @media(min-width:769px){
+    .faq-cat.is-blue .faq-item .q-mark{color:var(--navy-900)}
+  }
+
+  /* --- 信頼チップ: アイコンをブルー系で統一 --- */
+  .trust-item.is-pink .ti-ic, .trust-item.is-blue .ti-ic,
+  .trust-item.is-teal .ti-ic, .trust-item.is-yellow .ti-ic{background:var(--blue-50)}
+  .trust-item.is-pink .ti-ic svg, .trust-item.is-blue .ti-ic svg,
+  .trust-item.is-teal .ti-ic svg, .trust-item.is-yellow .ti-ic svg{color:var(--blue-700)}
+
+  /* --- 料金: ヘッダーをネイビー統一（キャンペーン枠のみ coral を維持） --- */
+  .price-card.is-member .pc-tab, .price-card.is-trial .pc-tab{background:var(--navy-900)}
+  .pc-note-sub{font-size:11.5px; color:var(--ink-500); font-weight:500}
+  @media(min-width:769px){
+    .pc-notes{background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); padding:20px 18px; align-self:start}
+  }
+
+  /* --- 声フッターの備品写真: 白背景を意図した器に収める --- */
+  .rv-equipment{background:#fff; border-radius:var(--radius); padding:10px; box-shadow:var(--shadow)}
+
+  /* --- フッター装飾（魚・サンゴ・泡）を撤去し全体トーンに統一 --- */
+  .footer-bubble, .footer-fish, .footer-coral{display:none !important}
+
+  /* --- デスクトップはフルナビ表示のためハンバーガーを出さない --- */
+  @media(min-width:1201px){
+    .hamburger{display:none}
+  }
+
+  /* --- モバイル既存バグ修正: コーチ紹介のグリッド列ブローアウト ---
+     横スクロールの実績カード列（cred-cards）の min-content が 1fr 列を
+     504px に押し広げ、本文・見出しが右へはみ出していた。min-width:0 で
+     列幅に収め、カード列は自身の overflow-x:auto でスクロールさせる。 */
+  @media(max-width:980px){
+    .credit-inner > *{min-width:0; max-width:100%}
+  }
+  /* 濃紺背景（モバイル）で inline の navy 強調が不可視になるのを修正 */
+  @media(max-width:768px){
+    .credit-section .coach-bio b{color:#fff !important}
+    .credit-section .coach-name span{color:var(--blue-100) !important}
   }
 </style>
 </head>
@@ -3949,25 +4071,25 @@
             <span class="ic ic-cal">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
             </span>
-            日曜を中心に・お昼ごろ開催<br /><b>75分</b>＋個別相談
+            日曜を中心に・お昼ごろ開催 <b>75分</b>＋個別相談
           </span>
           <span class="feature-pill">
             <span class="ic ic-pin">
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C7.6 2 4 5.5 4 9.8 4 15.3 12 22 12 22s8-6.7 8-12.2C20 5.5 16.4 2 12 2zm0 11a3 3 0 110-6 3 3 0 010 6z"/></svg>
             </span>
-            東京・池袋エリア<br /><b>少人数</b>で開催
+            東京・池袋エリアで<b>少人数</b>開催
           </span>
           <span class="feature-pill">
             <span class="ic ic-people">
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/><path d="M2 19c0-3 3-5 6-5s6 2 6 5v1H2v-1z"/><path d="M14 14c-.6 0-1.2.1-1.7.3 1.7 1 2.7 2.7 2.7 4.7v1H22v-1c0-3-3-5-6-5-.7 0-1.4.1-2 0z"/></svg>
             </span>
-            <b>各回8名</b>までの<br />少人数制クラス
+            <b>各回8名</b>までの少人数制クラス
           </span>
           <span class="feature-pill">
             <span class="ic ic-fin">
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 19c6 1 13 .5 18-1 0 0-4-12-13-14-.6 0-1 .5-1 1 .6 5-.6 11-4 14z"/></svg>
             </span>
-            <b>16歳以上</b>の<br />水泳経験者が対象
+            <b>16歳以上</b>の水泳経験者が対象
           </span>
         </div>
 
@@ -4327,7 +4449,7 @@
     <div style="max-width:920px; margin:0 auto; text-align:center">
       <p style="display:inline-block; font-size:12.5px; font-weight:800; letter-spacing:.08em; color:var(--teal-500); background:#fff; border-radius:999px; padding:6px 16px; margin:0 0 18px">このクラスだけの強み</p>
       <h2 style="font-weight:800; font-size:clamp(23px,5vw,32px); line-height:1.5; color:var(--navy-900); margin:0 0 18px; word-break:auto-phrase; text-wrap:balance">自分の芸術点が、<br />その場で見える</h2>
-      <p style="font-size:clamp(15px,2.2vw,16.5px); line-height:1.95; color:var(--ink-700); margin:0 auto; max-width:720px; text-wrap:pretty">75分のレッスンに加えて、マンツーマンの個別相談と<b style="color:var(--blue-900)">動画フォームチェック</b>。しかも、撮って見せるだけでは終わりません。コーチと一緒に映像を見ながら、どこに無駄があって、どこを直せば速くなるのかを、その場で解説します。「どこを見ればいいのか」「今の泳ぎがいいのか、悪いのか」。自分ひとりでは分からなかったことが、はっきり見えてきます。<br />ふつうは<b style="color:var(--blue-900)">パーソナルレッスンでしか得られない時間</b>が、少人数クラスの料金に、<b style="color:var(--blue-900)">毎回</b>そのまま含まれています。</p>
+      <p style="font-size:clamp(15px,2.2vw,16.5px); line-height:1.95; color:var(--ink-700); margin:0 auto; max-width:680px; text-align:left; text-wrap:pretty">75分のレッスンに加えて、マンツーマンの個別相談と<b style="color:var(--blue-900)">動画フォームチェック</b>。しかも、撮って見せるだけでは終わりません。コーチと一緒に映像を見ながら、どこに無駄があって、どこを直せば速くなるのかを、その場で解説します。「どこを見ればいいのか」「今の泳ぎがいいのか、悪いのか」。自分ひとりでは分からなかったことが、はっきり見えてきます。<br />ふつうは<b style="color:var(--blue-900)">パーソナルレッスンでしか得られない時間</b>が、少人数クラスの料金に、<b style="color:var(--blue-900)">毎回</b>そのまま含まれています。</p>
     </div>
   </section>
 
@@ -4491,17 +4613,11 @@
         <article class="rv-card is-mk">
           <span class="rv-card-tag">女性・マスターズ</span>
           <div class="rv-person">
-            <div class="rv-photo"><img src="project/assets/voice-avatar-m.svg" alt="参加者 K.Kさん（写真は準備中）" loading="lazy" decoding="async"  data-photo="P17"/></div>
+            <div class="rv-photo"><img src="project/assets/voice-avatar-kk.svg" alt="参加者 K.Kさん" loading="lazy" decoding="async"  data-photo="P17"/></div>
             <div class="rv-meta">
               <div class="rv-name"><span class="nm">K.Kさん</span></div>
               <p class="rv-bio">水泳・フィン経験あり</p>
-              <span class="rv-stars" aria-label="星5">
-                <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
-                <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
-                <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
-                <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
-                <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
-              </span>
+              <span class="rv-source">参加者アンケートより</span>
             </div>
           </div>
 
@@ -4545,17 +4661,11 @@
         <article class="rv-card is-s">
           <span class="rv-card-tag">女性・マスターズ</span>
           <div class="rv-person">
-            <div class="rv-photo"><img src="project/assets/voice-avatar-m.svg" alt="参加者 Y.Hさん（写真は準備中）" loading="lazy" decoding="async"  data-photo="P18"/></div>
+            <div class="rv-photo"><img src="project/assets/voice-avatar-yh.svg" alt="参加者 Y.Hさん" loading="lazy" decoding="async"  data-photo="P18"/></div>
             <div class="rv-meta">
               <div class="rv-name"><span class="nm">Y.Hさん</span></div>
               <p class="rv-bio"><span class="strong">モノフィン経験あり</span></p>
-              <span class="rv-stars" aria-label="星5">
-                <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
-                <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
-                <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
-                <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
-                <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
-              </span>
+              <span class="rv-source">参加者アンケートより</span>
             </div>
           </div>
 
@@ -4599,17 +4709,11 @@
         <article class="rv-card is-th">
           <span class="rv-card-tag">女性・マスターズ</span>
           <div class="rv-person">
-            <div class="rv-photo"><img src="project/assets/voice-avatar-m.svg" alt="参加者 Y.Oさん（写真は準備中）" loading="lazy" decoding="async"  data-photo="P19"/></div>
+            <div class="rv-photo"><img src="project/assets/voice-avatar-yo.svg" alt="参加者 Y.Oさん" loading="lazy" decoding="async"  data-photo="P19"/></div>
             <div class="rv-meta">
               <div class="rv-name"><span class="nm">Y.Oさん</span></div>
               <p class="rv-bio">水泳経験あり</p>
-              <span class="rv-stars" aria-label="星5">
-                <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
-                <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
-                <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
-                <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
-                <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1l2.4 5 5.4.5-4 3.8 1.2 5.3L9 13l-5 2.6L5.2 10.3 1.2 6.5l5.4-.5z"/></svg>
-              </span>
+              <span class="rv-source">参加者アンケートより</span>
             </div>
           </div>
 
@@ -4658,14 +4762,14 @@
         </h3>
 
         <div class="rv-footer-bar">
-          <span class="rv-circle-tag">まずは<br/>気軽に♪</span>
+          <span class="rv-circle-tag">まずは<br/>気軽に</span>
           <p class="rv-help-text">クラスの雰囲気や内容を<br/>体感してみてください。</p>
           <div class="rv-cta-row">
             <a class="btn btn-coral" href="#trial">
               <span class="ic-btn">
                 <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="20" height="18" rx="2.5"/><path d="M4 10h20M9 3v4M19 3v4"/><path d="M10 16l3 3 5-5"/></svg>
               </span>
-              レッスンを<u>予約する</u>
+              レッスンを予約する
               <span class="arrow">
                 <svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 6h6m0 0L6 3m3 3L6 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
@@ -4734,7 +4838,7 @@
         <aside class="tg-bring reveal">
           <h3>当日の持ち物</h3>
           <ul class="tg-list">
-            <li>フィン（レンタルも可）</li>
+            <li>フィン（レンタル可）</li>
             <li>水着・スイムキャップ</li>
             <li>ゴーグル</li>
             <li>タオル</li>
@@ -4775,7 +4879,7 @@
               <span class="pc-plan-sub">1回あたり 3,600円（税込）</span>
             </li>
           </ul>
-          <p class="pc-note">都度払いも可能：<b>1回 3,750円</b>（税込）</p>
+          <p class="pc-note">都度払いも可能：<b>1回 3,750円</b>（税込）<br/><span class="pc-note-sub">開催が月4回ある月は、月4回 14,000円（1回あたり3,500円）も選べます</span></p>
           <div class="pc-photo"><img src="project/assets/price-photo1.webp" alt="コーチが大人の参加者に手の位置を教えるレッスン風景" loading="lazy" decoding="async"  data-photo="P21"/></div>
         </article>
 
@@ -4905,15 +5009,15 @@
         </div>
         <div class="trust-item is-blue">
           <span class="ti-ic"><svg viewBox="0 0 30 30" fill="currentColor"><circle cx="11" cy="12" r="4"/><circle cx="20" cy="12" r="4"/><path d="M3 26c0-4 3-7 8-7s8 3 8 7M16 26c0-4 3-7 6-7s6 3 6 7"/></svg></span>
-          1回だけの参加も<br/>大歓迎！
+          1回だけの参加も<br/>大歓迎
         </div>
         <div class="trust-item is-teal">
           <span class="ti-ic"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3l10 4v8c0 7-5 11-10 12C10 26 5 22 5 15V7l10-4z"/><path d="M11 15l3 3 5-6"/></svg></span>
           安心・安全を<br/>最優先に運営
         </div>
         <div class="trust-item is-yellow">
-          <span class="ti-ic"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="15" cy="15" r="11"/><circle cx="11" cy="13" r="1" fill="currentColor" stroke="none"/><circle cx="19" cy="13" r="1" fill="currentColor" stroke="none"/><path d="M10 18c2 2 8 2 10 0"/></svg></span>
-          趣味から競技まで、<br/>一人ひとりに合わせて上達！
+          <span class="ti-ic"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="15" cy="11" r="7"/><path d="M11 16.5L9 27l6-3.5L21 27l-2-10.5"/><path d="M15 8l.9 1.9 2.1.3-1.5 1.4.3 2-1.8-1-1.8 1 .3-2-1.5-1.4 2.1-.3z" fill="currentColor" stroke="none"/></svg></span>
+          趣味から競技まで、<br/>一人ひとりに合わせて上達
         </div>
       </div>
     </div>
@@ -4929,7 +5033,7 @@
     </div>
     <div class="apply-inner">
       <span class="apply-eyebrow">まずは1回から</span>
-      <h2 class="apply-title">レッスンの <span class="accent-teal">お申し込み</span></h2>
+      <h2 class="apply-title">レッスンのお申し込み</h2>
       <p class="apply-lead">
         自己流のクセは、自分ではなかなか気づけません。<br/>
         まずは1回、あなたの泳ぎをコーチに見せてください。どこを直せば速くなるのかが、その場でわかります。泳力やフィン経験に不安がある方も、お気軽にご相談を。
@@ -4943,7 +5047,8 @@
       <div class="apply-grid">
         <!-- 申込フォーム: 専用フォームアプリ（fin-d-skillup-form）へ接続。
              リンクに rel="noreferrer" を付けないこと（フォーム側の流入分析がreferrer参照）。
-             開催月が変わったら下の href のスラッグ（skillup-july-2026 等）を更新する。 -->
+             開催月が変わったら下の href のスラッグ（skillup-{month}-{year} 形式）と
+             末尾スクリプトの SCHEDULE 設定を更新する。 -->
         <div class="apply-form" aria-label="レッスン申込のご案内">
           <h3>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="2.5"/><path d="M4 9h16M8 3v4M16 3v4"/><path d="M9 14l2 2 4-4"/></svg>
@@ -4958,7 +5063,7 @@
             <li><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-6"/></svg></span>フィン経験・泳力もフォーム内でお伺いします</li>
             <li><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-6"/></svg></span>送信後、自動返信メールでご案内が届きます</li>
           </ul>
-          <a class="apply-submit" href="https://fin-d-skillup-form.vercel.app/f/skillup-july-2026" target="_blank" rel="noopener">
+          <a class="apply-submit" href="https://fin-d-skillup-form.vercel.app/f/skillup-august-2026" target="_blank" rel="noopener">
             申込フォームへ進む
             <span class="arrow" style="background:rgba(255,255,255,.28)"><svg viewBox="0 0 12 12" fill="none"><path d="M3 6h6m0 0L6 3m3 3L6 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </a>
@@ -5087,7 +5192,7 @@
         <p>泳力やフィン経験に不安がある方も、<br/>まずはお気軽にご相談ください。</p>
         <a class="btn btn-coral" href="#trial">
           <span class="ic-btn"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="20" height="18" rx="2.5"/><path d="M4 10h20M9 3v4M19 3v4"/><path d="M10 16l3 3 5-5"/></svg></span>
-          レッスンに<u>申し込む</u>
+          レッスンに申し込む
           <span class="arrow"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 6h6m0 0L6 3m3 3L6 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </a>
         <a class="btn btn-coral" style="background:var(--line-green); box-shadow:0 10px 24px rgba(6,199,85,.32)" href="https://lin.ee/xF6GnbP" target="_blank" rel="noopener">
@@ -5124,7 +5229,7 @@
        → 期限を過ぎると active でも自動的に非表示になる（掲出しっぱなし事故の防止）
      - heroBadge: FVオファー内バッジ ／ circleBadge: 料金カード丸バッジ（<br>可・nullで非表示）
      - strip: 料金カード下の帯（<br>可）
-     ※期限を設定した場合は heroBadge/strip の文言にも期限を含めること（例:'7月限定'）
+     ※期限を設定した場合は heroBadge/strip の文言にも期限を含めること（例:'8月限定'）
   ================================================================ */
   var CAMPAIGN = {
     active: true,
@@ -5152,9 +5257,9 @@
 
   /* ===== 開催スケジュール（毎月ここだけ更新） ===== */
   var SCHEDULE = {
-    monthLabel: '7月',
+    monthLabel: '8月',
     time: '13:00〜',
-    dates: ['7/5（日）', '7/12（日）', '7/26（日）']
+    dates: ['8/14（金）', '8/23（日）', '8/28（金）']
   };
   (function(){
     var m = document.querySelector('[data-schedule-month]');
