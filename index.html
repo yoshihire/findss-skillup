@@ -3971,7 +3971,8 @@
     .recommend-lead, .reco-outro, .tg-sub, .apply-lead, .rv-sub,
     .coach-bio, .compare-sub, .edge-band p, .cmp-pain, .cmp-ans,
     .form-note, .pc-note, .rv-item p, .rv-bio, .tg-steps span, .tg-rental,
-    .cond-list li, .pc-notes li, .faq-answer, .apply-form > p{
+    .cond-list li, .pc-notes li, .faq-answer, .apply-form > p,
+    .reco-pill, .tg-list li, .trust-item, .callout{
       word-break:normal !important;
       text-wrap:wrap !important;
     }
@@ -3979,6 +3980,82 @@
     .tg-sub{text-align:left}
     /* 声カード: モノグラムが画面を支配しないサイズに */
     .rv-photo{width:96px; height:96px}
+  }
+
+  /* ============================================================
+     Rhythm layer（2026-08-12）— 縦の余白と動きのタイミングを規格化
+     セクション上下・見出し階層・見出し→リード→本文の間隔が
+     セクションごとにバラバラ（PC 64〜84px / SP 6〜66px、見出し 28〜46px）
+     だったため、読み進めるテンポが一定にならなかった。
+     8px基準のスケールに統一する。数値の出所をここに集約する。
+     ============================================================ */
+
+  /* edge-band の見た目はここで持つ（旧: section の inline style。
+     inline は後段のCSSより強く、余白の規格化が効かなかった） */
+  .edge-band{background:var(--blue-50); padding-left:24px; padding-right:24px}
+
+  /* --- リストの既定インデント除去 ---
+     .reco-grid / .pc-notes に ul 既定の padding-left と list-style が
+     残っており、見出しより内側にズレて左端が揃っていなかった */
+  .reco-grid, .pc-notes{list-style:none; padding-left:0}
+
+  /* --- セクション上下: PC 88px / 短い橋渡しバンド 72px --- */
+  @media(min-width:769px){
+    .about-section, .recommend-section, .reason-section, .compare-section,
+    .lesson-section, .real-voice-section, .trial-guide, .pricing-section,
+    .flow-section, .apply-section{padding-top:88px; padding-bottom:88px}
+    .credit-section, .edge-band{padding-top:72px; padding-bottom:72px}
+  }
+  /* --- セクション上下: SP 一律48px（6px〜66pxのばらつきを解消） --- */
+  @media(max-width:768px){
+    .about-section, .recommend-section, .reason-section, .compare-section,
+    .credit-section, .edge-band, .lesson-section, .real-voice-section,
+    .trial-guide, .pricing-section, .flow-section, .apply-section{
+      padding-top:48px; padding-bottom:48px;
+    }
+  }
+
+  /* --- 見出しの階層を2段に統一（主要／サブ） --- */
+  .about-heading, .recommend-title, .reason-heading, .lesson-heading,
+  .rv-title, .apply-title{font-size:40px}
+  .compare-heading, .tg-heading, .pricing-heading, .faq-title,
+  .credit-title{font-size:32px}
+  @media(max-width:768px){
+    .about-heading, .recommend-title, .reason-heading, .lesson-heading,
+    .rv-title, .apply-title{font-size:26px}
+    .compare-heading, .tg-heading, .pricing-heading, .faq-title,
+    .credit-title{font-size:22px}
+  }
+
+  /* --- 見出し→リード→本文の間隔を統一 ---
+     リードが続く見出しは詰め（14px）、直接コンテンツが来る見出しは空ける（32px）。
+     リード自身は本文との間に32pxを置く。SPは各24px/12px。 */
+  .about-heading, .recommend-title, .reason-heading, .compare-heading,
+  .lesson-heading, .rv-title, .tg-heading, .apply-title{margin-bottom:14px}
+  .pricing-heading, .faq-title, .credit-title{margin-bottom:32px}
+  .about-sub, .recommend-lead, .reason-lead, .compare-sub, .lesson-sub,
+  .rv-sub, .tg-sub, .apply-lead{margin-bottom:32px}
+  @media(max-width:768px){
+    .about-heading, .recommend-title, .reason-heading, .compare-heading,
+    .lesson-heading, .rv-title, .tg-heading, .apply-title{margin-bottom:12px}
+    .pricing-heading, .faq-title, .credit-title{margin-bottom:24px}
+    .about-sub, .recommend-lead, .reason-lead, .compare-sub, .lesson-sub,
+    .rv-sub, .tg-sub, .apply-lead{margin-bottom:24px}
+  }
+
+  /* --- モーション: 速度を上げて「待たされ感」を消す ---
+     旧: fade .7s + rise .8s / 28px、pop はバウンド(1.45)付き。
+     スクロールしながら読むと動きが後追いしてもたついた。
+     距離を詰め、時間を約半分にし、跳ね返りを外して落ち着かせる。 */
+  @media (prefers-reduced-motion: no-preference){
+    html.reveal-ready .reveal{
+      transform:translateY(16px);
+      transition:opacity .45s ease, transform .55s cubic-bezier(.22,.7,.2,1);
+    }
+    html.reveal-ready .reveal-pop{
+      transform:translateY(12px) scale(.97);
+      transition:opacity .4s ease, transform .45s cubic-bezier(.22,.7,.2,1);
+    }
   }
 </style>
 </head>
@@ -4463,7 +4540,7 @@
   </div>
 
   <!-- ═══════════════ ⑦.5 セミパーソナルの強み ═══════════════ -->
-  <section class="edge-band" data-screen-label="Semi-personal" style="background:var(--blue-50); padding:64px 24px">
+  <section class="edge-band" data-screen-label="Semi-personal">
     <div style="max-width:920px; margin:0 auto; text-align:center">
       <p style="display:inline-block; font-size:12.5px; font-weight:800; letter-spacing:.08em; color:var(--teal-500); background:#fff; border-radius:999px; padding:6px 16px; margin:0 0 18px">このクラスだけの強み</p>
       <h2 style="font-weight:800; font-size:clamp(23px,5vw,32px); line-height:1.5; color:var(--navy-900); margin:0 0 18px; word-break:auto-phrase; text-wrap:balance">自分の芸術点が、<br />その場で見える</h2>
@@ -5436,7 +5513,9 @@
     all.forEach(function(el){
       var p = el.parentNode;
       var n = counters.get(p) || 0;
-      el.style.setProperty('--rd', Math.min(n * 80, 420) + 'ms');
+      // 連続カードの待ち時間を短く（旧 80ms×n/最大420ms は最後のカードが
+      // 表示まで約1.2秒かかり、スクロール速度に対して遅れて見えた）
+      el.style.setProperty('--rd', Math.min(n * 50, 200) + 'ms');
       counters.set(p, n + 1);
     });
 
@@ -5458,7 +5537,7 @@
       var vh = window.innerHeight || document.documentElement.clientHeight;
       for(var i = pending.length - 1; i >= 0; i--){
         var r = pending[i].getBoundingClientRect();
-        if(r.top < vh * 0.94 && r.bottom > 0) reveal(pending[i]);
+        if(r.top < vh * 0.96 && r.bottom > 0) reveal(pending[i]);
       }
       if(!pending.length){
         window.removeEventListener('scroll', onScroll);
@@ -5475,7 +5554,7 @@
     if('IntersectionObserver' in window){
       io = new IntersectionObserver(function(entries){
         entries.forEach(function(e){ if(e.isIntersecting) reveal(e.target); });
-      }, {threshold:0.08, rootMargin:'0px 0px -6% 0px'});
+      }, {threshold:0.01, rootMargin:'0px 0px -4% 0px'});
       pending.slice().forEach(function(el){ io.observe(el); });
     }
     window.addEventListener('scroll', onScroll, {passive:true});
